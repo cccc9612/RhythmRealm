@@ -12,8 +12,8 @@ RhythmRealm, a Spotify clone, is a website for users to discover, upload, and or
 
 ## 2. Albums
 * Users should be able to view all albums created by users.
-* Users should be able to add songs to an album they created.
-* Users should be able to remove songs from their albums.
+* Users should be able to create albums.
+* Users should be able to update an album (add or remove songs) they created.
 * Users should be able to delete their albums.
 
 
@@ -23,16 +23,20 @@ RhythmRealm, a Spotify clone, is a website for users to discover, upload, and or
 * Users should be able to unlike a song.
 
 
-## 4 Search
+## 4. Play Songs
+* User should be able to play a song.
+
+
+## 5. Search
 * Users should be able to search for songs by artist or song name.
 * Users should be able to view the results of their search.
 
 
-## 5.1 Bonus Feature: Playlists
+## 6.1 Bonus Feature: Playlists
 * Users should be able to view all of their playlists.
 * Users should be able to add a song to one of their playlists.
 * Users should be able to remove a song from a playlist.
 
 
-## 5.2 Bonus Feature: WaveForms
+## 6.2 Bonus Feature: WaveForms
 * Users should be able to see the wave forms for a song.

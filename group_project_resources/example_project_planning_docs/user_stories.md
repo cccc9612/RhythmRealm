@@ -38,37 +38,91 @@
     * I can log out of my account and be redirected to a page displaying recent FauxTweets.
       * So that I can easily log out to keep my information secure.
 
-## FauxTweets
+## RhythmRealm
 
-### Create FauxTweets
+### Viewing Songs
 
-* As a logged in user, I want to be able to post new FauxTweets.
-  * When I'm on the `/new-fauxtweet` page:
-    * I can write and submit a new FauxTweet.
-      * So that I can share my thoughts and memes with my friends.
+* As a logged in _or_ logged out user, I want to be able to view a selection of all the songs.
+  * When I'm on the `/songs` page:
+    * I can view the ten most recently created songs.
+    * I can also view the duration and likes of the songs.
 
-### Viewing FauxTweets
 
-* As a logged in _or_ logged out user, I want to be able to view a selection of the most recent FauxTweets.
-  * When I'm on the `/fauxtweets` page:
-    * I can view the ten most recently posted FauxTweets.
-      * So that I can read and interact with the thoughts and memes of my friends.
+### Viewing Albums
+* As a logged in _or_ logged out user, I want to be able to view a selection of all the albums.
+  * When I'm on the `/albums` page:
+    * I can view the ten most recently created albums.
 
-* As a logged in _or_ logged out user, I want to be able to view a specific FauxTweet and its associated FauxComments and FauxLikes.
-  * When I'm on the `/fauxtweets/:id` page:
-    * I can view the content of the FauxTweet, as well as the associated FauxComments and FauxLikes.
-      * So that I can read and interact with the thoughts and memes of my friends, and add my own thoughts and memes in the FauxComments.
+* As a logged in _or_ logged out user, I want to be able to view a specific album and all the songs belong to this album.
+  * When I'm on the `/albums/:id` page:
+    * I can view the content of the album as well as the associated songs.
+    * I can also view the duration and likes of the songs.
 
-### Updating FauxTweets
 
-* As a logged in user, I want to be able to edit my FauxTweets by clicking an Edit button associated with the FauxTweet anywhere that FauxTweet appears.
-  * When I'm on the `/fauxtweets`, `/fauxtweets/:id`, or `/users/:id/fauxtweets` pages:
-    * I can click "Edit" to make permanent changes to FauxTweets I have posted.
-      * So that I can fix any errors I make in my FauxTweets.
+### Upload Songs
 
-### Deleting FauxTweets
+* As a logged in user, I want to be able to upload new songs.
+  * When I'm on the `/new-song` page:
+    * I can upload a new song.
 
-* As a logged in user, I want to be able to delete my FauxTweets by clicking a Delete button associated with the FauxTweet anywhere that FauxTweet appears.
-  * When I'm on the `/fauxtweets`, `/fauxtweets/:id`, or `/users/:id/fauxtweets` pages:
-    * I can click "Delete" to permanently delete a FauxTweet I have posted.
-      * So that when I realize I shouldn't have publicly said something, I can easily remove it.
+
+### Create Albums
+
+* As a logged in user, I want to be able to create a new album.
+  * When I'm on the `/new-album` page:
+    * I can create a new album.
+
+
+### Updating Songs
+
+* As a logged in user, I want to be able to update my songs by clicking an Update button.
+  * When I'm on the `/users/:id/songs` pages:
+    * I can click "Update" to make changes to songs I have uploaded.
+
+
+### Updating Albums
+* As a logged in user, I want to be able to update my albums by clicking an Update button.
+  * When I'm on the `/users/:id/albums` pages:
+    * I can click "Update" to albums I have created.
+      * I can add or remove songs I uploaded from the albums.
+
+### Deleting Songs
+
+* As a logged in user, I want to be able to delete my songs by clicking a Delete button.
+  * When I'm on the `/users/:id/songs` pages:
+    * I can click "Delete" to permanently delete a song I have uploaded.
+
+
+### Deleting albums
+
+* As a logged in user, I want to be able to delete my albums by clicking a Delete button.
+  * When I'm on the `/users/:id/albums` pages:
+    * I can click "Delete" to permanently delete an album I have created.
+
+
+### Viewing Likes
+
+* As a logged in _or_ logged out user, I want to be able to view all the likes of the songs.
+  * When I'm on the `/songs` or `/albums/:id` page:
+    * I can view total likes of the songs.
+
+
+### Editing Likes
+
+* As a logged in user, I want to be able to like or unlike a song by clicking a heart button.
+  * When I'm on the `/songs` or `/albums/:id` page:
+    * I can like or unlike the songs.
+
+
+### Playing Songs
+
+* As a logged in user, I want to be able to play songs by clicking a play button.
+  * When I'm on the `/songs` or `/albums/:id` page:
+    * I can play the songs.
+
+
+### Searching Songs
+
+* As a logged in _or_ logged out user, I want to be able to search for songs by clicking the search bar on the header.
+  * When I'm on any page of the site:
+    * I can search for songs by artist or song name.
