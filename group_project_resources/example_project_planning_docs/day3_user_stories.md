@@ -76,27 +76,27 @@
 ### Updating Songs
 
 * As a logged in user, I want to be able to update my songs by clicking an Update button.
-  * When I'm on the `/users/:id/songs` pages:
+  * When I'm on the `/users/current/songs` pages:
     * I can click "Update" to make changes to songs I have uploaded.
 
 
 ### Updating Albums
 * As a logged in user, I want to be able to update my albums by clicking an Update button.
-  * When I'm on the `/users/:id/albums` pages:
+  * When I'm on the `/users/current/albums` pages:
     * I can click "Update" to albums I have created.
       * I can add or remove songs I uploaded from the albums.
 
 ### Deleting Songs
 
 * As a logged in user, I want to be able to delete my songs by clicking a Delete button.
-  * When I'm on the `/users/:id/songs` pages:
+  * When I'm on the `/users/current/songs` pages:
     * I can click "Delete" to permanently delete a song I have uploaded.
 
 
 ### Deleting albums
 
 * As a logged in user, I want to be able to delete my albums by clicking a Delete button.
-  * When I'm on the `/users/:id/albums` pages:
+  * When I'm on the `/users/current/albums` pages:
     * I can click "Delete" to permanently delete an album I have created.
 
 
