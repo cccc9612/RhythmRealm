@@ -54,7 +54,7 @@
 * `song_id` references `songs` table
 
 
-## `playlists`
+<!-- ## `playlists`
 
 | column name | data type | details               |
 |-------------|-----------|-----------------------|
@@ -66,4 +66,4 @@
 | updated-at  | datetime  | not null              |
 
 * `creator_id` references `users` table
-* `song_id` references `songs` table
+* `song_id` references `songs` table -->
