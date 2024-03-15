@@ -38,4 +38,4 @@ def undo_albums():
     else:
         db.session.execute(text("DELETE FROM albums"))
 
-db.session.commit()
+    db.session.commit()
