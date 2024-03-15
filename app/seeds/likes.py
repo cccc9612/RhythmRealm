@@ -1,32 +1,34 @@
-from app.models import db, likes, environment, SCHEMA
+from app.models import db, User, Song, likes,environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_likes():
-    like1 = likes(user_id=1, song_id=1)
-    like2 = likes(user_id=1, song_id=2)
-    like3 = likes(user_id=1, song_id=3)
-    like4 = likes(user_id=1, song_id=4)
-    like5 = likes(user_id=1, song_id=5)
-    like6 = likes(user_id=1, song_id=6)
-    like7 = likes(user_id=2, song_id=1)
-    like8 = likes(user_id=2, song_id=2)
-    like9 = likes(user_id=2, song_id=3)
-    like10 = likes(user_id=2, song_id=4)
-    like11 = likes(user_id=3, song_id=1)
-    like12 = likes(user_id=3, song_id=2)
+    user1 = User.query.get(1)
+    user2 = User.query.get(2)
+    user3 = User.query.get(3)
 
-    db.session.add(like1)
-    db.session.add(like2)
-    db.session.add(like3)
-    db.session.add(like4)
-    db.session.add(like5)
-    db.session.add(like6)
-    db.session.add(like7)
-    db.session.add(like8)
-    db.session.add(like9)
-    db.session.add(like10)
-    db.session.add(like11)
-    db.session.add(like12)
+    song1 = Song.query.get(1)
+    song2 = Song.query.get(2)
+    song3 = Song.query.get(3)
+    song4 = Song.query.get(4)
+    song5 = Song.query.get(5)
+    song6 = Song.query.get(6)
+
+    user1.likes_in_user.append(song1)
+    user1.likes_in_user.append(song2)
+    user1.likes_in_user.append(song3)
+    user1.likes_in_user.append(song4)
+    user1.likes_in_user.append(song5)
+    user1.likes_in_user.append(song6)
+
+    user2.likes_in_user.append(song1)
+    user2.likes_in_user.append(song2)
+    user2.likes_in_user.append(song3)
+    user2.likes_in_user.append(song4)
+
+    user3.likes_in_user.append(song1)
+    user3.likes_in_user.append(song2)
+
+
     db.session.commit()
 
 def undo_likes():
