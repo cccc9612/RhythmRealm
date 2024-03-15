@@ -89,14 +89,12 @@ def seed_songs():
     song11 = Song(
      songs_name = "Summer Breeze Symphony",
      artist_id = 3,
-     album_id = 6,
      duration = "3:15",
      created_at = random_date_2023(),
     )
     song12 = Song(
      songs_name ="Enchanted Forest Fantasia",
      artist_id = 3,
-     album_id = 6,
      duration = "5:30",
      created_at = random_date_2023(),
     )
@@ -126,5 +124,5 @@ def undo_songs():
         db.session.execute(f"TRUNCATE table {SCHEMA}.songs RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM songs"))
-        
+
     db.session.commit()

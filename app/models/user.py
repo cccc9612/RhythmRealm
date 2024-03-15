@@ -25,9 +25,9 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(100), nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    song_in_user_rel = db.relationship("Song", back_populates="artist_in_song_rel")
-    album_in_user_rel = db.relationship("Album", back_populates="artist_in_album_rel")
-    likes_in_user_rel = db.relationship("Song", secondary="likes", back_populates="likes_in_song_rel")
+    song_in_user = db.relationship("Song", back_populates="user_in_song")
+    album_in_user = db.relationship("Album", back_populates="artist_in_album")
+    likes_in_user = db.relationship("Song", secondary="likes", back_populates="likes_in_song")
 
     @property
     def password(self):
