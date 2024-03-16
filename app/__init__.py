@@ -1,10 +1,11 @@
 import os
-from flask import Flask, render_template, request, session, redirect
+from sqlalchemy import desc
+from flask import Flask, render_template, request, session, redirect, Blueprint
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
-from .models import db, User
+from .models import db, User, Song, Album
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.songs_routes import song_routes
@@ -23,10 +24,12 @@ def load_user(id):
     return User.query.get(int(id))
 
 
+
 # Tell flask about our seed commands
 app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
+
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(song_routes, url_prefix='/api/songs')
@@ -73,6 +76,18 @@ def api_help():
                     app.view_functions[rule.endpoint].__doc__ ]
                     for rule in app.url_map.iter_rules() if rule.endpoint != 'static' }
     return route_list
+
+
+
+## GET 5 songs and 5 albums
+@app.route("/")
+def index():
+    all_songs=Song.query.order_by(desc(Song.created_at)).limit(5).all()
+    all_albums=Album.query.order_by(desc(Album.created_at)).limit(5).all()
+    return {'songs':[song.to_dict()for song in all_songs],
+            'albums':[album.to_dict()for album in all_albums]}
+     
+
 
 
 @app.route('/', defaults={'path': ''})
