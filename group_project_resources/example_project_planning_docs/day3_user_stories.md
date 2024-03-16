@@ -62,14 +62,14 @@
 ### Upload Songs
 
 * As a logged in user, I want to be able to upload new songs.
-  * When I'm on the `/new-song` page:
+  * When I'm on the `/users/current` page:
     * I can upload a new song.
 
 
 ### Create Albums
 
 * As a logged in user, I want to be able to create a new album.
-  * When I'm on the `/new-album` page:
+  * When I'm on the `/users/current` page:
     * I can create a new album.
 
 

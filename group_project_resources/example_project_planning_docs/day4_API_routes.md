@@ -30,6 +30,7 @@ This page displays the five songs and five albums, as well as a navigation bar w
 This page displays ten most recently created songs, with their duration and likes, a logged in user can play the songs, as well as like or unlike the songs.
 
 * `GET /songs`
+* `GET /songs/:id`
 * `POST /songs/:id/like`
 * `DELETE /songs/:id/like`
 
