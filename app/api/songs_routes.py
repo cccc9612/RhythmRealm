@@ -33,4 +33,4 @@ def likeASong(id):
                 user.likes.append(likedSong)
                 db.session.commit()
                 return likedSong.to_dict()
-    return "Already liked"
+    return "You've already liked this song!"
