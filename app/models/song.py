@@ -19,12 +19,37 @@ class Song(db.Model):
     user_in_song = db.relationship('User', back_populates='song_in_user')
     likes_in_song = db.relationship('User', secondary="likes", back_populates='likes_in_user')
 
+    @property
+    def likes(self):
+        return len(self.likes_in_song)
+
+    @property
+    def album(self):
+        if self.album_in_song:
+            return {
+                'id': self.album_in_song.id,
+                'name': self.album_in_song.name,
+                'cover_img': self.album_in_song.cover_img
+            }
+        else:
+            return None
+
+    @property
+    def artist(self):
+        return {
+            'id': self.user_in_song.id,
+            'first_name': self.user_in_song.first_name,
+            'last_name': self.user_in_song.last_name
+        }
+
+
     def to_dict(self):
         return {
             'id':self.id,
             'song_name':self.songs_name,
-            'artist_id':self.artist_id,
-            'album_id':self.album_id,
+            'artist':self.artist,
+            'album':self.album,
             'duration':self.duration,
-            "created_at": self.created_at
+            'likes': self.likes,
+            'created_at': self.created_at
         }

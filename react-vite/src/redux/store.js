@@ -5,10 +5,12 @@ import {
   combineReducers,
 } from "redux";
 import thunk from "redux-thunk";
+import songReducer from "./song";
 import sessionReducer from "./session";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  song: songReducer
 });
 
 let enhancer;

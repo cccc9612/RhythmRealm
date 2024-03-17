@@ -3,22 +3,22 @@ from sqlalchemy.sql import text
 
 def seed_albums():
     album1 = Album(
-        name='DemoAlbum-1', cover_img='fakeImg-1', artist_id=1
+        name='DemoAlbum-1', cover_img='https://res.cloudinary.com/dwrohcbtx/image/upload/v1708670771/Frontend/Howard/Howard_01_pm1umz.jpg', artist_id=1
     )
     album2 = Album(
-        name='DemoAlbum-2', cover_img='fakeImg-2', artist_id=1
+        name='DemoAlbum-2', cover_img='https://res.cloudinary.com/dwrohcbtx/image/upload/v1708676500/Frontend/Colmar/Colmar_09_dyypbj.jpg', artist_id=1
     )
     album3 = Album(
-        name='DemoAlbum-3', cover_img='fakeImg-3', artist_id=2
+        name='DemoAlbum-3', cover_img='https://res.cloudinary.com/dwrohcbtx/image/upload/v1708636642/Frontend/Miho/Miho_01_oe1jnt.jpg', artist_id=2
     )
     album4 = Album(
-        name='DemoAlbum-4', cover_img='fakeImg-4', artist_id=2
+        name='DemoAlbum-4', cover_img='https://res.cloudinary.com/dwrohcbtx/image/upload/v1708569660/Highclere_06_drcsar.jpg', artist_id=2
     )
     album5 = Album(
-        name='DemoAlbum-5', cover_img='fakeImg-5', artist_id=3
+        name='DemoAlbum-5', cover_img='https://res.cloudinary.com/dwrohcbtx/image/upload/v1708569883/Highclere_03_2_ijzxwq.jpg', artist_id=3
     )
     album6 = Album(
-        name='DemoAlbum-6', cover_img='fakeImg-6', artist_id=3
+        name='DemoAlbum-6', cover_img='https://res.cloudinary.com/dwrohcbtx/image/upload/v1708569886/Highclere_04_2_rdg16x.jpg', artist_id=3
     )
 
 
