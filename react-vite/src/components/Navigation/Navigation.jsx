@@ -1,18 +1,23 @@
 import { NavLink } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
+import { GoHome } from "react-icons/go";
+import { IoSearchOutline } from "react-icons/io5";
 import "./Navigation.css";
 
 function Navigation() {
   return (
-    <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
+    <div className="nav-container">
+      <div>
+        <NavLink to="/"><GoHome /> Home</NavLink>
+      </div>
+      <div>
+        <IoSearchOutline />
+      </div>
 
-      <li>
+      <div>
         <ProfileButton />
-      </li>
-    </ul>
+      </div>
+    </div>
   );
 }
 

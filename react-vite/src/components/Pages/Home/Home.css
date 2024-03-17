@@ -1,0 +1,48 @@
+.album-list-container,
+.song-list-container{
+  padding: 10px;
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  /* row-gap: 10px; */
+}
+
+.song-list-row-title,
+.song-list-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25px 1.5fr 1.5fr 0.5fr 1fr;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.song-list-row-title {
+  border-bottom: 1px solid grey;
+  margin-bottom: 10px;
+}
+.song-list-row {
+  border-radius: 5px;
+  /* border: 1px solid white; */
+
+}
+
+.song-list-row:hover {
+  background-color: grey;
+}
+
+.first-col {
+  text-align: right;
+}
+
+.second-col {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.song-name-artist {
+  display: flex;
+  flex-direction: column;
+}

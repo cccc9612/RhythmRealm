@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, redirect,request
+from flask_login import current_user, login_required
 from sqlalchemy import desc
 from app.models import Song, db, User, Album
 
@@ -22,15 +23,19 @@ def individualSong(id):
 
 ## Like a song   ❗️❗️❗️
 
-@song_routes.route('/<id>/like', methods=["POST"])
+@song_routes.route('/<int:id>/like', methods=["POST"])
+@login_required
 def likeASong(id):
-    data = request.data.decode()
-    user = User.query.get(id)
-    if user:
-        likedSong = Song.query.get(data)
-        if likedSong:
-            if likedSong not in user.likes:
-                user.likes.append(likedSong)
+    # data=request.form.get("user_id")
+    song = Song.query.get(id)
+    # print("===================",data)
+    if song:
+        # print("userrrrrr ", data[0])
+        user = current_user
+        # if user:
+            # print(song.likes_in_song)
+        if user not in song.likes_in_song:
+                song.likes_in_song.append(user)
                 db.session.commit()
-                return likedSong.to_dict()
+                return user.to_dict()
     return "You've already liked this song!"
