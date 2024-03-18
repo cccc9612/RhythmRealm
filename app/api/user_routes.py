@@ -36,14 +36,14 @@ def createAlbum():
     form['csrf_token'].data = request.cookies['csrf_token']
     user = current_user.to_dict()
     # print(user)
-    
+
     if form.validate_on_submit():
         cover_img = form.cover_img.data
         print(cover_img)
         cover_img.filename = get_unique_filename(cover_img.filename)
         upload = upload_file_to_s3(cover_img)
         print(upload)
-        
+
         if "url" not in upload:
             # return render_template("create_album_form.html", form=form, errors=[upload])
             return form.errors
@@ -99,15 +99,15 @@ def deleteAlbum(id):
 #         db.session.commit()
 #         return new_song.to_dict()
 #     return form.errors
-    
-    
+
+
 @user_routes.route("/current/songs", methods=["GET", "POST"])
 @login_required
 def createSong():
     form = CreateSongForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     user = current_user.to_dict()
-    
+
     if form.validate_on_submit():
         song_url = form.song_url.data
         print("song_url =========", song_url)
@@ -127,9 +127,9 @@ def createSong():
         )
         db.session.add(new_song)
         db.session.commit()
-        
+
         return new_song.to_dict()
-    
+
     if form.errors:
         print(form.errors)
         return form.errors
@@ -172,3 +172,10 @@ def updateSong(id):
             
         
         
+
+
+## Get an individual song
+@user_routes.route("/current/songs/<int:id>")
+def selectBySongId(id):
+    song = Song.query.get(id)
+    return song.to_dict()

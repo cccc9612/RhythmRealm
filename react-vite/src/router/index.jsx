@@ -5,6 +5,8 @@ import CreateAlbumModal from '../components/CreateAlbumModal';
 import CreateSongModal from '../components/CreateSongModal';
 import Layout from './Layout';
 import Home from '../components/Pages/Home';
+import ManageSongs from '../components/Pages/Manage/ManageSongs';
+import ManageAlbums from '../components/Pages/Manage/ManageAlbums';
 
 export const router = createBrowserRouter([
   {
@@ -27,9 +29,17 @@ export const router = createBrowserRouter([
         element: <CreateAlbumModal />
       },
       {
+        path: "/users/current/albums",
+        element: <ManageAlbums />
+      },
+      {
+        path: "/users/current/songs",
+        element: <ManageSongs />
+      },
+      {
         path: "/songs/new",
         element: <CreateSongModal />
-      }
+      },
     ],
   },
 ]);

@@ -34,8 +34,8 @@ function CreateSongModal() {
         <>
             <h1>Create a Song</h1>
             <form
-                 onSubmit={handleSubmit}
-                 encType="multipart/form-data" 
+                onSubmit={handleSubmit}
+                encType="multipart/form-data"
             >
                 <label>
                     Song Title
@@ -43,12 +43,12 @@ function CreateSongModal() {
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                    /> 
+                    />
                 </label>
 
                 <label>
                     Song File
-                    <input 
+                    <input
                         type="file"
                         accept="audio/*"
                         onChange={(e) => setSong(e.target.files[0])}
@@ -65,7 +65,7 @@ function CreateSongModal() {
                 </lable> */}
 
                 <button type="submit">Submit</button>
-                {(songLoading)&& <p>Loading...</p>}
+                {(songLoading) && <p>Loading...</p>}
             </form>
         </>
     )
