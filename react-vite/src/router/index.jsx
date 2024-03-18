@@ -7,6 +7,7 @@ import Layout from './Layout';
 import Home from '../components/Pages/Home';
 import ManageSongs from '../components/Pages/Manage/ManageSongs';
 import ManageAlbums from '../components/Pages/Manage/ManageAlbums';
+import SongDetails from '../components/SongDetails/SongDetails';
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ export const router = createBrowserRouter([
         path: "/songs/new",
         element: <CreateSongModal />
       },
+      {
+        path: "songs/:songId",
+        element: <SongDetails />
+      },
+
     ],
   },
 ]);
