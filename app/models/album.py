@@ -17,12 +17,21 @@ class Album(db.Model):
     artist_in_album = db.relationship('User', back_populates='album_in_user')
     song_in_album = db.relationship('Song', back_populates='album_in_song')
 
+    @property
+    def artist(self):
+        return {
+            'id': self.artist_in_album.id,
+            'first_name': self.artist_in_album.first_name,
+            'last_name': self.artist_in_album.last_name
+        }
+
+
     def to_dict(self):
         return {
             'id': self.id,
             'name': self.name,
             'cover_img': self.cover_img,
-            'artist_id': self.artist_id,
+            'artist': self.artist,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
