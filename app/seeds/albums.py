@@ -20,6 +20,18 @@ def seed_albums():
     album6 = Album(
         name='DemoAlbum-6', cover_img='https://res.cloudinary.com/dwrohcbtx/image/upload/v1708569886/Highclere_04_2_rdg16x.jpg', artist_id=3
     )
+    album7 = Album(
+        name='DemoAlbum-7', cover_img='https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/30bf240846844d2ea711acbef9a27654.jpg', artist_id=3
+    )
+    album8 = Album(
+        name='DemoAlbum-8', cover_img='https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/30bf240846844d2ea711acbef9a27654.jpg', artist_id=3
+    )
+    album9 = Album(
+        name='DemoAlbum-9', cover_img='https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/787da54df8324c0f8b328f6983f88e6c.jpg', artist_id=3
+    )
+    album10 = Album(
+        name='DemoAlbum-10', cover_img='https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/787da54df8324c0f8b328f6983f88e6c.jpg', artist_id=3
+    )
 
 
     db.session.add(album1)
@@ -28,6 +40,10 @@ def seed_albums():
     db.session.add(album4)
     db.session.add(album5)
     db.session.add(album6)
+    db.session.add(album7)
+    db.session.add(album8)
+    db.session.add(album9)
+    db.session.add(album10)
     db.session.commit()
 
 

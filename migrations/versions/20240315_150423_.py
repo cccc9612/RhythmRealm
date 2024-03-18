@@ -53,6 +53,7 @@ def upgrade():
     op.create_table('songs',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('songs_name', sa.String(), nullable=False),
+    sa.Column('song_url', sa.String(), nullable=False),
     sa.Column('artist_id', sa.Integer(), nullable=False),
     sa.Column('album_id', sa.Integer(), nullable=True),
     sa.Column('duration', sa.String(), nullable=False),
