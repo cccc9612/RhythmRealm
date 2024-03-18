@@ -9,14 +9,14 @@ function CreateSongModal() {
     const [name, setName] = useState("");
     const [song, setSong] = useState(null);
     const [songLoading, setSongLoading] = useState(false);
-    const [duration, setDuration] = useState("");
+    // const [duration, setDuration] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("song_url", song);
         formData.append("songs_name", name);
-        formData.append("duration", duration)
+        // formData.append("duration", duration)
 
         const res = await fetch("/api/users/current/songs", {
             method: "POST",
@@ -34,8 +34,8 @@ function CreateSongModal() {
         <>
             <h1>Create a Song</h1>
             <form
-                 onSubmit={handleSubmit}
-                 encType="multipart/form-data" 
+                onSubmit={handleSubmit}
+                encType="multipart/form-data"
             >
                 <label>
                     Song Title
@@ -43,29 +43,29 @@ function CreateSongModal() {
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                    /> 
+                    />
                 </label>
 
                 <label>
                     Song File
-                    <input 
+                    <input
                         type="file"
                         accept="audio/*"
                         onChange={(e) => setSong(e.target.files[0])}
                     />
                 </label>
 
-                <lable>
+                {/* <lable>
                     Duration
                     <input 
                         type="text"
                         value={duration}
                         onChange={(e) => setDuration(e.target.value)}
                     />
-                </lable>
+                </lable> */}
 
                 <button type="submit">Submit</button>
-                {(songLoading)&& <p>Loading...</p>}
+                {(songLoading) && <p>Loading...</p>}
             </form>
         </>
     )

@@ -105,12 +105,12 @@ def createSong():
         if "url" not in upload:
             return form.errors
         url = upload["url"]
-        # newDuration = math.floor(MP3(form.song_file_url.data).info.length)
+        newDuration = math.floor(MP3(song_url).info.length)
         new_song = Song(
             songs_name = form.songs_name.data,
             song_url = url,
             artist_id = user["id"],
-            duration = form.duration.data
+            duration = newDuration
         )
         db.session.add(new_song)
         db.session.commit()
@@ -120,3 +120,10 @@ def createSong():
     if form.errors:
         print(form.errors)
         return form.errors
+
+
+## Get an individual song
+@user_routes.route("/current/songs/<int:id>")
+def selectBySongId(id):
+    song = Song.query.get(id)
+    return song.to_dict()
