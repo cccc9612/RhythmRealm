@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, render_template, redirect, request
 from flask_login import login_required, current_user
 from app.models import User, Album, db, Song
-from app.forms import CreateAlbumForm
+from app.forms import CreateAlbumForm, CreateSongForm
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from app.forms.song_form import SongForm
 from mutagen.mp3 import MP3
@@ -65,26 +65,58 @@ def createAlbum():
     # return render_template("create_album_form.html", form=form, errors=None)
 
 
-
 ## Upload a song
-@user.route('/new', methods=['GET', 'POST'])
+# @user.route('/new', methods=['GET', 'POST'])
+# @login_required
+# def song_form():
+#     form = SongForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     user = current_user.to_dict()
+#     print(form.data)
+#     if form.validate_on_submit():
+#         data = form.data
+#         newDuration = math.floor(MP3(form.song_file_url.data).info.length)
+#         print(newDuration)
+#         new_song = Song(song_name=data['song_name'],
+#                         artist_id=user['id'],
+#                         album_id = data['album_id'],
+#                         duration=newDuration,
+
+#                         )
+#         db.session.add(new_song)
+#         db.session.commit()
+#         return new_song.to_dict()
+#     return form.errors
+    
+    
+@user_routes.route("/current/songs", methods=["GET", "POST"])
 @login_required
-def song_form():
-    form = SongForm()
+def createSong():
+    form = CreateSongForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     user = current_user.to_dict()
-    print(form.data)
+    
     if form.validate_on_submit():
-        data = form.data
-        newDuration = math.floor(MP3(form.song_file_url.data).info.length)
-        print(newDuration)
-        new_song = Song(song_name=data['song_name'],
-                        artist_id=user['id'],
-                        album_id = data['album_id'],
-                        duration=newDuration,
-
-                        )
+        song_url = form.song_url.data
+        song_url.filename = get_unique_filename(song_url.filename)
+        upload = upload_file_to_s3(song_url)
+        print(upload)
+        
+        if "url" not in upload:
+            return form.errors
+        url = upload["url"]
+        # newDuration = math.floor(MP3(form.song_file_url.data).info.length)
+        new_song = Song(
+            songs_name = form.songs_name.data,
+            song_url = url,
+            artist_id = user["id"],
+            duration = form.duration.data
+        )
         db.session.add(new_song)
         db.session.commit()
+        
         return new_song.to_dict()
-    return form.errors
+    
+    if form.errors:
+        print(form.errors)
+        return form.errors
