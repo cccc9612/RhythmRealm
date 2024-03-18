@@ -32,7 +32,7 @@ This page displays ten most recently created songs, with their duration and like
 * `GET /songs`
 * `GET /songs/:id`
 * `POST /songs/:id/like`
-* `DELETE /songs/:id/like`
+* `DELETE /songs/:id/dislike`
 
 ## `/albums`
 
@@ -47,7 +47,7 @@ This page displays individual album with associated songs and likes, a logged in
 
 * `GET /albums/:id`
 * `POST /songs/:id/like`
-* `DELETE /songs/:id/like`
+* `DELETE /songs/:id/dislike`
 
 
 ## `/users/current`

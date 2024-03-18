@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect,request
+from flask import Blueprint, render_template, redirect,request,jsonify
 from flask_login import current_user, login_required
 from sqlalchemy import desc
 from app.models import Song, db, User, Album
@@ -21,7 +21,7 @@ def individualSong(id):
     return song.to_dict()
 
 
-## Like a song   ❗️❗️❗️
+## Like a song  
 
 @song_routes.route('/<int:id>/like', methods=["POST"])
 @login_required
@@ -39,3 +39,19 @@ def likeASong(id):
                 db.session.commit()
                 return user.to_dict()
     return "You've already liked this song!"
+
+
+## Dislike a song  ❗️❗️❗️
+@song_routes.route('/<int:id>/dislike', methods=['DELETE'])
+@login_required
+def dislikeASong(id):
+     song = Song.query.get(id)
+     song = Song.query.get(id)
+     if song:
+         user = current_user
+         if user in song.likes_in_song:
+            song.likes_in_song.remove(user)
+            db.session.commit()
+            songs = Song.query.all()
+            updatedSong = [song.to_dict() for song in songs]
+            return updatedSong
