@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from app.models import User, Album, db, Song
 from app.forms import CreateAlbumForm, CreateSongForm
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
-from app.forms.song_form import SongForm
+# from app.forms.song_form import SongForm
 from mutagen.mp3 import MP3
 import math
 
@@ -37,14 +37,14 @@ def createAlbum():
     form['csrf_token'].data = request.cookies['csrf_token']
     user = current_user.to_dict()
     # print(user)
-    
+
     if form.validate_on_submit():
         cover_img = form.cover_img.data
         print(cover_img)
         cover_img.filename = get_unique_filename(cover_img.filename)
         upload = upload_file_to_s3(cover_img)
         print(upload)
-        
+
         if "url" not in upload:
             # return render_template("create_album_form.html", form=form, errors=[upload])
             return form.errors
@@ -87,21 +87,21 @@ def createAlbum():
 #         db.session.commit()
 #         return new_song.to_dict()
 #     return form.errors
-    
-    
+
+
 @user_routes.route("/current/songs", methods=["GET", "POST"])
 @login_required
 def createSong():
     form = CreateSongForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     user = current_user.to_dict()
-    
+
     if form.validate_on_submit():
         song_url = form.song_url.data
         song_url.filename = get_unique_filename(song_url.filename)
         upload = upload_file_to_s3(song_url)
         print(upload)
-        
+
         if "url" not in upload:
             return form.errors
         url = upload["url"]
@@ -114,9 +114,9 @@ def createSong():
         )
         db.session.add(new_song)
         db.session.commit()
-        
+
         return new_song.to_dict()
-    
+
     if form.errors:
         print(form.errors)
         return form.errors
