@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
 import { LuLibrary } from "react-icons/lu";
+import ProfileButton from "../components/Navigation/ProfileButton";
 // import OpenModalMenuItem from "../components/Navigation/OpenModalMenuItem";
 import Navigation from "../components/Navigation/Navigation";
 
@@ -31,8 +32,7 @@ export default function Layout() {
           </div>
           <div className="song-album-list-container">
             <div className="title-bar">
-              <button className="signup-btn">Sign up</button>
-              <button className="login-btn">Log in</button>
+              <ProfileButton />
             </div>
             <div> {isLoaded && <Outlet />}</div>
           </div>

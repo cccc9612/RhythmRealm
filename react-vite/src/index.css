@@ -13,8 +13,6 @@
   font-family: "Nunito Sans", sans-serif;
   margin: 0;
   padding: 0;
-
-  color: white
 }
 
 #root {
@@ -24,6 +22,7 @@
   margin: 0;
   padding: 0;
   background-color: black;
+  color: white;
 }
 
 .page-container {
@@ -37,7 +36,7 @@
 }
 
 .sidebar-container {
-  width: 250px;
+  width: 420px;
   display: flex;
   flex-direction: column;
   row-gap: 10px;
@@ -47,7 +46,7 @@
 
 .nav-container {
   background: var(--light-black-color);
-  width: calc(250px - 20px);
+  width: calc(420px - 20px);
   border-radius: 8px;
   height: 80px;
   padding: 10px;
@@ -55,7 +54,7 @@
 
 .library-container {
     background: var(--light-black-color);
-    width: calc(250px - 20px);
+    width: calc(420px - 20px);
     min-height: calc(100vh - 150px);
     border-radius: 8px;
     padding: 10px;
@@ -89,7 +88,7 @@
   padding-right: 30px;
 }
 
-.signup-btn{
+.title-bar>.modal-btn:first-child {
   color: grey;
   width: 100px;
   font-size: 15px;
@@ -98,7 +97,7 @@
   border: none
 }
 
-.login-btn{
+.title-bar>.modal-btn:last-child{
   color: black;
   width: 100px;
   height: 44px;
