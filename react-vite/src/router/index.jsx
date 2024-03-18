@@ -7,6 +7,9 @@ import Layout from './Layout';
 import Home from '../components/Pages/Home';
 import ManageSongs from '../components/Pages/Manage/ManageSongs';
 import ManageAlbums from '../components/Pages/Manage/ManageAlbums';
+import AlbumList from '../components/Albums/AlbumList';
+import AlbumShowPage from '../components/Albums/AlbumShowPage';
+import SongList from '../components/Songs/SongList';
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +28,14 @@ export const router = createBrowserRouter([
         element: <SignupFormPage />,
       },
       {
+        path: "/albums",
+        element: <AlbumList />
+      },
+      {
+        path: "/albums/:albumId",
+        element: <AlbumShowPage />
+      },
+      {
         path: "/albums/new",
         element: <CreateAlbumModal />
       },
@@ -35,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "/users/current/songs",
         element: <ManageSongs />
+      },
+      {
+        path: "/songs",
+        element: <SongList />
       },
       {
         path: "/songs/new",

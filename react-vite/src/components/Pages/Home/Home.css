@@ -3,9 +3,20 @@
   padding: 10px;
 }
 
+.album-list-container>h3 {
+  margin-top: 30px;
+}
+
+div  h3 {
+   font-size: 28px;
+   margin-top: 15px;
+   margin-bottom: 15px;
+}
+
 .song-list {
   display: flex;
   flex-direction: column;
+  color: rgb(117, 117, 117);
   /* row-gap: 10px; */
 }
 
@@ -28,8 +39,9 @@
 
 }
 
+
 .song-list-row:hover {
-  background-color: grey;
+  background-color: rgb(66, 66, 66);
 }
 
 .first-col {

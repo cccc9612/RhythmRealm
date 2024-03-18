@@ -3,3 +3,28 @@
   width: 40px;
   border-radius: 5px;;
 }
+
+.song-name {
+  color: white;
+}
+
+.like-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.song-list-row .like-heart {
+  visibility: hidden;
+  position: absolute;
+  left: 25px;
+  top: 2px;
+}
+
+.song-list-row:hover .like-heart {
+  visibility: visible;
+}
+
+.like-heart:hover {
+  color: green;
+}

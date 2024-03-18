@@ -37,10 +37,8 @@
 .page-player-container {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  margin: 10px;
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: auto;
 }
 
@@ -51,21 +49,21 @@
   column-gap: 10px;
   width: calc(100vw - 20px);
   padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 }
 
 .sidebar-container {
-  width: 420px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   row-gap: 10px;
   /* border: 1px solid white; */
-  /* margin-left:10px; */
+  margin-left:18px;
 }
 
 .nav-container {
   background: var(--light-black-color);
-  width: calc(420px - 20px);
+  width: calc(400px - 20px);
   border-radius: 8px;
   height: 80px;
   padding: 10px;
@@ -73,7 +71,7 @@
 
 .library-container {
     background: var(--light-black-color);
-    width: calc(420px - 20px);
+    width: calc(400px - 20px);
     min-height: calc(100vh - 150px);
     border-radius: 8px;
     padding: 10px;
@@ -86,11 +84,11 @@
   background-color: rgb(70, 67, 67);
   border-radius: 8px;
   min-height: 120px;
-  padding:15px;
+  padding: 15px;
 }
 
 .song-album-list-container {
-  width: calc(100vw - 260px);
+  width: calc(100vw - 445px);
   min-height: calc(100vh - 20px);
   background: var(--light-black-color);
   border-radius: 8px;
@@ -99,9 +97,10 @@
 
 .title-bar {
   background-color: var(--black-color);
-  height: 50px;
+  height: 55px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
   padding-right: 30px;
@@ -116,6 +115,7 @@
   border: none
 }
 
+
 .title-bar>.modal-btn:last-child{
   color: black;
   width: 100px;
@@ -127,10 +127,15 @@
   border: none
 }
 
+.title-bar>.modal-btn:hover {
+  font-size: 16px;
+}
+
 .page-bottom-container {
   width: 100vw;
   position: sticky;
   bottom: 0;
+  left: 0;
   height: 70px;
   background-color: black;
 }
