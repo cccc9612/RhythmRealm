@@ -10,8 +10,9 @@ function MusicPlayer() {
   // }
 
   return <AudioPlayer
-    autoPlay
-    src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"
+    autoPlay={false}
+    // src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"
+    src="https://rhythm-realm-img-bucket.s3.amazonaws.com/aa96c80eed2943c89441034a13b70e78.mp3"
     onPlay={e => console.log("onPlay", e)}
     showSkipControls={true}
     showJumpControls={false}
