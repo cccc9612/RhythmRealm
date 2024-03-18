@@ -25,6 +25,21 @@
   color: white;
 }
 
+.footer-container {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top:  1px solid grey;
+  margin-right: auto;
+}
+
+.page-player-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+}
+
 .page-container {
   display: flex;
   align-items: flex-start;
@@ -106,4 +121,12 @@
   background-color: white;
   border-radius: 25px;
   border: none
+}
+
+.page-bottom-container {
+  width: 100vw;
+  position: sticky;
+  bottom: 0;
+  height: 70px;
+  background-color: black;
 }
