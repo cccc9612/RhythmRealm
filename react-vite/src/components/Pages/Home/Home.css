@@ -13,7 +13,7 @@
 .song-list-row {
   width: 100%;
   display: grid;
-  grid-template-columns: 25px 1.5fr 1.5fr 0.5fr 1fr;
+  grid-template-columns: 25px 1.8fr 1.2fr 0.5fr 1fr;
   align-items: center;
   column-gap: 15px;
 }
@@ -45,4 +45,9 @@
 .song-name-artist {
   display: flex;
   flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: grey;
 }

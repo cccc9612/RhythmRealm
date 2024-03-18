@@ -28,33 +28,41 @@ function LoginFormModal() {
     }
   };
 
+  const DemoUserLogin = () => {
+    setEmail("demo@aa.io");
+    setPassword("password");
+  }
+
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div className='login-modal-container'>
+      <h1>Log in to RR</h1>
+      <form className='login-form-container' onSubmit={handleSubmit}>
         <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          Email or username
         </label>
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
         {errors.email && <p>{errors.email}</p>}
         <label>
           Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
         </label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
         {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+        <button className="submit-btn" type="submit">Log In</button>
+        <button className="Demouser-login"  onClick={DemoUserLogin} type="submit">
+          Log in as Demo User
+        </button>
       </form>
-    </>
+    </div>
   );
 }
 
