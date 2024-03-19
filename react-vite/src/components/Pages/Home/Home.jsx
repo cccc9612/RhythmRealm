@@ -11,8 +11,11 @@ function Home() {
   const dispatch = useDispatch();
   const songState = useSelector(state => state.song);
   const albumState = useSelector(state => state.album);
+  const sessionUser = useSelector(state => state.session.user);
   const songs = Object.values(songState?.Songs)
   const albums = Object.values(albumState?.Albums)
+  let limit = sessionUser ? 10 : 5;
+
 
   useEffect(() => {
     dispatch(getAllSongs())
@@ -22,7 +25,10 @@ function Home() {
   return (
     <>
       <div className="song-list-container">
-        <h3>Recent songs</h3>
+        <div className="title-container">
+          <h3>Recent songs</h3>
+          <NavLink to={'/songs'}>Show all</NavLink>
+        </div>
         <div className="song-list">
           <div className="song-list-row-title">
             <span className="first-col">#</span>
@@ -31,7 +37,7 @@ function Home() {
             <span>Likes</span>
             <span>Duration</span>
           </div>
-          {songs?.map((song, index) => {
+          {songs?.slice(0, limit).map((song, index) => {
             return (
               <div className="song-list-row" key={song.id}>
                 <SongItem song={song} index={index} />
@@ -41,9 +47,12 @@ function Home() {
         </div>
       </div>
       <div className="album-list-container">
-        <h3>Today&apos;s biggest hits</h3>
+        <div className="title-container">
+          <h3>Today&apos;s biggest hits</h3>
+          <NavLink to={'/albums'}>Show all</NavLink>
+        </div>
         <div className="albums-container">
-          {albums?.map((album) => {
+          {albums?.slice(0, limit).map((album) => {
             return (
               <NavLink key={album.id} to={`/albums/${album.id}`}>
                 <AlbumItem album={album} />
