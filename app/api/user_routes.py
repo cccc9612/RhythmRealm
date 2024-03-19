@@ -10,12 +10,12 @@ from io import BytesIO
 
 user_routes = Blueprint('users', __name__)
 
-def duration_cal(duration_seconds) {
-    min = int(duration_seconds // 60)
-    sec = int(duration_seconds % 60)
-    duration_str = f"{min}:{sec}"
-    return du
-}
+# def duration_cal(duration_seconds) {
+#     min = int(duration_seconds // 60)
+#     sec = int(duration_seconds % 60)
+#     duration_str = f"{min}:{sec}"
+#     return du
+# }
 
 @user_routes.route('/')
 @login_required

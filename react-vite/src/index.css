@@ -16,19 +16,22 @@
 }
 
 #root {
+  background-color: black;
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: black;
-  color: white;
 }
 
 .footer-container {
   margin-top: 30px;
   padding-top: 15px;
-  border-top:  1px solid grey;
+  border-top: px solid grey;
   margin-right: auto;
   margin-bottom: 20px;
   padding-left: 15px;
@@ -45,40 +48,45 @@
 
 .page-container {
   display: flex;
-  align-items: flex-start;
-
+  /* align-items: flex-start; */
+  justify-content: space-between;
   column-gap: 10px;
-  width: calc( 100vw - 20px );
   padding: 10px;
-  /* padding-bottom: 10px; */
+  width: calc(100vw - 20px);
+  padding-bottom: 10px;
 }
 
 .sidebar-container {
-  width: 400px;
-  display: flex;
+  width: 20px
+    /* display: flex;
   flex-direction: column;
-  row-gap: 10px;
-  /* border: 1px solid white; */
-  /* margin-left:10px; */
+  row-gap: 10px; */
+    /* border: 1px solid white; */
+    /* margin-left:10px; */
 }
 
 .nav-container {
   background: var(--light-black-color);
+  background-color: #121212;
   width: calc(400px - 20px);
   border-radius: 8px;
   height: 80px;
   padding: 10px;
+  border-radius: 10px;
+  padding: 15px;
 }
 
 .library-container {
-    background: var(--light-black-color);
-    width: calc(400px - 20px);
-    min-height: calc(100vh - 150px);
-    border-radius: 8px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
+  background: var(--light-black-color);
+  background-color: #121212;
+  width: calc(400px - 20px);
+  min-height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
 }
 
 .playlist-list {
@@ -117,7 +125,7 @@
 }
 
 
-.title-bar>.modal-btn:last-child{
+.title-bar>.modal-btn:last-child {
   color: black;
   width: 100px;
   height: 44px;

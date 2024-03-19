@@ -1,16 +1,19 @@
 .album-list-container,
-.song-list-container{
-  padding: 10px;
+.song-list-container {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 20px;
+  white-space: nowrap;
 }
 
 .album-list-container>h3 {
   margin-top: 30px;
 }
 
-div  h3 {
-   font-size: 28px;
-   margin-top: 15px;
-   margin-bottom: 15px;
+div h3 {
+  font-size: 28px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .song-list {
@@ -33,6 +36,7 @@ div  h3 {
   border-bottom: 1px solid grey;
   margin-bottom: 10px;
 }
+
 .song-list-row {
   border-radius: 5px;
   /* border: 1px solid white; */

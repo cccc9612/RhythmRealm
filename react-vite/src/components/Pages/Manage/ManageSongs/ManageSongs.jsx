@@ -1,18 +1,14 @@
-// function ManageSongs() {
-//   return <h2>Manages Songsaaaa</h2>
-// }
-
-
-
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useContext, useState } from "react";
 import { getAllSongs } from "../../../../redux/song";
-import { getAllAlbums } from "../../../../redux/album";
-import { loadUsersThunk } from "../../../../redux/user";
+import { getAllAlbums } from "../../../../redux/album"
 import { MusicContext } from "../../../../context/MusicContext";
 import SongList from "../../../Songs/SongList/SongList";
 import { useNavigate } from "react-router-dom";
 import { IndexContext } from "../../../../context/IndexContext";
+import SongItem from "../../../Songs/SongItem";
+import "./ManageSongs.css"
+import manageSongCover from './ManageSongs.png'
 
 
 function ManageSongs() {
@@ -24,92 +20,80 @@ function ManageSongs() {
   const [counter, setCounter] = useState(0);
   if (currentSong) currentSong
 
-  useEffect(() => {
-    dispatch(getAllSongs())
-    dispatch(getAllAlbums())
-    dispatch(loadUsersThunk())
-  }, [dispatch])
 
   if (!songList) songList
 
   const user = useSelector(state => state.session.user)
   if (!user) navigate('/')
-  const users = useSelector(state => state.users)
-  const albums = useSelector(state => state.albums)
+  const users = useSelector(state => state.user)
+  const albumState = useSelector(state => state.album);
+  const songState = useSelector(state => state.song);
+  const songs = Object.values(songState?.Songs)
 
-  const songs = useSelector(state => state.songs)
-  const keys = Object.keys(songs)
-  const values = Object.values(songs)
+  useEffect(() => {
+    dispatch(getAllSongs())
+    dispatch(getAllAlbums())
+  }, [dispatch])
   // // console.log(songs)
 
-  console.log(users);
-  console.log(albums);
-  console.log(songs);
-
-
-  const handleClick = () => {
-    if (counter == 0) {
-      // setSongList(values);
-      setSongList([]);
-      setCurrentSong(0);
-      setPlaying(true);
-    } else {
-      setPlaying(!playing);
-      const audio = document.getElementsByTagName('audio')[0]
-      if (playing) {
-        audio.pause()
-      }
-      if (!playing) {
-        audio.play()
-      }
-    }
-    setCounter(counter + 1);
-  }
+  // Switch between play and pause function:
+  // const handleClick = () => {
+  //   if (counter == 0) {
+  //     // setSongList(values);
+  //     setSongList([]);
+  //     setCurrentSong(0);
+  //     setPlaying(true);
+  //   } else {
+  //     setPlaying(!playing);
+  //     const audio = document.getElementsByTagName('audio')[0]
+  //     if (playing) {
+  //       audio.pause()
+  //     }
+  //     if (!playing) {
+  //       audio.play()
+  //     }
+  //   }
+  //   setCounter(counter + 1);
+  // }
 
   return (
     <section className="page-container">
-      <div className="songs-header">
-        <h2>Manage ssssongs</h2>
-        <div className="all-songs-info">
-          <p style={{ fontSize: 14, color: '#b3b3b3' }}>Library</p>
-          <h1 className="all-songs-title">All Songs</h1>
-          <p style={{ fontSize: 14, color: '#b3b3b3', whiteSpace: 'nowrap' }}>All the songs in our library.</p>
+      <div className="manage-songs-top">
+        <div className="songs-header">
+          <img className='manage-song-cover-img' src={manageSongCover} alt="manage-song-cover-img" />
+          <h1 className='manage-song-title'>Manage ssssongs</h1>
+        </div>
+        <div className="song-list-container">
+          <div className="song-list-info-header">
+            <p>#</p>
+            <p>Title</p>
+            <p>Album</p>
+            <p>Duration</p>
+            <p>Likes</p>
+          </div>
         </div>
       </div>
-      <div className="all-songs-list">
-        <div className="song-list-symbols">
+      {/* <div className="song-list-symbols">
           <div className="song-play-button" onClick={() => handleClick()}>
             {!playing ? <i className="fa-solid fa-play fa-2xl play-icon"></i> : <i className="fa-solid fa-pause fa-2xl play-icon"></i>}
           </div>
-        </div>
-        <div className="song-list-info-header">
-          <div className="hashtag-title">
-            <p className="hashtag">#</p>
-            <p>Title</p>
-          </div>
-          <p style={{ paddingRight: 254 }}>Album</p>
-          <div className="heart-duration">
-            <i className="fa-regular fa-clock duration-icon"></i>
-          </div>
-        </div>
-        <div className="song-info">
-          {/* {users &&
-            keys.map((id) => (
-              <SongList key={id}
-              songs={values}
-              count={id}
-              user={user.id}
-              song={songs[id]}
-              albums={albums}
-              artist={users[songs[id]['artist_id']]}
-              changePlay={setPlaying}
-              changeCount={setCounter} />
-            ))
-          } */}
-          <SongList />
-        </div>
+        </div> */}
+      <div className="song-info">
+        {/* <SongItem /> */}
+        {songs?.map((song, count) => {
+          <SongList key={songs.id}
+            songs={song}
+            user={user.id}
+          // song={songs[id]}
+          // albums={albums}
+          // artist={users[songs[id]['artist.id']]}
+          // changePlay={setPlaying}
+          // changeCount={setCounter}
+          />
+        })}
       </div>
-    </section>
+    </section >
+
   )
 }
 

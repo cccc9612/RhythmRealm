@@ -1,0 +1,47 @@
+.manage-song-cover-img {
+    height: 180px;
+    width: 180px;
+    border-radius: 4px;
+}
+
+.songs-header {
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+/* .page-container {
+    color: rgb(255, 255, 255);
+    display: block;
+    flex-direction: row;
+    justify-content: space-between
+} */
+
+.manage-song-title {
+    font-size: 60px;
+    padding-left: 30px;
+    padding-top: 50px;
+
+}
+
+.song-list-info-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #3e3d3d;
+    color: #b3b3b3;
+    font-size: 18px;
+
+}
+
+.manage-songs-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-list-container {
+    padding: 30px;
+    background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212);
+}
