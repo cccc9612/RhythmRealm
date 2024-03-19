@@ -27,7 +27,7 @@ function SearchAlbum() {
         <>
         <div>
             <input
-                type="text" 
+                type="text"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             />
@@ -41,7 +41,7 @@ function SearchAlbum() {
             <div className="album-list-container">
                 {searchAttempted? <h3>Albums</h3> : null}
                 <div className="albums-container">
-                    {albums.map((album, index) => (
+                    {albums.map((album) => (
                         <NavLink key={album.id} to={`/albums/${album.id}`}>
                             <AlbumItem album={album} />
                         </NavLink>
@@ -50,7 +50,7 @@ function SearchAlbum() {
                 </div>
             </div>
             </>
-            ) 
+            )
             }
         </div>
         </>
