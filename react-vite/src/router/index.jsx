@@ -7,6 +7,11 @@ import Layout from './Layout';
 import Home from '../components/Pages/Home';
 import ManageSongs from '../components/Pages/Manage/ManageSongs';
 import ManageAlbums from '../components/Pages/Manage/ManageAlbums';
+import AlbumList from '../components/Albums/AlbumList';
+import AlbumShowPage from '../components/Albums/AlbumShowPage';
+import AllSongList from '../components/Songs/AllSongList';
+// import SongDetails from '../components/SongDetails/SongDetails';
+
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +30,14 @@ export const router = createBrowserRouter([
         element: <SignupFormPage />,
       },
       {
+        path: "/albums",
+        element: <AlbumList />
+      },
+      {
+        path: "/albums/:albumId",
+        element: <AlbumShowPage />
+      },
+      {
         path: "/albums/new",
         element: <CreateAlbumModal />
       },
@@ -37,9 +50,18 @@ export const router = createBrowserRouter([
         element: <ManageSongs />
       },
       {
+        path: "/songs",
+        element: <AllSongList />
+      },
+      {
         path: "/songs/new",
         element: <CreateSongModal />
       },
+      // {
+      //   path: "songs/:songId",
+      //   element: <SongDetails />
+      // },
+
     ],
   },
 ]);

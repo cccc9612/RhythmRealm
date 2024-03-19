@@ -12,7 +12,7 @@ const getAllAlbumsAction = (albums) => {
 export const getAllAlbums = () => async (dispatch) => {
   const response = await fetch('/api/albums');
   const data = await response.json();
-  console.log("data======>", data)
+  // console.log("data======>", data)
 
   dispatch(getAllAlbumsAction(data.albums));
   return data
