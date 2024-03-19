@@ -24,38 +24,43 @@ function CreateAlbumModal() {
         // await dispatch()
         const data = await res.json()
         console.log(data)
-        navigate("/")        
+        navigate("/")
     }
 
     return (
-        <>
-            <h1>Create an Album</h1>
-            <form
-               onSubmit={handleSubmit}
-               encType="multipart/form-data" 
-            >
-                <label>
-                    Album Title
-                <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                </label>
-               
-                <label>
-                    Cover Image File
-                    <input 
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => setImage(e.target.files[0])}
-                    />
-                </label>
+        <div className="main-form">
+            <div className="create-container">
+                <h1>Create an Album</h1>
+                <form
+                    onSubmit={handleSubmit}
+                    encType="multipart/form-data"
+                    className="form-data"
+                >
+                    <label>
+                        Album Title
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="name-input"
+                        />
+                    </label>
 
-                <button type="submit">Submit</button>
-                {(imageLoading)&& <p>Loading...</p>}
-            </form>
-        </>
+                    <label>
+                        Cover Image File
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => setImage(e.target.files[0])}
+                            className="name-input"
+                        />
+                    </label>
+
+                    <button type="submit" id="submit_button">Submit</button>
+                    {(imageLoading) && <p>Loading...</p>}
+                </form>
+            </div>
+        </div>
     )
 }
 

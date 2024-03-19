@@ -31,31 +31,35 @@ function CreateSongModal() {
     }
 
     return (
-        <>
-            <h1>Create a Song</h1>
-            <form
-                onSubmit={handleSubmit}
-                encType="multipart/form-data"
-            >
-                <label>
-                    Song Title
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </label>
+        <div className="main-form">
+            <div className="create-container">
+                <h1 >Create a Song</h1>
+                <form
+                    onSubmit={handleSubmit}
+                    encType="multipart/form-data"
+                    className="form-data"
+                >
+                    <label>
+                        Song Title
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="name-input"
+                        />
+                    </label>
 
-                <label>
-                    Song File
-                    <input
-                        type="file"
-                        accept="audio/*"
-                        onChange={(e) => setSong(e.target.files[0])}
-                    />
-                </label>
+                    <label>
+                        Song File
+                        <input
+                            type="file"
+                            accept="audio/*"
+                            onChange={(e) => setSong(e.target.files[0])}
+                            className="name-input"
+                        />
+                    </label>
 
-                {/* <lable>
+                    {/* <lable>
                     Duration
                     <input 
                         type="text"
@@ -64,10 +68,11 @@ function CreateSongModal() {
                     />
                 </lable> */}
 
-                <button type="submit">Submit</button>
-                {(songLoading) && <p>Loading...</p>}
-            </form>
-        </>
+                    <button type="submit" id="submit_button">Submit</button>
+                    {(songLoading) && <p>Loading...</p>}
+                </form>
+            </div>
+        </div>
     )
 }
 
