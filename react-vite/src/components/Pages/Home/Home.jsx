@@ -11,7 +11,7 @@ function Home() {
   const dispatch = useDispatch();
   const songState = useSelector(state => state.song);
   const albumState = useSelector(state => state.album);
-  const songs2 = Object.values(songState?.Songs)
+  const songs = Object.values(songState?.Songs)
   const albums = Object.values(albumState?.Albums)
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function Home() {
             <span>Likes</span>
             <span>Duration</span>
           </div>
-          {songs2?.map((song, index) => {
+          {songs?.map((song, index) => {
             return (
               <div className="song-list-row" key={song.id}>
                 <SongItem song={song} index={index} />

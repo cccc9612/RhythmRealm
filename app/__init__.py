@@ -82,13 +82,13 @@ def api_help():
 
 
 ## GET 5 songs and 5 albums
-@app.route("/")
-def index():
-    all_songs=Song.query.order_by(desc(Song.created_at)).limit(5).all()
-    all_albums=Album.query.order_by(desc(Album.created_at)).limit(5).all()
-    return {'songs':[song.to_dict()for song in all_songs],
-            'albums':[album.to_dict()for album in all_albums]}
-     
+# @app.route("/")
+# def index():
+#     all_songs=Song.query.order_by(desc(Song.created_at)).limit(5).all()
+#     all_albums=Album.query.order_by(desc(Album.created_at)).limit(5).all()
+#     return {'songs':[song.to_dict()for song in all_songs],
+#             'albums':[album.to_dict()for album in all_albums]}
+
 
 
 

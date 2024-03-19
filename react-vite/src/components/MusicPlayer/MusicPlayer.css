@@ -2,3 +2,30 @@
   background-color: black;
   color:white;
 }
+
+.player-container{
+  display: grid;
+  grid-template-columns: 300px 500px 300px;
+  justify-content: space-between;
+}
+.song-player > img {
+  height: 60px;
+  width: 60px;
+  border-radius: 5px;
+  margin-left: 20px;;
+}
+
+.song-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.song-name-artist-player {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-artist-player {
+  color: grey;
+}

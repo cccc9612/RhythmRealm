@@ -18,7 +18,7 @@ def random_date_2023():
 def seed_songs():
     song1 = Song(
      songs_name = "Sunset Serenade",
-     song_url = "fakeurl-1",
+     song_url = "https://rhythm-realm-img-bucket.s3.amazonaws.com/aa96c80eed2943c89441034a13b70e78.mp3",
      artist_id = 1,
      album_id = 1,
      duration = "3:45",
@@ -26,7 +26,7 @@ def seed_songs():
     )
     song2 = Song(
      songs_name = "Moonlit Melody",
-     song_url = "fakeurl-2",
+     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
      artist_id = 1,
      album_id = 1,
      duration = "4:21",
@@ -34,7 +34,7 @@ def seed_songs():
     )
     song3 = Song(
      songs_name = "Starry Night Sonata",
-     song_url = "fakeurl-3",
+     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
      artist_id = 1,
      album_id = 2,
      duration = "2:55",
@@ -42,7 +42,7 @@ def seed_songs():
     )
     song4 = Song(
      songs_name = "Morning Dew",
-     song_url = "fakeurl-4",
+     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
      artist_id = 1,
      album_id = 2,
      duration = "3:30",
@@ -50,7 +50,7 @@ def seed_songs():
     )
     song5 = Song(
      songs_name = "City Lights Ballad",
-     song_url = "fakeurl-5",
+     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
      artist_id = 2,
      album_id = 3,
      duration = "4:10",
@@ -58,7 +58,7 @@ def seed_songs():
     )
     song6 = Song(
      songs_name = "Oceanic Overture",
-     song_url = "fakeurl-6",
+     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
      artist_id = 2,
      album_id = 3,
      duration = "5:15",
@@ -66,7 +66,7 @@ def seed_songs():
     )
     song7 = Song(
      songs_name = "Rainy Day Rhapsody",
-     song_url = "fakeurl-7",
+     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
      artist_id = 3,
      album_id = 7,
      duration = "3:50",
@@ -74,7 +74,7 @@ def seed_songs():
     )
     song8 = Song(
      songs_name ="Autumn Leaves Lullaby",
-     song_url = "fakeurl-8",
+     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
      artist_id = 3,
      album_id = 8,
      duration = "4:35",

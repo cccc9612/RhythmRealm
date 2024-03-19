@@ -28,7 +28,7 @@ export default function Layout() {
                   <LuLibrary /> Your library
                 </div>
                 <div className="playlist-list">
-                  playlistt
+                  playlist
                 </div>
               </div>
             </div>

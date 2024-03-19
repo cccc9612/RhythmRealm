@@ -48,6 +48,7 @@ class Song(db.Model):
         return {
             'id':self.id,
             'song_name':self.songs_name,
+            'song_url': self.song_url,
             'artist':self.artist,
             'album':self.album,
             'duration':self.duration,

@@ -18,11 +18,12 @@ def songs():
 @song_routes.route('/<id>')
 def individualSong(id):
     song = Song.query.get(id)
+    if not song:
+        return {"message": "This song could not be found"}, 404
     return song.to_dict()
 
 
 ## Like a song  
-
 @song_routes.route('/<int:id>/like', methods=["POST"])
 @login_required
 def likeASong(id):
@@ -37,15 +38,17 @@ def likeASong(id):
         if user not in song.likes_in_song:
                 song.likes_in_song.append(user)
                 db.session.commit()
-                return user.to_dict()
-    return "You've already liked this song!"
+                songs = Song.query.all()
+                updatedSong = [song.to_dict() for song in songs]
+                return {"songs": updatedSong}
+                # return song.to_dict()
+    return {"message": "You've already liked this song!"}
 
 
-## Dislike a song  ❗️❗️❗️
-@song_routes.route('/<int:id>/dislike', methods=['DELETE'])
+## Dislike a song
+@song_routes.route('/<int:id>/dislike', methods=['POST'])
 @login_required
 def dislikeASong(id):
-     song = Song.query.get(id)
      song = Song.query.get(id)
      if song:
          user = current_user
@@ -54,4 +57,5 @@ def dislikeASong(id):
             db.session.commit()
             songs = Song.query.all()
             updatedSong = [song.to_dict() for song in songs]
-            return updatedSong
+            return {"songs": updatedSong}
+            # return song.to_dict()

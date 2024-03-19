@@ -15,6 +15,11 @@ export default function SongList({ songs, song, albums, artist, count, changePla
     // let values = (Object.values(songs))
 
 
+    console.log(songs, changePlay, changeCount);
+
+    setSongList([]);
+    setCurrentSong("")
+
     return (
         <>
             {/* <div onClick={() => { setSongList(values); setCurrentSong(count - 1); changePlay(true); changeCount(1) }}> */}
@@ -27,7 +32,7 @@ export default function SongList({ songs, song, albums, artist, count, changePla
                     </div>
                 </div>
                 <p className="song-album-name" onClick={() => { (song.artist_id) ? navigate(`/albums/${song?.artist_id}`) : navigate(`/songs/${song.artist_id}`) }}>{albums[song.artist_id] ? albums[song.artist_id].name : song.name}</p>
-                <p>{`${minutes}:${seconds}`}</p>
+                {/* <p>{`${minutes}:${seconds}`}</p> */}
 
             </div>
             {/* </div> */}
