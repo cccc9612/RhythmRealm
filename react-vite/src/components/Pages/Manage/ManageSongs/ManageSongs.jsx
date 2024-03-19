@@ -38,8 +38,8 @@ function ManageSongs() {
   const albums = useSelector(state => state.albums)
 
   const songs = useSelector(state => state.songs)
-  // const keys = Object.keys(songs)
-  // const values = Object.values(songs)
+  const keys = Object.keys(songs)
+  const values = Object.values(songs)
   // // console.log(songs)
 
 
