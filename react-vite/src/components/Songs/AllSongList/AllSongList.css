@@ -1,0 +1,18 @@
+.prev-page-click,
+.next-page-click {
+  background-color: var(--light-black-color);
+  color:grey;
+  /* box-shadow: none; */
+  border: none;
+}
+.prev-page-click:hover,
+.next-page-click:hover {
+  color:white;
+  cursor: pointer;
+}
+
+.prev-page-click[disabled],
+.next-page-click[disabled] {
+  cursor: default;
+  color: grey;
+}

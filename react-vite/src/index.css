@@ -54,15 +54,24 @@
   padding: 10px;
   width: calc(100vw - 20px);
   padding-bottom: 10px;
+  position: relative;
+  /* padding-bottom: 10px; */
 }
 
 .sidebar-container {
-  width: 20px
-    /* display: flex;
+  width: 20px;
+  /* display: flex;
   flex-direction: column;
   row-gap: 10px; */
-    /* border: 1px solid white; */
-    /* margin-left:10px; */
+  /* border: 1px solid white; */
+  /* margin-left:10px; */
+  row-gap: 10px;
+  position: sticky;
+  top: 10px;
+  left: 0px;
+  /* border: 1px solid white; */
+  /* margin-left:10px; */
+
 }
 
 .nav-container {
@@ -87,6 +96,14 @@
   border-radius: 10px;
   padding: 15px;
   margin-top: 15px;
+  background: var(--light-black-color);
+  width: calc(400px - 20px);
+  min-height: calc(100vh - 245px);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
 
 .playlist-list {
@@ -147,4 +164,30 @@
   left: 0;
   height: 80px;
   background-color: black;
+}
+
+.page-bottom-signup {
+  background: linear-gradient(90deg, rgb(182, 2, 189), rgb(32, 126, 250));
+  /* background-color: red; */
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-bottom-signup button.modal-btn {
+  color: black;
+  width: 100px;
+  height: 44px;
+  font-weight: 800;
+  font-size: 15px;
+  background-color: white;
+  border-radius: 25px;
+  border: none
+}
+
+.page-bottom-signup .modal-btn:hover {
+  font-size: 16px;
 }

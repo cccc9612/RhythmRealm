@@ -11,6 +11,9 @@ import AlbumList from '../components/Albums/AlbumList';
 import AlbumShowPage from '../components/Albums/AlbumShowPage';
 import AllSongList from '../components/Songs/AllSongList';
 
+// import SongDetails from '../components/SongDetails/SongDetails';
+import SearchSong from '../components/SearchSong'
+import SearchAlbum from '../components/SearchAlbum';
 
 
 export const router = createBrowserRouter([
@@ -58,6 +61,18 @@ export const router = createBrowserRouter([
         element: <CreateSongModal />
       },
 
+      {
+        path: "/search/songs",
+        element: <SearchSong />
+      },
+      {
+        path: "/search/albums",
+        element: <SearchAlbum />
+      }
+      // {
+      //   path: "songs/:songId",
+      //   element: <SongDetails />
+      // },
 
     ],
   },

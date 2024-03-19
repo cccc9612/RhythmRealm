@@ -49,6 +49,7 @@ function MusicPlayer() {
           layout="stacked-reverse"
           onClickPrevious={handleClickPrevious}
           onClickNext={handleClickNext}
+          showFilledVolume={true}
           onEnded={handleClickNext}
         />
 

@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
 import { LuLibrary } from "react-icons/lu";
 import ProfileButton from "../components/Navigation/ProfileButton";
+import OpenModalButton from "../components/OpenModalButton/OpenModalButton";
+import SignupFormModal from "../components/SignupFormModal";
 import MusicPlayer from "../components/MusicPlayer";
 // import OpenModalMenuItem from "../components/Navigation/OpenModalMenuItem";
 import Navigation from "../components/Navigation/Navigation";
 
 export default function Layout() {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(thunkAuthenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
 
   return (
     <>
@@ -43,7 +47,22 @@ export default function Layout() {
             </div>
           </div>
           <div className='page-bottom-container'>
-            <MusicPlayer />
+            {sessionUser ?
+              <MusicPlayer /> :
+              (
+                <div className="page-bottom-signup">
+                  <div>
+                    <div>Preview of RR</div>
+                    <div>Sign up to get all songs.</div>
+                  </div>
+                  <OpenModalButton
+                    buttonText="Sign Up"
+                    // onButtonClick={closeMenu}
+                    modalComponent={<SignupFormModal />}
+                  />
+                </div>
+              )
+            }
           </div>
         </div>
         <Modal />

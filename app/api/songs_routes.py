@@ -9,7 +9,7 @@ song_routes = Blueprint('song', __name__)
 ## Get ten most recently created songs
 @song_routes.route('')
 def songs():
-    all_songs=Song.query.order_by(desc(Song.created_at)).limit(10).all()
+    all_songs=Song.query.order_by(desc(Song.created_at)).all()
     return {'songs':[song.to_dict()for song in all_songs]}
 
 
@@ -23,7 +23,8 @@ def individualSong(id):
     return song.to_dict()
 
 
-## Like a song  
+
+## Like a song
 @song_routes.route('/<int:id>/like', methods=["POST"])
 @login_required
 def likeASong(id):

@@ -531,6 +531,54 @@ p.hello-user:hover {
     color: gray
 }
 
+.rhap_container svg {
+    color: #fff
+}
+
+.rhap_progress-filled,
+.rhap_volume-filled {
+    background-color: var(--green-color)
+}
+
+.rhap_volume-bar {
+    background-color: #fff
+}
+
+.rhap_time {
+    color: gray
+}
+
+.rhap_skip-button svg {
+    color: gray
+}
+
+.rhap_skip-button svg:hover {
+    color: #fff
+}
+
+.rhap_progress-indicator,
+.rhap_volume-indicator {
+    visibility: hidden
+}
+
+.rhap_progress-container:hover .rhap_progress-indicator {
+    visibility: visible;
+    background-color: #fff;
+    width: 17px;
+    height: 17px
+}
+
+.rhap_volume-bar-area:hover .rhap_volume-indicator {
+    visibility: visible;
+    background-color: #fff
+}
+
+.rhap_download-progress,
+.rhap_progress-bar-show-download,
+.rhap_volume-bar {
+    background-color: #686767
+}
+
 .profile-dropdown {
     position: absolute
 }
@@ -646,10 +694,7 @@ span.album-name {
 
 .album-list-container,
 .song-list-container {
-    color: #fff;
-    font-size: 16px;
-    margin-bottom: 20px;
-    white-space: nowrap
+    padding: 10px
 }
 
 .album-list-container>h3 {
@@ -659,7 +704,16 @@ span.album-name {
 div h3 {
     font-size: 28px;
     margin-top: 15px;
-    margin-bottom: 15px
+    margin-bottom: 5px
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 5px;
+    padding-right: 5px
 }
 
 .song-list {
@@ -710,45 +764,23 @@ a {
     color: gray
 }
 
-.song-name-artist {
-    color: red
+.prev-page-click,
+.next-page-click {
+    background-color: var(--light-black-color);
+    color: gray;
+    border: none
 }
 
-.manage-song-cover-img {
-    height: 180px;
-    width: 180px;
-    border-radius: 4px
+.prev-page-click:hover,
+.next-page-click:hover {
+    color: #fff;
+    cursor: pointer
 }
 
-.songs-header {
-    padding: 30px;
-    display: flex;
-    flex-direction: row
-}
-
-.manage-song-title {
-    font-size: 60px;
-    padding-left: 30px;
-    padding-top: 50px
-}
-
-.song-list-info-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    border-bottom: 1px solid #3e3d3d;
-    color: #b3b3b3;
-    font-size: 18px
-}
-
-.manage-songs-top {
-    display: flex;
-    flex-direction: column
-}
-
-.song-list-container {
-    padding: 30px;
-    background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212)
+.prev-page-click[disabled],
+.next-page-click[disabled] {
+    cursor: default;
+    color: gray
 }
 
 :root {
@@ -764,22 +796,19 @@ a {
 }
 
 #root {
-    background-color: #000;
-    color: #b3b3b3;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
     display: flex;
     justify-content: center;
     width: 100%;
     margin: 0;
-    padding: 0
+    padding: 0;
+    background-color: #000;
+    color: #fff
 }
 
 .footer-container {
     margin-top: 30px;
     padding-top: 15px;
-    border-top: px solid grey;
+    border-top: 1px solid grey;
     margin-right: auto;
     margin-bottom: 20px;
     padding-left: 15px
@@ -796,36 +825,40 @@ a {
 
 .page-container {
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
     column-gap: 10px;
+    width: calc(100vw - 20px);
     padding: 10px;
-    width: calc(100vw - 20px)
+    position: relative
 }
 
 .sidebar-container {
-    width: 20px
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    position: sticky;
+    top: 10px;
+    left: 0
 }
 
 .nav-container {
     background: var(--light-black-color);
-    background-color: #121212;
     width: 380px;
+    border-radius: 8px;
     height: 80px;
-    border-radius: 10px;
-    padding: 15px
+    padding: 10px
 }
 
 .library-container {
     background: var(--light-black-color);
-    background-color: #121212;
     width: 380px;
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - 245px);
+    border-radius: 8px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
-    border-radius: 10px;
-    padding: 15px;
-    margin-top: 15px
+    row-gap: 10px
 }
 
 .playlist-list {
@@ -884,4 +917,29 @@ a {
     left: 0;
     height: 80px;
     background-color: #000
+}
+
+.page-bottom-signup {
+    background: linear-gradient(90deg, rgb(182, 2, 189), rgb(32, 126, 250));
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.page-bottom-signup button.modal-btn {
+    color: #000;
+    width: 100px;
+    height: 44px;
+    font-weight: 800;
+    font-size: 15px;
+    background-color: #fff;
+    border-radius: 25px;
+    border: none
+}
+
+.page-bottom-signup .modal-btn:hover {
+    font-size: 16px
 }

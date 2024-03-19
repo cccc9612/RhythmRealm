@@ -24,7 +24,12 @@ class Album(db.Model):
             'first_name': self.artist_in_album.first_name,
             'last_name': self.artist_in_album.last_name
         }
-
+        
+    @property
+    def songs(self):
+        # return [self.song_to_dict(song) for song in self.song_in_album]
+        return [song.to_dict() for song in self.song_in_album]
+       
 
     def to_dict(self):
         return {
@@ -33,5 +38,6 @@ class Album(db.Model):
             'cover_img': self.cover_img,
             'artist': self.artist,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'songs': self.songs
         }
