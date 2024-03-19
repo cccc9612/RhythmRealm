@@ -1,3 +1,8 @@
 .profile-dropdown {
   position: absolute;
 }
+
+.search-button-songs,
+.search-button-albums {
+  padding: 3px
+}

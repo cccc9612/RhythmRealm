@@ -11,6 +11,12 @@ function Navigation() {
       </div>
       <div>
         <IoSearchOutline />
+        <button className="search-button-songs">
+          <NavLink to="/search/songs">Songs</NavLink>
+        </button>
+        <button className="search-button-albums">
+          <NavLink to="/search/albums">Albums</NavLink>
+        </button>
       </div>
 
     </div>
