@@ -9,7 +9,7 @@ import ManageSongs from '../components/Pages/Manage/ManageSongs';
 import ManageAlbums from '../components/Pages/Manage/ManageAlbums';
 import AlbumList from '../components/Albums/AlbumList';
 import AlbumShowPage from '../components/Albums/AlbumShowPage';
-import SongList from '../components/Songs/SongList';
+import AllSongList from '../components/Songs/AllSongList';
 
 export const router = createBrowserRouter([
   {
@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/songs",
-        element: <SongList />
+        element: <AllSongList />
       },
       {
         path: "/songs/new",
