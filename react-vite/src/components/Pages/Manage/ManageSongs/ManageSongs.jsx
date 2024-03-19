@@ -1,14 +1,21 @@
-import { useEffect, useContext, useState } from "react";
+// function ManageSongs() {
+//   return <h2>Manages Songsaaaa</h2>
+// }
+
+
+
 import { useDispatch, useSelector } from "react-redux";
-import { loadSongsThunk } from "../../../../redux/song";
-import { loadAlbumsThunk } from "../../../../redux/album";
+import { useEffect, useContext, useState } from "react";
+import { getAllSongs } from "../../../../redux/song";
+import { getAllAlbums } from "../../../../redux/album";
 import { loadUsersThunk } from "../../../../redux/user";
 import { MusicContext } from "../../../../context/MusicContext";
 import SongList from "../../../Songs/SongList/SongList";
 import { useNavigate } from "react-router-dom";
 import { IndexContext } from "../../../../context/IndexContext";
 
-export default function ManageSongs() {
+
+function ManageSongs() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [songList, setSongList] = useContext(MusicContext);
@@ -18,8 +25,8 @@ export default function ManageSongs() {
   if (currentSong) currentSong
 
   useEffect(() => {
-    dispatch(loadSongsThunk())
-    dispatch(loadAlbumsThunk())
+    dispatch(getAllSongs())
+    dispatch(getAllAlbums())
     dispatch(loadUsersThunk())
   }, [dispatch])
 
@@ -27,25 +34,28 @@ export default function ManageSongs() {
 
   const user = useSelector(state => state.session.user)
   if (!user) navigate('/')
-  const songs = useSelector(state => state.songs)
-  const albums = useSelector(state => state.albums)
   const users = useSelector(state => state.users)
-  const keys = Object.keys(songs)
+  const albums = useSelector(state => state.albums)
 
-  const songers = Object.values(songs)
+  const songs = useSelector(state => state.songs)
+  // const keys = Object.keys(songs)
+  // const values = Object.values(songs)
+  // // console.log(songs)
+
+
   const handleClick = () => {
     if (counter == 0) {
-      setSongList(songers);
+      setSongList(values);
       setCurrentSong(0);
       setPlaying(true);
     } else {
       setPlaying(!playing);
-      const audi = document.getElementsByTagName('audio')[0]
+      const audio = document.getElementsByTagName('audio')[0]
       if (playing) {
-        audi.pause()
+        audio.pause()
       }
       if (!playing) {
-        audi.play()
+        audio.play()
       }
     }
     setCounter(counter + 1);
@@ -55,7 +65,6 @@ export default function ManageSongs() {
     <section className="page-container">
       <div className="songs-header">
         <h2>Manage ssssongs</h2>
-        {/* <img className='all-songs-cover' src={songCover} alt="all-songs-cover" /> */}
         <div className="all-songs-info">
           <p style={{ fontSize: 14, color: '#b3b3b3' }}>Library</p>
           <h1 className="all-songs-title">All Songs</h1>
@@ -79,13 +88,24 @@ export default function ManageSongs() {
           </div>
         </div>
         <div className="song-info">
-          {users &&
+          {/* {users &&
             keys.map((id) => (
-              <SongList key={id} songs={songers} count={id} user={user.id} song={songs[id]} albums={albums} artist={users[songs[id]['artist_id']]} changePlay={setPlaying} changeCount={setCounter} />
+              <SongList key={id}
+              songs={values}
+              count={id}
+              user={user.id}
+              song={songs[id]}
+              albums={albums}
+              artist={users[songs[id]['artist_id']]}
+              changePlay={setPlaying}
+              changeCount={setCounter} />
             ))
-          }
+          } */}
+          <SongList />
         </div>
       </div>
     </section>
   )
 }
+
+export default ManageSongs;

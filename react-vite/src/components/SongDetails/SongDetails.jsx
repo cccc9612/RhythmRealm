@@ -1,7 +1,7 @@
-import { loadOneSongThunk } from "../../redux/song";
+// import { loadOneSongThunk } from "../../redux/song";
 import { loadUsersThunk } from "../../redux/user";
-import { loadOneAlbumThunk } from "../../redux/album";
-import { useEffect, useContext, useState } from "react";
+// import { loadOneAlbumThunk } from "../../redux/album";
+import { useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ export default function SongDetails() {
     const album = useSelector(state => state.albums[song?.album_id])
     // const userId = useSelector(state => state.session.user)
     const liked = useSelector(state => state.collection[songId])
-    const [songLiked, setSongLiked] = useState(liked)
+    // const [songLiked, setSongLiked] = useState(liked)
     console.log(liked, songList)
 
     const minutes = Math.floor(song?.duration / 60)
