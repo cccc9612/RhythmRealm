@@ -19,4 +19,6 @@ def all_albums():
 @album_routes.route("/<int:id>")
 def album_detail(id):
     album = Album.query.get(id)
+    if not album:
+        return {"message": "This album could not be found"}, 404
     return album.to_dict()
