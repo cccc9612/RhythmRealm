@@ -1,3 +1,63 @@
-form.input {
+/* form.input {
     color: black;
+} */
+
+.form-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name-input {
+    color: white;
+    background-color: rgb(19, 17, 17);
+    font-size: 16px;
+    margin-top: 5px;
+    padding: 8px 5px 10px;
+    border: 1px #b3b3b3 solid;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.name-inputs:hover {
+    border: 1px solid white;
+}
+
+#submit_button {
+    color: black;
+    background-color: #099404;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+    width: 450px;
+    height: 50px;
+}
+
+#submit_button:hover {
+    font-size: 22px;
+}
+
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 100px;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+.create-container {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 50px;
+    gap: 20px;
+    border-radius: 10px;
 }
