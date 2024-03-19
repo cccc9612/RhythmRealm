@@ -10,12 +10,12 @@ from io import BytesIO
 
 user_routes = Blueprint('users', __name__)
 
-def duration_cal(duration_seconds) {
+def duration_cal(duration_seconds):
     min = int(duration_seconds // 60)
     sec = int(duration_seconds % 60)
-    duration_str = f"{min}:{sec}"
-    return du
-}
+    duration_str = f"{min}:{sec:02d}"
+    return duration_str
+
 
 @user_routes.route('/')
 @login_required
@@ -108,16 +108,16 @@ def updateAlbum(id):
             if form.name.data:
                 target_album.name = form.name.data
             if form.cover_img.data:
-                # cover_img = form.cover_img.data
-                # cover_img.filename = get_unique_filename(cover_img.filename)
-                # upload = upload_file_to_s3(cover_img)
-                # print("upload", upload)
+                cover_img = form.cover_img.data
+                cover_img.filename = get_unique_filename(cover_img.filename)
+                upload = upload_file_to_s3(cover_img)
+                print("upload", upload)
                 
-                # if "url" not in upload:
-                #     return form.errors
-                # url = upload["url"]
-                # target_album.cover_img = url  
-                target_album.cover_img = form.cover_img.data
+                if "url" not in upload:
+                    return form.errors
+                url = upload["url"]
+                target_album.cover_img = url  # for aws test
+                # target_album.cover_img = form.cover_img.data # for postman test
             db.session.commit()
             
             updated_album = Album.query.get(id)
@@ -179,7 +179,7 @@ def createSong():
         res = requests.get(url)
         mp3_data = BytesIO(res.content)
         audio = MP3(mp3_data)
-        newDuration = audio.info.length
+        newDuration = duration_cal(audio.info.length)
         new_song = Song(
             songs_name = form.songs_name.data,
             song_url = url,
@@ -214,18 +214,21 @@ def updateSong(id):
     if form.validate_on_submit():
         if target_song:
             if form.song_url.data:
-                # song_url = form.song_url.data
-                # song_url.filename = get_unique_filename(song_url.filename)
-                # upload = upload_file_to_s3(song_url)
-                # print("upload", upload)
+                song_url = form.song_url.data
+                song_url.filename = get_unique_filename(song_url.filename)
+                upload = upload_file_to_s3(song_url)
+                print("upload", upload)
             
-                # if "url" not in upload:
-                #     return form.errors
-                # url = upload["url"]
-                # newDuration = MP3(url).info.length
-                target_song.song_url = form.song_url.data 
-                # target_song.song_url = url ===>for aws
-                target_song.duration = "3:20" #hard coding!!!
+                if "url" not in upload:
+                    return form.errors
+                url = upload["url"]
+                res = requests.get(url)
+                mp3_data = BytesIO(res.content)
+                audio = MP3(mp3_data)
+                newDuration = duration_cal(audio.info.length)
+                # target_song.song_url = form.song_url.data # for postman test
+                target_song.song_url = url
+                target_song.duration = newDuration
             if form.songs_name.data:
                 target_song.songs_name = form.songs_name.data
             db.session.commit()
@@ -254,9 +257,35 @@ def deleteSong(id):
     if target_song:
         db.session.delete(target_song)
         db.session.commit()
-        # remove_file_from_s3(target_song.song_url)
+        remove_file_from_s3(target_song.song_url)
         return {"message":"Successful delete!"}, 200
     # else:
     #     return "This song could not be found", 404 #return errors?
         
+        
+# add a song to an album
+@user_routes.route("/current/songs/<int:songid>/add/<int:albumid>", methods=["PUT"])
+@login_required
+def addSongToAlbum(songid, albumid):
+    target_song = Song.query.get(songid)
+    target_album = Album.query.get(albumid)
+    user = current_user.to_dict()
+    
+    if not target_song:
+        return {"message": "This song could not be found"}, 404
+    
+    if not target_album:
+        return {"message": "This album could not be found"}, 404
+    
+    if user["id"] != target_song.to_dict()["artist"]["id"]:
+        return {"message": "unauthorized"}, 401
+    
+    if user["id"] != target_album.to_dict()["artist"]["id"]:
+        return {"message": "unauthorized"}, 401
+    
+    if target_song:
+        target_song.album_id = target_album.to_dict()["artist"]["id"]
+        db.session.commit()
+        return target_song.to_dict()
+    
     
