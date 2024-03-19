@@ -29,6 +29,7 @@ zipp = "==3.17.0"
 boto3 = "*"
 mutagen = "*"
 wtforms = {version = "*", extras = ["email"]}
+requests = "*"
 
 [dev-packages]
 

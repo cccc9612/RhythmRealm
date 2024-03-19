@@ -54,13 +54,15 @@ This page displays individual album with associated songs and likes, a logged in
 
  If the logged in user owns the album or the songs, this page also displays an update and delete button. 
 
-* `GET /users/current`
+* `GET /users/current`(get current user)
+* `GET /users/current/albums`
 * `POST /users/current/albums`
-* `PUT /users/current/albums/:id`
-* `DELETE /users/current/albums/:id`
+* `PUT /users/current/albums/:id/update`
+* `DELETE /users/current/albums/:id/delete`
+* `GET /users/current/songs`
 * `POST /users/current/songs`
-* `PUT /users/current/songs/:id`
-* `DELETE /users/current/songs/:id`
+* `PUT /users/current/songs/:id/update`
+* `DELETE /users/current/songs/:id/delete`
 
 
 ## `/search/:params`
