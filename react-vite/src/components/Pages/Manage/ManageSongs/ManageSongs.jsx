@@ -80,17 +80,18 @@ function ManageSongs() {
         </div> */}
       <div className="song-info">
         {/* <SongItem /> */}
-        {songs?.map((song, count) => {
+        {songs?.map((song, count) =>
           <SongList key={songs.id}
-            songs={song}
-            user={user.id}
+            song={song}
+            count={count}
+            // user={user.id}
           // song={songs[id]}
           // albums={albums}
           // artist={users[songs[id]['artist.id']]}
           // changePlay={setPlaying}
           // changeCount={setCounter}
           />
-        })}
+        )}
       </div>
     </section >
 

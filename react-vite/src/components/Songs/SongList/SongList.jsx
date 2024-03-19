@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import { MusicContext } from '../../../context/MusicContext'
 import { IndexContext } from '../../../context/IndexContext'
 
-function SongList({ song }) {
+function SongList({ song, count }) {
     // const navigate = useNavigate()
     // const [songList, setSongList] = useContext(MusicContext)
     // // const [currentSong, setCurrentSong] = useContext(IndexContext)
@@ -13,10 +13,11 @@ function SongList({ song }) {
     // setSongList([]);
     // setCurrentSong("")
 
+
     return (
         <>
             {/* <div onClick={() => { setSongList(values); setCurrentSong(count - 1); changePlay(true); changeCount(1) }}> */}
-            {/* 
+            {/*
             {console.log("song:", song)}
             {console.log("song name:", song?.song_name)}
             {console.log("artist:", song?.artist)}
