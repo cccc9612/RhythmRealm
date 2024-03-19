@@ -34,7 +34,8 @@
   color: white;
 }
 
-.rhap_progress-filled {
+.rhap_progress-filled,
+.rhap_volume-filled {
   /* color: green; */
   background-color: var(--green-color);
 }
@@ -58,17 +59,26 @@
   color: white;
 }
 
-.rhap_progress-indicator {
+.rhap_progress-indicator,
+.rhap_volume-indicator {
   visibility: hidden;
 }
 
 .rhap_progress-container:hover .rhap_progress-indicator {
   visibility: visible;
   background-color: white;
+  width: 17px;
+  height: 17px;
+}
+
+.rhap_volume-bar-area:hover .rhap_volume-indicator {
+  visibility: visible;
+  background-color: white;
 }
 
 .rhap_download-progress,
-.rhap_progress-bar-show-download {
+.rhap_progress-bar-show-download,
+.rhap_volume-bar {
   background-color: #686767;
 }
 
