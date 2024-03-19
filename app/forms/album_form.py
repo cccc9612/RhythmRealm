@@ -7,6 +7,6 @@ from wtforms.validators import DataRequired, ValidationError
 
 class CreateAlbumForm(FlaskForm):
     name = StringField("Album Title", validators=[DataRequired()])
-    cover_img = StringField("Cover Image File", validators=[DataRequired()])
-    # cover_img = FileField("Cover Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
+    # cover_img = StringField("Cover Image File", validators=[DataRequired()]) # for postman test
+    cover_img = FileField("Cover Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))]) # for aws test
     submit = SubmitField("Submit")
