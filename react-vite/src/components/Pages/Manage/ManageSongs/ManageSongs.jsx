@@ -42,10 +42,15 @@ function ManageSongs() {
   // const values = Object.values(songs)
   // // console.log(songs)
 
+  console.log(users);
+  console.log(albums);
+  console.log(songs);
+
 
   const handleClick = () => {
     if (counter == 0) {
-      setSongList(values);
+      // setSongList(values);
+      setSongList([]);
       setCurrentSong(0);
       setPlaying(true);
     } else {

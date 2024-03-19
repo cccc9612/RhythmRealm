@@ -10,7 +10,8 @@ import ManageAlbums from '../components/Pages/Manage/ManageAlbums';
 import AlbumList from '../components/Albums/AlbumList';
 import AlbumShowPage from '../components/Albums/AlbumShowPage';
 import AllSongList from '../components/Songs/AllSongList';
-import SongDetails from '../components/SongDetails/SongDetails';
+// import SongDetails from '../components/SongDetails/SongDetails';
+
 
 export const router = createBrowserRouter([
   {
@@ -56,10 +57,10 @@ export const router = createBrowserRouter([
         path: "/songs/new",
         element: <CreateSongModal />
       },
-      {
-        path: "songs/:songId",
-        element: <SongDetails />
-      },
+      // {
+      //   path: "songs/:songId",
+      //   element: <SongDetails />
+      // },
 
     ],
   },
