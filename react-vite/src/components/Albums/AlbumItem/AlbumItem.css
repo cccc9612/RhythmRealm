@@ -16,6 +16,7 @@
   /* padding-bottom: 8px;
   margin-bottom: 50px; */
   /* margin-top: 13px; */
+  width: calc((99vw - 515px) / 5 );
   padding: 8px;
 }
 
@@ -26,9 +27,9 @@
 
 .album-card-container>img {
   object-fit: cover;
-  width: calc((99vw - 490px)/5);
+  width: calc((99vw - 515px)/5);
   /* max-width: 280px; */
-  height: calc((99vw - 490px)/5);
+  height: calc((99vw - 515px)/5);
   /* max-height: 280px; */
   border-radius: 10px;
 
@@ -45,11 +46,11 @@
   text-align: center;
   padding: 2px 8px 2px;
   position: absolute;
-  bottom: 58px;
-  right: 15px;
+  bottom: 75px;
+  right: 22px;
   width: 23px;
   height: 35px;
-  border:none;
+  border: none;
   border-radius: 35px;
   vertical-align: center;
   /* z-index: 1; */
@@ -60,6 +61,12 @@
 
 .album-card-container:hover .tooltiptext {
   visibility: visible;
+  box-shadow: 2px 2px 2px var(--light-black-color);
+}
+
+.album-card-container:hover .tooltiptext:hover {
+  width: 25px;
+  height: 37px;
 }
 
 .album-card-name-artist {

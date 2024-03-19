@@ -40,6 +40,7 @@
   position: relative;
   width: 100vw;
   height: auto;
+  background-color: black;
 }
 
 .page-container {
@@ -47,8 +48,8 @@
   align-items: flex-start;
 
   column-gap: 10px;
-  width: calc(100vw - 20px);
-  padding-top: 10px;
+  width: calc( 100vw - 20px );
+  padding: 10px;
   /* padding-bottom: 10px; */
 }
 
@@ -58,7 +59,7 @@
   flex-direction: column;
   row-gap: 10px;
   /* border: 1px solid white; */
-  margin-left:18px;
+  /* margin-left:10px; */
 }
 
 .nav-container {
@@ -88,7 +89,7 @@
 }
 
 .song-album-list-container {
-  width: calc(100vw - 445px);
+  width: calc(100vw - 430px);
   min-height: calc(100vh - 20px);
   background: var(--light-black-color);
   border-radius: 8px;
@@ -136,6 +137,6 @@
   position: sticky;
   bottom: 0;
   left: 0;
-  height: 70px;
+  height: 80px;
   background-color: black;
 }

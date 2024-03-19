@@ -4,6 +4,11 @@
   border-radius: 5px;;
 }
 
+.song-list-row a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
 .song-name {
   color: white;
 }
