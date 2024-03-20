@@ -21,7 +21,6 @@ function CreateAlbumModal() {
             body: formData
         });
         setImageLoading(true);
-        // await dispatch()
         const data = await res.json()
         console.log(data)
         navigate("/")

@@ -9,7 +9,7 @@ function SongItem({ song, index }) {
         <>
             <span className="first-col">{index + 1}</span>
             <span className="second-col">
-                <img src={song.album?.cover_img} />
+                <img src={song.album?.cover_img? `${song.album?.cover_img}`: "https://live.staticflickr.com/65535/53600353900_d12bfa5f73_k.jpg"} />
                 <span className="song-name-artist">
                     <span className="song-name">{song.song_name}</span>
                     <span>{song.artist.first_name} {song.artist.last_name}</span>

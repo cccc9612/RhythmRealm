@@ -46,7 +46,7 @@ function SearchAlbum() {
             <div className="album-list-container">
                 {searchAttempted? <h3>Albums</h3> : null}
                 <div className="albums-container">
-                    {albums.map((album, index) => (
+                    {albums.map((album) => (
                         <NavLink key={album.id} to={`/albums/${album.id}`}>
                             <AlbumItem album={album} />
                         </NavLink>
