@@ -33,7 +33,7 @@ function CreateSongModal() {
     return (
         <div className="main-form">
             <div className="create-container">
-                <h1 >Create a Song</h1>
+                <h1 >Upload a Song</h1>
                 <form
                     onSubmit={handleSubmit}
                     encType="multipart/form-data"

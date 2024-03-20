@@ -5,7 +5,8 @@
 }
 
 .songs-header {
-    padding: 30px;
+    padding: 20px;
+    margin-bottom: -20px;
     display: flex;
     flex-direction: row;
 
@@ -26,7 +27,8 @@
 
 }
 
-.song-list-info-header {
+.song-list-info-header,
+.song-list-row {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -34,8 +36,12 @@
     color: #b3b3b3;
     font-size: 18px;
     padding: 30px;
-    background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212);
+}
 
+.first-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .manage-songs-top {
@@ -61,4 +67,30 @@
 .song-id {
     display: flex;
     flex-direction: column;
+}
+
+.manage-song-upload-button button {
+    cursor: pointer;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    border: 0px;
+    background-color: #09090900;
+    margin-right: 5px;
+}
+
+.manage-song-upload-button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-top: -40px;
+    font-size: 15px;
+}
+
+.bottom-section {
+    background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212);
+
 }

@@ -14,7 +14,9 @@ function SongDropdown({ song }) {
 
     const toggleMenu = (e) => {
         e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
+        // console.log('byeeeeee')
         setShowMenu(!showMenu);
+        // console.log('heloooooo')
     }
 
     useEffect(() => {
@@ -33,55 +35,46 @@ function SongDropdown({ song }) {
 
     const closeMenu = () => setShowMenu(false);
 
-    const isOwner = song.artist_id == user.id
+    const owner = song.artist_id == user.id
 
     return (
         <>
-            <span onClick={toggleMenu}>
-                <i style={{ fontSize: 28 }} className="fa-solid fa-ellipsis playlist-icon"></i>
-            </span>
-            {showMenu && (
-                <span className="playlist-dropdown" ref={ulRef}>
-                    {user && (
-                        <>
-                            <div className="playlist-delete-drop">
-                                <i style={{ color: '#b3b3b3', paddingRight: 0 }} className="fa-solid fa-square-plus bar-icon"></i>
-                                <span className="album-dropdown-item">
-                                    <OpenModalMenuItem
-                                        itemText="Add to Playlist"
-                                        onItemClick={closeMenu}
-                                        modalComponent={<AddtoPlaylistModal song={song} />} />
-                                </span>
-                            </div>
-                            {isOwner && (
-                                <div className="playlist-delete-drop">
-                                    <i style={{ color: '#b3b3b3', paddingRight: 0 }} className="fa-solid fa-square-plus bar-icon"></i>
-                                    <span className="album-dropdown-item">
-                                        <OpenModalMenuItem itemText='Add to Album' onItemClick={closeMenu} modalComponent={<AddToAlbum song={song} />} />
-                                    </span>
-                                </div>
-                            )}
-                            {isOwner && (
-                                <>
+            <span>
+                <i style={{ fontSize: 25 }} className="fa-solid fa-ellipsis" onClick={toggleMenu}></i>
+                {showMenu && (
+                    <span className="manage-song-dropdown" ref={ulRef}>
+                        {user && (
+                            <>
+                                {owner && (
                                     <div className="playlist-delete-drop">
-                                        <i className="fa-solid fa-pen"></i>
-                                        <span className="album-dropdown-item" onClick={() => navigate(`/songs/${song.id}/update`)}>Update</span>
-                                    </div>
-                                    <div className="playlist-delete-drop">
-                                        <i className="fa-solid fa-circle-minus"></i>
+                                        <i className="fa-solid fa-square-plus bar-icon"></i>
                                         <span className="album-dropdown-item">
-                                            <OpenModalMenuItem
-                                                itemText="Delete"
-                                                onItemClick={closeMenu}
-                                                modalComponent={<DeleteSong song={song} />} />
+                                            <OpenModalMenuItem itemText='Add to Album' onItemClick={closeMenu} modalComponent={<AddToAlbum song={song} />} />
                                         </span>
                                     </div>
-                                </>
-                            )}
-                        </>
-                    )}
-                </span>
-            )}
+                                )}
+                                {owner && (
+                                    <>
+                                        <div className="playlist-delete-drop">
+                                            <i className="fa-solid fa-pen"></i>
+                                            <span className="album-dropdown-item" onClick={() => navigate(`/current/songs/${song.id}/update`)}>Update</span>
+                                        </div>
+                                        <div className="playlist-delete-drop">
+                                            <i className="fa-solid fa-circle-minus"></i>
+                                            <span className="album-dropdown-item">
+                                                <OpenModalMenuItem
+                                                    itemText="Delete"
+                                                    onItemClick={closeMenu}
+                                                    modalComponent={<DeleteSong song={song} />} />
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
+                            </>
+                        )}
+                    </span>
+                )}
+            </span>
         </>
     )
 

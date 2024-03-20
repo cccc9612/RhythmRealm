@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { FaUserCircle } from 'react-icons/fa';
 import { thunkLogout } from "../../redux/session";
 // import OpenModalMenuItem from "./OpenModalMenuItem";
 import OpenModalButton from "../OpenModalButton/OpenModalButton";
@@ -87,7 +86,7 @@ function ProfileButton() {
               <p onClick={manageAlbums}>Manage Albums</p>
               <p onClick={logout}>Log out</p>
             </>
-          ) }
+          )}
         </ul>
       )}
     </>

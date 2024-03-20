@@ -1,6 +1,7 @@
 const GET_ALL_SONGS = 'song/getAllSongs';
 const GET_SINGLE_SONG = 'song/getSingleSong'
 const DELETE_SONG = 'song/deleteSong';
+const ADD_A_SONG = 'song/addSong'
 
 // action
 const getAllSongsAction = (songs) => {
@@ -23,6 +24,15 @@ const deleteSong = (songId) => {
     songId
   }
 }
+
+const addSong = (song) => {
+  return {
+    type: ADD_A_SONG,
+    song
+  }
+}
+
+
 
 // Thunk Creators
 export const getAllSongs = () => async (dispatch) => {
@@ -60,6 +70,19 @@ export const deleteSongThunk = (songId) => async (dispatch) => {
 
 }
 
+export const addSongThunk = (song) => async (dispatch) => {
+  const res = await fetch('/api/songs/new', {
+    method: "POST",
+    body: song
+  })
+
+  if (res.ok) {
+    const data = await res.json()
+    dispatch(addSong(data))
+    return data
+  }
+
+}
 
 
 

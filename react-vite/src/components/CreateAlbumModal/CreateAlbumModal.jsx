@@ -47,7 +47,7 @@ function CreateAlbumModal() {
                     </label>
 
                     <label>
-                        Cover Image File
+                        Cover Image
                         <input
                             type="file"
                             accept="image/*"

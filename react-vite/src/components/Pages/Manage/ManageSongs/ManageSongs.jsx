@@ -38,54 +38,56 @@ function ManageSongs() {
 
 
   // Switch between play and pause function:
-  // const handleClick = () => {
-  //   if (counter == 0) {
-  //     // setSongList(values);
-  //     setSongList([]);
-  //     setCurrentSong(0);
-  //     setPlaying(true);
-  //   } else {
-  //     setPlaying(!playing);
-  //     const audio = document.getElementsByTagName('audio')[0]
-  //     if (playing) {
-  //       audio.pause()
-  //     }
-  //     if (!playing) {
-  //       audio.play()
-  //     }
-  //   }
-  //   setCounter(counter + 1);
-  // }
+  const handleClick = () => {
+    if (counter == 0) {
+      // setSongList(values);
+      setSongList([]);
+      setCurrentSong(0);
+      setPlaying(true);
+    } else {
+      setPlaying(!playing);
+      const audio = document.getElementsByTagName('audio')[0]
+      if (playing) {
+        audio.pause()
+      }
+      if (!playing) {
+        audio.play()
+      }
+    }
+    setCounter(counter + 1);
+  }
 
   return (
     <section className="manage-song-container">
       <div className="manage-songs-top">
         <div className="songs-header">
           <img className='manage-song-cover-img' src={manageSongCover} alt="manage-song-cover-img" />
-          <h1 className='manage-song-title'>Manage ssssongs</h1>
+          <h1 className='manage-song-title'>Manage Songs</h1>
         </div>
+        <div className="manage-song-upload-button">
+          <button className="fa-solid fa-upload" onClick={() => navigate(`/songs/new`)}></button>
+          <span>Upload</span>
+        </div>
+
+      </div>
+      <div className="bottom-section">
         <div className="song-list-info-header">
           <p>#</p>
           <p>Title</p>
           <p>Album</p>
           <p>Duration</p>
         </div>
+        {songs?.map((song, count) => {
+          return (
+            <div className="song-list-row" key={songs.id}>
+              <SongList key={songs.id}
+                song={song}
+                count={count + 1} />
+            </div>
+          )
+        })}
+
       </div>
-      {/* <div className="song-list-symbols">
-          <div className="song-play-button" onClick={() => handleClick()}>
-            {!playing ? <i className="fa-solid fa-play fa-2xl play-icon"></i> : <i className="fa-solid fa-pause fa-2xl play-icon"></i>}
-          </div>
-        </div> */}
-      {songs?.map((song, count) => {
-        return (
-          <div className="song-list-row" key={songs.id}>
-            <SongList key={songs.id}
-              song={song}
-              count={count + 1} />
-          </div>
-        )
-      })}
-      <SongDropdown song={songs} />
     </section >
 
   )
