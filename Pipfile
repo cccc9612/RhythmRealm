@@ -30,6 +30,7 @@ boto3 = "*"
 mutagen = "*"
 wtforms = {version = "*", extras = ["email"]}
 requests = "*"
+email-validator = "*"
 
 [dev-packages]
 
