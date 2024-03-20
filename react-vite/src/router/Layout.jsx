@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
 import { LuLibrary } from "react-icons/lu";
+// import { loadPlaylistAction, setPlayIndexAction } from "../redux/playlist";
+// import { getAllSongs } from '../redux/song';
 import ProfileButton from "../components/Navigation/ProfileButton";
 import OpenModalButton from "../components/OpenModalButton/OpenModalButton";
 import SignupFormModal from "../components/SignupFormModal";
@@ -15,6 +17,10 @@ export default function Layout() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
+  // const playlistState = useSelector(state => state.playlist);
+  // const playlist = Object.values(playlistState?.Songs)
+  // const playIndex = playlistState?.index;
+  // const [songIndex, setSongIndex] = useState(playIndex || 0)
   useEffect(() => {
     dispatch(thunkAuthenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
