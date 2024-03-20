@@ -2,11 +2,12 @@ import { useState } from "react";
 import { thunkLogin } from "../../redux/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { FaCircleExclamation } from "react-icons/fa6";
 import "./LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
+  const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
@@ -16,7 +17,7 @@ function LoginFormModal() {
 
     const serverResponse = await dispatch(
       thunkLogin({
-        email,
+        credential,
         password,
       })
     );
@@ -29,7 +30,7 @@ function LoginFormModal() {
   };
 
   const DemoUserLogin = () => {
-    setEmail("demo@aa.io");
+    setCredential("demo@aa.io");
     setPassword("password");
   }
 
@@ -42,11 +43,15 @@ function LoginFormModal() {
         </label>
         <input
           type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={credential}
+          onChange={(e) => setCredential(e.target.value)}
+          placeholder="Email or username"
           required
         />
-        {errors.email && <p>{errors.email}</p>}
+        <p>{errors.credential &&
+          (<><FaCircleExclamation color="#f15e6c" />
+            {" " + errors.credential} </>)
+          }</p>
         <label>
           Password
         </label>
@@ -54,11 +59,14 @@ function LoginFormModal() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
           required
         />
-        {errors.password && <p>{errors.password}</p>}
+        <p>
+          { errors.password && <><FaCircleExclamation color="#f15e6c" /> {` ${errors.password}`} </> }
+        </p>
         <button className="submit-btn" type="submit">Log In</button>
-        <button className="Demouser-login"  onClick={DemoUserLogin} type="submit">
+        <button className="Demouser-login" onClick={DemoUserLogin} type="submit">
           Log in as Demo User
         </button>
       </form>

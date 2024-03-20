@@ -7,7 +7,13 @@
   border-radius: 10px;
   padding: 10px;
   border: none;
+  width: 600px;
+  height: 600px;
+}
 
+.login-modal-container>h1 {
+   font-size: 42px;
+   padding: 55px;
 }
 
 .login-form-container {
@@ -17,21 +23,32 @@
   align-items: center;
   /* border: solid 2px black; */
   /* border-radius: 10px; */
-  width: 300px;
+  width: 500px;
   height: auto;
-  margin: 10px;
+  margin: 8px;
   padding: 10px;
   background-color: black;
+}
+
+form label {
+  text-align: left;
+  width: 310px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 form input {
   color: balck;
   border: 1px solid grey;
   height: 25px;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: black;
   color: white;
-  padding-left: 5px;
+  padding: 5px;
+  padding-left: 12px;
+  width: 300px;
+  height: 40px;
+  font-size: 15px
 }
 
 form input:focus {
@@ -39,13 +56,22 @@ form input:focus {
   outline: none;
 }
 
+form p {
+  margin-top: 9px;
+  text-align: left;
+  width: 310px;
+  height: 20px;
+}
+
 .submit-btn {
   background-color: var(--green-color);
   border: 2px transparent;
   border-radius: 25px;
-  width: 180px;
-  height: 30px;
+  width: 320px;
+  height: 40px;
+  font-size: 18px;
   margin-top: 10px;
+  margin-bottom: 20px;;
 }
 
 .submit-btn:hover {
@@ -56,7 +82,7 @@ form input:focus {
 }
 
 .Demouser-login{
-  color: grey;
+  color: white;
   margin-top: 7px;;
   font-size: 17px;;
   text-align: center;
