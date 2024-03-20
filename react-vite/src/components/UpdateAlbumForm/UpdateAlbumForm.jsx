@@ -23,8 +23,8 @@ function UpdateAlbumForm() {
         dispatch(getSingleAlbum(albumId))
     }, [dispatch, albumId])
 
-    const handleSubmit = async() => {
-        // e.preventDefault();
+    const handleSubmit = async(e) => {
+        e.preventDefault();
         const formData = new FormData();
         if (image) {
             formData.append("cover_img", image)
@@ -36,29 +36,29 @@ function UpdateAlbumForm() {
             body: formData
         })
         const data = await res.json()
-        console.log(data)
+        console.log("data from fetch============", data)
         navigate(`/albums/${albumId}`)
     }
 
     return (
-        <div>
-            <div>
+        <div className="main-form">
+            <div className="create-container">
                 <h1>Update an Album</h1>
                 <form
                     onSubmit={handleSubmit}
                     encType="multipart/form-data"
                     className="form-data"
                 >
+                    {previewUrl && <img src={previewUrl} alt="Cover preview" style={{width: '100px', height: '100px'}} />}
                     <label>
                         Album Title
                         <input
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                        
+                            className="name-input"
                         />
                     </label>
-                    {/* {previewUrl && <img src={previewUrl} alt="Cover preview" style={{width: '100px', height: '100px'}} />} */}
                     <label>
                         Change Cover Image
                         <input
