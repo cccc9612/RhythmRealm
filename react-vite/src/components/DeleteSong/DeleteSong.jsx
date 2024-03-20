@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useModal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
 import { deleteSongThunk } from "../../redux/song";
-import "./DeleteSongModal.css"
+import "./DeleteSong.css"
 
 const DeleteSong = ({ song }) => {
     const navigate = useNavigate()

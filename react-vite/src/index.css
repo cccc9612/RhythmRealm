@@ -48,7 +48,8 @@
 
 .page-container {
   display: flex;
-  /* align-items: flex-start; */
+  align-items: flex-start;
+  /* flex-direction: column; */
   justify-content: space-between;
   column-gap: 10px;
   padding: 10px;

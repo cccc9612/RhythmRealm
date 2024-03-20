@@ -12,12 +12,12 @@
 }
 
 
-/* .page-container {
+.manage-song-container {
     color: rgb(255, 255, 255);
     display: block;
     flex-direction: row;
     justify-content: space-between
-} */
+}
 
 .manage-song-title {
     font-size: 60px;
@@ -33,6 +33,8 @@
     border-bottom: 1px solid #3e3d3d;
     color: #b3b3b3;
     font-size: 18px;
+    padding: 30px;
+    background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212);
 
 }
 
@@ -41,7 +43,22 @@
     flex-direction: column;
 }
 
-.song-list-container {
-    padding: 30px;
-    background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212);
+
+.song-info {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25px 1.8fr 1.2fr 0.5fr 1fr;
+    align-items: center;
+    column-gap: 15px;
+
+}
+
+.song-name-artist {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-id {
+    display: flex;
+    flex-direction: column;
 }
