@@ -1,6 +1,7 @@
 import { useState } from "react";
 import './SearchSong.css'
 import SongItem from "../Songs/SongItem";
+import { IoSearchOutline } from "react-icons/io5";
 
 function SearchSong() {
     const [text, setText] = useState("")
@@ -25,21 +26,25 @@ function SearchSong() {
     return (
         <>
         <div>
-            <input
-                type="text" 
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            />
-            <button
-                onClick={() => searchSongs()}
-            >
-                Search
-            </button>
+            <div className="search-album-bar-container">
+            <IoSearchOutline className="search-icon"/>
+                <input
+                    placeholder="What do you want to play?"
+                    type="text" 
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                />
+                <button
+                    onClick={() => searchSongs()}
+                >
+                    Search
+                </button>
+            </div>
             { searchAttempted && songs.length === 0 ? (<p>No results found</p>) : (
             <>
             {searchAttempted? (
                 <>
-                <h3>Songs</h3>
+                <h3 className="search-song-h3">Songs</h3>
                 <div className="song-list-row-title">
                     <span className="first-col">#</span>
                     <span>Title</span>
