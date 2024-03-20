@@ -9,14 +9,16 @@ function Navigation() {
       <div>
         <NavLink to="/"><GoHome /> Home</NavLink>
       </div>
-      <div>
+      <div className="search-container">
         <IoSearchOutline />
-        <button className="search-button-songs">
-          <NavLink to="/search/songs">Songs</NavLink>
-        </button>
-        <button className="search-button-albums">
-          <NavLink to="/search/albums">Albums</NavLink>
-        </button>
+        
+          <button className="search-button-songs">
+            <NavLink to="/search/songs">Songs</NavLink>
+          </button>
+          <button className="search-button-albums">
+            <NavLink to="/search/albums">Albums</NavLink>
+          </button>
+        
       </div>
 
     </div>
