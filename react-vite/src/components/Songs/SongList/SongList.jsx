@@ -17,13 +17,6 @@ function SongList({ song, count }) {
 
     return (
         <>
-            {/* <div onClick={() => { setSongList(values); setCurrentSong(count - 1); changePlay(true); changeCount(1) }}> */}
-            {/*
-            {console.log("song:", song)}
-            {console.log("song name:", song?.song_name)}
-            {console.log("artist:", song?.artist)}
-            {console.log("artist first name:", song?.artist?.first_name)}
-            {console.log("artist last name:", song?.artist?.last_name)} */}
             <span className="first-column">{count++}</span>
             <span className='second-col'>
                 <img src={song.album?.cover_img ? `${song.album?.cover_img}` : "https://live.staticflickr.com/65535/53600353900_d12bfa5f73_k.jpg"} />
