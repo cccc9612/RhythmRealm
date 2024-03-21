@@ -2,6 +2,7 @@ import { useState } from "react";
 import './SearchAlbum.css'
 import AlbumItem from "../Albums/AlbumItem";
 import { NavLink } from "react-router-dom";
+import { IoSearchOutline } from "react-icons/io5";
 
 
 function SearchAlbum() {
@@ -26,16 +27,20 @@ function SearchAlbum() {
     return (
         <>
         <div>
-            <input
-                type="text"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            />
-            <button
-                onClick={() => searchAlbums()}
-            >
-                Search
-            </button>
+            <div className="search-album-bar-container">
+                <IoSearchOutline className="search-icon"/>
+                <input
+                    placeholder="What do you want to play?"
+                    type="text"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                />
+                <button
+                    onClick={() => searchAlbums()}
+                >
+                    Search
+                </button>
+            </div>
             { searchAttempted && albums.length === 0 ? (<p>No results found</p>) : (
             <>
             <div className="album-list-container">

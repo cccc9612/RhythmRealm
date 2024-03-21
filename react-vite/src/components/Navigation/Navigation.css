@@ -2,7 +2,17 @@
   position: absolute;
 }
 
+.search-container {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap:10px;
+}
+
 .search-button-songs,
 .search-button-albums {
-  padding: 3px
+  padding: 3px 10px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
 }

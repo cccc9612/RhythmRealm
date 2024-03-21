@@ -1,0 +1,33 @@
+.search-album-bar-container {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    gap:10px;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left:10px;
+    top:6px;
+    z-index: 10;
+    color:gray
+}
+
+.search-album-bar-container > input {
+    padding: 6px 30px;
+    width:300px;
+    border-radius: 20px;
+    border: none;
+}
+
+.search-album-bar-container > button {
+    padding: 2px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.album-list-container > h3 {
+    margin-left: 10px;
+}
