@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
+import { FaCircleExclamation } from "react-icons/fa6";
 import "./SignupForm.css";
 
 function SignupFormModal() {
@@ -54,9 +55,10 @@ function SignupFormModal() {
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
           required
         />
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.email}</p>}
         <label>
           Username
         </label>
@@ -64,31 +66,34 @@ function SignupFormModal() {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
           required
         />
-        {errors.username && <p>{errors.username}</p>}
+        {errors.username && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.username}</p>}
 
         <label>
-          Firstname
+          First name
         </label>
         <input
           type="text"
           value={first_name}
           onChange={(e) => setFirst_Name(e.target.value)}
+          placeholder="First name"
           required
         />
-        {errors.first_name && <p>{errors.first_name}</p>}
+        {errors.first_name && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.first_name}</p>}
 
         <label>
-          Lastname
+          Last name
         </label>
         <input
           type="text"
           value={last_name}
           onChange={(e) => setLast_Name(e.target.value)}
+          placeholder="Last name"
           required
         />
-        {errors.last_name && <p>{errors.last_name}</p>}
+        {errors.last_name && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.last_name}</p>}
 
         <label>
           Password
@@ -97,9 +102,10 @@ function SignupFormModal() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
           required
         />
-        {errors.password && <p>{errors.password}</p>}
+        {errors.password && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.password}</p>}
         <label>
           Confirm Password
         </label>
@@ -107,9 +113,10 @@ function SignupFormModal() {
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder="Confirmed password"
           required
         />
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+        {errors.confirmPassword && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.confirmPassword}</p>}
         <button className="submit-btn" type="submit">Sign Up</button>
       </form>
     </div>
