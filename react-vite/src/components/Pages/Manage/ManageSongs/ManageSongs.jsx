@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useContext, useState } from "react";
-import { getAllSongs } from "../../../../redux/song";
+import { getCurrentSongs } from "../../../../redux/song";
 import { getAllAlbums } from "../../../../redux/album"
 import { MusicContext } from "../../../../context/MusicContext";
 import SongList from "../../../Songs/SongList/SongList";
@@ -16,8 +16,6 @@ function ManageSongs() {
   const navigate = useNavigate()
   const [songList, setSongList] = useContext(MusicContext);
   const [currentSong, setCurrentSong] = useContext(IndexContext);
-  const [playing, setPlaying] = useState(false);
-  const [counter, setCounter] = useState(0);
   if (currentSong) currentSong
 
 
@@ -31,7 +29,7 @@ function ManageSongs() {
   const songs = Object.values(songState?.Songs)
 
   useEffect(() => {
-    dispatch(getAllSongs())
+    dispatch(getCurrentSongs())
     dispatch(getAllAlbums())
   }, [dispatch])
   // // console.log(songs)

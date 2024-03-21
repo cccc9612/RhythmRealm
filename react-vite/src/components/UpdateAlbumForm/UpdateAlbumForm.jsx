@@ -8,7 +8,7 @@ import { getSingleAlbum } from "../../redux/album";
 function UpdateAlbumForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {albumId} = useParams();
+    const { albumId } = useParams();
     const albumState = useSelector(state => state.album)
     console.log("albumState in component===========", albumState)
     const album = albumState.Albums[albumId]
@@ -17,13 +17,13 @@ function UpdateAlbumForm() {
     const [name, setName] = useState(album?.name)
     const [image, setImage] = useState(null)
     const [previewUrl, setPreviewUrl] = useState(album?.cover_img)
-    
+
 
     useEffect(() => {
         dispatch(getSingleAlbum(albumId))
     }, [dispatch, albumId])
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         if (image) {
@@ -49,7 +49,7 @@ function UpdateAlbumForm() {
                     encType="multipart/form-data"
                     className="form-data"
                 >
-                    {previewUrl && <img src={previewUrl} alt="Cover preview" style={{width: '100px', height: '100px'}} />}
+                    {previewUrl && <img src={previewUrl} alt="Cover preview" style={{ width: '100px', height: '100px' }} />}
                     <label>
                         Album Title
                         <input
@@ -75,7 +75,7 @@ function UpdateAlbumForm() {
             </div>
         </div>
     )
-    
+
 }
 
 export default UpdateAlbumForm;

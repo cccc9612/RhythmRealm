@@ -5,13 +5,13 @@ import { deleteSongThunk } from "../../redux/song";
 import "./DeleteSong.css"
 
 const DeleteSong = ({ song }) => {
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
     const { closeModal } = useModal()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleDelete = (songId) => {
         dispatch(deleteSongThunk(songId))
-        navigate('/users/current/songs')
+        closeModal()
     }
 
     return (
@@ -19,11 +19,11 @@ const DeleteSong = ({ song }) => {
             <div className="confirmation-container">
                 <h2 className="confirmation-header">Are you sure you want to delete &quot;{`${song.song_name}`}&quot;?</h2>
                 <div className="confirmation-buttons">
-                    <button className='cancel-button' type="button" onClick={closeModal}>Cancel</button>
                     <button className="delete-button" onClick={() => {
-                        closeModal()
                         handleDelete(song.id)
+                        closeModal()
                     }}>Delete</button>
+                    <button className='cancel-button' type="button" onClick={closeModal}>Cancel</button>
                 </div>
             </div>
         </div>

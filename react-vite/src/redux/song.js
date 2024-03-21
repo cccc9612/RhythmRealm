@@ -63,6 +63,15 @@ export const getSingleSongThunk = (songId) => async (dispatch) => {
   }
 }
 
+export const getCurrentSongs = () => async (dispatch) => {
+  const response = await fetch('/api/users/current/songs', {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' }
+  });
+  const data = await response.json()
+  dispatch(getAllAlbumsAction(data.songs))
+  return data
+}
 
 
 export const addSongThunk = (song) => async (dispatch) => {
@@ -94,15 +103,13 @@ export const updateSongThunk = (song, songId) => async (dispatch) => {
 
 export const deleteSongThunk = (songId) => async (dispatch) => {
   console.log(songId)
-  const res = await fetch(`/api/users/current/songs/${songId}`, {
+  const res = await fetch(`/api/users/current/songs/${songId}/delete`, {
     method: "DELETE",
-    body: songId
+    headers: { 'Content-Type': 'application/json' }
   })
 
   if (res.ok) {
-    const data = await res.json()
     dispatch(deleteSong(songId))
-    return data
   }
 
 }
