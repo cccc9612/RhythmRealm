@@ -19,21 +19,22 @@ function MusicPlayer() {
   let playIndex = playlistState?.playIndex;
   // const sliceIndex = playlistState?.sliceIndex;
   const [songIdx, setSongIdx] = useState(playIndex || 0)
+  const [num, setNum] = useState(0)
   // const [sliceIdx, setSliceIdx] = useState(sliceIndex || 0)
 
 
   // console.log("====== playlist ===>", playlist)
   useEffect(() => {
     dispatch(getAllSongs())
-    .then((res) => {
-      // console.log("musicplayer playlist ", res.songs.slice(sliceIdx), songIndex);
-      // dispatch(loadPlaylistAction(res.songs))
-      dispatch(loadPlaylistAction(res.songs))
-    })
+      .then((res) => {
+        // console.log("musicplayer playlist ", res.songs.slice(sliceIdx), songIndex);
+        // dispatch(loadPlaylistAction(res.songs))
+        dispatch(loadPlaylistAction(res.songs))
+      })
     // dispatch(setPlayIndexAction(songIndex))
     setSongIdx(playIndex)
     console.log("$$$$$$$$$$$$$$$$$$$$")
-  }, [dispatch, playIndex])
+  }, [dispatch, playIndex, num])
 
 
   const handleClickPrevious = () => {
@@ -46,7 +47,12 @@ function MusicPlayer() {
     setSongIdx(idx)
   }
 
-  console.log("*****************", songIdx, playIndex)
+  const clickRerender = () => {
+    setNum(num + 1);
+    console.log("8888888888888888888 re4render 88888888888888888888888")
+  }
+
+  // console.log("*****************", songIdx, playIndex)
   return (
     <div className='player-container'>
       <span className="song-player">
@@ -60,7 +66,7 @@ function MusicPlayer() {
       <div>
         <AudioPlayer
           autoPlay={false}
-          style={{ width: "500px", height: "80px", backgroundColor: "black"}}
+          style={{ width: "500px", height: "80px", backgroundColor: "black" }}
           src={playlist[songIdx]?.song_url}
           onPlay={() => console.log("Playing song ", songIdx, playlist[songIdx]?.song_name)}
           showSkipControls={true}
@@ -72,6 +78,10 @@ function MusicPlayer() {
           onEnded={handleClickNext}
         />
 
+      </div>
+      <div>
+
+        <span className="rerender-btn" onClick={clickRerender}>{num}</span>
       </div>
     </div>
   )

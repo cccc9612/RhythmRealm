@@ -82,6 +82,10 @@
   background-color: #686767;
 }
 
+.rerender-btn{
+  visibility: hidden;
+}
+
 /* .rhap_play-pause-button:hover svg{} */
 
 
