@@ -6,7 +6,7 @@
   margin-top: 10px;
   display: flex;
   align-items: center;
-  gap:10px;
+  gap: 10px;
 }
 
 .search-button-songs,
@@ -15,4 +15,16 @@
   border-radius: 15px;
   border: none;
   cursor: pointer;
+}
+
+
+.logo {
+  width: 55px;
+  height: 55px
+}
+
+.homepage-logo-sec {
+  display: grid;
+  flex: row;
+  align-items: center;
 }

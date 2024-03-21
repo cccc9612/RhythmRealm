@@ -10,10 +10,12 @@ import ManageAlbums from '../components/Pages/Manage/ManageAlbums';
 import AlbumList from '../components/Albums/AlbumList';
 import AlbumShowPage from '../components/Albums/AlbumShowPage';
 import AllSongList from '../components/Songs/AllSongList';
+
 // import SongDetails from '../components/SongDetails/SongDetails';
 import SearchSong from '../components/SearchSong'
 import SearchAlbum from '../components/SearchAlbum';
 import UpdateAlbumForm from '../components/UpdateAlbumForm';
+import UpdateSong from '../components/UpdateSong/UpdateSong';
 
 export const router = createBrowserRouter([
   {
@@ -59,6 +61,7 @@ export const router = createBrowserRouter([
         path: "/songs/new",
         element: <CreateSongModal />
       },
+
       {
         path: "/search/songs",
         element: <SearchSong />
@@ -66,10 +69,14 @@ export const router = createBrowserRouter([
       {
         path: "/search/albums",
         element: <SearchAlbum />
-      }, 
+      },
       {
         path: "/albums/:albumId/edit",
         element: <UpdateAlbumForm />
+      },
+      {
+        path: "/songs/:songId/edit",
+        element: <UpdateSong />
       }
       // {
       //   path: "songs/:songId",
