@@ -104,28 +104,32 @@ def updateAlbum(id):
     if user["id"] != target_album.to_dict()["artist"]["id"]:
         return {"message": "unauthorized"}, 401
     
-    if form.validate_on_submit():
-        if target_album:
-            if form.name.data:
-                target_album.name = form.name.data
-            if form.cover_img.data:
-                cover_img = form.cover_img.data
-                cover_img.filename = get_unique_filename(cover_img.filename)
-                upload = upload_file_to_s3(cover_img)
-                print("upload", upload)
-                
-                if "url" not in upload:
-                    return form.errors
-                url = upload["url"]
-                target_album.cover_img = url  # for aws test
-                # target_album.cover_img = form.cover_img.data # for postman test
-            db.session.commit()
+    if form.name.data:
+        target_album.name = form.name.data
+        print("target_album.name=======", target_album.name)
+        
+    if form.cover_img.data:
+        if form.validate_on_submit():
+            cover_img = form.cover_img.data
+            cover_img.filename = get_unique_filename(cover_img.filename)
+            upload = upload_file_to_s3(cover_img)
+            print("upload", upload)
+            print("this should not been hit+++++++++++++")
+            if "url" not in upload:
+                return form.errors
+            url = upload["url"]
+            target_album.cover_img = url  # for aws test
+            # target_album.cover_img = form.cover_img.data # for postman test
+        else:
+            return form.errors
             
-            updated_album = Album.query.get(id)
-            updated_album_dict = updated_album.to_dict()
-            return updated_album_dict
-    else:
-        return form.errors
+    db.session.commit()
+            
+    updated_album = Album.query.get(id)
+    updated_album_dict = updated_album.to_dict()
+    print("update_album===================>", updated_album_dict)
+    return updated_album_dict
+    
     
     
 # delete an album
@@ -212,34 +216,55 @@ def updateSong(id):
     if user["id"] != target_song.to_dict()["artist"]["id"]:
         return {"message": "unauthorized"}, 401
     
-    if form.validate_on_submit():
-        if target_song:
-            if form.song_url.data:
-                song_url = form.song_url.data
-                song_url.filename = get_unique_filename(song_url.filename)
-                upload = upload_file_to_s3(song_url)
-                print("upload", upload)
+    if form.songs_name.data:
+        target_song.songs_name = form.songs_name.data
+        
+    if form.song_url.data:
+        if form.validate_on_submit():
+            song_url = form.song_url.data
+            song_url.filename = get_unique_filename(song_url.filename)
+            upload = upload_file_to_s3(song_url)
+            print("upload", upload)
             
-                if "url" not in upload:
-                    return form.errors
-                url = upload["url"]
-                res = requests.get(url)
-                mp3_data = BytesIO(res.content)
-                audio = MP3(mp3_data)
-                newDuration = duration_cal(audio.info.length)
-                # target_song.song_url = form.song_url.data # for postman test
-                target_song.song_url = url
-                target_song.duration = newDuration
-            if form.songs_name.data:
-                target_song.songs_name = form.songs_name.data
-            db.session.commit()
+            if "url" not in upload:
+                return form.errors
+            url = upload["url"]
+            res = requests.get(url)
+            mp3_data = BytesIO(res.content)
+            audio = MP3(mp3_data)
+            newDuration = duration_cal(audio.info.length)
+            # target_song.song_url = form.song_url.data # for postman test
+            target_song.song_url = url
+            target_song.duration = newDuration
+        else:
+            return form.errors
+    
+    # if form.validate_on_submit():
+    #     if target_song:
+    #         if form.song_url.data:
+    #             song_url = form.song_url.data
+    #             song_url.filename = get_unique_filename(song_url.filename)
+    #             upload = upload_file_to_s3(song_url)
+    #             print("upload", upload)
+            
+    #             if "url" not in upload:
+    #                 return form.errors
+    #             url = upload["url"]
+    #             res = requests.get(url)
+    #             mp3_data = BytesIO(res.content)
+    #             audio = MP3(mp3_data)
+    #             newDuration = duration_cal(audio.info.length)
+    #             # target_song.song_url = form.song_url.data # for postman test
+    #             target_song.song_url = url
+    #             target_song.duration = newDuration
+    #         if form.songs_name.data:
+    #             target_song.songs_name = form.songs_name.data
+    db.session.commit()
            
-            updated_song = Song.query.get(id)
-            updated_song_dict = updated_song.to_dict()
-            # print("updated_song=====================", updated_song_dict)
-            return updated_song_dict
-    else:
-        return form.errors
+    updated_song = Song.query.get(id)
+    updated_song_dict = updated_song.to_dict()
+    # print("updated_song=====================", updated_song_dict)
+    return updated_song_dict
             
             
 # delete a song

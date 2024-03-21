@@ -43,7 +43,7 @@ def likeASong(id):
                 updatedSong = [song.to_dict() for song in songs]
                 return {"songs": updatedSong}
                 # return song.to_dict()
-    return {"message": "You've already liked this song!"}
+    return {"liked": "true"}
 
 
 ## Dislike a song
