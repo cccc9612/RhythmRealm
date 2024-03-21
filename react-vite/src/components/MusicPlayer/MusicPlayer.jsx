@@ -30,6 +30,7 @@ function MusicPlayer() {
       dispatch(loadPlaylistAction(res.songs.slice(sliceIndex)))
     })
     // dispatch(setPlayIndexAction(songIndex))
+    setSongIdx(0)
   }, [dispatch, sliceIndex])
 
 
@@ -42,7 +43,7 @@ function MusicPlayer() {
     const idx = songIdx < playlist.length - 1 ? songIdx + 1 : 0;
     setSongIdx(idx)
   }
-
+  console.log("*****************", songIdx, playIndex)
   return (
     <div className='player-container'>
       <span className="song-player">
