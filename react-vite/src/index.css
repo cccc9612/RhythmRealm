@@ -84,7 +84,7 @@
   height: 80px;
   padding: 10px;
   border-radius: 10px;
-  padding: 15px;
+  /* padding: 15px; */
 }
 
 .library-container {
@@ -136,17 +136,17 @@
 
 }
 
-.title-bar>.modal-btn:first-child {
+.profile-btn-container>.modal-btn:first-child {
   color: grey;
   width: 100px;
   font-size: 15px;
-  background-color: var(--black-color);
+  background-color: #090909;
   font-weight: 800;
   border: none
 }
 
 
-.title-bar>.modal-btn:last-child {
+.profile-btn-container>.modal-btn:last-child {
   color: black;
   width: 100px;
   height: 44px;

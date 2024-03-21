@@ -315,3 +315,29 @@ def addSongToAlbum(songid, albumid):
         return target_song.to_dict()
     
     
+# remove a song from an album
+@user_routes.route("/current/albums/<int:albumid>/remove/<int:songid>", methods=["PUT"])
+@login_required
+def removeSong(albumid, songid):
+    target_song = Song.query.get(songid)
+    target_album = Album.query.get(albumid)
+    user = current_user.to_dict()
+    
+    if not target_song:
+        return {"message": "This song could not be found"}, 404
+    
+    if not target_album:
+        return {"message": "This album could not be found"}, 404
+    
+    if user["id"] != target_song.to_dict()["artist"]["id"]:
+        return {"message": "unauthorized"}, 401
+    
+    if user["id"] != target_album.to_dict()["artist"]["id"]:
+        return {"message": "unauthorized"}, 401
+    
+    if target_song:
+        target_song.album_id = None
+        db.session.commit()
+        return target_song.to_dict()
+    
+    

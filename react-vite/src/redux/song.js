@@ -4,6 +4,7 @@ const DELETE_SONG = 'song/deleteSong';
 const ADD_A_SONG = 'song/addSong'
 const UPDATE_A_SONG = 'song/updateSong'
 
+
 // action
 const getAllSongsAction = (songs) => {
   return {
@@ -104,12 +105,45 @@ export const updateSongThunk = (song, songId) => async (dispatch) => {
 export const deleteSongThunk = (songId) => async (dispatch) => {
   console.log(songId)
   const res = await fetch(`/api/users/current/songs/${songId}/delete`, {
+    // console.log(songId)
     method: "DELETE",
     headers: { 'Content-Type': 'application/json' }
   })
 
   if (res.ok) {
     dispatch(deleteSong(songId))
+  }
+
+}
+
+export const likeSongThunk = (songId) => async (dispatch) => {
+  // console.log(songId)
+  const res = await fetch(`/api/songs/${songId}/like`, {
+    method: "POST",
+    body: songId
+  })
+
+  if (res.ok) {
+    const data = await res.json()
+    // console.log("555555555555555555555555555555555", data)
+    dispatch(getAllSongs())
+    return data
+  }
+
+}
+
+export const dislikeSongThunk = (songId) => async (dispatch) => {
+  // console.log(songId)
+  const res = await fetch(`/api/songs/${songId}/dislike`, {
+    method: "POST",
+    body: songId
+  })
+
+  if (res.ok) {
+    const data = await res.json()
+    console.log("666666666666666666666666666666666", data)
+    dispatch(getAllSongs())
+    return data
   }
 
 }

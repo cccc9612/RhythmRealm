@@ -24,7 +24,8 @@ function Home() {
     dispatch(getAllSongs())
     dispatch(getAllAlbums())
   }, [dispatch]);
-
+  const audio = document.getElementsByTagName('audio')[0];
+  if (audio) audio.autoplay = false;
   return (
     <>
       <div className="song-list-container">
@@ -43,7 +44,7 @@ function Home() {
           {songs?.slice(0, limit).map((song, index) => {
             return (
               <div className="song-list-row" key={song.id}>
-                <SongItem song={song} index={index} />
+                <SongItem song={song} index={index} user={sessionUser}/>
               </div>
             )
           })}

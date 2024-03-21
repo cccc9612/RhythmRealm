@@ -4,6 +4,7 @@ import './UpdateSong.css'
 import { useDispatch, useSelector } from "react-redux"
 import { updateSongThunk } from "../../redux/song"
 import { getSingleSongThunk } from "../../redux/song"
+// import { updateSongThunk } from "../../redux/song";
 
 export default function UpdateSong() {
     const navigate = useNavigate()
@@ -12,6 +13,10 @@ export default function UpdateSong() {
     const user = useSelector(state => state.session.user)
     const song = useSelector(state => state.songs?.[id])
     const { songId } = useParams();
+    // const songState = useSelector(state => state.song)
+    const song = albumState.Songs[songId]
+    const [name, setName] = useState(album?.name)
+    const [song_file, setSongFile] = useState(null)
     const [songName, setSongName] = useState(song?.song_name)
     const [song_file, setSongFile] = useState(null)
     // const [displayFile, setDisplayFile] = useState(null)

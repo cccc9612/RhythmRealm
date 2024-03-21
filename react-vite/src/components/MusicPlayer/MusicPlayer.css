@@ -86,6 +86,10 @@
   visibility: hidden;
 }
 
+.hold.like-heart {
+  color: var(--green-color);
+}
+
 /* .rhap_play-pause-button:hover svg{} */
 
 
