@@ -26,7 +26,7 @@ function SongList({ song, count }) {
             {console.log("artist last name:", song?.artist?.last_name)} */}
             <span className="first-column">{count++}</span>
             <span className='second-col'>
-                <img src={song.album?.cover_img} />
+                <img src={song.album?.cover_img ? `${song.album?.cover_img}` : "https://live.staticflickr.com/65535/53600353900_d12bfa5f73_k.jpg"} />
                 <span className="song-name-artist">
                     <p className='song-name'>{song?.song_name}</p>
 

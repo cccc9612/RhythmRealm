@@ -9,17 +9,17 @@ import { getSingleSongThunk } from "../../redux/song"
 export default function UpdateSong() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const id = useParams().songId
     const user = useSelector(state => state.session.user)
-    const song = useSelector(state => state.songs?.[id])
+    // const song = useSelector(state => state.songs?.[id])
+    const albumState = useSelector(state => state.album)
     const { songId } = useParams();
-    // const songState = useSelector(state => state.song)
-    // const song = albumState.Songs[songId]
-    const [name, setName] = useState(album?.name)
-    const [song_file, setSongFile] = useState(null)
+    const songState = useSelector(state => state.song)
+    const song = songState.Songs[songId];
+
+    const [song_file, setSongFile] = useState(null);
     const [songName, setSongName] = useState(song?.song_name)
     // const [displayFile, setDisplayFile] = useState(null)
-    const [awsLoading, setAwsLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [errors, setErrors] = useState({})
     const [clicked, setClicked] = useState(false)
 
@@ -55,8 +55,8 @@ export default function UpdateSong() {
             formData.append("artist_id", artistId)
             formData.append("song_file_url", song_file);
             formData.append('duration', 260)
-            setAwsLoading(true);
-            await dispatch(updateSongThunk(formData, song.id));
+            setLoading(true);
+            dispatch(updateSongThunk(formData, song.id));
             navigate(`/songs/${song.id}`)
         }
     }
@@ -104,7 +104,7 @@ export default function UpdateSong() {
                     <div className="update-button">
                         <button type="submit" id="submit_button">Update Song</button>
                     </div>
-                    <div style={{ minHeight: 30 }}>{awsLoading ? <p className="loading-text">Loading...</p> : ' '}</div>
+                    <div style={{ minHeight: 30 }}>{loading ? <p className="loading-text">Loading...</p> : ' '}</div>
                 </form>
             </div>
         </div>
