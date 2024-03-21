@@ -19,12 +19,23 @@
 
 
 .logo {
-  width: 55px;
-  height: 55px
+  width: 45px;
+  height: 45px
 }
 
-.homepage-logo-sec {
-  display: grid;
-  flex: row;
+a.homepage-logo-sec {
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  column-gap: 13px;
+  justify-content: flex-start;
+  padding: 0;
+  padding-left: 5px;
+  margin: 0;
+  width: 300px;
+}
+
+span.logo-title {
+  width: 200px;
+  font-size: 30px;
 }

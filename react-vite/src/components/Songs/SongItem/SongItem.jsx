@@ -1,4 +1,5 @@
 import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { setPlayIndexAction, loadPlaylistAction } from "../../../redux/playlist";
 import { getAllSongs } from "../../../redux/song";
@@ -8,7 +9,7 @@ import { useDispatch } from "react-redux";
 
 
 
-function SongItem({ song, index }) {
+function SongItem({ song, index, user }) {
     const dispatch = useDispatch();
     // let idx = useSelector(state => state.playlist).index
     // const playlistState = useSelector(state => state.playlist);
@@ -46,6 +47,22 @@ function SongItem({ song, index }) {
             })
     }
 
+    // const
+
+    const checkLikes = (song, user) => {
+        console.log("#########################################")
+        console.log(song)
+        return song.users_like.map(el => el.id).includes(user.id)
+    }
+
+    const toggleDislike = (e) => {
+        // console.log("@@@@@@@@@@", e.currentTarget.id)
+        const like = document.getElementById(e.currentTarget.id);
+        like.innerHTML = `<span class="like-heart" ><IoMdHeartEmpty size={20} /></span>`
+    }
+    const toggleLike = (e) => {
+
+    }
 
     return (
         <>
@@ -63,7 +80,11 @@ function SongItem({ song, index }) {
 
             <span className="like-container">
                 {song.likes}
-                <span className="like-heart"><IoMdHeartEmpty size={20} /></span>
+                    {user &&
+                    checkLikes(song, user)  ?
+                    <span className="like-heart hold" id={"songitem-"+song.id} onClick={toggleDislike}><IoMdHeart size={20} /></span> :
+                    <span className="like-heart" id={"songitem-"+song.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>}
+
             </span>
             <span>{song.duration}</span>
         </>

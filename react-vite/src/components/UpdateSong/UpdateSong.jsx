@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getSingleSongThunk } from "../../redux/song"
-import { updateSongThunk } from "../../redux/song";
+// import { updateSongThunk } from "../../redux/song";
 
 function UpdateSong() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { songId } = useParams();
-    const songState = useSelector(state => state.song)
+    // const songState = useSelector(state => state.song)
     const song = albumState.Songs[songId]
     const [name, setName] = useState(album?.name)
     const [song_file, setSongFile] = useState(null)

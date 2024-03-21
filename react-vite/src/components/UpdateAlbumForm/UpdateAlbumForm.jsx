@@ -17,7 +17,7 @@ function UpdateAlbumForm() {
     const [name, setName] = useState(album?.name)
     const [image, setImage] = useState(null)
     const [previewUrl, setPreviewUrl] = useState(album?.cover_img)
-    
+
 
     useEffect(() => {
         dispatch(getSingleAlbum(albumId))
@@ -75,7 +75,7 @@ function UpdateAlbumForm() {
             </div>
         </div>
     )
-    
+
 }
 
 export default UpdateAlbumForm;

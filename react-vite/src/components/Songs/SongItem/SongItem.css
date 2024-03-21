@@ -34,3 +34,7 @@
 .like-heart:hover {
   color: green;
 }
+.song-list-row .like-heart.hold {
+  visibility: visible;
+  color: var(--green-color);
+}

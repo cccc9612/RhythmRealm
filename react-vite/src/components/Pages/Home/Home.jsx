@@ -43,7 +43,7 @@ function Home() {
           {songs?.slice(0, limit).map((song, index) => {
             return (
               <div className="song-list-row" key={song.id}>
-                <SongItem song={song} index={index} />
+                <SongItem song={song} index={index} user={sessionUser}/>
               </div>
             )
           })}

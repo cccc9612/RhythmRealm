@@ -49,7 +49,8 @@ export default function Layout() {
                   <button onClick={() => navigate(-1)} type="button" className="fa fas fa-chevron-left"></button>
                   <button onClick={() => navigate(1)} type="button" className="fa fas fa-chevron-right"></button>
                 </div>
-                <ProfileButton />
+                <div className="profile-btn-container"> <ProfileButton /></div>
+
               </div>
               <div> {isLoaded && <Outlet />}</div>
               <div className="footer-container">

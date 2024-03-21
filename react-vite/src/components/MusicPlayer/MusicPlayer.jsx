@@ -56,7 +56,7 @@ function MusicPlayer() {
   return (
     <div className='player-container'>
       <span className="song-player">
-        <img src={playlist[songIdx]?.album?.cover_img} />
+        <img src={playlist[songIdx]?.album?.cover_img? `${playlist[songIdx]?.album?.cover_img}`: "https://live.staticflickr.com/65535/53600353900_d12bfa5f73_k.jpg"} />
         <span className="song-name-artist-player">
           <span className="song-name-player">{playlist[songIdx]?.song_name}</span>
           <span id='song-artist-player-id' className="song-artist-player">{playlist[songIdx]?.artist.first_name} {playlist[songIdx]?.artist.last_name}</span>
