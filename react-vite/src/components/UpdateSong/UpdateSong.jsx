@@ -14,11 +14,10 @@ export default function UpdateSong() {
     const song = useSelector(state => state.songs?.[id])
     const { songId } = useParams();
     // const songState = useSelector(state => state.song)
-    const song = albumState.Songs[songId]
+    // const song = albumState.Songs[songId]
     const [name, setName] = useState(album?.name)
     const [song_file, setSongFile] = useState(null)
     const [songName, setSongName] = useState(song?.song_name)
-    const [song_file, setSongFile] = useState(null)
     // const [displayFile, setDisplayFile] = useState(null)
     const [awsLoading, setAwsLoading] = useState(false)
     const [errors, setErrors] = useState({})
