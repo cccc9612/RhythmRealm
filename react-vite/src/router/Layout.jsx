@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
 import { LuLibrary } from "react-icons/lu";
+import { useLocation } from "react-router-dom";
 // import { loadPlaylistAction, setPlayIndexAction } from "../redux/playlist";
 // import { getAllSongs } from '../redux/song';
 import ProfileButton from "../components/Navigation/ProfileButton";
@@ -16,6 +17,8 @@ import Navigation from "../components/Navigation/Navigation";
 export default function Layout() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation()
+  const { pathname } = location;
   const sessionUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
   // const playlistState = useSelector(state => state.playlist);
@@ -26,6 +29,16 @@ export default function Layout() {
     dispatch(thunkAuthenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+
+  const checkPath = (pathname) => {
+    if (pathname === "/" || pathname === "/songs" ||
+      (pathname.length > 8 && pathname.startsWith("/albums/") && !pathname.endsWith("/edit"))) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
 
   return (
     <>
@@ -59,13 +72,12 @@ export default function Layout() {
             </div>
           </div>
           <div className='page-bottom-container'>
-            {sessionUser ?
-              <MusicPlayer /> :
+            {!sessionUser ?
               (
                 <div className="page-bottom-signup">
                   <div>
                     <div>Preview of RR</div>
-                    <div>Sign up to get all songs.</div>
+                    <div>Sign up to listen to all songs.</div>
                   </div>
                   <OpenModalButton
                     buttonText="Sign Up"
@@ -73,6 +85,16 @@ export default function Layout() {
                     modalComponent={<SignupFormModal />}
                   />
                 </div>
+              )
+              : (
+                checkPath(pathname) ?
+                  <MusicPlayer /> :
+                  <div className="page-bottom-signup">
+                  <div>
+                    <div>Preview of RR</div>
+                    <div>More features coming soon.</div>
+                  </div>
+                  </div>
               )
             }
           </div>

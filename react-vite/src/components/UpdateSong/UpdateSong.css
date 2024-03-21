@@ -1,0 +1,32 @@
+.update-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 100px;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+.file-input-box {
+    font-size: 15px;
+    background-color: rgb(19, 17, 17);
+    color: white;
+    margin-top: 5px;
+    padding: 11px 3px;
+    border: 1px #b3b3b3 solid;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+
+.file-input-box :hover {
+    color: rgb(40, 211, 94)
+}
+
+.input-box {
+    width: 400px;
+    height: 25px;
+}

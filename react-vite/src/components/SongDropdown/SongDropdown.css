@@ -21,12 +21,9 @@
 
 .manage-song-dropdown {
     color: white;
-    position: fixed;
-    top: 55px;
     right: 10px;
-    background-color: rgb(22, 22, 22);
     /* border: solid 1px rgb(200, 200, 200); */
-    width: 220px;
+    width: 230px;
     border-radius: 5px;
     padding: 5px;
     font-size: 16px;

@@ -10,15 +10,9 @@ import { useSelector } from "react-redux";
 
 function SongList({ song, count }) {
     // const navigate = useNavigate()
-    // const [songList, setSongList] = useContext(MusicContext)
-    // // const [currentSong, setCurrentSong] = useContext(IndexContext)
-    // if (songList) currentSong
 
-    // setSongList([]);
-    // setCurrentSong("")
-    const songState = useSelector(state => state.song);
-    const sessionUser = useSelector(state => state.session.user);
-    const songs = Object.values(songState?.Songs)
+    // const songState = useSelector(state => state.song);
+    // const songs = Object.values(songState?.Songs)
 
 
     return (
@@ -30,11 +24,9 @@ function SongList({ song, count }) {
             {console.log("artist:", song?.artist)}
             {console.log("artist first name:", song?.artist?.first_name)}
             {console.log("artist last name:", song?.artist?.last_name)} */}
-
-
-            <span className="first-column">{count}</span>
+            <span className="first-column">{count++}</span>
             <span className='second-col'>
-                <img src={song.album?.cover_img} />
+                <img src={song.album?.cover_img ? `${song.album?.cover_img}` : "https://live.staticflickr.com/65535/53600353900_d12bfa5f73_k.jpg"} />
                 <span className="song-name-artist">
                     <p className='song-name'>{song?.song_name}</p>
 
@@ -43,13 +35,10 @@ function SongList({ song, count }) {
                     {song.album?.name}
                 </NavLink>
                 <span>{song.duration}</span>
-                {/* <p className="song-album-name" onClick={() => { (song?.artist.id) ? navigate(`/albums/${song?.artist.id}`) : navigate(`/songs/${song?.artist.id}`) }}>{albums[song?.artist.id] ? albums[song?.artist.id].name : song?.name}</p> */}
-                {/* </div> */}
                 <SongDropdown song={song} />
             </span>
         </>
     )
+
 }
-
-
 export default SongList;

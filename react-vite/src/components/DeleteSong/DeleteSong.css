@@ -1,0 +1,41 @@
+.delete-song-modal {
+    padding: 35px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+}
+
+.confirmation-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.confirmation-header {
+    font-size: 22px;
+    color: black;
+}
+
+
+.confirmation-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 40px;
+    padding-top: 30px;
+}
+
+.delete-button,
+.cancel-button {
+    border-radius: 30px;
+    background-color: #28ae59;
+    padding: 16px 30px;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-button:hover,
+.cancel-button:hover {
+    transform: scale(1.02);
+}

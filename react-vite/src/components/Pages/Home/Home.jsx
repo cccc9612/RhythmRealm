@@ -25,7 +25,7 @@ function Home() {
     dispatch(getAllAlbums())
   }, [dispatch]);
   const audio = document.getElementsByTagName('audio')[0];
-  if (audio) audio.pause();
+  if (audio) audio.autoplay = false;
   return (
     <>
       <div className="song-list-container">
