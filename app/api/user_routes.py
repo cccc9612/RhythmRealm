@@ -310,7 +310,7 @@ def addSongToAlbum(songid, albumid):
         return {"message": "unauthorized"}, 401
     
     if target_song:
-        target_song.album_id = target_album.to_dict()["artist"]["id"]
+        target_song.album_id = target_album.to_dict()["id"]
         db.session.commit()
         return target_song.to_dict()
     
