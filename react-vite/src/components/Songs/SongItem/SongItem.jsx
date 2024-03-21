@@ -1,26 +1,48 @@
 import { IoMdHeartEmpty } from "react-icons/io";
 import { NavLink } from "react-router-dom";
-// import { setPlayIndexAction, loadPlaylistAction } from "../../../redux/playlist";
-import { setPlayIndexAction } from "../../../redux/playlist";
-
+import { setPlayIndexAction, loadPlaylistAction, setScliceIndexAction } from "../../../redux/playlist";
+import { getAllSongs } from "../../../redux/song";
 import "./SongItem.css"
-import { useDispatch, useSelector } from "react-redux";
-// import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
+
 
 
 function SongItem({ song, index }) {
     const dispatch = useDispatch();
-    let idx = useSelector(state => state.playlist).index
-    const playlist = Object.values(useSelector(state => state.playlist).Songs)
+    // let idx = useSelector(state => state.playlist).index
+    // const playlistState = useSelector(state => state.playlist);
+    // const playIndex = playlistState?.playIndex;
+    // const sliceIndex = playlistState?.sliceIndex;
+    // const [songIdx, setSongIdx] = useState(playIndex || 0)
+    // const [sliceIdx, setSliceIdx] = useState(sliceIndex || 0)
+    // const playlist = playlistState?.Songs;
+    // MusicPlayer()
+
+    // const playlist = Object.values(useSelector(state => state.playlist).Songs)
 
     const handleClickPlaying = () => {
-        dispatch(setPlayIndexAction(index));
-        // const audio = document.querySelector('button.rhap_play-pause-button')
-        // audio.handleClickNext();
-        const audio = document.getElementsByTagName('audio')[0];
-        // audio.src = playlist[index].song_url;
-        audio.play();
-        console.log("index ====>", index, idx, playlist[index].song_url)
+        dispatch(setScliceIndexAction(index))
+        dispatch(setPlayIndexAction(0));
+        // console.log("SomgItem playlist ", playlist, index);
+        // dispatch(loadPlaylistAction(playlist.slice(index)));
+        dispatch(getAllSongs())
+            .then((res) => {
+                console.log("SomgItem playlist ", res.songs.slice(index), index);
+                // dispatch(loadPlaylistAction(res.songs))
+                dispatch(loadPlaylistAction(res.songs.slice(index)))
+            })
+            .then(() => {
+                // const audio = document.querySelector('button.rhap_play-pause-button')
+                // audio.handleClickNext();
+
+                const audio = document.getElementsByTagName('audio')[0];
+                // audio.src = playlist[index].song_url;
+                // const name = document.getElementsByClassName("song-name-player")[0];
+                // name.innerText = playlist[index].song_name;
+                audio.play();
+                // console.log("index ====>", index, playlist[index].song_url)
+            })
     }
 
 

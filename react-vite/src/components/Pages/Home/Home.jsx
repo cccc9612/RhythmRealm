@@ -15,6 +15,9 @@ function Home() {
   const songs = Object.values(songState?.Songs)
   const albums = Object.values(albumState?.Albums)
   let limit = sessionUser ? 10 : 5;
+  songs.sort((a, b) => {
+    return (new Date(b.created_at)) - (new Date(a.created_at));
+  })
 
 
   useEffect(() => {

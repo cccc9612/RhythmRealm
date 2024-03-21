@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSingleAlbum } from "../../../redux/album";
@@ -12,13 +12,13 @@ function AlbumShowPage() {
   const { albumId } = useParams();
   console.log("albumId======", albumId)
   // const [like, setLike] = useState(false)
-  
+
   const albumState = useSelector(state => state.album)
   console.log("albumstate========", albumState)
-  
+
   const album = albumState.Albums[albumId]
   console.log("album in component", album)
-  
+
 
   useEffect(() => {
     dispatch(getSingleAlbum(albumId))
@@ -70,9 +70,9 @@ function AlbumShowPage() {
                 {/* <span className="like-heart"> */}
                 <span>
                   <IoMdHeartEmpty
-                    // onClick={() => onChange(song)} 
+                    // onClick={() => onChange(song)}
                     // className={like == true? "filled" : "empty"}
-                    size={20} 
+                    size={20}
                   />
                 </span>
             </span>

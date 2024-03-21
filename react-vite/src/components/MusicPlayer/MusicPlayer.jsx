@@ -1,7 +1,7 @@
 import AudioPlayer from 'react-h5-audio-player';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadPlaylistAction, setPlayIndexAction } from '../../redux/playlist';
+import { loadPlaylistAction } from '../../redux/playlist';
 import { getAllSongs } from '../../redux/song';
 import { IoMdHeartEmpty } from "react-icons/io";
 
@@ -15,35 +15,41 @@ function MusicPlayer() {
   // const songs = Object.values(songState?.Songs)
 
   const playlistState = useSelector(state => state.playlist);
-  const playlist = Object.values(playlistState?.Songs)
-  const playIndex = playlistState?.index;
-  const [songIndex, setSongIndex] = useState(playIndex || 0)
+  const playlist = playlistState?.Songs;
+  const playIndex = playlistState?.playIndex;
+  const sliceIndex = playlistState?.sliceIndex;
+  const [songIdx, setSongIdx] = useState(playIndex || 0)
+  // const [sliceIdx, setSliceIdx] = useState(sliceIndex || 0)
 
+  // console.log("====== playlist ===>", playlist)
   useEffect(() => {
     dispatch(getAllSongs())
     .then((res) => {
-      dispatch(loadPlaylistAction(res.songs))
+      // console.log("musicplayer playlist ", res.songs.slice(sliceIdx), songIndex);
+      // dispatch(loadPlaylistAction(res.songs))
+      dispatch(loadPlaylistAction(res.songs.slice(sliceIndex)))
     })
-    dispatch(setPlayIndexAction(songIndex))
-  }, [dispatch, songIndex])
+    // dispatch(setPlayIndexAction(songIndex))
+  }, [dispatch, sliceIndex])
+
 
   const handleClickPrevious = () => {
-    const idx = songIndex === 0 ? playlist.length - 1 : songIndex - 1;
-    setSongIndex(idx)
+    const idx = songIdx === 0 ? playlist.length - 1 : songIdx - 1;
+    setSongIdx(idx)
   }
 
   const handleClickNext = () => {
-    const idx = songIndex < playlist.length - 1 ? songIndex + 1 : 0;
-    setSongIndex(idx)
+    const idx = songIdx < playlist.length - 1 ? songIdx + 1 : 0;
+    setSongIdx(idx)
   }
 
   return (
     <div className='player-container'>
       <span className="song-player">
-        <img src={playlist[songIndex]?.album?.cover_img} />
+        <img src={playlist[songIdx]?.album?.cover_img} />
         <span className="song-name-artist-player">
-          <span className="song-name-player">{playlist[songIndex]?.song_name}</span>
-          <span id='song-artist-player-id' className="song-artist-player">{playlist[songIndex]?.artist.first_name} {playlist[songIndex]?.artist.last_name}</span>
+          <span className="song-name-player">{playlist[songIdx]?.song_name}</span>
+          <span id='song-artist-player-id' className="song-artist-player">{playlist[songIdx]?.artist.first_name} {playlist[songIdx]?.artist.last_name}</span>
         </span>
         <span className="like-heart"><IoMdHeartEmpty size={20} /></span>
       </span>
@@ -51,8 +57,8 @@ function MusicPlayer() {
         <AudioPlayer
           autoPlay={false}
           style={{ width: "500px", height: "80px", backgroundColor: "black"}}
-          src={playlist[songIndex]?.song_url}
-          onPlay={() => console.log("Playing song ", songIndex, playlist[songIndex]?.song_name)}
+          src={playlist[songIdx]?.song_url}
+          onPlay={() => console.log("Playing song ", songIdx, playlist[songIdx]?.song_name)}
           showSkipControls={true}
           showJumpControls={false}
           layout="stacked-reverse"

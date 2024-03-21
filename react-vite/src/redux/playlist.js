@@ -1,5 +1,6 @@
 const LOAD_SONGS = 'playlist/loadPlaylist';
 const SET_PLAY_INDEX = 'playlist/setPlayIndex'
+const SET_SLICE_INDEX = 'playlist/setSliceIndex'
 
 // action
 export const loadPlaylistAction = (songs) => {
@@ -16,19 +17,29 @@ export const setPlayIndexAction = (index) => {
   }
 }
 
+export const setScliceIndexAction = (index) => {
+  return {
+    type: SET_SLICE_INDEX,
+    payload: index
+  }
+}
+
 // No Thunk Creators
 
-const initialState = { Songs: {}, index: 0};
+const initialState = { Songs: [], playIndex: 0, sliceIndex: 0};
 
 const playlistReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_SONGS: {
-      const newObj = {};
-      action.payload.forEach(el => newObj[el.id] = { ...el });
-      return { ...state, Songs: { ...newObj } };
+      let songs = [];
+      action.payload.forEach(el => songs.push(el) );
+      return { ...state, Songs: songs};
     }
     case SET_PLAY_INDEX: {
-      return {...state, index: action.playload};
+      return {...state, playIndex: action.payload};
+    }
+    case SET_SLICE_INDEX: {
+      return {...state, sliceIndex: action.payload};
     }
     default:
       return state;
