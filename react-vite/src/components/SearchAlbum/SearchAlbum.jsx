@@ -31,7 +31,7 @@ function SearchAlbum() {
                 <IoSearchOutline className="search-icon"/>
                 <input
                     placeholder="What do you want to play?"
-                    type="text" 
+                    type="text"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                 />
@@ -55,7 +55,7 @@ function SearchAlbum() {
                 </div>
             </div>
             </>
-            ) 
+            )
             }
         </div>
         </>

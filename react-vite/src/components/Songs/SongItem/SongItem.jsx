@@ -1,13 +1,32 @@
 import { IoMdHeartEmpty } from "react-icons/io";
 import { NavLink } from "react-router-dom";
+// import { setPlayIndexAction, loadPlaylistAction } from "../../../redux/playlist";
+import { setPlayIndexAction } from "../../../redux/playlist";
+
 import "./SongItem.css"
+import { useDispatch, useSelector } from "react-redux";
+// import { useEffect } from "react";
 
 
 function SongItem({ song, index }) {
+    const dispatch = useDispatch();
+    let idx = useSelector(state => state.playlist).index
+    const playlist = Object.values(useSelector(state => state.playlist).Songs)
+
+    const handleClickPlaying = () => {
+        dispatch(setPlayIndexAction(index));
+        // const audio = document.querySelector('button.rhap_play-pause-button')
+        // audio.handleClickNext();
+        const audio = document.getElementsByTagName('audio')[0];
+        // audio.src = playlist[index].song_url;
+        audio.play();
+        console.log("index ====>", index, idx, playlist[index].song_url)
+    }
+
 
     return (
         <>
-            <span className="first-col">{index + 1}</span>
+            <span className="first-col" onClick={handleClickPlaying}>{index + 1}</span>
             <span className="second-col">
                 <img src={song.album?.cover_img? `${song.album?.cover_img}`: "https://live.staticflickr.com/65535/53600353900_d12bfa5f73_k.jpg"} />
                 <span className="song-name-artist">
