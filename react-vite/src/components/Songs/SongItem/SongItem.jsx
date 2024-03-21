@@ -42,7 +42,7 @@ function SongItem({ song, index, user }) {
                 // const audio = document.querySelector('button.rhap_play-pause-button')
                 // audio.handleClickNext();
                 const rerender = document.getElementsByClassName("rerender-btn")[0];
-                rerender.click();
+                if (rerender) rerender.click();
                 const audio = document.getElementsByTagName('audio')[0];
                 // audio.src = playlist[index].song_url;
                 // const name = document.getElementsByClassName("song-name-player")[0];

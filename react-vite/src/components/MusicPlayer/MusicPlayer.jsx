@@ -1,6 +1,7 @@
 import AudioPlayer from 'react-h5-audio-player';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { loadPlaylistAction } from '../../redux/playlist';
 import { getAllSongs } from '../../redux/song';
 import { likeSongThunk, dislikeSongThunk } from '../../redux/song';
@@ -10,9 +11,13 @@ import { IoMdHeart } from "react-icons/io";
 import 'react-h5-audio-player/lib/styles.css';
 
 import './MusicPlayer.css'
+// import { IoConstructOutline } from 'react-icons/io5';
 
 function MusicPlayer() {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const { pathname } = location;
+
   // const songState = useSelector(state => state.song);
   // const songs = Object.values(songState?.Songs)
   const sessionUser = useSelector(state => state.session.user);
@@ -25,17 +30,17 @@ function MusicPlayer() {
   // const [sliceIdx, setSliceIdx] = useState(sliceIndex || 0)
 
 
-  // console.log("====== playlist ===>", playlist)
+
   useEffect(() => {
     dispatch(getAllSongs())
       .then((res) => {
         // console.log("musicplayer playlist ", res.songs.slice(sliceIdx), songIndex);
-        // dispatch(loadPlaylistAction(res.songs))
+
         dispatch(loadPlaylistAction(res.songs))
       })
     // dispatch(setPlayIndexAction(songIndex))
     setSongIdx(playIndex)
-    // console.log("$$$$$$$$$$$$$$$$$$$$")
+
   }, [dispatch, playIndex, num])
 
 
@@ -72,7 +77,7 @@ function MusicPlayer() {
     rerender.click();
   }
 
-  // console.log("*****************", songIdx, playIndex)
+
   return (
     <div className='player-container'>
       <span className="song-player">
