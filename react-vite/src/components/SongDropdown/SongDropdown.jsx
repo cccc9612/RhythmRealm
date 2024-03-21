@@ -15,7 +15,6 @@ function SongDropdown({ song }) {
 
     const toggleMenu = (e) => {
         e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
-
         setShowMenu(!showMenu);
         // console.log("------", owner)
         // console.log("song.artist.id:", song.artist.id)
