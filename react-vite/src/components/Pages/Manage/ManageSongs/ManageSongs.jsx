@@ -37,25 +37,6 @@ function ManageSongs() {
   // // console.log(songs)
 
 
-  // Switch between play and pause function:
-  const handleClick = () => {
-    if (counter == 0) {
-      // setSongList(values);
-      setSongList([]);
-      setCurrentSong(0);
-      setPlaying(true);
-    } else {
-      setPlaying(!playing);
-      const audio = document.getElementsByTagName('audio')[0]
-      if (playing) {
-        audio.pause()
-      }
-      if (!playing) {
-        audio.play()
-      }
-    }
-    setCounter(counter + 1);
-  }
 
   return (
     <section className="manage-song-container">

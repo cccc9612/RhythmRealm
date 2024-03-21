@@ -16,3 +16,15 @@
   border: none;
   cursor: pointer;
 }
+
+
+.logo {
+  width: 55px;
+  height: 55px
+}
+
+.homepage-logo-sec {
+  display: grid;
+  flex: row;
+  align-items: center;
+}

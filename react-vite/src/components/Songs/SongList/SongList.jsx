@@ -36,7 +36,7 @@ function SongList({ song, count }) {
                 <img src={song.album?.cover_img} />
                 <span className="song-name-artist">
                     <p className='song-name'>{song?.song_name}</p>
-                    <p>{song?.artist.first_name} {song?.artist.last_name}</p>
+
                 </span>
                 <NavLink to={`/albums/${song.album?.id}`}>
                     {song.album?.name}
@@ -44,9 +44,8 @@ function SongList({ song, count }) {
                 <span>{song.duration}</span>
                 {/* <p className="song-album-name" onClick={() => { (song?.artist.id) ? navigate(`/albums/${song?.artist.id}`) : navigate(`/songs/${song?.artist.id}`) }}>{albums[song?.artist.id] ? albums[song?.artist.id].name : song?.name}</p> */}
                 {/* </div> */}
-                <SongDropdown song={songs} />
+                <SongDropdown song={song} />
             </span>
-
         </>
     )
 }

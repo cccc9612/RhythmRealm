@@ -16,7 +16,10 @@ function SongDropdown({ song }) {
         e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
         // console.log('byeeeeee')
         setShowMenu(!showMenu);
-        // console.log('heloooooo')
+        console.log("------", owner)
+        console.log("song.artist.id:", song.artist.id)
+        console.log("user.id:", user.id)
+        console.log("song", song)
     }
 
     useEffect(() => {
@@ -35,41 +38,37 @@ function SongDropdown({ song }) {
 
     const closeMenu = () => setShowMenu(false);
 
-    const owner = song.artist_id == user.id
+    const owner = song?.artist.id == user.id
 
     return (
         <>
             <span>
                 <i style={{ fontSize: 25 }} className="fa-solid fa-ellipsis" onClick={toggleMenu}></i>
                 {showMenu && (
-                    <span className="manage-song-dropdown" ref={ulRef}>
-                        {user && (
+                    <span className={"manage-song-dropdown"} ref={ulRef}>
+                        {/* {owner && (
+                            <div className="dropdown-add-to-album">
+                                <i className="fa-solid fa-square-plus bar-icon"></i>
+                                <span className="dropdown-list">
+                                    <OpenModalMenuItem itemText='Add to Album' onItemClick={closeMenu} modalComponent={<AddToAlbum song={song} />} />
+                                </span>
+                            </div>
+                        )} */}
+                        {owner && (
                             <>
-                                {owner && (
-                                    <div className="playlist-delete-drop">
-                                        <i className="fa-solid fa-square-plus bar-icon"></i>
-                                        <span className="album-dropdown-item">
-                                            <OpenModalMenuItem itemText='Add to Album' onItemClick={closeMenu} modalComponent={<AddToAlbum song={song} />} />
-                                        </span>
-                                    </div>
-                                )}
-                                {owner && (
-                                    <>
-                                        <div className="playlist-delete-drop">
-                                            <i className="fa-solid fa-pen"></i>
-                                            <span className="album-dropdown-item" onClick={() => navigate(`/current/songs/${song.id}/update`)}>Update</span>
-                                        </div>
-                                        <div className="playlist-delete-drop">
-                                            <i className="fa-solid fa-circle-minus"></i>
-                                            <span className="album-dropdown-item">
-                                                <OpenModalMenuItem
-                                                    itemText="Delete"
-                                                    onItemClick={closeMenu}
-                                                    modalComponent={<DeleteSong song={song} />} />
-                                            </span>
-                                        </div>
-                                    </>
-                                )}
+                                <div className="manage-song-dropdown">
+                                    <i className="fa-solid fa-pen"></i>
+                                    <span className="dropdown-list" onClick={() => navigate(`/current/songs/${song.id}/update`)}>Update</span>
+                                </div>
+                                <div className="manage-song-dropdown">
+                                    <i className="fa-solid fa-circle-minus"></i>
+                                    <span className="dropdown-list">
+                                        <OpenModalMenuItem
+                                            itemText="Delete"
+                                            onItemClick={closeMenu}
+                                            modalComponent={<DeleteSong song={song} />} />
+                                    </span>
+                                </div>
                             </>
                         )}
                     </span>
