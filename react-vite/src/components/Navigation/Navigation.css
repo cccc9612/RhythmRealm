@@ -6,7 +6,7 @@
   margin-top: 10px;
   display: flex;
   align-items: center;
-  gap:10px;
+  gap: 10px;
 }
 
 .search-button-songs,
@@ -15,4 +15,27 @@
   border-radius: 15px;
   border: none;
   cursor: pointer;
+}
+
+
+.logo {
+  width: 45px;
+  height: 45px
+}
+
+a.homepage-logo-sec {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 13px;
+  justify-content: flex-start;
+  padding: 0;
+  padding-left: 5px;
+  margin: 0;
+  width: 300px;
+}
+
+span.logo-title {
+  width: 200px;
+  font-size: 30px;
 }

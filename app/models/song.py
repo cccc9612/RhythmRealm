@@ -43,6 +43,14 @@ class Song(db.Model):
             'last_name': self.user_in_song.last_name
         }
 
+    @property
+    def users_like(self):
+        res = []
+        for user in self.likes_in_song:
+            res.append({"id": user.id})
+
+        return res
+
 
     def to_dict(self):
         return {
@@ -53,5 +61,6 @@ class Song(db.Model):
             'album':self.album,
             'duration':self.duration,
             'likes': self.likes,
-            'created_at': self.created_at
+            'created_at': self.created_at,
+            'users_like': self.users_like
         }

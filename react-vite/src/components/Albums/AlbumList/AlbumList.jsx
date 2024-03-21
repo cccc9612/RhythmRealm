@@ -17,7 +17,6 @@ function AlbumList() {
     <div className="album-list-container">
     <div className="title-container">
       <h3>All albums</h3>
-      <NavLink to={'/albums'}>Show all</NavLink>
     </div>
     <div className="albums-container">
       {albums?.map((album) => {

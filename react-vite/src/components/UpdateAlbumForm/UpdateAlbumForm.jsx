@@ -77,7 +77,7 @@ function UpdateAlbumForm() {
             </div>
         </div>
     )
-    
+
 }
 
 export default UpdateAlbumForm;

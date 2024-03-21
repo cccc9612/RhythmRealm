@@ -15,13 +15,17 @@ function Home() {
   const songs = Object.values(songState?.Songs)
   const albums = Object.values(albumState?.Albums)
   let limit = sessionUser ? 10 : 5;
+  songs.sort((a, b) => {
+    return (new Date(b.created_at)) - (new Date(a.created_at));
+  })
 
 
   useEffect(() => {
     dispatch(getAllSongs())
     dispatch(getAllAlbums())
   }, [dispatch]);
-
+  const audio = document.getElementsByTagName('audio')[0];
+  if (audio) audio.pause();
   return (
     <>
       <div className="song-list-container">
@@ -40,7 +44,7 @@ function Home() {
           {songs?.slice(0, limit).map((song, index) => {
             return (
               <div className="song-list-row" key={song.id}>
-                <SongItem song={song} index={index} />
+                <SongItem song={song} index={index} user={sessionUser}/>
               </div>
             )
           })}

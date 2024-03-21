@@ -49,6 +49,7 @@ This page displays individual album with associated songs and likes, a logged in
 
 * `GET /albums/:id`
 * `POST /songs/:id/like`
+* `PUT /albums/:id/add`
 * `DELETE /songs/:id/dislike`
 
 

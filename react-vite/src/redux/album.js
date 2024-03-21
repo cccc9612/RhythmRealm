@@ -2,6 +2,7 @@ const GET_ALL_ALBUMS = 'album/getAllAlbums';
 const GET_SINGLE_ALBUM = 'album/getSingleAlbum';
 const DELETE_ALBUM = 'album/deleteAlbum';
 const REMOVE_ALBUM_SONG = 'album/removeAlbumSong';
+const ADD_TO_ALBUM = 'album/addToAlbum'
 // const GET_CURRENT_ALBUMS = 'album/getCurrentAlbums';
 
 
@@ -18,6 +19,12 @@ const getSingleAlbumAction = (album) => ({
   album
 })
 
+const addToAlbum = (songs) => {
+  return {
+    type: ADD_TO_ALBUM,
+    songs
+  }
+}
 const deleteAlbumAction = (albumId) => ({
   type: DELETE_ALBUM,
   albumId
@@ -47,17 +54,17 @@ export const getAllAlbums = () => async (dispatch) => {
 }
 
 // get single album detail thunk
-export const getSingleAlbum = (albumId) => async(dispatch) => {
+export const getSingleAlbum = (albumId) => async (dispatch) => {
   console.log("hit thunk ==========")
   try {
     const response = await fetch(`/api/albums/${albumId}`, {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'}
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
     });
     const album = await response.json();
     console.log("album in thunk=======", album)
     dispatch(getSingleAlbumAction(album));
-  
+
     return album
   } catch (e) {
     console.log(e)
@@ -65,11 +72,11 @@ export const getSingleAlbum = (albumId) => async(dispatch) => {
 }
 
 // get all albums belongs to current user thunk
-export const getCurrentAlbums = () => async(dispatch) => {
+export const getCurrentAlbums = () => async (dispatch) => {
   console.log("current user's albums in thunk =======")
   const response = await fetch('/api/users/current/albums', {
     method: 'GET',
-    headers: {'Content-Type': 'application/json'}
+    headers: { 'Content-Type': 'application/json' }
   });
   const data = await response.json()
   dispatch(getAllAlbumsAction(data.albums))
@@ -77,10 +84,10 @@ export const getCurrentAlbums = () => async(dispatch) => {
 }
 
 // delete an album thunk
-export const deleteAlbum = (albumId) => async(dispatch) => {
+export const deleteAlbum = (albumId) => async (dispatch) => {
   const response = await fetch(`/api/users/current/albums/${albumId}/delete`, {
     method: 'DELETE',
-    headers: {'Content-Type': 'application/json'}
+    headers: { 'Content-Type': 'application/json' }
   });
   if (response.ok) {
     dispatch(deleteAlbumAction(albumId))
@@ -99,6 +106,19 @@ export const removeAlbumSong = (albumId, songId) => async(dispatch) => {
 } 
 
 
+// Add to album
+export const addToAlbumThunk = (songId, albumId) => async (dispatch) => {
+  const res = await fetch(`/api/albums/${albumId}/add`, {
+    method: 'PUT',
+    body: songId
+  })
+
+  if (res.ok) {
+    const data = await res.json()
+    dispatch(addToAlbum(data))
+    return data
+  }
+}
 
 const initialState = { Albums: {} };
 
@@ -106,14 +126,14 @@ const albumReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_ALBUMS: {
       const newObj = {};
-      action.payload.forEach(el => newObj[el.id] = { ... el});
-      return { ...state, Albums : { ...newObj }};
+      action.payload.forEach(el => newObj[el.id] = { ...el });
+      return { ...state, Albums: { ...newObj } };
     }
     case GET_SINGLE_ALBUM: {
-      return {...state, Albums : {...state.Albums, [action.album.id]: action.album}}
+      return { ...state, Albums: { ...state.Albums, [action.album.id]: action.album } }
     }
     case DELETE_ALBUM: {
-      const newState = {...state};
+      const newState = { ...state };
       delete newState.Albums[action.albumId];
       return newState
     }

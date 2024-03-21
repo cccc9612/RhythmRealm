@@ -1,13 +1,13 @@
 .profile-btn {
   background-color: rgb(255, 100, 55);
   border: none;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: black;
   border-radius: 25px;
   border: 2px solid black;
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -20,7 +20,7 @@
 .profile-dropdown {
   color: white;
   position: absolute;
-  top:55px;
+  top: 55px;
   right: 10px;
   background-color: rgb(22, 22, 22);
   /* border: solid 1px rgb(200, 200, 200); */
@@ -34,13 +34,14 @@
 
 .profile-dropdown>p {
   /* border: solid 1px red; */
-  font-size: 15px;;
+  font-size: 15px;
+  ;
   margin: 0;
   padding: 5px;
   padding-left: 10px
 }
 
-.profile-dropdown>p:hover{
+.profile-dropdown>p:hover {
   cursor: pointer;
   background-color: rgb(56, 56, 56);
 }
@@ -49,8 +50,8 @@
   border-top: 1px solid rgb(56, 56, 56);
 }
 
-p.hello-user:hover{
-  cursor:default;
+p.hello-user:hover {
+  cursor: default;
   background-color: rgb(22, 22, 22);
 }
 

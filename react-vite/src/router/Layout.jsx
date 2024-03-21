@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
@@ -15,6 +15,7 @@ import Navigation from "../components/Navigation/Navigation";
 
 export default function Layout() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const sessionUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
   // const playlistState = useSelector(state => state.playlist);
@@ -43,8 +44,13 @@ export default function Layout() {
               </div>
             </div>
             <div className="song-album-list-container">
-              <div className="title-bar">
-                <ProfileButton />
+              <div className="nav-title-bar">
+                <div className="nav-buttons">
+                  <button onClick={() => navigate(-1)} type="button" className="fa fas fa-chevron-left"></button>
+                  <button onClick={() => navigate(1)} type="button" className="fa fas fa-chevron-right"></button>
+                </div>
+                <div className="profile-btn-container"> <ProfileButton /></div>
+
               </div>
               <div> {isLoaded && <Outlet />}</div>
               <div className="footer-container">

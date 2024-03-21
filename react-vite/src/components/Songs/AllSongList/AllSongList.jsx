@@ -10,6 +10,7 @@ function AllSongList() {
     const dispatch = useDispatch();
     const songState = useSelector(state => state.song);
     const songs = Object.values(songState?.Songs);
+    const sessionUser = useSelector(state => state.session.user);
     const [page, setPage] = useState(0);
 
     const limit = 5;
@@ -60,7 +61,7 @@ function AllSongList() {
                 {songsDisplay?.map((song, index) => {
                     return (
                         <div className="song-list-row" key={song.id}>
-                            <SongItem song={song} index={index} />
+                            <SongItem song={song} index={index} user={sessionUser}/>
                         </div>
                     )
                 })}
