@@ -1,6 +1,6 @@
 import { IoMdHeartEmpty } from "react-icons/io";
 import { NavLink } from "react-router-dom";
-import { setPlayIndexAction, loadPlaylistAction, setScliceIndexAction } from "../../../redux/playlist";
+import { setPlayIndexAction, loadPlaylistAction } from "../../../redux/playlist";
 import { getAllSongs } from "../../../redux/song";
 import "./SongItem.css"
 import { useDispatch } from "react-redux";
@@ -22,15 +22,15 @@ function SongItem({ song, index }) {
     // const playlist = Object.values(useSelector(state => state.playlist).Songs)
 
     const handleClickPlaying = () => {
-        dispatch(setScliceIndexAction(index))
-        dispatch(setPlayIndexAction(0));
+        // dispatch(setScliceIndexAction(0))
+        dispatch(setPlayIndexAction(index));
         // console.log("SomgItem playlist ", playlist, index);
         // dispatch(loadPlaylistAction(playlist.slice(index)));
         dispatch(getAllSongs())
             .then((res) => {
-                console.log("SomgItem playlist ", res.songs.slice(index), index);
+                // console.log("SomgItem playlist ", res.songs.slice(0), index);
                 // dispatch(loadPlaylistAction(res.songs))
-                dispatch(loadPlaylistAction(res.songs.slice(index)))
+                dispatch(loadPlaylistAction(res.songs))
             })
             .then(() => {
                 // const audio = document.querySelector('button.rhap_play-pause-button')

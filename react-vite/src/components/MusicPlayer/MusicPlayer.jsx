@@ -16,10 +16,11 @@ function MusicPlayer() {
 
   const playlistState = useSelector(state => state.playlist);
   const playlist = playlistState?.Songs;
-  const playIndex = playlistState?.playIndex;
-  const sliceIndex = playlistState?.sliceIndex;
+  let playIndex = playlistState?.playIndex;
+  // const sliceIndex = playlistState?.sliceIndex;
   const [songIdx, setSongIdx] = useState(playIndex || 0)
   // const [sliceIdx, setSliceIdx] = useState(sliceIndex || 0)
+
 
   // console.log("====== playlist ===>", playlist)
   useEffect(() => {
@@ -27,11 +28,12 @@ function MusicPlayer() {
     .then((res) => {
       // console.log("musicplayer playlist ", res.songs.slice(sliceIdx), songIndex);
       // dispatch(loadPlaylistAction(res.songs))
-      dispatch(loadPlaylistAction(res.songs.slice(sliceIndex)))
+      dispatch(loadPlaylistAction(res.songs))
     })
     // dispatch(setPlayIndexAction(songIndex))
-    setSongIdx(0)
-  }, [dispatch, sliceIndex])
+    setSongIdx(playIndex)
+    console.log("$$$$$$$$$$$$$$$$$$$$")
+  }, [dispatch, playIndex])
 
 
   const handleClickPrevious = () => {
@@ -43,6 +45,7 @@ function MusicPlayer() {
     const idx = songIdx < playlist.length - 1 ? songIdx + 1 : 0;
     setSongIdx(idx)
   }
+
   console.log("*****************", songIdx, playIndex)
   return (
     <div className='player-container'>
