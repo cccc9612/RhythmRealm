@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { GoHome } from "react-icons/go";
 import { IoSearchOutline } from "react-icons/io5";
 import "./Navigation.css";
 import logo from "./logo.png"

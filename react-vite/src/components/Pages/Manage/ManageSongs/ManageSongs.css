@@ -13,15 +13,13 @@
 }
 
 .manage-song-dropdown {
-    position: absolute;
+    position: static;
     top: 440px;
     left: 475px;
     background-color: #3e3d3d;
     color: white;
     display: flex;
     flex-direction: column;
-    padding: 4px;
-    border-radius: 5px;
 }
 
 .dropdown-edit {

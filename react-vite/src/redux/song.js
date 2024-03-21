@@ -69,7 +69,7 @@ export const getCurrentSongs = () => async (dispatch) => {
     headers: { 'Content-Type': 'application/json' }
   });
   const data = await response.json()
-  dispatch(getAllAlbumsAction(data.songs))
+  dispatch(getAllSongsAction(data.songs))
   return data
 }
 
@@ -89,7 +89,7 @@ export const addSongThunk = (song) => async (dispatch) => {
 }
 
 export const updateSongThunk = (song, songId) => async (dispatch) => {
-  const res = await fetch(`/api/songs/${songId}/edit`, {
+  const res = await fetch(`/api/users/current/songs/${songId}/update`, {
     method: "PUT",
     body: song
   })
@@ -124,6 +124,7 @@ const songReducer = (state = initialState, action) => {
       action.payload.forEach(el => newObj[el.id] = { ...el });
       return { ...state, Songs: { ...newObj } };
     }
+
     // case LOAD_ONE_SONG: {
     //   const newState = {}
     //   newState[action.song.id] = action.song

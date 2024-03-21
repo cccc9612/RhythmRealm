@@ -1,10 +1,8 @@
 import './SongList.css'
 import { NavLink } from 'react-router-dom'
-import { IoMdHeartEmpty } from "react-icons/io";
+
 import SongDropdown from "../../SongDropdown/SongDropdown"
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
+
 
 
 function SongList({ song, count }) {

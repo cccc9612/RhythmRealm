@@ -13,8 +13,6 @@ export default function UpdateSong() {
     const song = useSelector(state => state.songs?.[id])
     const { songId } = useParams();
     const [songName, setSongName] = useState(song?.song_name)
-    const [song_cover, setSongCover] = useState(null)
-    const [displayImage, setDisplayImage] = useState(null)
     const [song_file, setSongFile] = useState(null)
     // const [displayFile, setDisplayFile] = useState(null)
     const [awsLoading, setAwsLoading] = useState(false)
@@ -38,7 +36,6 @@ export default function UpdateSong() {
     useEffect(() => {
         if (song) {
             setSongName(song?.song_name || '')
-            setDisplayImage(song?.song_cover_url || '')
             setSongFile(song?.song_file_url || '')
         }
     }, [song])
@@ -52,11 +49,8 @@ export default function UpdateSong() {
             const formData = new FormData();
             formData.append("song_name", songName)
             formData.append("artist_id", artistId)
-            formData.append("song_cover_url", song_cover);
             formData.append("song_file_url", song_file);
             formData.append('duration', 260)
-            // aws uploads can be a bit slow—displaying
-            // some sort of loading message is a good idea
             setAwsLoading(true);
             await dispatch(updateSongThunk(formData, song.id));
             navigate(`/songs/${song.id}`)
@@ -64,31 +58,30 @@ export default function UpdateSong() {
     }
 
     return (
-        <div className="song-main">
-            <div className="create-song-box">
+        <div className="update-form">
+            <div className="create-container">
                 <h1 style={{ paddingBottom: 20 }}>Update &quot;{song?.song_name}&quot;</h1>
                 <form
                     onSubmit={handleSubmit}
                     encType="multipart/form-data"
-                    className="form-body"
+                    className="form-data"
                 >
                     <div className="entry-container">
-                        <p>Song Name</p>
+                        <p style={{ paddingBottom: 8 }}>Song Name</p>
                         <input
                             type="text"
                             value={songName}
                             onChange={(e) => setSongName(e.target.value)}
-                            className="song-inputs"
+                            className="input-box"
                         />
-                        <div style={{ minHeight: 30 }}>{errors.songName ? <span className="error-message">{errors.songName}</span> : ' '}</div>
+                        <div >{errors.songName ? <span className="error-message">{errors.songName}</span> : ' '}</div>
                     </div>
                     <div className="entry-container">
-                        <p style={{ paddingTop: 8 }}>Update Song File</p>
-                        <p style={{ fontSize: 13, paddingBottom: 10, paddingTop: 5 }}>To update the song file, click the file below.</p>
+                        <p style={{ paddingTop: 8, paddingBottom: 25, }}>Click the song name below to update the file</p>
                         {!clicked ? (
                             <>
-                                <div className='song-file-input' onClick={() => setClicked(!clicked)}>
-                                    <p>{`${song?.song_name}.mp3`}</p>
+                                <div className="file-input-box" onClick={() => setClicked(!clicked)}>
+                                    <p>{` File: ${song?.song_name}.mp3`}</p>
                                 </div>
                                 <div style={{ minHeight: 20 }}></div>
                             </>
@@ -97,7 +90,7 @@ export default function UpdateSong() {
                                 <input
                                     type="file"
                                     accept="audio/*"
-                                    className="song-inputs"
+                                    className="input-box"
                                     onChange={(e) => setSongFile(e.target.files[0])}
                                 />
                                 <div style={{ minHeight: 20 }}></div>
@@ -105,7 +98,7 @@ export default function UpdateSong() {
                         )}
                     </div>
                     <div className="update-button">
-                        <button type="submit" id="submit_butt">Update Song</button>
+                        <button type="submit" id="submit_button">Update Song</button>
                     </div>
                     <div style={{ minHeight: 30 }}>{awsLoading ? <p className="loading-text">Loading...</p> : ' '}</div>
                 </form>
