@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getSingleAlbum } from "../../redux/album";
+import { Link } from 'react-router-dom';
 
 function UpdateAlbumForm() {
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function UpdateAlbumForm() {
 
     const [name, setName] = useState(album?.name)
     const [image, setImage] = useState(null)
-    const [previewUrl, setPreviewUrl] = useState(album?.cover_img)
+    const previewUrl = album?.cover_img
     
 
     useEffect(() => {
@@ -70,6 +71,7 @@ function UpdateAlbumForm() {
                     </label>
 
                     <button type="submit" id="submit_button">Submit</button>
+                    <button id="submit_button"><Link to={`/users/current/albums`}>Cancel</Link></button>
                     {/* {(imageLoading) && <p>Loading...</p>} */}
                 </form>
             </div>
