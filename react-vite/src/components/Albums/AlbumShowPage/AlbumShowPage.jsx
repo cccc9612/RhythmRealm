@@ -5,7 +5,7 @@ import { getSingleAlbum } from "../../../redux/album";
 // import SongItem from "../../Songs/SongItem";
 // import { IoMdHeartEmpty } from "react-icons/io";
 // import { IoMdHeart } from "react-icons/io";
-import { likeSongThunk, dislikeSongThunk } from "../../../redux/song";
+// import { likeSongThunk, dislikeSongThunk } from "../../../redux/song";
 import SongItemInAlbum from "../../Songs/SongitemInAlbum";
 import './AlbumShowPage.css'
 
@@ -65,12 +65,12 @@ function AlbumShowPage() {
           <span>Duration</span>
         </div>
         {album?.songs.map((song, index) => {
-            return (
-              <div className="song-list-row" key={song.id}>
-                <SongItemInAlbum song={song} index={index} user={sessionUser}/>
-              </div>
-            )
-            })}
+          return (
+            <div className="song-list-row" key={song.id}>
+              <SongItemInAlbum song={song} index={index} user={sessionUser} />
+            </div>
+          )
+        })}
       </div>
     </>
   )
