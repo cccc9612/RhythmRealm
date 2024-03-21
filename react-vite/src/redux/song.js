@@ -3,6 +3,7 @@ const GET_SINGLE_SONG = 'song/getSingleSong'
 const DELETE_SONG = 'song/deleteSong';
 const ADD_A_SONG = 'song/addSong'
 const UPDATE_A_SONG = 'song/updateSong'
+const ADD_TO_ALBUM = 'album/addToAlbum';
 
 
 // action
@@ -39,6 +40,16 @@ const deleteSong = (songId) => {
   return {
     type: DELETE_SONG,
     songId
+  }
+}
+
+const addToAlbumAction = (albumId, songId) => {
+  return {
+    type: ADD_TO_ALBUM,
+    payload: {
+      albumId,
+      songId
+    }
   }
 }
 
@@ -148,6 +159,19 @@ export const dislikeSongThunk = (songId) => async (dispatch) => {
 
 }
 
+// Add a song to an album thunk
+export const addToAlbumThunk = (albumId, songId) => async(dispatch) => {
+  const response = await fetch(`/api/users/current/songs/${songId}/add/${albumId}`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'}
+  });
+  if (response.ok) {
+    const data = await response.json()
+    dispatch(addToAlbumAction(albumId, songId))
+    console.log("data in add songs thunk==========", data)
+  }
+}
+
 
 const initialState = { Songs: {} };
 
@@ -168,6 +192,20 @@ const songReducer = (state = initialState, action) => {
       const newState = { ...state }
       delete newState[action.songId]
       return newState;
+    }
+    case ADD_TO_ALBUM: {
+      const { songId, albumId} = action.payload
+      const song = state.Songs[songId]
+      if(!song) {
+        return state;
+      }
+      const updateSong = {
+        ...song,
+        album: {...song.album, id: albumId}
+      }
+      return {
+        ...state, Songs: {...state.Songs, [songId]: updateSong}
+      }
     }
     default:
       return state;

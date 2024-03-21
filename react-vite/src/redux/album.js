@@ -2,8 +2,7 @@ const GET_ALL_ALBUMS = 'album/getAllAlbums';
 const GET_SINGLE_ALBUM = 'album/getSingleAlbum';
 const DELETE_ALBUM = 'album/deleteAlbum';
 const REMOVE_ALBUM_SONG = 'album/removeAlbumSong';
-const ADD_TO_ALBUM = 'album/addToAlbum'
-// const GET_CURRENT_ALBUMS = 'album/getCurrentAlbums';
+// const ADD_TO_ALBUM = 'album/addToAlbum';
 
 
 // action
@@ -19,12 +18,7 @@ const getSingleAlbumAction = (album) => ({
   album
 })
 
-const addToAlbum = (songs) => {
-  return {
-    type: ADD_TO_ALBUM,
-    songs
-  }
-}
+
 const deleteAlbumAction = (albumId) => ({
   type: DELETE_ALBUM,
   albumId
@@ -37,10 +31,17 @@ const removeAlbumSongAction = (albumId, songId) => ({
     songId
   }
 })
-// const getCurrentAlbumsAction = (albums) => ({
-//   type:GET_CURRENT_ALBUMS,
-//   payload: albums
-// })
+
+// const addToAlbumAction = (albumId, songId) => {
+//   return {
+//     type: ADD_TO_ALBUM,
+//     payload: {
+//       albumId,
+//       songId
+//     }
+//   }
+// }
+
 
 
 // Thunk Creators
@@ -106,19 +107,16 @@ export const removeAlbumSong = (albumId, songId) => async(dispatch) => {
 } 
 
 
-// Add to album
-export const addToAlbumThunk = (songId, albumId) => async (dispatch) => {
-  const res = await fetch(`/api/albums/${albumId}/add`, {
-    method: 'PUT',
-    body: songId
-  })
-
-  if (res.ok) {
-    const data = await res.json()
-    dispatch(addToAlbum(data))
-    return data
-  }
-}
+// // Add a song to an album thunk
+// export const addToAlbumThunk = (albumId, songId) => async(dispatch) => {
+//   const response = await fetch(`/api/users/current/songs/${songId}/add/${albumId}`, {
+//     method: 'PUT',
+//     headers: {'Content-Type': 'application/json'}
+//   });
+//   if (response.ok) {
+//     dispatch(addToAlbumAction(albumId, songId))
+//   }
+// }
 
 const initialState = { Albums: {} };
 
@@ -145,6 +143,12 @@ const albumReducer = (state = initialState, action) => {
         ...state, Albums: {...state.Albums, [action.payload.albumId]: updatedAlbum}
       }
     }
+    // case ADD_TO_ALBUM: {
+    //   const album = state.Albums[action.payload.albumId];
+    //   if (!album.songs.includes(action.payload.songId)) {
+    //     const updatedSongArray = [...album.songs, ]
+    //   }
+    // }
     default:
       return state;
   }
