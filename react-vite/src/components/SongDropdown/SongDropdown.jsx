@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import DeleteSong from "../DeleteSong/DeleteSong"
+import AddToAlbum from "../Albums/AddToAlbum/AddToAlbum"
 import "./SongDropdown.css"
 
 
@@ -14,12 +15,12 @@ function SongDropdown({ song }) {
 
     const toggleMenu = (e) => {
         e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
-        // console.log('byeeeeee')
+
         setShowMenu(!showMenu);
-        console.log("------", owner)
-        console.log("song.artist.id:", song.artist.id)
-        console.log("user.id:", user.id)
-        console.log("song", song)
+        // console.log("------", owner)
+        // console.log("song.artist.id:", song.artist.id)
+        // console.log("user.id:", user.id)
+        // console.log("song", song)
     }
 
     useEffect(() => {
@@ -46,21 +47,13 @@ function SongDropdown({ song }) {
                 <i style={{ fontSize: 25 }} className="fa-solid fa-ellipsis" onClick={toggleMenu}></i>
                 {showMenu && (
                     <span className={"manage-song-dropdown"} ref={ulRef}>
-                        {/* {owner && (
-                            <div className="dropdown-add-to-album">
-                                <i className="fa-solid fa-square-plus bar-icon"></i>
-                                <span className="dropdown-list">
-                                    <OpenModalMenuItem itemText='Add to Album' onItemClick={closeMenu} modalComponent={<AddToAlbum song={song} />} />
-                                </span>
-                            </div>
-                        )} */}
                         {owner && (
                             <>
-                                <div className="manage-song-dropdown">
+                                <ul className="dropdown-edit">
                                     <i className="fa-solid fa-pen"></i>
                                     <span className="dropdown-list" onClick={() => navigate(`/current/songs/${song.id}/update`)}>Update</span>
-                                </div>
-                                <div className="manage-song-dropdown">
+                                </ul>
+                                <ul className="dropdown-edit">
                                     <i className="fa-solid fa-circle-minus"></i>
                                     <span className="dropdown-list">
                                         <OpenModalMenuItem
@@ -68,8 +61,16 @@ function SongDropdown({ song }) {
                                             onItemClick={closeMenu}
                                             modalComponent={<DeleteSong song={song} />} />
                                     </span>
-                                </div>
+                                </ul>
                             </>
+                        )}
+                        {owner && (
+                            <ul className="dropdown-edit">
+                                <i className="fa-solid fa-square-plus bar-icon"></i>
+                                <span className="dropdown-list">
+                                    <OpenModalMenuItem itemText='Add to Album' onItemClick={closeMenu} modalComponent={<AddToAlbum song={song} />} />
+                                </span>
+                            </ul>
                         )}
                     </span>
                 )}
