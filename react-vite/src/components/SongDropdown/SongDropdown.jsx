@@ -43,14 +43,16 @@ function SongDropdown({ song }) {
     return (
         <>
             <span>
-                <i style={{ fontSize: 25 }} className="fa-solid fa-ellipsis" onClick={toggleMenu}></i>
+                <span className="dropdown-icon">
+                    <i style={{ fontSize: 25 }} className="fa-solid fa-ellipsis" onClick={toggleMenu}></i>
+                </span>
                 {showMenu && (
                     <span className={"manage-song-dropdown"} ref={ulRef}>
                         {owner && (
                             <>
                                 <ul className="dropdown-edit">
                                     <i className="fa-solid fa-pen"></i>
-                                    <span className="dropdown-list" onClick={() => navigate(`/current/songs/${song.id}/update`)}>Update</span>
+                                    <span className="dropdown-list" onClick={() => navigate(`/current/songs/${song.id}/edit`)}>Update</span>
                                 </ul>
                                 <ul className="dropdown-edit">
                                     <i className="fa-solid fa-circle-minus"></i>
@@ -65,9 +67,12 @@ function SongDropdown({ song }) {
                         )}
                         {owner && (
                             <ul className="dropdown-edit">
-                                <i className="fa-solid fa-square-plus bar-icon"></i>
+                                <i className="fa-solid fa-square-plus"></i>
                                 <span className="dropdown-list">
-                                    <OpenModalMenuItem itemText='Add to Album' onItemClick={closeMenu} modalComponent={<AddToAlbum song={song} />} />
+                                    <OpenModalMenuItem
+                                        itemText='Add to Album'
+                                        onItemClick={closeMenu}
+                                        modalComponent={<AddToAlbum song={song} />} />
                                 </span>
                             </ul>
                         )}

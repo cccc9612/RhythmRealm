@@ -17,8 +17,7 @@
   border: 1px solid rgb(255, 100, 55);
 }
 
-.profile-dropdown,
-.maange-song-dropdown {
+.profile-dropdown {
   color: white;
   position: absolute;
   top: 55px;

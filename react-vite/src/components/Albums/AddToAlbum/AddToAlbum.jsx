@@ -1,8 +1,11 @@
-
 import "./AddToAlbum.css"
 
 function AddToAlbum() {
-    return <h2>Add to Album</h2>
+    return (
+        <div>
+            <h2>AddToAlbum</h2>
+        </div>
+    )
 }
 
-export default AddToAlbum;
+export default AddToAlbum

@@ -114,7 +114,7 @@ def updateAlbum(id):
             cover_img.filename = get_unique_filename(cover_img.filename)
             upload = upload_file_to_s3(cover_img)
             print("upload", upload)
-            print("this should not been hit+++++++++++++")
+            print("this should not be hit+++++++++++++")
             if "url" not in upload:
                 return form.errors
             url = upload["url"]

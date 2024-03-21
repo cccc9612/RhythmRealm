@@ -15,6 +15,7 @@ import AllSongList from '../components/Songs/AllSongList';
 import SearchSong from '../components/SearchSong'
 import SearchAlbum from '../components/SearchAlbum';
 import UpdateAlbumForm from '../components/UpdateAlbumForm';
+import UpdateSong from '../components/UpdateSong/UpdateSong';
 
 export const router = createBrowserRouter([
   {
@@ -68,10 +69,14 @@ export const router = createBrowserRouter([
       {
         path: "/search/albums",
         element: <SearchAlbum />
-      }, 
+      },
       {
         path: "/albums/:albumId/edit",
         element: <UpdateAlbumForm />
+      },
+      {
+        path: "/songs/:songId/edit",
+        element: <UpdateSong />
       }
       // {
       //   path: "songs/:songId",

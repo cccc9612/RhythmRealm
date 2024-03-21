@@ -9,3 +9,27 @@
     padding: 4px;
     border-radius: 3px;
 }
+
+.dropdown-list,
+.dropdown-icon {
+    cursor: pointer;
+}
+
+.dropdown-list {
+    margin-left: 20px
+}
+
+.manage-song-dropdown {
+    color: white;
+    position: fixed;
+    top: 55px;
+    right: 10px;
+    background-color: rgb(22, 22, 22);
+    /* border: solid 1px rgb(200, 200, 200); */
+    width: 220px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    /* box-shadow: 1px 1px 1px rgb(200, 200, 200); */
+    /* z-index: 4; */
+}
