@@ -13,7 +13,7 @@ import AllSongList from '../components/Songs/AllSongList';
 // import SongDetails from '../components/SongDetails/SongDetails';
 import SearchSong from '../components/SearchSong'
 import SearchAlbum from '../components/SearchAlbum';
-
+import UpdateAlbumForm from '../components/UpdateAlbumForm';
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +66,10 @@ export const router = createBrowserRouter([
       {
         path: "/search/albums",
         element: <SearchAlbum />
+      }, 
+      {
+        path: "/albums/:albumId/edit",
+        element: <UpdateAlbumForm />
       }
       // {
       //   path: "songs/:songId",
