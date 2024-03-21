@@ -65,7 +65,7 @@ export default function Layout() {
                 <div className="page-bottom-signup">
                   <div>
                     <div>Preview of RR</div>
-                    <div>Sign up to get all songs.</div>
+                    <div>Sign up to listen to all songs.</div>
                   </div>
                   <OpenModalButton
                     buttonText="Sign Up"

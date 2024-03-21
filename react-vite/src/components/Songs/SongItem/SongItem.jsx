@@ -14,7 +14,7 @@ function SongItem({ song, index, user }) {
     const dispatch = useDispatch();
     const location = useLocation();
     const { pathname } = location;
-    console.log(pathname)
+    // console.log(pathname)
 
     // let idx = useSelector(state => state.playlist).index
     // const playlistState = useSelector(state => state.playlist);
@@ -66,14 +66,14 @@ function SongItem({ song, index, user }) {
         // const like = document.getElementById(e.currentTarget.id);
         await dispatch(dislikeSongThunk(song.id));
         const rerender = document.getElementsByClassName("rerender-btn")[0];
-        rerender.click();
+        if (rerender) rerender.click();
     }
 
     const toggleLike = async () => {
         // const like = document.getElementById(e.currentTarget.id);
         await dispatch(likeSongThunk(song.id));
         const rerender = document.getElementsByClassName("rerender-btn")[0];
-        rerender.click();
+        if (rerender) rerender.click();
     }
 
     return (
