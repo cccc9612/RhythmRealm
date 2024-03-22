@@ -1,8 +1,23 @@
 .manage-album-container {
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 8px 20px;
     cursor: pointer;
+}
+
+.image-section {
+    background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212);
+
+}
+
+.album-list-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #3e3d3d;
+    color: #b3b3b3;
+    font-size: 18px;
+    padding: 10px;
 }

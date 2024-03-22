@@ -8,7 +8,8 @@ import AlbumItem from "../../../Albums/AlbumItem";
 import DeleteAlbumModal from "../../../DeleteAlbumModal";
 import RemoveSongsModal from "../../../RemoveSongsModal";
 import './ManageAlbums.css'
-import manageAlbumImg from './ManageAlbums.png'
+import manageAlbumImg from './ManageAlbum.png'
+import AlbumDropdown from "../../../AlbumDropdown/AlbumDropdown"
 
 function ManageAlbums() {
   const dispatch = useDispatch();
@@ -38,28 +39,30 @@ function ManageAlbums() {
   return (
 
     <div className="manage-album-container">
-      <button><Link to={`/albums/new`}>Create Album</Link></button>
-      <div className="albums-container">
+      <div className="manage-song-container">
         <div className="songs-header">
           <img className='manage-song-cover-img' src={manageAlbumImg} alt="manage-song-cover-img" />
           <h1 className="manage-song-title">Manage Albums</h1>
         </div>
-        {albums?.map((album) => {
-          return (
-            <div key={album.id}>
-              <NavLink to={`/albums/${album.id}`}>
-                <AlbumItem album={album} />
-              </NavLink>
-              <div>
-                <button><Link to={`/albums/${album.id}/edit`}>Update</Link></button>
-                <button onClick={() => handleDeleteClick(album.id)}>Delete</button>
-                <button onClick={() => handleRemoveClick(album.id)}>Remove songs from this album</button>
-                <button><Link to={`/users/current/songs`}>Add songs to this album</Link></button>
-              </div>
+        <div className="manage-song-upload-button">
+          <button className="fa-solid fa-upload" onClick={() => navigate(`/albums/new`)}></button>
+          <span>Create New</span>
+        </div>
+        <div className="image-section">
+          <div className="album-list-section">
+            {albums?.map((album) => {
+              return (
+                <div key={album.id}>
+                  <NavLink to={`/albums/${album.id}`}>
+                    <AlbumItem album={album} />
+                  </NavLink>
+                  <AlbumDropdown album={album} />
 
-            </div>
-          )
-        })}
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
     </div>
   )

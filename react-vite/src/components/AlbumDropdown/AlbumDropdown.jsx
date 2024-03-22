@@ -50,9 +50,16 @@ function SongDropdown({ song }) {
                     <span className={"manage-song-dropdown"} ref={ulRef}>
                         {owner && (
                             <>
+                                {/* <div>
+                                    <button><Link to={`/albums/${album.id}/edit`}>Update</Link></button>
+                                    <button onClick={() => handleDeleteClick(album.id)}>Delete</button>
+                                    <button onClick={() => handleRemoveClick(album.id)}>Remove songs from this album</button>
+                                    <button><Link to={`/users/current/songs`}>Add songs to this album</Link></button>
+                                </div> */}
+
                                 <ul className="dropdown-edit">
                                     <i className="fa-solid fa-pen"></i>
-                                    <span className="dropdown-list" onClick={() => navigate(`/songs/${song.id}/edit`)}>Update</span>
+                                    <span className="dropdown-list" onClick={() => navigate(`/albums/${album.id}/edit`)}>Update</span>
                                 </ul>
                                 <ul className="dropdown-edit">
                                     <i className="fa-solid fa-circle-minus"></i>
