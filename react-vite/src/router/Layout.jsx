@@ -40,6 +40,11 @@ export default function Layout() {
 
   }
 
+  const createPlaylist = (e) => {
+    e.preventDefault();
+    alert("Feature Coming Soon");
+  }
+
   return (
     <>
       <ModalProvider>
@@ -53,6 +58,7 @@ export default function Layout() {
                 </div>
                 <div className="playlist-list">
                   playlist
+                  <button onClick={createPlaylist}>Create your playlist</button>
                 </div>
               </div>
             </div>
