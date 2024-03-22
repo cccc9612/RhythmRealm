@@ -7,8 +7,8 @@ import { useModal } from "../../../../context/Modal";
 import AlbumItem from "../../../Albums/AlbumItem";
 import DeleteAlbumModal from "../../../DeleteAlbumModal";
 import RemoveSongsModal from "../../../RemoveSongsModal";
-import './ManageAlbums.css'
-import manageAlbumImg from './ManageAlbums.png'
+// import './ManageAlbums.css'
+// import manageAlbumImg from './ManageAlbums.png'
 
 function ManageAlbums() {
   const dispatch = useDispatch();
@@ -41,25 +41,27 @@ function ManageAlbums() {
       <button><Link to={`/albums/new`}>Create Album</Link></button>
       <div className="albums-container">
         <div className="songs-header">
-          <img className='manage-song-cover-img' src={manageAlbumImg} alt="manage-song-cover-img" />
+          {/* <img className='manage-song-cover-img' src={manageAlbumImg} alt="manage-song-cover-img" /> */}
           <h1 className="manage-song-title">Manage Albums</h1>
         </div>
-        {albums?.map((album) => {
-          return (
-            <div key={album.id}>
-              <NavLink to={`/albums/${album.id}`}>
-                <AlbumItem album={album} />
-              </NavLink>
-              <div>
-                <button><Link to={`/albums/${album.id}/edit`}>Update</Link></button>
-                <button onClick={() => handleDeleteClick(album.id)}>Delete</button>
-                <button onClick={() => handleRemoveClick(album.id)}>Remove songs from this album</button>
-                <button><Link to={`/users/current/songs`}>Add songs to this album</Link></button>
-              </div>
 
-            </div>
-          )
-        })}
+          {albums?.map((album) => {
+            return (
+              <div key={album.id}>
+                <NavLink to={`/albums/${album.id}`}>
+                  <AlbumItem album={album} />
+                </NavLink>
+                <div>
+                  <button><Link to={`/albums/${album.id}/edit`}>Update</Link></button>
+                  <button onClick={() => handleDeleteClick(album.id)}>Delete</button>
+                  <button onClick={() => handleRemoveClick(album.id)}>Remove songs from this album</button>
+                  <button><Link to={`/users/current/songs`}>Add songs to this album</Link></button>
+                </div>
+
+              </div>
+            )
+          })}
+
       </div>
     </div>
   )
