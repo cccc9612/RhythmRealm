@@ -24,7 +24,7 @@ function ManageAlbums() {
   useEffect(() => {
     if (!sessionUser) navigate('/');
     dispatch(getCurrentAlbums())
-  }, [dispatch]);
+  }, [dispatch, sessionUser, navigate]);
 
   const handleDeleteClick = (albumId) => {
     setModalContent(<DeleteAlbumModal albumId={albumId} />)
