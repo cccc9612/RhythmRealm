@@ -29,7 +29,7 @@ function ManageSongs() {
     if (!sessionUser) navigate('/');
     dispatch(getCurrentSongs())
     dispatch(getAllAlbums())
-  }, [dispatch]);
+  }, [dispatch, navigate, sessionUser]);
 
   const handlePrevPage = () => {
     if (page - 1 >= 0) {

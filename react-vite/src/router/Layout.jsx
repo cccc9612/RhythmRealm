@@ -13,6 +13,7 @@ import SignupFormModal from "../components/SignupFormModal";
 import MusicPlayer from "../components/MusicPlayer";
 // import OpenModalMenuItem from "../components/Navigation/OpenModalMenuItem";
 import Navigation from "../components/Navigation/Navigation";
+import { NavLink } from "react-router-dom";
 
 export default function Layout() {
   const dispatch = useDispatch();
@@ -57,9 +58,19 @@ export default function Layout() {
                   <LuLibrary /> Your library
                 </div>
                 <div className="playlist-list">
-                  playlist
-                  <button onClick={createPlaylist}>Create your playlist</button>
+                  <span>Create your first playlist</span>
+                  <span>It&apos;s easy, we`&apos;ll help you</span>
+                  <button className="playlist-btn" onClick={createPlaylist}>Create your playlist</button>
+                  <button onClick={createPlaylist}>Browse playlists</button>
                 </div>
+                <NavLink className="link-to-allsongs" to={`/songs`}>All Songs</NavLink>
+                <NavLink className="link-to-allalbums" to={`/albums`}>All Albums</NavLink>
+                {sessionUser &&
+                  <>
+                    <NavLink className="link-to-managesongs" to={`/users/current/songs`}>Manage Songs</NavLink>
+                    <NavLink className="link-to-managealbums" to={`/users/current/albums`}>Manage Albums</NavLink>
+                  </>
+                }
               </div>
             </div>
             <div className="song-album-list-container">
@@ -96,10 +107,10 @@ export default function Layout() {
                 checkPath(pathname) ?
                   <MusicPlayer /> :
                   <div className="page-bottom-signup">
-                  <div>
-                    <div>Preview of RR</div>
-                    <div>More features coming soon.</div>
-                  </div>
+                    <div>
+                      <div>Preview of RR</div>
+                      <div>More features coming soon.</div>
+                    </div>
                   </div>
               )
             }
