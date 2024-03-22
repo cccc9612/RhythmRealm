@@ -60,7 +60,7 @@ export default function Layout() {
                 </div>
                 <div className="playlist-list">
                   <span>Create your first playlist</span>
-                  <span>It&apos;s easy, we`&apos;ll help you</span>
+                  <span>It&apos;s easy, we&apos;ll help you</span>
                   <button className="playlist-btn" onClick={createPlaylist}>Create your playlist</button>
                   <button onClick={createPlaylist}>Browse playlists</button>
                 </div>
