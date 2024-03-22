@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 // import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./CreateSong.css"
 
 
@@ -11,8 +12,10 @@ function CreateSongModal() {
     const [songLoading, setSongLoading] = useState(false);
     const [errors, setErrors] = useState({})
     // const [duration, setDuration] = useState("");
+    const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
+        if (!sessionUser) navigate('/')
         const validationObj = {};
 
         if (name.length < 1) {
@@ -80,7 +83,7 @@ function CreateSongModal() {
 
                     {/* <lable>
                     Duration
-                    <input 
+                    <input
                         type="text"
                         value={duration}
                         onChange={(e) => setDuration(e.target.value)}

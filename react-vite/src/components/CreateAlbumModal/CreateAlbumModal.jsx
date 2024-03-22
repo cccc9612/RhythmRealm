@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 // import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import './CreateAlbumModal.css'
@@ -10,15 +11,17 @@ function CreateAlbumModal() {
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false)
     const [errors, setErrors] = useState({});
+    const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
+        if (!sessionUser) navigate('/');
         const validationObj = {};
 
-        if(name.length < 1) {
+        if (name.length < 1) {
             validationObj.name = "album title is required"
         }
 
-        if(!image) {
+        if (!image) {
             validationObj.image = "album cover image is required"
         }
 
@@ -32,7 +35,7 @@ function CreateAlbumModal() {
             const formData = new FormData();
             formData.append("cover_img", image);
             formData.append("name", name)
-    
+
             const res = await fetch("/api/users/current/albums", {
                 method: "POST",
                 body: formData
