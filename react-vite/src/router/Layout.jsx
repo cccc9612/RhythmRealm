@@ -106,9 +106,9 @@ export default function Layout() {
               : (
                 checkPath(pathname) ?
                   <MusicPlayer /> :
-                  <div className="page-bottom-signup">
+                  <div className="page-bottom-noplayer">
                     <div>
-                      <div>Preview of RR</div>
+                      <div>RR player needs a rest</div>
                       <div>More features coming soon.</div>
                     </div>
                   </div>
