@@ -7,6 +7,8 @@ import { useModal } from "../../../../context/Modal";
 import AlbumItem from "../../../Albums/AlbumItem";
 import DeleteAlbumModal from "../../../DeleteAlbumModal";
 import RemoveSongsModal from "../../../RemoveSongsModal";
+import './ManageAlbums.css'
+import manageAlbumImg from './ManageAlbums.png'
 
 function ManageAlbums() {
   const dispatch = useDispatch();
@@ -34,7 +36,10 @@ function ManageAlbums() {
     <div className="manage-album-container">
       <button><Link to={`/albums/new`}>Create Album</Link></button>
       <div className="albums-container">
-        <h2>Manage Albums</h2>
+        <div className="songs-header">
+          <img className='manage-song-cover-img' src={manageAlbumImg} alt="manage-song-cover-img" />
+          <h1 className="manage-song-title">Manage Albums</h1>
+        </div>
         {albums?.map((album) => {
           return (
             <div key={album.id}>

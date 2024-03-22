@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
-import DeleteSong from "../DeleteSong/DeleteSong"
+import DeleteAlbumModal from "../DeleteAlbumModal/DeleteAlbumModal"
 import AddToAlbum from "../Albums/AddToAlbum/AddToAlbum"
 import "./AlbumDropdown.css"
 
