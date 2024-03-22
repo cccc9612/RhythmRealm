@@ -32,16 +32,16 @@ function SongItemInAlbum({ song, index, user, songs }) {
 
         const rerender1 = document.getElementsByClassName("rerender-btn")[0];
         if (rerender1) rerender1.click();
-        // const rerender2 = document.getElementsByClassName("album-rerender-btn")[0];
-        // if (rerender2) rerender2.click();
+        const rerender2 = document.getElementsByClassName("album-rerender-btn")[0];
+        if (rerender2) rerender2.click();
     }
 
     const toggleLike = async () => {
         await dispatch(likeSongThunk(song.id));
         const rerender1 = document.getElementsByClassName("rerender-btn")[0];
         if (rerender1) rerender1.click();
-        // const rerender2 = document.getElementsByClassName("album-rerender-btn")[0];
-        // if (rerender2) rerender2.click();
+        const rerender2 = document.getElementsByClassName("album-rerender-btn")[0];
+        if (rerender2) rerender2.click();
     }
 
     return (
