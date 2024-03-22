@@ -5,27 +5,29 @@ import { getCurrentAlbums } from "../../../redux/album";
 import { addToAlbumThunk } from "../../../redux/song";
 import "./AddToAlbum.css"
 
-function AddToAlbum({song}) {
+function AddToAlbum({ song }) {
     const dispatch = useDispatch();
     const songState = useSelector(state => state.song);
     const songs = Object.values(songState?.Songs);
     console.log("songs in component=========", songs)
     const songId = song.id
-    
+
     const albumState = useSelector(state => state.album);
     const albums = Object.values(albumState?.Albums);
+    const { closeModal } = useModal();
 
     useEffect(() => {
         dispatch(getAllSongs());
         dispatch(getCurrentAlbums());
     }, [dispatch]);
 
-    
-    
-    const handleAdd = (albumId)  => {
+
+
+    const handleAdd = (albumId) => {
         console.log("albumId in component======", albumId)
         if (!albumId) return;
         dispatch(addToAlbumThunk(albumId, songId))
+        closeModal()
     }
 
 
@@ -34,7 +36,7 @@ function AddToAlbum({song}) {
         <div>
             <h2>AddToAlbum</h2>
             <div className="album-detail-songs-container">
-            <h3 className="search-song-h3">Songs</h3>
+                <h3 className="search-song-h3">Songs</h3>
                 <div className="song-list-row-title">
                     <span className="first-col">#</span>
                     <span>Title</span>
@@ -42,38 +44,38 @@ function AddToAlbum({song}) {
                     <span>Likes</span>
                     <span>Duration</span>
                 </div>
-            {songs?.map((song, index) => (
-                <div className="song-list-row" key={song.id}>
-                    <span className="first-col">{index + 1}</span>
-                    <span className="second-col">
-                        {/* <img src={song.album?.cover_img} /> */}
-                        <span className="song-name-artist">
-                            <span className="song-name">{song.song_name}</span>
-                            <span>{song.artist.first_name} {song.artist.last_name}</span>
+                {songs?.map((song, index) => (
+                    <div className="song-list-row" key={song.id}>
+                        <span className="first-col">{index + 1}</span>
+                        <span className="second-col">
+                            {/* <img src={song.album?.cover_img} /> */}
+                            <span className="song-name-artist">
+                                <span className="song-name">{song.song_name}</span>
+                                <span>{song.artist.first_name} {song.artist.last_name}</span>
+                            </span>
                         </span>
-                    </span>
-                    <span className="like-container">
-                        {song.likes}
-                    </span>
-                    <span>{song.duration}</span>
-                    {song.album?.id? <span>{song.album.name}</span> : (
-                    <span>
-                        <select onChange={(e) => handleAdd(e.target.value)}>
-                            <option value="">Add to album</option>
-                            {albums?.map((album) => {
-                                return (
-                                        <option
-                                            value={album.id}
-                                            key={album.id}>
-                                            {album.name}
-                                        </option>
-                                )
-                            })}
-                        </select>
-                    </span>
-                    )}
-                </div>
-            ))}
+                        <span className="like-container">
+                            {song.likes}
+                        </span>
+                        <span>{song.duration}</span>
+                        {song.album?.id ? <span>{song.album.name}</span> : (
+                            <span>
+                                <select onChange={(e) => handleAdd(e.target.value)}>
+                                    <option value="">Add to album</option>
+                                    {albums?.map((album) => {
+                                        return (
+                                            <option
+                                                value={album.id}
+                                                key={album.id}>
+                                                {album.name}
+                                            </option>
+                                        )
+                                    })}
+                                </select>
+                            </span>
+                        )}
+                    </div>
+                ))}
             </div>
         </div>
     )
