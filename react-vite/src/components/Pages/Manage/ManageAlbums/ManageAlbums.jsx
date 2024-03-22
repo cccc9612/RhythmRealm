@@ -41,7 +41,7 @@ function ManageAlbums() {
     <div className="album-list-container">
       <div className="manage-album-container">
         <div className="songs-header">
-          <img className='manage-song-cover-img' src={manageAlbumImg} alt="manage-song-cover-img" />
+          <img className='manage-album-cover-img' src={manageAlbumImg} alt="manage-song-cover-img" />
           <h1 className="manage-song-title">Manage Albums</h1>
         </div>
         <div className="manage-album-upload-button">

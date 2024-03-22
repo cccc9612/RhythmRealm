@@ -51,21 +51,23 @@ function ManageSongs() {
         <div className="songs-header">
           <img className='manage-song-cover-img' src={manageSongCover} alt="manage-song-cover-img" />
           <h1 className='manage-song-title'>Manage Songs</h1>
-          <div>
-            <button className="prev-page-click"
-              onClick={handlePrevPage}
-              disabled={page == 0 ? true : false}>
-              Prev
-            </button>
-            <span> </span>
-            <button className="next-page-click"
-              onClick={handleNextPage}
-              disabled={page == Math.ceil(songs.length / limit) - 1 ? true : false}>
-              Next
-            </button>
-          </div>
+
+        </div>
+        <div className="pagination" style={{ fontWeight: "bold" }}>
+          <button className="prev-page-click"
+            onClick={handlePrevPage}
+            disabled={page == 0 ? true : false}>
+            Prev
+          </button>
+          <span> </span>
+          <button className="next-page-click"
+            onClick={handleNextPage}
+            disabled={page == Math.ceil(songs.length / limit) - 1 ? true : false}>
+            Next
+          </button>
         </div>
         <div className="manage-song-upload-button">
+
           <button className="fa-solid fa-upload" onClick={() => navigate(`/songs/new`)}></button>
           <span>Upload</span>
         </div>

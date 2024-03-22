@@ -77,15 +77,11 @@ export default function Layout() {
                   </div>
                   <div className="contributors">
                     <div>
-                      <i className="fa-brands fa-github" style={{ paddingRight: '10px' }}></i>
+                      <i className="fa-brands fa-github" style={{ paddingRight: '10px', paddingLeft: '10px' }}></i>
                       <a rel='noreferrer' href="https://github.com/elainefan331" className="author-name" target="_blank">Elaine Fan</a>
-                    </div>
-                    <div>
-                      <i className="fa-brands fa-github" style={{ paddingRight: '10px' }}></i>
+                      <i className="fa-brands fa-github" style={{ paddingRight: '10px', paddingLeft: '10px' }}></i>
                       <a rel='noreferrer' href='https://github.com/cccc9612' className="author-name" target="_blank">Cindy Li</a>
-                    </div>
-                    <div>
-                      <i className="fa-brands fa-github" style={{ paddingRight: '10px' }}></i>
+                      <i className="fa-brands fa-github" style={{ paddingRight: '10px', paddingLeft: '10px' }}></i>
                       <a rel='noreferrer' className="author-name" href="https://github.com/haoxugt" target="_blank">Hao Xu</a>
                     </div>
                   </div>

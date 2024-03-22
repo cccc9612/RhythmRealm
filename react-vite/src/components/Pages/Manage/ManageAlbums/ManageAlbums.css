@@ -18,6 +18,12 @@
 
 }
 
+.manage-album-cover-img {
+    height: 180px;
+    width: 180px;
+    border-radius: 10px;
+}
+
 .album-list-container {
     width: 100%;
     height: auto;
@@ -71,5 +77,5 @@
 }
 
 .manage-album-dropdown :hover {
-    color: blue
+    color: rgb(100, 114, 106)
 }
