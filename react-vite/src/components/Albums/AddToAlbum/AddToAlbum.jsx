@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllSongs } from "../../../redux/song";
 import { getCurrentAlbums } from "../../../redux/album";
 import { addToAlbumThunk } from "../../../redux/song";
+import { useModal } from "../../../context/Modal";
 import "./AddToAlbum.css"
 
 function AddToAlbum({song}) {
+    const { closeModal } = useModal();
     const dispatch = useDispatch();
     const songState = useSelector(state => state.song);
     const songs = Object.values(songState?.Songs);
@@ -26,6 +28,7 @@ function AddToAlbum({song}) {
         console.log("albumId in component======", albumId)
         if (!albumId) return;
         dispatch(addToAlbumThunk(albumId, songId))
+        closeModal();
     }
 
 
