@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import DeleteSong from "../DeleteSong/DeleteSong"
 import AddToAlbum from "../Albums/AddToAlbum/AddToAlbum"
@@ -69,10 +70,12 @@ function SongDropdown({ song }) {
                             <ul className="dropdown-edit">
                                 <i className="fa-solid fa-square-plus"></i>
                                 <span className="dropdown-list">
-                                    <OpenModalMenuItem
+                                    {song.album?.id? <Link to={`/albums/${song.album?.id}`}>{song.album.name}</Link> :
+                                    (<OpenModalMenuItem
                                         itemText='Add to Album'
                                         onItemClick={closeMenu}
-                                        modalComponent={<AddToAlbum song={song} />} />
+                                        modalComponent={<AddToAlbum song={song} />} />)
+                                    }
                                 </span>
                             </ul>
                         )}

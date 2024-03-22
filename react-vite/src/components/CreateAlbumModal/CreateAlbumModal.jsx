@@ -22,7 +22,14 @@ function CreateAlbumModal() {
         }
 
         if (!image) {
-            validationObj.image = "album cover image is required"
+            validationObj.image = "album cover image is required \n(accept pdf, png, jpg, jpeg, gif)\n"
+        } else {
+            const fileType = image.type
+            console.log("file type=====================>", fileType)
+            const validTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'application/pdf']
+            if (! validTypes.includes(fileType)) {
+                validationObj.imagetype = "Invalid file type, only PDF, PNG, JPG, JPEG, GIF are allowed" 
+            }
         }
 
         setErrors(validationObj)
@@ -76,6 +83,7 @@ function CreateAlbumModal() {
                             className="name-input"
                         />
                         <div>{errors.image && <p className="create-album-validator">{errors.image}</p>}</div>
+                        <div>{errors.imagetype && <p className="create-album-validator">{errors.imagetype}</p>}</div>
                     </label>
 
                     <button type="submit" id="submit_button">Submit</button>

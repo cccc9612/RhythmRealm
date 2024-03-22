@@ -98,7 +98,7 @@ def seed_songs():
     )
     song11 = Song(
      songs_name = "Summer Breeze Symphony",
-     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/680b5107c2d34bd3acea0fc5022a2adb.jpeg",
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/8f99f1c775a8473bbaa984e41d44d631.mp3",
      artist_id = 3,
      duration = "3:15",
     #  created_at = random_date_2023(),

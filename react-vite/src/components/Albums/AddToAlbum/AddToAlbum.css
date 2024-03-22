@@ -1,0 +1,19 @@
+.add-to-album-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.add-to-album-line-container > span{
+    margin: 10px;
+}
+
+.add-to-album-button {
+    padding: 3px 15px;
+    background-color: rgb(4, 162, 4);
+    border-radius: 10px;
+    border: none;
+    color: white
+}
