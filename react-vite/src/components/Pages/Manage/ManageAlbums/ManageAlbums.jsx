@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentAlbums } from "../../../../redux/album";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useModal } from "../../../../context/Modal";
 import AlbumItem from "../../../Albums/AlbumItem";
-import DeleteAlbumModal from "../../../DeleteAlbumModal";
-import RemoveSongsModal from "../../../RemoveSongsModal";
+// import DeleteAlbumModal from "../../../DeleteAlbumModal";
+// import RemoveSongsModal from "../../../RemoveSongsModal";
 import './ManageAlbums.css'
 import manageAlbumImg from './ManageAlbum.png'
 import AlbumDropdown from "../../../AlbumDropdown/AlbumDropdown"
@@ -14,7 +14,7 @@ import AlbumDropdown from "../../../AlbumDropdown/AlbumDropdown"
 function ManageAlbums() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { setModalContent } = useModal();
+  // const { setModalContent } = useModal();
   const albumState = useSelector(state => state.album);
   console.log("albumState in component=======", albumState)
   const albums = Object.values(albumState?.Albums);
