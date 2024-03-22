@@ -22,93 +22,93 @@ def seed_songs():
      artist_id = 1,
      album_id = 1,
      duration = "3:45",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song2 = Song(
      songs_name = "Moonlit Melody",
-     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/ee74100c700b4a7a979a37ee534e4bc1.mp3",
      artist_id = 1,
      album_id = 1,
      duration = "4:21",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song3 = Song(
      songs_name = "Starry Night Sonata",
-     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/0d7bc24dc75641b5884b623286d8bfd0.mp3",
      artist_id = 1,
-     album_id = 2,
+     album_id = 1,
      duration = "2:55",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song4 = Song(
      songs_name = "Morning Dew",
-     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/ac185c55ddf9496a9d84541ca248f872.mp3",
      artist_id = 1,
-     album_id = 2,
+     album_id = 1,
      duration = "3:30",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song5 = Song(
      songs_name = "City Lights Ballad",
-     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-     artist_id = 2,
-     album_id = 3,
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/037c764bb8914998b0b35caad7406cb2.mp3",
+     artist_id = 1,
+     album_id = 2,
      duration = "4:10",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song6 = Song(
      songs_name = "Oceanic Overture",
-     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
-     artist_id = 2,
-     album_id = 3,
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/010bbded106d40a2ba59c0d42b5e8136.mp3",
+     artist_id = 1,
+     album_id = 2,
      duration = "5:15",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song7 = Song(
      songs_name = "Rainy Day Rhapsody",
-     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
-     artist_id = 3,
-     album_id = 7,
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/e431ebd1ff2d49d2bfb556e8ffcf62b3.mp3",
+     artist_id = 1,
+     album_id = 3,
      duration = "3:50",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song8 = Song(
      songs_name ="Autumn Leaves Lullaby",
-     song_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-     artist_id = 3,
-     album_id = 8,
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/1e54329ac53d4e58b3b2635d79dcce59.mp3",
+     artist_id = 1,
+    #  album_id = 4,
      duration = "4:35",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song9 = Song(
      songs_name = "Winter Wonderland Waltz",
-     song_url = "fakeurl-9",
-     artist_id = 3,
-     album_id = 9,
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/638b7a9233324070b52dd0cc4015b77b.mp3",
+     artist_id = 1,
+    #  album_id = 4,
      duration = "3:25",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song10 = Song(
      songs_name = "Springtime Serenade",
-     song_url = "fakeurl-10",
-     artist_id = 3,
-     album_id = 10,
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/7340d017883b433ea567ebe972734c6e.mp3",
+     artist_id = 1,
+    #  album_id = 4,
      duration = "4:01",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song11 = Song(
      songs_name = "Summer Breeze Symphony",
-     song_url = "fakeurl-11",
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/680b5107c2d34bd3acea0fc5022a2adb.jpeg",
      artist_id = 3,
      duration = "3:15",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
     song12 = Song(
      songs_name ="Enchanted Forest Fantasia",
-     song_url = "fakeurl-12",
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/9d1694b7e9d44920896290f7779b35a6.mp3",
      artist_id = 3,
      duration = "5:30",
-     created_at = random_date_2023(),
+    #  created_at = random_date_2023(),
     )
 
     songs= [
