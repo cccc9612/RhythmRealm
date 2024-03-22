@@ -21,39 +21,39 @@ function ManageAlbums() {
   }, [dispatch]);
 
   const handleDeleteClick = (albumId) => {
-      setModalContent(<DeleteAlbumModal albumId={albumId} />)
+    setModalContent(<DeleteAlbumModal albumId={albumId} />)
   }
 
   const handleRemoveClick = (albumId) => {
-      setModalContent(<RemoveSongsModal albumId={albumId} />)
+    setModalContent(<RemoveSongsModal albumId={albumId} />)
   }
 
 
   return (
-    
-    <div>
-      <button><Link to={`/albums/new`}>Create Album</Link></button>
-      <h2>Manage Albums</h2>
-      <div className="albums-container">
-      {albums?.map((album) => {
-        return (
-          <div key={album.id}>
-          <NavLink to={`/albums/${album.id}`}>
-            <AlbumItem album={album} />
-          </NavLink>
-          <div>
-            <button><Link to={`/albums/${album.id}/edit`}>Update</Link></button>
-            <button onClick={() => handleDeleteClick(album.id)}>Delete</button>
-            <button onClick={() => handleRemoveClick(album.id)}>Remove songs from this album</button>
-            <button><Link to={`/users/current/songs`}>Add songs to this album</Link></button>
-          </div>
 
-          </div>
-        )
-      })}
+    <div className="manage-album-container">
+      <button><Link to={`/albums/new`}>Create Album</Link></button>
+      <div className="albums-container">
+        <h2>Manage Albums</h2>
+        {albums?.map((album) => {
+          return (
+            <div key={album.id}>
+              <NavLink to={`/albums/${album.id}`}>
+                <AlbumItem album={album} />
+              </NavLink>
+              <div>
+                <button><Link to={`/albums/${album.id}/edit`}>Update</Link></button>
+                <button onClick={() => handleDeleteClick(album.id)}>Delete</button>
+                <button onClick={() => handleRemoveClick(album.id)}>Remove songs from this album</button>
+                <button><Link to={`/users/current/songs`}>Add songs to this album</Link></button>
+              </div>
+
+            </div>
+          )
+        })}
+      </div>
     </div>
-    </div>
-  ) 
+  )
 }
 
 export default ManageAlbums;
