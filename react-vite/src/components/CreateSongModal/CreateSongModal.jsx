@@ -13,9 +13,9 @@ function CreateSongModal() {
     const [errors, setErrors] = useState({})
     // const [duration, setDuration] = useState("");
     const sessionUser = useSelector(state => state.session.user);
+    if (!sessionUser) navigate('/')
 
     useEffect(() => {
-        if (!sessionUser) navigate('/')
         const validationObj = {};
 
         if (name.length < 1) {

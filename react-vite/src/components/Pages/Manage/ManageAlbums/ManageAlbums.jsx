@@ -25,7 +25,7 @@ function ManageAlbums() {
   useEffect(() => {
     if (!sessionUser) navigate('/');
     dispatch(getCurrentAlbums())
-  }, [dispatch]);
+  }, [dispatch, sessionUser, navigate]);
 
   const handleDeleteClick = (albumId) => {
     setModalContent(<DeleteAlbumModal albumId={albumId} />)
@@ -41,7 +41,7 @@ function ManageAlbums() {
     <div className="manage-album-container">
       <div className="manage-song-container">
         <div className="songs-header">
-          <img className='manage-song-cover-img' src={manageAlbumImg} alt="manage-song-cover-img" />
+          {/* <img className='manage-song-cover-img' src={manageAlbumImg} alt="manage-song-cover-img" /> */}
           <h1 className="manage-song-title">Manage Albums</h1>
         </div>
         <div className="manage-song-upload-button">
