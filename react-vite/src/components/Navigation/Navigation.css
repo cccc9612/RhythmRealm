@@ -38,4 +38,6 @@ a.homepage-logo-sec {
 span.logo-title {
   width: 200px;
   font-size: 30px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }

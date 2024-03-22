@@ -1,23 +1,75 @@
-.manage-album-container {
-    /* display: flex; */
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 20px;
-    cursor: pointer;
-}
-
 .image-section {
     background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212);
-
+    min-height: 1000px;
 }
 
 .album-list-section {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: stretch;
     border-bottom: 1px solid #3e3d3d;
     color: #b3b3b3;
     font-size: 18px;
+    margin-left: 35px;
     padding: 10px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+
+}
+
+.album-list-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    position: relative;
+    align-items: center;
+
+    /* padding: 8px 20px; */
+    /* cursor: pointer; */
+}
+
+.manage-album-container {
+    color: rgb(255, 255, 255);
+    display: block;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.manage-album-upload-button button {
+    cursor: pointer;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    border: 0px;
+    background-color: #09090900;
+    margin-right: 5px;
+}
+
+.manage-album-upload-button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* align-self: center; */
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-top: -40px;
+    font-size: 15px;
+}
+
+.manage-album-dropdown {
+    position: static;
+    top: 440px;
+    left: 475px;
+    background-color: #3e3d3d;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.manage-album-dropdown :hover {
+    color: blue
 }

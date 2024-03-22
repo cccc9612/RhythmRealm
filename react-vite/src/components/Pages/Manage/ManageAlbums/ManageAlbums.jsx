@@ -27,24 +27,24 @@ function ManageAlbums() {
     dispatch(getCurrentAlbums())
   }, [dispatch, sessionUser, navigate]);
 
-  const handleDeleteClick = (albumId) => {
-    setModalContent(<DeleteAlbumModal albumId={albumId} />)
-  }
+  // const handleDeleteClick = (albumId) => {
+  //   setModalContent(<DeleteAlbumModal albumId={albumId} />)
+  // }
 
-  const handleRemoveClick = (albumId) => {
-    setModalContent(<RemoveSongsModal albumId={albumId} />)
-  }
+  // const handleRemoveClick = (albumId) => {
+  //   setModalContent(<RemoveSongsModal albumId={albumId} />)
+  // }
 
 
   return (
 
-    <div className="manage-album-container">
-      <div className="manage-song-container">
+    <div className="album-list-container">
+      <div className="manage-album-container">
         <div className="songs-header">
-          {/* <img className='manage-song-cover-img' src={manageAlbumImg} alt="manage-song-cover-img" /> */}
+          <img className='manage-song-cover-img' src={manageAlbumImg} alt="manage-song-cover-img" />
           <h1 className="manage-song-title">Manage Albums</h1>
         </div>
-        <div className="manage-song-upload-button">
+        <div className="manage-album-upload-button">
           <button className="fa-solid fa-upload" onClick={() => navigate(`/albums/new`)}></button>
           <span>Create New</span>
         </div>
@@ -57,7 +57,7 @@ function ManageAlbums() {
                     <AlbumItem album={album} />
                   </NavLink>
                   <AlbumDropdown album={album} />
-
+                  {/* <span>hello</span> */}
                 </div>
               )
             })}
