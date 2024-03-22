@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllSongs } from "../../../redux/song";
+// import { getAllSongs } from "../../../redux/song";
 import { getCurrentAlbums } from "../../../redux/album";
 import { addToAlbumThunk } from "../../../redux/song";
 import { useModal } from "../../../context/Modal";
@@ -13,7 +13,7 @@ function AddToAlbum({song}) {
     // const songs = Object.values(songState?.Songs);
     // console.log("songs in component=========", songs)
     const songId = song.id
-    
+
     const albumState = useSelector(state => state.album);
     const albums = Object.values(albumState?.Albums);
 
@@ -22,8 +22,8 @@ function AddToAlbum({song}) {
         dispatch(getCurrentAlbums());
     }, [dispatch]);
 
-    
-    
+
+
     const handleAdd = (albumId) => (e) => {
         e.preventDefault();
         console.log("albumId in component======", albumId)

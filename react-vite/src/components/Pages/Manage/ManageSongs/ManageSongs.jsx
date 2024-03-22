@@ -20,11 +20,13 @@ function ManageSongs() {
   const songState = useSelector(state => state.song);
   const songs = Object.values(songState?.Songs)
   const [page, setPage] = useState(0);
+  const sessionUser = useSelector(state => state.session.user);
 
   const limit = 10;
   let songsDisplay = songs.slice(page * limit, (page + 1) * limit)
 
   useEffect(() => {
+    if (!sessionUser) navigate('/');
     dispatch(getCurrentSongs())
     dispatch(getAllAlbums())
   }, [dispatch]);

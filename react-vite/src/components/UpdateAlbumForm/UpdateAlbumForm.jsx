@@ -18,9 +18,11 @@ function UpdateAlbumForm() {
     const [name, setName] = useState(album?.name)
     const [image, setImage] = useState(null)
     const [previewUrl] = useState(album?.cover_img)
+    const sessionUser = useSelector(state => state.session.user);
 
 
     useEffect(() => {
+        if (!sessionUser) navigate('/')
         dispatch(getSingleAlbum(albumId))
     }, [dispatch, albumId])
 
