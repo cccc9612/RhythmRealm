@@ -7,8 +7,8 @@ import { useModal } from "../../../context/Modal";
 import "./AddToAlbum.css"
 
 function AddToAlbum({song}) {
-    const dispatch = useDispatch();
     const { closeModal } = useModal();
+    const dispatch = useDispatch();
     // const songState = useSelector(state => state.song);
     // const songs = Object.values(songState?.Songs);
     // console.log("songs in component=========", songs)

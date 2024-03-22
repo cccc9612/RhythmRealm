@@ -152,7 +152,7 @@ export const dislikeSongThunk = (songId) => async (dispatch) => {
 
   if (res.ok) {
     const data = await res.json()
-    console.log("666666666666666666666666666666666", data)
+    // console.log("666666666666666666666666666666666", data)
     dispatch(getAllSongs())
     return data
   }

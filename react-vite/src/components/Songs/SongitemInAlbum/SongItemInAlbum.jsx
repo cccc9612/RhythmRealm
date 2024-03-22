@@ -1,30 +1,25 @@
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
 import { setPlayIndexAction, loadPlaylistAction } from "../../../redux/playlist";
-import { getAllSongs } from "../../../redux/song";
+// import { getAllSongs } from "../../../redux/song";
 import { likeSongThunk, dislikeSongThunk } from "../../../redux/song";
+import { IoMdPlay } from "react-icons/io";
 
 import { useDispatch } from "react-redux";
 import "./SongItemInAlbum.css";
 
-function SongItemInAlbum({ song, index, user }) {
+function SongItemInAlbum({ song, index, user, songs }) {
     const dispatch = useDispatch();
 
     const handleClickPlaying = () => {
         dispatch(setPlayIndexAction(index));
+        dispatch(loadPlaylistAction(songs))
 
-        dispatch(getAllSongs())
-            .then((res) => {
+        const rerender = document.getElementsByClassName("rerender-btn")[0];
+        rerender.click();
+        const audio = document.getElementsByTagName('audio')[0];
+        audio.play();
 
-                dispatch(loadPlaylistAction(res.songs))
-            })
-            .then(() => {
-                const rerender = document.getElementsByClassName("rerender-btn")[0];
-                rerender.click();
-                const audio = document.getElementsByTagName('audio')[0];
-                audio.play();
-
-            })
     }
 
 
@@ -66,7 +61,7 @@ function SongItemInAlbum({ song, index, user }) {
                     <span className="like-heart hold album-detail" id={"album-song-" + song.id} onClick={toggleDislike}><IoMdHeart size={20} /></span> :
                     <span className="like-heart" id={"album-song-" + song.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>}
             </span>
-            <span>{song.duration}</span>
+            <span className="duration-col">{song.duration} <span className="play-btn" onClick={handleClickPlaying}><IoMdPlay size={20}/></span></span>
         </>
     )
 }
