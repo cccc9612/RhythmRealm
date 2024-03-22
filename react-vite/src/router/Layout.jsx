@@ -33,6 +33,7 @@ export default function Layout() {
 
   const checkPath = (pathname) => {
     if (pathname === "/" || pathname === "/songs" ||
+    pathname.startsWith("/search/") ||
       (pathname.length > 8 && pathname.startsWith("/albums/") && !pathname.endsWith("/edit"))) {
       return true;
     } else {
@@ -59,7 +60,7 @@ export default function Layout() {
                 </div>
                 <div className="playlist-list">
                   <span>Create your first playlist</span>
-                  <span>It&apos;s easy, we`&apos;ll help you</span>
+                  <span>It&apos;s easy, we&apos;ll help you</span>
                   <button className="playlist-btn" onClick={createPlaylist}>Create your playlist</button>
                   <button onClick={createPlaylist}>Browse playlists</button>
                 </div>
@@ -121,9 +122,9 @@ export default function Layout() {
               : (
                 checkPath(pathname) ?
                   <MusicPlayer /> :
-                  <div className="page-bottom-signup">
+                  <div className="page-bottom-noplayer">
                     <div>
-                      <div>Preview of RR</div>
+                      <div>RR player needs a rest</div>
                       <div>More features coming soon.</div>
                     </div>
                   </div>

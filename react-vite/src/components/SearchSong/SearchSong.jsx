@@ -1,12 +1,14 @@
 import { useState } from "react";
-import './SearchSong.css'
+import { useSelector } from "react-redux";
 import SongItem from "../Songs/SongItem";
 import { IoSearchOutline } from "react-icons/io5";
+import './SearchSong.css'
 
 function SearchSong() {
     const [text, setText] = useState("")
     const [songs, setSongs] = useState([])
     const [searchAttempted, setSearchAttempted] = useState(false)
+    const sessionUser = useSelector(state => state.session.user);
 
     const searchSongs = async() => {
         setSearchAttempted(true)
@@ -19,7 +21,7 @@ function SearchSong() {
             const data = await res.json();
             console.log("data", data)
             setSongs(data.songs)
-        } 
+        }
     }
 
 
@@ -30,7 +32,7 @@ function SearchSong() {
             <IoSearchOutline className="search-icon"/>
                 <input
                     placeholder="What do you want to play?"
-                    type="text" 
+                    type="text"
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                 />
@@ -54,14 +56,14 @@ function SearchSong() {
                 </div>
                 </>
             ) : null}
-            
+
                 {songs.map((song, index) => (
                     <div className="song-list-row" key={song.id}>
-                    <SongItem song={song} index={index} />
+                    <SongItem song={song} index={index} user={sessionUser} songs={songs}/>
                     </div>
                 ))}
             </>
-            ) 
+            )
             }
         </div>
         </>

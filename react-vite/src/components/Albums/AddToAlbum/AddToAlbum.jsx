@@ -37,12 +37,19 @@ function AddToAlbum({ song }) {
 
 
     return (
-        <div>
-            <h2>AddToAlbum</h2>
+        <div className="add-to-album-container">
+            <h2>Add To Album</h2>
             {albums?.map((album) => (
-                <div key={album.id}>
+                <div key={album.id} className="add-to-album-line-container">
                     <span>{album.name}</span>
-                    <span><button onClick={handleAdd(album.id)}>add</button></span>
+                    <span>
+                        <button 
+                            className="add-to-album-button"
+                            onClick={handleAdd(album.id)}
+                        >
+                            add
+                        </button>
+                    </span>
                 </div>
             ))}
             {/* <div className="album-detail-songs-container"> */}
