@@ -38,3 +38,25 @@
   visibility: visible;
   color: var(--green-color);
 }
+
+.duration-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.play-btn {
+  position: absolute;
+  left: 50px;
+  bottom: -3px;
+  visibility: hidden;
+}
+
+.play-btn:hover {
+  cursor: pointer;
+  color: var(--green-color);
+}
+
+.song-list-row:hover .play-btn {
+  visibility: visible;
+}

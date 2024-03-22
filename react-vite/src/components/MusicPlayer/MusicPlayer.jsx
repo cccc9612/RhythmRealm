@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { loadPlaylistAction } from '../../redux/playlist';
-import { getAllSongs } from '../../redux/song';
-import { likeSongThunk, dislikeSongThunk } from '../../redux/song';
-import { IoMdHeartEmpty } from "react-icons/io";
-import { IoMdHeart } from "react-icons/io";
+// import { getAllSongs } from '../../redux/song';
+// import { likeSongThunk, dislikeSongThunk } from '../../redux/song';
+// import { IoMdHeartEmpty } from "react-icons/io";
+// import { IoMdHeart } from "react-icons/io";
 
 import 'react-h5-audio-player/lib/styles.css';
 
@@ -18,9 +18,9 @@ function MusicPlayer() {
   const location = useLocation();
   const { pathname } = location;
 
-  // const songState = useSelector(state => state.song);
-  // const songs = Object.values(songState?.Songs)
-  const sessionUser = useSelector(state => state.session.user);
+  const songState = useSelector(state => state.song);
+  const songs = Object.values(songState?.Songs)
+  // const sessionUser = useSelector(state => state.session.user);
   const playlistState = useSelector(state => state.playlist);
   const playlist = playlistState?.Songs;
   let playIndex = playlistState?.playIndex;
@@ -32,14 +32,18 @@ function MusicPlayer() {
 
 
   useEffect(() => {
-    dispatch(getAllSongs())
-      .then((res) => {
-        // console.log("musicplayer playlist ", res.songs.slice(sliceIdx), songIndex);
-
-        dispatch(loadPlaylistAction(res.songs))
-      })
+    if (pathname === "/") {
+      if (!songs.length) {
+        if (songs.length > 10) {
+          dispatch(loadPlaylistAction(songs.toSorted((a, b) => {
+            return (new Date(b.created_at)) - (new Date(a.created_at));
+          }).slice(0,10)))
+        }
+      }
+    }
+    // console.log("reder ==== musci player")
     // dispatch(setPlayIndexAction(songIndex))
-    setSongIdx(playIndex)
+    setSongIdx(playIndex);
 
   }, [dispatch, playIndex, num])
 
@@ -59,23 +63,23 @@ function MusicPlayer() {
     setNum(num + 1);
   }
 
-  const checkLikes = (song, user) => {
-    return song.users_like.map(el => el.id).includes(user.id)
-  }
+  // const checkLikes = (song, user) => {
+  //   return song.users_like.map(el => el.id).includes(user.id)
+  // }
 
-  const toggleDislike = async () => {
-    // const like = document.getElementById(e.currentTarget.id);
-    await dispatch(dislikeSongThunk(playlist[songIdx]?.id));
-    const rerender = document.getElementsByClassName("rerender-btn")[0];
-    rerender.click();
-  }
+  // const toggleDislike = async () => {
+  //   // const like = document.getElementById(e.currentTarget.id);
+  //   await dispatch(dislikeSongThunk(playlist[songIdx]?.id));
+  //   const rerender = document.getElementsByClassName("rerender-btn")[0];
+  //   rerender.click();
+  // }
 
-  const toggleLike = async () => {
-    // const like = document.getElementById(e.currentTarget.id);
-    await dispatch(likeSongThunk(playlist[songIdx]?.id));
-    const rerender = document.getElementsByClassName("rerender-btn")[0];
-    rerender.click();
-  }
+  // const toggleLike = async () => {
+  //   // const like = document.getElementById(e.currentTarget.id);
+  //   await dispatch(likeSongThunk(playlist[songIdx]?.id));
+  //   const rerender = document.getElementsByClassName("rerender-btn")[0];
+  //   rerender.click();
+  // }
 
 
   return (
@@ -92,11 +96,10 @@ function MusicPlayer() {
             {playlist[songIdx]?.artist.first_name} {playlist[songIdx]?.artist.last_name}
           </span>
         </span>
-        {/* <span className="like-heart"><IoMdHeartEmpty size={20} /></span> */}
-        {sessionUser && playlist[songIdx] &&
+        {/* {sessionUser && playlist[songIdx] &&
           checkLikes(playlist[songIdx], sessionUser) ?
           <span className="like-heart hold" id={"mp-song-" + playlist[songIdx]?.id} onClick={toggleDislike}><IoMdHeart size={20} /></span> :
-          <span className="like-heart" id={"mp-song-" + playlist[songIdx]?.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>}
+          <span className="like-heart" id={"mp-song-" + playlist[songIdx]?.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>} */}
       </span>
       <div>
         <AudioPlayer

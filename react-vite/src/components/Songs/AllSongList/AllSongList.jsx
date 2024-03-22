@@ -61,7 +61,7 @@ function AllSongList() {
                 {songsDisplay?.map((song, index) => {
                     return (
                         <div className="song-list-row" key={song.id}>
-                            <SongItem song={song} index={index} user={sessionUser}/>
+                            <SongItem song={song} index={index} user={sessionUser} songs={songsDisplay}/>
                         </div>
                     )
                 })}
