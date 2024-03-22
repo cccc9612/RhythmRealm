@@ -1,80 +1,92 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import './UpdateSong.css'
+import { useDispatch, useSelector } from "react-redux"
+import { updateSongThunk } from "../../redux/song"
 import { getSingleSongThunk } from "../../redux/song"
 // import { updateSongThunk } from "../../redux/song";
 
-function UpdateSong() {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+export default function UpdateSong() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.session.user)
+    // const song = useSelector(state => state.songs?.[id])
+    const albumState = useSelector(state => state.album)
+    console.log(albumState)
     const { songId } = useParams();
-    // const songState = useSelector(state => state.song)
-    const song = albumState.Songs[songId]
-    const [name, setName] = useState(album?.name)
-    const [song_file, setSongFile] = useState(null)
-    const [songName, setSongName] = useState(song?.song_name)
+    const songState = useSelector(state => state.song)
+    const song = songState.Songs[songId];
 
+    const [song_file, setSongFile] = useState(null);
+    const [songName, setSongName] = useState(song?.song_name)
+    // const [displayFile, setDisplayFile] = useState(null)
+    const [loading, setLoading] = useState(false)
+    const [errors, setErrors] = useState({})
+    const [clicked, setClicked] = useState(false)
+
+    if (!user) navigate('/')
+
+    useEffect(() => {
+        const newErrors = {};
+        if (!String(songName).length) {
+            newErrors.songName = 'Name is required.'
+        }
+        setErrors(newErrors);
+    }, [songName])
 
     useEffect(() => {
         dispatch(getSingleSongThunk(songId))
     }, [dispatch, songId])
 
+    useEffect(() => {
+        if (song) {
+            setSongName(song?.song_name || '')
+            setSongFile(song?.song_file_url || '')
+        }
+    }, [song])
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData();
-        if (image) {
-            formData.append("cover_img", image)
-        }
-        formData.append("name", name)
 
-        const res = await fetch(`/api/users/current/songs/${songId}/edit`, {
-            method: "PUT",
-            body: formData
-        })
-        const data = await res.json()
-        navigate(`/songs/${songId}`)
+        if (!Object.values(errors).length) {
+            const artistId = user.id
+            const formData = new FormData();
+            formData.append("song_name", songName)
+            formData.append("artist_id", artistId)
+            formData.append("song_file_url", song_file);
+            formData.append('duration', 260)
+            setLoading(true);
+            dispatch(updateSongThunk(formData, song.id));
+            navigate(`/songs/${song.id}`)
+        }
     }
 
     return (
-        <div className="main-form">
+        <div className="update-form">
             <div className="create-container">
-                <h1>Update &quot;{song?.song_name}&quot;</h1>
+                <h1 style={{ paddingBottom: 20 }}>Update &quot;{song?.song_name}&quot;</h1>
                 <form
                     onSubmit={handleSubmit}
                     encType="multipart/form-data"
                     className="form-data"
                 >
                     <div className="entry-container">
-                        <p>Song Name</p>
+                        <p style={{ paddingBottom: 8 }}>Song Name</p>
                         <input
                             type="text"
                             value={songName}
                             onChange={(e) => setSongName(e.target.value)}
-                            className="song-inputs"
+                            className="input-box"
                         />
-                        <div style={{ minHeight: 30 }}>{errors.songName ? <span className="error-message">{errors.songName}</span> : ' '}</div>
+                        <div >{errors.songName ? <span className="error-message">{errors.songName}</span> : ' '}</div>
                     </div>
                     <div className="entry-container">
-                        <p>Update Cover Photo</p>
-                        <p style={{ fontSize: 13, paddingBottom: 10, paddingTop: 5 }}>Update the cover photo</p>
-                        <label className="image-input-label" htmlFor="update-image-input"><img className="thumbnail" src={displayImage} /><input
-                            className="song-inputs"
-                            id='update-image-input'
-                            type="file"
-                            accept="image/*"
-                            onChange={fileWrap}
-                        /></label>
-                        <div style={{ minHeight: 20, paddingTop: 10 }}></div>
-                    </div>
-                    <div className="entry-container">
-                        <p style={{ paddingTop: 8 }}>Update Song File</p>
-                        <p style={{ fontSize: 13, paddingBottom: 10, paddingTop: 5 }}>Update the song file</p>
+                        <p style={{ paddingTop: 8, paddingBottom: 25, }}>Click the song name below to update the file</p>
                         {!clicked ? (
                             <>
-                                <div className='song-file-input' onClick={() => setClicked(!clicked)}>
-                                    <p>{`${song?.song_name}.mp3`}</p>
+                                <div className="file-input-box" onClick={() => setClicked(!clicked)}>
+                                    <p>{` File: ${song?.song_name}.mp3`}</p>
                                 </div>
                                 <div style={{ minHeight: 20 }}></div>
                             </>
@@ -83,7 +95,7 @@ function UpdateSong() {
                                 <input
                                     type="file"
                                     accept="audio/*"
-                                    className="song-inputs"
+                                    className="input-box"
                                     onChange={(e) => setSongFile(e.target.files[0])}
                                 />
                                 <div style={{ minHeight: 20 }}></div>
@@ -91,13 +103,11 @@ function UpdateSong() {
                         )}
                     </div>
                     <div className="update-button">
-                        <button type="submit" id="submit_butt">Update Song</button>
+                        <button type="submit" id="submit_button">Update Song</button>
                     </div>
-                    <div style={{ minHeight: 30 }}>{awsLoading ? <p className="loading-text">Loading...</p> : ' '}</div>
+                    <div style={{ minHeight: 30 }}>{loading ? <p className="loading-text">Loading...</p> : ' '}</div>
                 </form>
             </div>
         </div>
     )
 }
-
-export default UpdateSong;

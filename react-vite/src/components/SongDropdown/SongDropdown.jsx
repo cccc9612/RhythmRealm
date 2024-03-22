@@ -52,7 +52,7 @@ function SongDropdown({ song }) {
                             <>
                                 <ul className="dropdown-edit">
                                     <i className="fa-solid fa-pen"></i>
-                                    <span className="dropdown-list" onClick={() => navigate(`/current/songs/${song.id}/edit`)}>Update</span>
+                                    <span className="dropdown-list" onClick={() => navigate(`/songs/${song.id}/edit`)}>Update</span>
                                 </ul>
                                 <ul className="dropdown-edit">
                                     <i className="fa-solid fa-circle-minus"></i>

@@ -1,40 +1,45 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useContext, useState } from "react";
-import { getAllSongs } from "../../../../redux/song";
+import { useEffect, useState } from "react";
+import { getCurrentSongs } from "../../../../redux/song";
 import { getAllAlbums } from "../../../../redux/album"
-import { MusicContext } from "../../../../context/MusicContext";
 import SongList from "../../../Songs/SongList/SongList";
 import { useNavigate } from "react-router-dom";
-import { IndexContext } from "../../../../context/IndexContext";
+// import { IndexContext } from "../../../../context/IndexContext";
 import "./ManageSongs.css"
 import manageSongCover from './ManageSongs.png'
-import SongDropdown from "../../../SongDropdown/SongDropdown"
+
 
 
 function ManageSongs() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [songList, setSongList] = useContext(MusicContext);
-  const [currentSong, setCurrentSong] = useContext(IndexContext);
-  const [playing, setPlaying] = useState(false);
-  const [counter, setCounter] = useState(0);
-  if (currentSong) currentSong
-
-
-  if (!songList) songList
-
   // const user = useSelector(state => state.session.user)
   // if (!user) navigate('/')
   // const users = useSelector(state => state.user)
-  const albumState = useSelector(state => state.album);
+  // const albumState = useSelector(state => state.album);
   const songState = useSelector(state => state.song);
   const songs = Object.values(songState?.Songs)
+  const [page, setPage] = useState(0);
+
+  const limit = 10;
+  let songsDisplay = songs.slice(page * limit, (page + 1) * limit)
 
   useEffect(() => {
-    dispatch(getAllSongs())
+    dispatch(getCurrentSongs())
     dispatch(getAllAlbums())
-  }, [dispatch])
-  // // console.log(songs)
+  }, [dispatch]);
+
+  const handlePrevPage = () => {
+    if (page - 1 >= 0) {
+      setPage(page - 1)
+    }
+  }
+
+  const handleNextPage = () => {
+    if (page + 1 < Math.ceil(songs.length / limit)) {
+      setPage(page + 1)
+    }
+  }
 
 
 
@@ -44,6 +49,19 @@ function ManageSongs() {
         <div className="songs-header">
           <img className='manage-song-cover-img' src={manageSongCover} alt="manage-song-cover-img" />
           <h1 className='manage-song-title'>Manage Songs</h1>
+          <div>
+            <button className="prev-page-click"
+              onClick={handlePrevPage}
+              disabled={page == 0 ? true : false}>
+              Prev
+            </button>
+            <span> </span>
+            <button className="next-page-click"
+              onClick={handleNextPage}
+              disabled={page == Math.ceil(songs.length / limit) - 1 ? true : false}>
+              Next
+            </button>
+          </div>
         </div>
         <div className="manage-song-upload-button">
           <button className="fa-solid fa-upload" onClick={() => navigate(`/songs/new`)}></button>
@@ -58,7 +76,7 @@ function ManageSongs() {
           <p>Album</p>
           <p>Duration</p>
         </div>
-        {songs?.map((song, count) => {
+        {songsDisplay?.map((song, count) => {
           return (
             <div className="song-list-row" key={songs.id}>
               <SongList key={songs.id}

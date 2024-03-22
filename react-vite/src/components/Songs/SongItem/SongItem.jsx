@@ -14,7 +14,7 @@ function SongItem({ song, index, user }) {
     const dispatch = useDispatch();
     const location = useLocation();
     const { pathname } = location;
-    // console.log(pathname)
+    console.log(pathname)
 
     // let idx = useSelector(state => state.playlist).index
     // const playlistState = useSelector(state => state.playlist);
@@ -80,7 +80,7 @@ function SongItem({ song, index, user }) {
         <>
             <span className="first-col" onClick={handleClickPlaying}>{index + 1}</span>
             <span className="second-col">
-                <img src={song.album?.cover_img? `${song.album?.cover_img}`: "https://live.staticflickr.com/65535/53600353900_d12bfa5f73_k.jpg"} />
+                <img src={song.album?.cover_img ? `${song.album?.cover_img}` : "https://live.staticflickr.com/65535/53600353900_d12bfa5f73_k.jpg"} />
                 <span className="song-name-artist">
                     <span className="song-name">{song.song_name}</span>
                     <span>{song.artist.first_name} {song.artist.last_name}</span>
@@ -92,10 +92,10 @@ function SongItem({ song, index, user }) {
 
             <span className="like-container">
                 {song.likes}
-                    {user &&
-                    checkLikes(song, user)  ?
-                    <span className="like-heart hold" id={"songitem-"+song.id} onClick={toggleDislike}><IoMdHeart size={20} /></span> :
-                    <span className="like-heart" id={"songitem-"+song.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>}
+                {user &&
+                    checkLikes(song, user) ?
+                    <span className="like-heart hold" id={"songitem-" + song.id} onClick={toggleDislike}><IoMdHeart size={20} /></span> :
+                    <span className="like-heart" id={"songitem-" + song.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>}
 
             </span>
             <span>{song.duration}</span>
