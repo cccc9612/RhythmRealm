@@ -33,6 +33,7 @@ export default function Layout() {
 
   const checkPath = (pathname) => {
     if (pathname === "/" || pathname === "/songs" ||
+    pathname.startsWith("/search/") ||
       (pathname.length > 8 && pathname.startsWith("/albums/") && !pathname.endsWith("/edit"))) {
       return true;
     } else {
