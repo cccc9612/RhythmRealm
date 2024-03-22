@@ -233,9 +233,10 @@ def updateSong(id):
             mp3_data = BytesIO(res.content)
             audio = MP3(mp3_data)
             newDuration = duration_cal(audio.info.length)
+            target_song.song_url = url # for aws
+            target_song.duration = newDuration #for aws
             # target_song.song_url = form.song_url.data # for postman test
-            target_song.song_url = url
-            target_song.duration = newDuration
+            # target_song.duration = "3:20" # for postman test
         else:
             return form.errors
     
