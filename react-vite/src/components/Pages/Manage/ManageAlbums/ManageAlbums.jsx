@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentAlbums } from "../../../../redux/album";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { useModal } from "../../../../context/Modal";
 import AlbumItem from "../../../Albums/AlbumItem";
@@ -12,13 +12,17 @@ import manageAlbumImg from './ManageAlbums.png'
 
 function ManageAlbums() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { setModalContent } = useModal();
   const albumState = useSelector(state => state.album);
   console.log("albumState in component=======", albumState)
   const albums = Object.values(albumState?.Albums);
   console.log("albums in component", albums)
+  const sessionUser = useSelector(state => state.session.user);
+
 
   useEffect(() => {
+    if (!sessionUser) navigate('/');
     dispatch(getCurrentAlbums())
   }, [dispatch]);
 

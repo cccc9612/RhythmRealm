@@ -67,7 +67,7 @@ function AlbumShowPage() {
         {album?.songs.map((song, index) => {
           return (
             <div className="song-list-row" key={song.id}>
-              <SongItemInAlbum song={song} index={index} user={sessionUser} />
+              <SongItemInAlbum song={song} index={index} user={sessionUser} songs={album?.songs}/>
             </div>
           )
         })}

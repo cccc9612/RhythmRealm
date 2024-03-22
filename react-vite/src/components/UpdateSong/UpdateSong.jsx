@@ -50,15 +50,13 @@ export default function UpdateSong() {
         e.preventDefault();
 
         if (!Object.values(errors).length) {
-            const artistId = user.id
+            // const artistId = user.id
             const formData = new FormData();
-            formData.append("song_name", songName)
-            formData.append("artist_id", artistId)
-            formData.append("song_file_url", song_file);
-            formData.append('duration', 260)
+            formData.append("songs_name", songName)
+            formData.append("song_url", song_file);
             setLoading(true);
             dispatch(updateSongThunk(formData, song.id));
-            navigate(`/songs/${song.id}`)
+            navigate(`/users/current/songs`)
         }
     }
 
