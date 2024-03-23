@@ -45,7 +45,7 @@ function MusicPlayer() {
     // dispatch(setPlayIndexAction(songIndex))
     setSongIdx(playIndex);
 
-  }, [dispatch, playIndex, num, pathname, songs])
+  }, [dispatch, playIndex, num])
 
 
   const handleClickPrevious = () => {
