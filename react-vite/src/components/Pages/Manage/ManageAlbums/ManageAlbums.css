@@ -67,15 +67,6 @@
     font-size: 15px;
 }
 
-.manage-album-dropdown {
-    position: static;
-    top: 440px;
-    left: 475px;
-    background-color: #3e3d3d;
-    color: white;
-    display: flex;
-    flex-direction: column;
-}
 
 .manage-album-dropdown :hover {
     color: rgb(100, 114, 106)
