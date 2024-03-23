@@ -1,131 +1,253 @@
-# Flask React Project
+# Rhythm Realm
 
-This is the starter for the Flask React project.
+RhythmRealm, a Spotify clone, is a website for users to discover, upload, and organize songs, albums, and playlists.
 
-## Getting started
+https://rhythmrealm.onrender.com/
 
-1. Clone this repository (only this branch).
+# Feature List
 
-2. Install dependencies.
+## 1. Songs
+* Users should be able to view all Songs.
+* Users should be able to upload songs.
+* Users should be able to update their uploaded songs.
+* Users should be able to delete their uploaded songs.
 
-   ```bash
-   pipenv install -r requirements.txt
-   ```
 
-3. Create a __.env__ file based on the example with proper settings for your
-   development environment.
+## 2. Albums
+* Users should be able to view all albums created by users.
+* Users should be able to create albums.
+* Users should be able to update an album (add or remove songs) they created.
+* Users should be able to delete their albums.
 
-4. Make sure the SQLite3 database connection URL is in the __.env__ file.
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention.**
+## 3. Likes
+* Users should be able to view the likes on a song.
+* Users should be able to like a song.
+* Users should be able to unlike a song.
 
-6. Get into your pipenv, migrate your database, seed your database, and run your
-   Flask app:
 
-   ```bash
-   pipenv shell
-   ```
+## 4. Play Songs
+* User should be able to play a song.
 
-   ```bash
-   flask db upgrade
-   ```
 
-   ```bash
-   flask seed all
-   ```
+## 5. Search
+* Users should be able to search for songs by artist or song name.
+* Users should be able to view the results of their search.
 
-   ```bash
-   flask run
-   ```
 
-7. The React frontend has no styling applied. Copy the __.css__ files from your
-   Authenticate Me project into the corresponding locations in the
-   __react-vite__ folder to give your project a unique look.
+## 6.1 Bonus Feature: Playlists
+* Users should be able to view all of their playlists.
+* Users should be able to add a song to one of their playlists.
+* Users should be able to remove a song from a playlist.
 
-8. To run the React frontend in development, `cd` into the __react-vite__
-   directory and run `npm i` to install dependencies. Next, run `npm run build`
-   to create the `dist` folder. The starter has modified the `npm run build`
-   command to include the `--watch` flag. This flag will rebuild the __dist__
-   folder whenever you change your code, keeping the production version up to
-   date.
 
-## Deployment through Render.com
+## 6.2 Bonus Feature: WaveForms
+* Users should be able to see the wave forms for a song.
 
-First, recall that Vite is a development dependency, so it will not be used in
-production. This means that you must already have the __dist__ folder located in
-the root of your __react-vite__ folder when you push to GitHub. This __dist__
-folder contains your React code and all necessary dependencies minified and
-bundled into a smaller footprint, ready to be served from your Python API.
 
-Begin deployment by running `npm run build` in your __react-vite__ folder and
-pushing any changes to GitHub.
+# **Database Schema**
 
-Refer to your Render.com deployment articles for more detailed instructions
-about getting started with [Render.com], creating a production database, and
-deployment debugging tips.
+## `users`
 
-From the Render [Dashboard], click on the "New +" button in the navigation bar,
-and click on "Web Service" to create the application that will be deployed.
+| column name | data type | details                   |
+|-------------|-----------|---------------------------|
+| id          | integer   | not null, primary key     |
+| username    | varchar   | not null, unique          |
+| email       | varchar   | not null, unique          |
+| password    | varchar   | not null                  |
+| first_name  | varchar   | not null                  |
+| last_name   | varchar   | not null                  |
 
-Select that you want to "Build and deploy from a Git repository" and click
-"Next". On the next page, find the name of the application repo you want to
-deploy and click the "Connect" button to the right of the name.
+## `songs`
 
-Now you need to fill out the form to configure your app. Most of the setup will
-be handled by the __Dockerfile__, but you do need to fill in a few fields.
+| column name | data type | details               |
+|-------------|-----------|-----------------------|
+| id          | integer   | not null, primary key |
+| name        | varchar   | not null              |
+| artist_id   | integer   | not null, foreign key |
+| album_id    | integer   | not null, foreign key |
+| duration    | integer   | not null              |
+| created-at  | datetime  | not null              |
+| updated-at  | datetime  | not null              |
 
-Start by giving your application a name.
+* `artist_id` references `users` table
+* `album_id` references `albums` table
 
-Make sure the Region is set to the location closest to you, the Branch is set to
-"main", and Runtime is set to "Docker". You can leave the Root Directory field
-blank. (By default, Render will run commands from the root directory.)
 
-Select "Free" as your Instance Type.
+## `albums`
 
-### Add environment variables
+| column name | data type | details               |
+|-------------|-----------|-----------------------|
+| id          | integer   | not null, primary key |
+| name        | varchar   | not null              |
+| artist_id   | integer   | not null, foreign key |
+| cover_img   | file      | not null              |
+| created-at  | datetime  | not null              |
+| updated-at  | datetime  | not null              |
 
-In the development environment, you have been securing your environment
-variables in a __.env__ file, which has been removed from source control (i.e.,
-the file is gitignored). In this step, you will need to input the keys and
-values for the environment variables you need for production into the Render
-GUI.
 
-Add the following keys and values in the Render GUI form:
+* `artist_id` references `users` table
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
 
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
+## `likes`
 
-Add the following keys and values:
+| column name | data type | details               |
+|-------------|-----------|-----------------------|
+| id          | integer   | not null, primary key |
+| user_id     | integer   | not null, foreign key |
+| song_id     | integer   | not null, foreign key |
 
-- DATABASE_URL (copy value from the **External Database URL** field)
+* `user_id` references `users` table
+* `song_id` references `songs` table
 
-**Note:** Add any other keys and values that may be present in your local
-__.env__ file. As you work to further develop your project, you may need to add
-more environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment.
 
-### Deploy
+<!-- ## `playlists`
 
-Now you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your Dockerfile
-commands being executed and any errors that occur.
+| column name | data type | details               |
+|-------------|-----------|-----------------------|
+| id          | integer   | not null, primary key |
+| playlist_name| varchar  | not null              |
+| creator_id  | integer   | not null, foreign key |
+| song_id     | integer   | not null, foreign key |
+| created-at  | datetime  | not null              |
+| updated-at  | datetime  | not null              |
 
-When deployment is complete, open your deployed site and check to see that you
-have successfully deployed your Flask application to Render! You can find the
-URL for your site just below the name of the Web Service at the top of the page.
+* `creator_id` references `users` table
+* `song_id` references `songs` table -->
 
-**Note:** By default, Render will set Auto-Deploy for your project to true. This
-setting will cause Render to re-deploy your application every time you push to
-main, always keeping it up to date.
 
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
+![(./images/database.png)](Images/RhythmRealm.png)
+
+# User Stories
+
+## Users
+
+### Sign Up
+
+* As an unregistered and unauthorized user, I want to be able to sign up for the website via a sign-up form.
+  * When I'm on the `/signup` page:
+    * I would like to be able to enter my email, username, and preferred password on a clearly laid out form.
+    * I would like the website to log me in upon successful completion of the sign-up form.
+      * So that I can seamlessly access the site's functionality
+  * When I enter invalid data on the sign-up form:
+    * I would like the website to inform me of the validations I failed to pass, and repopulate the form with my valid entries (except my password).
+    * So that I can try again without needing to refill forms I entered valid data into.
+
+### Log in
+
+* As a registered and unauthorized user, I want to be able to log in to the website via a log-in form.
+  * When I'm on the `/login` page:
+    * I would like to be able to enter my email and password on a clearly laid out form.
+    * I would like the website to log me in upon successful completion of the lob-up form.
+      * So that I can seamlessly access the site's functionality
+  * When I enter invalid data on the log-up form:
+    * I would like the website to inform me of the validations I failed to pass, and repopulate the form with my valid entries (except my password).
+      * So that I can try again without needing to refill forms I entered valid data into.
+
+### Demo User
+
+* As an unregistered and unauthorized user, I would like an easy to find and clear button on both the `/signup` and `/login` pages to allow me to visit the site as a guest without signing up or logging in.
+  * When I'm on either the `/signup` or `/login` pages:
+    * I can click on a Demo User button to log me in and allow me access as a normal user.
+      * So that I can test the site's features and functionality without needing to stop and enter credentials.
+
+### Log Out
+
+* As a logged in user, I want to log out via an easy to find log out button on the navigation bar.
+  * While on any page of the site:
+    * I can log out of my account and be redirected to a page displaying recent FauxTweets.
+      * So that I can easily log out to keep my information secure.
+
+
+### Viewing Songs
+
+* As a logged in _or_ logged out user, I want to be able to view a selection of all the songs.
+  * When I'm on the `/songs` page:
+    * I can view the ten most recently created songs.
+    * I can also view the duration and likes of the songs.
+
+
+### Viewing Albums
+* As a logged in _or_ logged out user, I want to be able to view a selection of all the albums.
+  * When I'm on the `/albums` page:
+    * I can view the ten most recently created albums.
+
+* As a logged in _or_ logged out user, I want to be able to view a specific album and all the songs belong to this album.
+  * When I'm on the `/albums/:id` page:
+    * I can view the content of the album as well as the associated songs.
+    * I can also view the duration and likes of the songs.
+
+
+### Upload Songs
+
+* As a logged in user, I want to be able to upload new songs.
+  * When I'm on the `/songs/new` page:
+    * I can upload a new song.
+
+
+### Create Albums
+
+* As a logged in user, I want to be able to create a new album.
+  * When I'm on the `/albums/new` page:
+    * I can create a new album.
+
+
+### Updating Songs
+
+* As a logged in user, I want to be able to update my songs by clicking an Update button.
+  * When I'm on the `/users/current/songs` pages:
+    * I can click "Update" to make changes to songs I have uploaded.
+
+
+### Updating Albums
+* As a logged in user, I want to be able to update my albums by clicking an Update button.
+  * When I'm on the `/users/current/albums` pages:
+    * I can click "Update" to make changes to albums I have created.
+      * I can add or remove songs I uploaded from the albums.
+
+### Deleting Songs
+
+* As a logged in user, I want to be able to delete my songs by clicking a Delete button.
+  * When I'm on the `/users/current/songs` pages:
+    * I can click "Delete" to permanently delete a song I have uploaded.
+
+
+### Deleting albums
+
+* As a logged in user, I want to be able to delete my albums by clicking a Delete button.
+  * When I'm on the `/users/current/albums` pages:
+    * I can click "Delete" to permanently delete an album I have created.
+
+
+### Viewing Likes
+
+* As a logged in _or_ logged out user, I want to be able to view all the likes of the songs.
+  * When I'm on the `/songs` or `/albums/:id` page:
+    * I can view total likes of the songs.
+
+
+### Editing Likes
+
+* As a logged in user, I want to be able to like or unlike a song by clicking a heart button.
+  * When I'm on the `/songs` or `/albums/:id` page:
+    * I can like or unlike the songs.
+
+
+### Playing Songs
+
+* As a logged in user, I want to be able to play songs by clicking a play button.
+  * When I'm on the `/songs` or `/albums/:id` page:
+    * I can play the songs.
+
+
+### Searching Songs
+
+* As a logged in _or_ logged out user, I want to be able to search for songs by clicking the search button on the header.
+  * When I'm on any page of the site:
+    * I can click the search button for songs or albums searching.
+
+
+# Project Done By:
+   * [Elaine Fan](https://github.com/elainefan331)
+   * [Cindy Li](https://github.com/cccc9612)
+   * [Hao Xu](https://github.com/haoxugt)
