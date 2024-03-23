@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
+import { FaCircleExclamation } from "react-icons/fa6";
 import "./SignupForm.css";
 
 function SignupFormModal() {
@@ -9,6 +10,8 @@ function SignupFormModal() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [first_name, setFirst_Name] = useState("");
+  const [last_name, setLast_Name] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
@@ -26,6 +29,8 @@ function SignupFormModal() {
     const serverResponse = await dispatch(
       thunkSignup({
         email,
+        first_name,
+        last_name,
         username,
         password,
       })
@@ -39,53 +44,82 @@ function SignupFormModal() {
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
+    <div className='signup-modal-container'>
+      <h1>Sign up to strat listening</h1>
       {errors.server && <p>{errors.server}</p>}
-      <form onSubmit={handleSubmit}>
+      <form className='signup-form-container' onSubmit={handleSubmit}>
         <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          Email address
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+        />
+        {errors.email && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.email}</p>}
         <label>
           Username
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
         </label>
-        {errors.username && <p>{errors.username}</p>}
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
+          required
+        />
+        {errors.username && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.username}</p>}
+
+        <label>
+          First name
+        </label>
+        <input
+          type="text"
+          value={first_name}
+          onChange={(e) => setFirst_Name(e.target.value)}
+          placeholder="First name"
+          required
+        />
+        {errors.first_name && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.first_name}</p>}
+
+        <label>
+          Last name
+        </label>
+        <input
+          type="text"
+          value={last_name}
+          onChange={(e) => setLast_Name(e.target.value)}
+          placeholder="Last name"
+          required
+        />
+        {errors.last_name && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.last_name}</p>}
+
         <label>
           Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
         </label>
-        {errors.password && <p>{errors.password}</p>}
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          required
+        />
+        {errors.password && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.password}</p>}
         <label>
           Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
         </label>
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-        <button type="submit">Sign Up</button>
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder="Confirmed password"
+          required
+        />
+        {errors.confirmPassword && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.confirmPassword}</p>}
+        <button className="submit-btn" type="submit">Sign Up</button>
       </form>
-    </>
+    </div>
   );
 }
 

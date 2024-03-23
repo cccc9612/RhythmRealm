@@ -1,16 +1,20 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaUserCircle } from 'react-icons/fa';
 import { thunkLogout } from "../../redux/session";
-import OpenModalMenuItem from "./OpenModalMenuItem";
+// import OpenModalMenuItem from "./OpenModalMenuItem";
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { useNavigate } from "react-router-dom";
+
+import "./ProfileButton.css"
 
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
+  const navigate = useNavigate()
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
@@ -37,35 +41,51 @@ function ProfileButton() {
     e.preventDefault();
     dispatch(thunkLogout());
     closeMenu();
+    navigate('/');
   };
+
+  const manageSongs = (e) => {
+    e.preventDefault();
+    closeMenu();
+    navigate('/users/current/songs');
+  };
+
+  const manageAlbums = (e) => {
+    e.preventDefault();
+    closeMenu();
+    navigate('/users/current/albums');
+  };
+
 
   return (
     <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
-      </button>
+      {user ?
+        <button className="profile-btn" onClick={toggleMenu}>
+          {/* <FaUserCircle size={30} color="rgb(255, 100, 55)" /> */}
+          {user.first_name[0]}
+        </button> : (
+          <>
+            <OpenModalButton
+              buttonText="Sign Up"
+              // onButtonClick={closeMenu}
+              modalComponent={<SignupFormModal />}
+            />
+            <OpenModalButton
+              buttonText="Log In"
+              // onButtonClick={closeMenu}
+              modalComponent={<LoginFormModal />}
+            />
+          </>
+        )
+      }
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
-          {user ? (
+          {user && (
             <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              <li>
-                <button onClick={logout}>Log Out</button>
-              </li>
-            </>
-          ) : (
-            <>
-              <OpenModalMenuItem
-                itemText="Log In"
-                onItemClick={closeMenu}
-                modalComponent={<LoginFormModal />}
-              />
-              <OpenModalMenuItem
-                itemText="Sign Up"
-                onItemClick={closeMenu}
-                modalComponent={<SignupFormModal />}
-              />
+              <p className='hello-user'>Hello, {user.username}</p>
+              <p onClick={manageSongs}>Manage Songs</p>
+              <p onClick={manageAlbums}>Manage Albums</p>
+              <p onClick={logout}>Log out</p>
             </>
           )}
         </ul>

@@ -1,18 +1,31 @@
 import { NavLink } from "react-router-dom";
-import ProfileButton from "./ProfileButton";
+// import { GoHome } from "react-icons/go";
+import { IoSearchOutline } from "react-icons/io5";
 import "./Navigation.css";
+import logo from "./logo.png"
 
 function Navigation() {
   return (
-    <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
+    <div className="nav-container">
+      <div>
+        <NavLink className="homepage-logo-sec" to="/">
+          <img className="logo" src={logo} alt='logo' />
+          <span className="logo-title">RhythmRealm</span>
+        </NavLink>
+      </div>
+      <div className="search-container">
+        <IoSearchOutline />
 
-      <li>
-        <ProfileButton />
-      </li>
-    </ul>
+        <button className="search-button-songs">
+          <NavLink to="/search/songs">Songs</NavLink>
+        </button>
+        <button className="search-button-albums">
+          <NavLink to="/search/albums">Albums</NavLink>
+        </button>
+
+      </div>
+
+    </div>
   );
 }
 

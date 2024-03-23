@@ -1,0 +1,11 @@
+<form action="/api/users/current/albums" method="POST" enctype="multipart/form-data">
+{{ form.csrf_token }}
+<p>{{ form.name.label }}{{ form.name }}</p>
+<p>{{ form.cover_img.label }}{{ form.cover_img }}</p>
+<p>{{ form.submit }}</p>
+{% if errors %}
+    {% for error in errors %}
+    <p>error: {{ error }}</p>
+    {% endfor %}
+{% endif %}
+</form>

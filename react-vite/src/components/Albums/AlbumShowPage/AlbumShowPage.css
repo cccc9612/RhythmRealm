@@ -1,0 +1,30 @@
+.album-detail-cover-container {
+    width: 80%;
+    height: auto;
+    text-decoration: none;
+    /* position: relative; */
+    /* z-index: 0; */
+    padding: 20px;
+    display: flex;
+    gap:10px;
+    align-items: flex-end;
+}
+
+.album-detail-cover-container > img {
+    width: calc((99vw - 515px)/4);
+    height: calc((99vw - 515px)/4);
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.filled {
+    color: green
+}
+
+.empty {
+    color: red
+}
+
+.album-rerender-btn {
+    display: none;
+}

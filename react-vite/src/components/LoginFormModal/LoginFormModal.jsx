@@ -2,11 +2,12 @@ import { useState } from "react";
 import { thunkLogin } from "../../redux/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { FaCircleExclamation } from "react-icons/fa6";
 import "./LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
+  const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
@@ -16,7 +17,7 @@ function LoginFormModal() {
 
     const serverResponse = await dispatch(
       thunkLogin({
-        email,
+        credential,
         password,
       })
     );
@@ -28,33 +29,48 @@ function LoginFormModal() {
     }
   };
 
+  const DemoUserLogin = () => {
+    setCredential("demo@aa.io");
+    setPassword("password");
+  }
+
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div className='login-modal-container'>
+      <h1>Log in to RR</h1>
+      <form className='login-form-container' onSubmit={handleSubmit}>
         <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          Email or username
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        <input
+          type="text"
+          value={credential}
+          onChange={(e) => setCredential(e.target.value)}
+          placeholder="Email or username"
+          required
+        />
+        <p>{errors.credential &&
+          (<><FaCircleExclamation color="#f15e6c" />
+            {" " + errors.credential} </>)
+          }</p>
         <label>
           Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
         </label>
-        {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          required
+        />
+        <p>
+          { errors.password && <><FaCircleExclamation color="#f15e6c" /> {` ${errors.password}`} </> }
+        </p>
+        <button className="submit-btn" type="submit">Log In</button>
+        <button className="Demouser-login" onClick={DemoUserLogin} type="submit">
+          Log in as Demo User
+        </button>
       </form>
-    </>
+    </div>
   );
 }
 

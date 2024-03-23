@@ -1,0 +1,13 @@
+.manage-album-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    cursor: pointer;
+}
+
+.albums-container {
+    display: flex;
+    flex-direction: column;
+}

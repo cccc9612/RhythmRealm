@@ -1,0 +1,96 @@
+.page-bottom-container>.rhap_container {
+  background-color: black;
+  color:white;
+}
+
+.player-container{
+  display: grid;
+  grid-template-columns: 300px 500px 300px;
+  justify-content: space-between;
+}
+.song-player > img {
+  height: 60px;
+  width: 60px;
+  border-radius: 5px;
+  margin-left: 20px;;
+}
+
+.song-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.song-name-artist-player {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-artist-player {
+  color: grey;
+}
+
+.rhap_container svg {
+  color: white;
+}
+
+.rhap_progress-filled,
+.rhap_volume-filled {
+  /* color: green; */
+  background-color: var(--green-color);
+}
+
+.rhap_volume-bar {
+  /* color: green; */
+  background-color: white;
+}
+
+
+.rhap_time {
+  color: grey;
+}
+
+/* button.rhap_button-clear.rhap_main-controls-button */
+.rhap_skip-button svg{
+  color: grey;
+}
+
+.rhap_skip-button svg:hover{
+  color: white;
+}
+
+.rhap_progress-indicator,
+.rhap_volume-indicator {
+  visibility: hidden;
+}
+
+.rhap_progress-container:hover .rhap_progress-indicator {
+  visibility: visible;
+  background-color: white;
+  width: 17px;
+  height: 17px;
+}
+
+.rhap_volume-bar-area:hover .rhap_volume-indicator {
+  visibility: visible;
+  background-color: white;
+}
+
+.rhap_download-progress,
+.rhap_progress-bar-show-download,
+.rhap_volume-bar {
+  background-color: #686767;
+}
+
+.rerender-btn{
+  visibility: hidden;
+}
+
+.hold.like-heart {
+  color: var(--green-color);
+}
+
+/* .rhap_play-pause-button:hover svg{} */
+
+
+/* <button aria-label="Previous" class="rhap_button-clear rhap_main-controls-button rhap_skip-button" type="button"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M6 18V6h2v12zm3.5-6L18 6v12z"></path></svg></button> */

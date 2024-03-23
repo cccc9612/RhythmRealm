@@ -1,0 +1,62 @@
+.song-list-row img {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  ;
+}
+
+.song-list-row a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.song-name {
+  color: white;
+}
+
+.like-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.song-list-row .like-heart {
+  visibility: hidden;
+  position: absolute;
+  left: 25px;
+  top: 2px;
+}
+
+.song-list-row:hover .like-heart {
+  visibility: visible;
+}
+
+.like-heart:hover {
+  color: green;
+}
+.song-list-row .like-heart.hold {
+  visibility: visible;
+  color: var(--green-color);
+}
+
+.duration-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.play-btn {
+  position: absolute;
+  left: 50px;
+  bottom: -3px;
+  visibility: hidden;
+}
+
+.play-btn:hover {
+  cursor: pointer;
+  color: var(--green-color);
+}
+
+.song-list-row:hover .play-btn {
+  visibility: visible;
+}

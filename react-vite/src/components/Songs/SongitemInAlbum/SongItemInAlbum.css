@@ -1,0 +1,10 @@
+.like-container.album-detail {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  column-gap: 10px;
+}
+
+.like-container.album-detail > like-heart {
+  align-items: flex-start;
+}

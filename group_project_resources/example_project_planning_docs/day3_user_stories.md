@@ -62,14 +62,14 @@
 ### Upload Songs
 
 * As a logged in user, I want to be able to upload new songs.
-  * When I'm on the `/new-song` page:
+  * When I'm on the `/songs/new` page:
     * I can upload a new song.
 
 
 ### Create Albums
 
 * As a logged in user, I want to be able to create a new album.
-  * When I'm on the `/new-album` page:
+  * When I'm on the `/albums/new` page:
     * I can create a new album.
 
 
@@ -83,7 +83,7 @@
 ### Updating Albums
 * As a logged in user, I want to be able to update my albums by clicking an Update button.
   * When I'm on the `/users/current/albums` pages:
-    * I can click "Update" to albums I have created.
+    * I can click "Update" to make changes to albums I have created.
       * I can add or remove songs I uploaded from the albums.
 
 ### Deleting Songs
@@ -123,6 +123,6 @@
 
 ### Searching Songs
 
-* As a logged in _or_ logged out user, I want to be able to search for songs by clicking the search bar on the header.
+* As a logged in _or_ logged out user, I want to be able to search for songs by clicking the search button on the header.
   * When I'm on any page of the site:
-    * I can search for songs by artist or song name.
+    * I can click the search button for songs or albums searching.
