@@ -42,21 +42,34 @@
 
 }
 
-.song-list-info-header,
-.song-list-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.song-list-info-header{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr 1.5fr;
     border-bottom: 1px solid #3e3d3d;
     color: #b3b3b3;
     font-size: 18px;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.bottom-section .song-list-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr 1.5fr;
+    border-bottom: 1px solid #3e3d3d;
+    color: #b3b3b3;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    column-gap: 0px;
+}
+p.first-column {
+    padding-left: -50px;
 }
 
 .first-column {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .manage-songs-top {

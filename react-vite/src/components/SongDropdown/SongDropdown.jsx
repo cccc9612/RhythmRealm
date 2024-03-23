@@ -45,42 +45,45 @@ function SongDropdown({ song }) {
         <>
             <span>
                 <span className="dropdown-icon">
-                    <i style={{ fontSize: 25 }} className="fa-solid fa-ellipsis" onClick={toggleMenu}></i>
-                </span>
-                {showMenu && (
-                    <span className={"manage-song-dropdown"} ref={ulRef}>
-                        {owner && (
-                            <>
+                    <i style={{ fontSize: 25 }} className="fa-solid fa-ellipsis" onClick={toggleMenu}>
+
+
+                    </i>
+                    {showMenu && (
+                        <span className={"manage-song-dropdown"} ref={ulRef}>
+                            {owner && (
+                                <>
+                                    <ul className="dropdown-edit">
+                                        <i className="fa-solid fa-pen"></i>
+                                        <span className="dropdown-list" onClick={() => navigate(`/songs/${song.id}/edit`)}>Update</span>
+                                    </ul>
+                                    <ul className="dropdown-edit">
+                                        <i className="fa-solid fa-circle-minus"></i>
+                                        <span className="dropdown-list">
+                                            <OpenModalMenuItem
+                                                itemText="Delete"
+                                                onItemClick={closeMenu}
+                                                modalComponent={<DeleteSong song={song} />} />
+                                        </span>
+                                    </ul>
+                                </>
+                            )}
+                            {owner && (
                                 <ul className="dropdown-edit">
-                                    <i className="fa-solid fa-pen"></i>
-                                    <span className="dropdown-list" onClick={() => navigate(`/songs/${song.id}/edit`)}>Update</span>
-                                </ul>
-                                <ul className="dropdown-edit">
-                                    <i className="fa-solid fa-circle-minus"></i>
+                                    <i className="fa-solid fa-square-plus"></i>
                                     <span className="dropdown-list">
-                                        <OpenModalMenuItem
-                                            itemText="Delete"
-                                            onItemClick={closeMenu}
-                                            modalComponent={<DeleteSong song={song} />} />
+                                        {song.album?.id ? <Link to={`/albums/${song.album?.id}`}>{song.album.name}</Link> :
+                                            (<OpenModalMenuItem
+                                                itemText='Add to Album'
+                                                onItemClick={closeMenu}
+                                                modalComponent={<AddToAlbum song={song} />} />)
+                                        }
                                     </span>
                                 </ul>
-                            </>
-                        )}
-                        {owner && (
-                            <ul className="dropdown-edit">
-                                <i className="fa-solid fa-square-plus"></i>
-                                <span className="dropdown-list">
-                                    {song.album?.id? <Link to={`/albums/${song.album?.id}`}>{song.album.name}</Link> :
-                                    (<OpenModalMenuItem
-                                        itemText='Add to Album'
-                                        onItemClick={closeMenu}
-                                        modalComponent={<AddToAlbum song={song} />} />)
-                                    }
-                                </span>
-                            </ul>
-                        )}
-                    </span>
-                )}
+                            )}
+                        </span>
+                    )}
+                </span>
             </span>
         </>
     )

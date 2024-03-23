@@ -99,8 +99,9 @@
   border-radius: 10px;
   padding: 15px;
   margin-top: 15px;
+  width: calc(400px - 30px);
+  min-height: calc(100vh - 262px);
   /* background: var(--light-black-color);
-  width: calc(400px - 20px);
   min-height: calc(100vh - 245px); */
   justify-content: space-between;
 
@@ -131,7 +132,7 @@
   color: rgb(0, 0, 0);
   background-color: rgba(196, 196, 196, 0.757);
   border-radius: 8px;
-  margin-top: 140px;
+  margin-top: 20px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -151,7 +152,7 @@
 }
 
 .song-album-list-container {
-  width: calc(100vw - 430px);
+  width: calc(100vw - 440px);
   min-height: calc(100vh - 20px);
   background: var(--light-black-color);
   border-radius: 8px;
