@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
@@ -14,15 +14,22 @@ function SignupFormModal() {
   const [last_name, setLast_Name] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setHasSubmitted(true);
+
+    if (Object.values(errors).length) {
+      return null;
+    }
+
     if (password !== confirmPassword) {
       return setErrors({
         confirmPassword:
-          "Confirm Password field must be the same as the Password field",
+          "Confirm Password must be the same as the Password",
       });
     }
 
@@ -43,10 +50,22 @@ function SignupFormModal() {
     }
   };
 
+  useEffect(() => {
+    const err = {};
+    setHasSubmitted(false);
+    if (username.length < 4) err.username = 'It must be 4 or more characters';
+    if (email.length === 0) err.email = 'Email is required';
+    if (first_name.length === 0) err.first_name = 'First name is required';
+    if (last_name.length === 0) err.last_name = 'Last name is required';
+    if (password.length < 6) err.password = "Password must be 6 or more characters";
+    if (confirmPassword.length < 6) err.confirmPassword = "Confirmed password must be 6 or more characters"
+    setErrors(err);
+  }, [email, username, first_name, last_name, password, confirmPassword])
+
   return (
     <div className='signup-modal-container'>
       <h1>Sign up to strat listening</h1>
-      {errors.server && <p>{errors.server}</p>}
+      {hasSubmitted && errors.server && <p>{errors.server}</p>}
       <form className='signup-form-container' onSubmit={handleSubmit}>
         <label>
           Email address
@@ -58,7 +77,7 @@ function SignupFormModal() {
           placeholder="Email"
           required
         />
-        {errors.email && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.email}</p>}
+        {hasSubmitted && errors.email && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.email}</p>}
         <label>
           Username
         </label>
@@ -66,10 +85,10 @@ function SignupFormModal() {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
+          placeholder="Username (min: 4 characters)"
           required
         />
-        {errors.username && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.username}</p>}
+        {hasSubmitted && errors.username && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.username}</p>}
 
         <label>
           First name
@@ -81,7 +100,7 @@ function SignupFormModal() {
           placeholder="First name"
           required
         />
-        {errors.first_name && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.first_name}</p>}
+        {hasSubmitted && errors.first_name && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.first_name}</p>}
 
         <label>
           Last name
@@ -93,7 +112,7 @@ function SignupFormModal() {
           placeholder="Last name"
           required
         />
-        {errors.last_name && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.last_name}</p>}
+        {hasSubmitted && errors.last_name && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.last_name}</p>}
 
         <label>
           Password
@@ -102,10 +121,10 @@ function SignupFormModal() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="Password (min: 6 characters)"
           required
         />
-        {errors.password && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.password}</p>}
+        {hasSubmitted && errors.password && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.password}</p>}
         <label>
           Confirm Password
         </label>
@@ -113,10 +132,10 @@ function SignupFormModal() {
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          placeholder="Confirmed password"
+          placeholder="Confirmed password (min: 6 characters)"
           required
         />
-        {errors.confirmPassword && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.confirmPassword}</p>}
+        {hasSubmitted && errors.confirmPassword && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.confirmPassword}</p>}
         <button className="submit-btn" type="submit">Sign Up</button>
       </form>
     </div>
