@@ -6,6 +6,7 @@ import SongList from "../../../Songs/SongList/SongList";
 import { useNavigate } from "react-router-dom";
 // import { IndexContext } from "../../../../context/IndexContext";
 import "./ManageSongs.css"
+import { HiOutlineClock } from "react-icons/hi2";
 
 
 
@@ -47,36 +48,38 @@ function ManageSongs() {
 
   return (
     <section className="manage-song-container">
-      <div className="manage-songs-top">
+
         <div className="songs-header">
           <img className='manage-song-cover-img' src='/ManageSongs.png' alt="manage-song-cover-img" />
           <h1 className='manage-song-title'>Manage Songs</h1>
-          <div>
-            <button className="prev-page-click"
-              onClick={handlePrevPage}
-              disabled={page == 0 ? true : false}>
-              Prev
-            </button>
-            <span> </span>
-            <button className="next-page-click"
-              onClick={handleNextPage}
-              disabled={page == Math.ceil(songs.length / limit) - 1 ? true : false}>
-              Next
-            </button>
+          <div className="manage-song-pagination-upload-btn-container">
+            <div>
+              <button className="prev-page-click"
+                onClick={handlePrevPage}
+                disabled={page == 0 ? true : false}>
+                Prev
+              </button>
+              <span> </span>
+              <button className="next-page-click"
+                onClick={handleNextPage}
+                disabled={page == Math.ceil(songs.length / limit) - 1 ? true : false}>
+                Next
+              </button>
+            </div>
+            <div className="manage-song-upload-button">
+              <button className="fa-solid fa-upload" onClick={() => navigate(`/songs/new`)}></button>
+              <span>Upload</span>
+            </div>
           </div>
         </div>
-        <div className="manage-song-upload-button">
-          <button className="fa-solid fa-upload" onClick={() => navigate(`/songs/new`)}></button>
-          <span>Upload</span>
-        </div>
 
-      </div>
+
       <div className="bottom-section">
         <div className="song-list-info-header">
           <p className="first-column">#</p>
           <p>Title</p>
           <p>Album</p>
-          <p>Duration</p>
+          <p className="fifth-col"><HiOutlineClock /></p>
         </div>
         {songsDisplay?.map((song, count) => {
           return (

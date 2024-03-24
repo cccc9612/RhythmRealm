@@ -266,9 +266,9 @@
   border-radius: 100%;
   font-size: 18px;
   border: 0px;
-  background-color: #090909;
+  background-color: black;
   margin-right: 15px;
-
+  border-radius: 20px;;
 }
 
 .nav-title-bar {

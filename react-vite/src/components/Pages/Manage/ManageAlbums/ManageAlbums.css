@@ -1,6 +1,6 @@
 .image-section {
     background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212);
-    min-height: 1000px;
+    /* min-height: 1000px; */
 }
 
 .manage-album-cover-img {
@@ -10,6 +10,76 @@
     border-radius: 10px;
 }
 
+
+.album-list-section.image-section {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #3e3d3d;
+    color: #b3b3b3;
+    font-size: 18px;
+    margin-left: 0px;
+    padding: 0px;
+    padding-top: 10px;;
+    column-gap: 0;
+    row-gap: 1vw;
+}
+
+.albums-header {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.manage-album-upload-button {
+    align-self: flex-end;
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.manage-album-btn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    height: 55px;
+    padding: 5px;
+    /* border: 1px solid grey; */
+
+}
+
+.manage-album-btn button a {
+    color: black;
+}
+
+.manage-album-btn button {
+    background-color: white;
+    color: black;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    height: 21px;
+}
+
+.manage-album-upload-button button {
+    cursor: pointer;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    border: 0px;
+    background-color: #09090900;
+    margin-right: 5px;
+}
+
+.manage-songs-duration {
+    display: flex;
+    column-gap: 15px;
+}
 /* .songs-header>img {
     object-fit: cover;
     height: 200px;

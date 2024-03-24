@@ -56,14 +56,14 @@ export const getAllAlbums = () => async (dispatch) => {
 
 // get single album detail thunk
 export const getSingleAlbum = (albumId) => async (dispatch) => {
-  console.log("hit thunk ==========")
+  // console.log("hit thunk ==========")
   try {
     const response = await fetch(`/api/albums/${albumId}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     });
     const album = await response.json();
-    console.log("album in thunk=======", album)
+    // console.log("album in thunk=======", album)
     dispatch(getSingleAlbumAction(album));
 
     return album
@@ -74,7 +74,7 @@ export const getSingleAlbum = (albumId) => async (dispatch) => {
 
 // get all albums belongs to current user thunk
 export const getCurrentAlbums = () => async (dispatch) => {
-  console.log("current user's albums in thunk =======")
+  // console.log("current user's albums in thunk =======")
   const response = await fetch('/api/users/current/albums', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
@@ -104,7 +104,7 @@ export const removeAlbumSong = (albumId, songId) => async(dispatch) => {
   if (response.ok) {
     dispatch(removeAlbumSongAction(albumId, songId))
   }
-} 
+}
 
 
 // // Add a song to an album thunk

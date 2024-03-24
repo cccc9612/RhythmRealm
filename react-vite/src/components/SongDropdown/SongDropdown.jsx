@@ -8,7 +8,7 @@ import AddToAlbum from "../Albums/AddToAlbum/AddToAlbum"
 import "./SongDropdown.css"
 
 
-function SongDropdown({ song }) {
+function SongDropdown({ id, song }) {
     const navigate = useNavigate()
     const [showMenu, setShowMenu] = useState(false);
     const user = useSelector((store) => store.session.user);
@@ -16,17 +16,17 @@ function SongDropdown({ song }) {
 
     const toggleMenu = (e) => {
         e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
+        document.body.click()
+
         setShowMenu(!showMenu);
-        // console.log("------", owner)
-        // console.log("song.artist.id:", song.artist.id)
-        // console.log("user.id:", user.id)
-        // console.log("song", song)
+
     }
 
     useEffect(() => {
         if (!showMenu) return;
 
         const closeMenu = (e) => {
+            // console.log("22222222222222222222", ulRef.current, e.target)
             if (ulRef.current && !ulRef.current.contains(e.target)) {
                 setShowMenu(false);
             }
@@ -43,12 +43,12 @@ function SongDropdown({ song }) {
 
     return (
         <>
-            <span>
+            <span className="dropdown-icon-container">
                 <span className="dropdown-icon">
-                    <i style={{ fontSize: 25 }} className="fa-solid fa-ellipsis" onClick={toggleMenu}></i>
+                    <i style={{ fontSize: 25 }} className="fa-solid fa-ellipsis" id={id} onClick={toggleMenu}></i>
                 </span>
                 {showMenu && (
-                    <span className={"manage-song-dropdown"} ref={ulRef}>
+                    <span className={"manage-song-dropdown"} id={'dropdown-'+id} ref={ulRef}>
                         {owner && (
                             <>
                                 <ul className="dropdown-edit">

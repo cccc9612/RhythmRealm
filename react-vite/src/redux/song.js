@@ -114,7 +114,7 @@ export const updateSongThunk = (song, songId) => async (dispatch) => {
 }
 
 export const deleteSongThunk = (songId) => async (dispatch) => {
-  console.log(songId)
+  // console.log(songId)
   const res = await fetch(`/api/users/current/songs/${songId}/delete`, {
     // console.log(songId)
     method: "DELETE",

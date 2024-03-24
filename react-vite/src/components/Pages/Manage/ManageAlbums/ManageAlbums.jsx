@@ -37,11 +37,11 @@ function ManageAlbums() {
 
 
   return (
-    <div className="album-list-container">
-      <div className="manage-album-container">
-        <button><Link to={`/albums/new`}>Create Album</Link></button>
-        <div className="albums-container">
-          <div className="songs-header">
+    // <div className="album-list-container">
+      //<div className="album-list-container">
+        // <button><Link to={`/albums/new`}>Create Album</Link></button>
+        <div className="manage-album-container">
+          <div className="albums-header">
             <img className='manage-album-cover-img' src='/ManageAlbum.png' alt="manage-song-cover-img" />
             <h1 className="manage-song-title">Manage Albums</h1>
             <div className="manage-album-upload-button">
@@ -50,18 +50,18 @@ function ManageAlbums() {
             </div>
           </div>
 
-          <div className="album-list-section">
+          <div className="album-list-section image-section">
             {albums?.map((album) => {
               return (
                 <div key={album.id}>
                   <NavLink to={`/albums/${album.id}`}>
                     <AlbumItem album={album} />
                   </NavLink>
-                  <div>
+                  <div className="manage-album-btn">
                     <button><Link to={`/albums/${album.id}/edit`}>Update</Link></button>
                     <button onClick={() => handleDeleteClick(album.id)}>Delete</button>
-                    <button onClick={() => handleRemoveClick(album.id)}>Remove songs from this album</button>
-                    <button><Link to={`/users/current/songs`}>Add songs to this album</Link></button>
+                    <button onClick={() => handleRemoveClick(album.id)}>Remove songs</button>
+                    <button><Link to={`/users/current/songs`}>Add songs</Link></button>
                   </div>
 
                 </div>
@@ -70,8 +70,8 @@ function ManageAlbums() {
           </div>
         </div>
 
-      </div>
-    </div>
+      //</div>
+    // </div>
   )
 }
 

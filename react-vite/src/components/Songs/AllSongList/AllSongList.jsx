@@ -4,6 +4,7 @@ import { getAllSongs } from "../../../redux/song";
 import SongItem from "../SongItem";
 
 import './AllSongList.css'
+import { HiOutlineClock } from "react-icons/hi2";
 
 
 function AllSongList() {
@@ -56,7 +57,7 @@ function AllSongList() {
                     <span>Title</span>
                     <span>Album</span>
                     <span>Likes</span>
-                    <span>Duration</span>
+                    <span className="fifth-col"><HiOutlineClock /></span>
                 </div>
                 {songsDisplay?.map((song, index) => {
                     return (
