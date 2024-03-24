@@ -13,7 +13,7 @@ function AllSongList() {
     const sessionUser = useSelector(state => state.session.user);
     const [page, setPage] = useState(0);
 
-    const limit = 5;
+    const limit = 15;
     let songsDisplay = songs.slice(page * limit, (page + 1) * limit)
 
     useEffect(() => {

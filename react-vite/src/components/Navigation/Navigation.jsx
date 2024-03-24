@@ -2,14 +2,14 @@ import { NavLink } from "react-router-dom";
 // import { GoHome } from "react-icons/go";
 import { IoSearchOutline } from "react-icons/io5";
 import "./Navigation.css";
-import logo from "./logo.png"
+// import logo from "./logo.png"
 
 function Navigation() {
   return (
     <div className="nav-container">
       <div>
         <NavLink className="homepage-logo-sec" to="/">
-          <img className="logo" src={logo} alt='logo' />
+          <img className="logo" src='/logo.png' alt='logo' />
           <span className="logo-title">RhythmRealm</span>
         </NavLink>
       </div>

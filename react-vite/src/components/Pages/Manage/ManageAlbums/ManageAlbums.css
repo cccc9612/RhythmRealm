@@ -1,4 +1,23 @@
-.manage-album-container {
+.image-section {
+    background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212);
+    min-height: 1000px;
+}
+
+.manage-album-cover-img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+/* .songs-header>img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    border-radius: 40px;
+} */
+
+/* .manage-album-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -10,4 +29,4 @@
 .albums-container {
     display: flex;
     flex-direction: column;
-}
+} */

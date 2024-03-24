@@ -4,6 +4,7 @@ import { getAllAlbums } from "../../../redux/album";
 import { NavLink } from "react-router-dom";
 import SongItem from "../../Songs/SongItem";
 import AlbumItem from "../../Albums/AlbumItem";
+import { HiOutlineClock } from "react-icons/hi2";
 import "./Home.css"
 import { useEffect } from "react";
 
@@ -39,7 +40,7 @@ function Home() {
             <span>Title</span>
             <span>Album</span>
             <span>Likes</span>
-            <span>Duration</span>
+            <span className="fifth-col"><HiOutlineClock /></span>
           </div>
           {songs?.slice(0, limit).map((song, index) => {
             return (

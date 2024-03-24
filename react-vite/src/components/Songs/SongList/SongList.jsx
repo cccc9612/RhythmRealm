@@ -24,10 +24,12 @@ function SongList({ song, count }) {
                     <p className='song-name'>{song?.song_name}</p>
 
                 </span>
-                <NavLink to={`/albums/${song.album?.id}`}>
-                    {song.album?.name}
-                </NavLink>
-                <span>{song.duration}</span>
+            </span>
+            <NavLink to={`/albums/${song.album?.id}`}>
+                {song.album?.name}
+            </NavLink>
+            <span>
+                {song.duration}
                 <SongDropdown song={song} />
             </span>
         </>
