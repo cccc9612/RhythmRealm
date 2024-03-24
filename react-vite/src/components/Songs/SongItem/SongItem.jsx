@@ -49,7 +49,7 @@ function SongItem({ song, index, user, songs }) {
             }
         }
 
-        if (pathname === "/songs") {
+        if (pathname.startsWith("/search/")) {
             if (songs.length) {
                     dispatch(loadPlaylistAction(songs))
             }
