@@ -132,7 +132,7 @@ const albumReducer = (state = initialState, action) => {
       return { ...state, Albums: { ...newObj } };
     }
     case GET_SINGLE_ALBUM: {
-      return { Albums: { ...{[action.album.id]: action.album }} }
+      return { ...state, Albums: { ...state.Albums, [action.album.id]: action.album } }
     }
     case DELETE_ALBUM: {
       const newState = { ...state };
