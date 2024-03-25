@@ -11,7 +11,6 @@ function SearchSong() {
     const sessionUser = useSelector(state => state.session.user);
 
     const searchSongs = async () => {
-        setSearchAttempted(true)
         const res = await fetch(`/api/search/songs?param=${encodeURIComponent(text)}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
@@ -22,6 +21,7 @@ function SearchSong() {
             console.log("data", data)
             setSongs(data.songs)
         }
+        setSearchAttempted(true)
     }
 
 

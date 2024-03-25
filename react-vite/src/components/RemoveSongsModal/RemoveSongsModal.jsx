@@ -56,7 +56,7 @@ function RemoveSongsModal({albumId}) {
             <span>{song.duration}</span>
             <span><button onClick={handleRemove(song.id)}>remove</button></span>
               {/* <SongItem song={song} index={index} /> */}
-            
+
           </div>
         ))}
       </div>

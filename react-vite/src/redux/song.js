@@ -81,8 +81,12 @@ export const getCurrentSongs = () => async (dispatch) => {
     headers: { 'Content-Type': 'application/json' }
   });
   const data = await response.json()
-  dispatch(getAllSongsAction(data.songs))
-  return data
+  if (response.ok) {
+    dispatch(getAllSongsAction(data.songs))
+    return data;
+  }
+  // console.log("getcurrentsongs ==========> ", data, response)
+  return response;
 }
 
 

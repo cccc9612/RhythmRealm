@@ -79,9 +79,13 @@ export const getCurrentAlbums = () => async (dispatch) => {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   });
-  const data = await response.json()
-  dispatch(getAllAlbumsAction(data.albums))
-  return data
+
+  if (response.ok) {
+    const data = await response.json()
+    dispatch(getAllAlbumsAction(data.albums))
+    return data;
+  }
+  return response;
 }
 
 // delete an album thunk
@@ -96,10 +100,10 @@ export const deleteAlbum = (albumId) => async (dispatch) => {
 }
 
 // remove a song from an album thunk
-export const removeAlbumSong = (albumId, songId) => async(dispatch) => {
+export const removeAlbumSong = (albumId, songId) => async (dispatch) => {
   const response = await fetch(`/api/users/current/albums/${albumId}/remove/${songId}`, {
     method: 'PUT',
-    headers: {'Content-Type': 'application/json'}
+    headers: { 'Content-Type': 'application/json' }
   });
   if (response.ok) {
     dispatch(removeAlbumSongAction(albumId, songId))
@@ -128,7 +132,7 @@ const albumReducer = (state = initialState, action) => {
       return { ...state, Albums: { ...newObj } };
     }
     case GET_SINGLE_ALBUM: {
-      return { ...state, Albums: { ...state.Albums, [action.album.id]: action.album } }
+      return { Albums: { ...{[action.album.id]: action.album }} }
     }
     case DELETE_ALBUM: {
       const newState = { ...state };
@@ -138,9 +142,9 @@ const albumReducer = (state = initialState, action) => {
     case REMOVE_ALBUM_SONG: {
       const album = state.Albums[action.payload.albumId];
       const updatedSongArray = album.songs.filter(song => song.id !== action.payload.songId);
-      const updatedAlbum = {...album, songs: updatedSongArray}
+      const updatedAlbum = { ...album, songs: updatedSongArray }
       return {
-        ...state, Albums: {...state.Albums, [action.payload.albumId]: updatedAlbum}
+        ...state, Albums: { ...state.Albums, [action.payload.albumId]: updatedAlbum }
       }
     }
     // case ADD_TO_ALBUM: {

@@ -24,7 +24,7 @@ export default function UpdateSong() {
     const [errors, setErrors] = useState({})
     const [clicked, setClicked] = useState(false)
 
-    if (!user) navigate('/')
+
 
     useEffect(() => {
         const newErrors = {};
@@ -59,6 +59,8 @@ export default function UpdateSong() {
             navigate(`/users/current/songs`)
         }
     }
+
+    if (!user) return <h1>You must log in</h1>;
 
     return (
         <div className="update-form">
