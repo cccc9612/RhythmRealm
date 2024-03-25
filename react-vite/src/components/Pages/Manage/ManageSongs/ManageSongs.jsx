@@ -6,7 +6,7 @@ import SongList from "../../../Songs/SongList/SongList";
 import { useNavigate } from "react-router-dom";
 // import { IndexContext } from "../../../../context/IndexContext";
 import "./ManageSongs.css"
-import manageSongCover from './ManageSongs.png'
+
 
 
 
@@ -22,7 +22,7 @@ function ManageSongs() {
   const [page, setPage] = useState(0);
   const sessionUser = useSelector(state => state.session.user);
 
-  const limit = 10;
+  const limit = 12;
   let songsDisplay = songs.slice(page * limit, (page + 1) * limit)
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function ManageSongs() {
     <section className="manage-song-container">
       <div className="manage-songs-top">
         <div className="songs-header">
-          <img className='manage-song-cover-img' src={manageSongCover} alt="manage-song-cover-img" />
+          <img className='manage-song-cover-img' src='/ManageSongs.png' alt="manage-song-cover-img" />
           <h1 className='manage-song-title'>Manage Songs</h1>
 
         </div>
@@ -75,7 +75,7 @@ function ManageSongs() {
       </div>
       <div className="bottom-section">
         <div className="song-list-info-header">
-          <p>#</p>
+          <p className="first-column">#</p>
           <p>Title</p>
           <p>Album</p>
           <p>Duration</p>

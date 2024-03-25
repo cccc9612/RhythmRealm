@@ -46,52 +46,52 @@ function AlbumDropdown({ album }) {
             <span>
                 <span className="dropdown-icon">
                     <i style={{ fontSize: 25 }} className="fa-solid fa-ellipsis" onClick={toggleMenu}></i>
-                </span>
-                {showMenu && (
-                    <span className={"manage-album-dropdown"} ref={ulRef}>
-                        {owner && (
-                            <>
-                                {/* <div>
+                    {showMenu && (
+                        <span className={"manage-album-dropdown"} ref={ulRef}>
+                            {owner && (
+                                <>
+                                    {/* <div>
                                     <button><Link to={`/albums/${album.id}/edit`}>Update</Link></button>
                                     <button onClick={() => handleDeleteClick(album.id)}>Delete</button>
                                     <button onClick={() => handleRemoveClick(album.id)}>Remove songs from this album</button>
                                     <button><Link to={`/users/current/songs`}>Add songs to this album</Link></button>
                                 </div> */}
 
+                                    <ul className="dropdown-edit">
+                                        <i className="fa-solid fa-pen"></i>
+                                        <span className="dropdown-list" onClick={() => navigate(`/albums/${album.id}/edit`)}>Update</span>
+                                    </ul>
+                                    <ul className="dropdown-edit">
+                                        <i className="fa-solid fa-circle-minus"></i>
+                                        <span className="dropdown-list">
+                                            <OpenModalMenuItem
+                                                itemText="Delete"
+                                                onItemClick={closeMenu}
+                                                modalComponent={<DeleteAlbumModal albumId={album.id} />} />
+                                        </span>
+                                    </ul>
+                                    <ul className="dropdown-edit">
+                                        <i className="fa-solid fa-circle-minus"></i>
+                                        <span className="dropdown-list">
+                                            <OpenModalMenuItem
+                                                itemText="Remove songs from this album"
+                                                onItemClick={closeMenu}
+                                                modalComponent={<RemoveSongsModal albumId={album.id} />} />
+                                        </span>
+                                    </ul>
+                                </>
+                            )}
+                            {owner && (
                                 <ul className="dropdown-edit">
-                                    <i className="fa-solid fa-pen"></i>
-                                    <span className="dropdown-list" onClick={() => navigate(`/albums/${album.id}/edit`)}>Update</span>
-                                </ul>
-                                <ul className="dropdown-edit">
-                                    <i className="fa-solid fa-circle-minus"></i>
-                                    <span className="dropdown-list">
-                                        <OpenModalMenuItem
-                                            itemText="Delete"
-                                            onItemClick={closeMenu}
-                                            modalComponent={<DeleteAlbumModal album={album} />} />
+                                    <i className="fa-solid fa-square-plus"></i>
+                                    <span className="dropdown-list" onClick={() => navigate(`/users/current/songs`)}>
+                                        Add songs to this album
                                     </span>
                                 </ul>
-                                <ul className="dropdown-edit">
-                                    <i className="fa-solid fa-circle-minus"></i>
-                                    <span className="dropdown-list">
-                                        <OpenModalMenuItem
-                                            itemText="Remove songs from this album"
-                                            onItemClick={closeMenu}
-                                            modalComponent={<RemoveSongsModal album={album} />} />
-                                    </span>
-                                </ul>
-                            </>
-                        )}
-                        {owner && (
-                            <ul className="dropdown-edit">
-                                <i className="fa-solid fa-square-plus"></i>
-                                <span className="dropdown-list" onClick={() => navigate(`/users/current/songs`)}>
-                                    Add songs to this album
-                                </span>
-                            </ul>
-                        )}
-                    </span>
-                )}
+                            )}
+                        </span>
+                    )}
+                </span>
             </span>
         </>
     )
