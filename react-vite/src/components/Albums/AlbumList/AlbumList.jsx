@@ -10,24 +10,24 @@ function AlbumList() {
   const albums = Object.values(albumState?.Albums);
 
   useEffect(() => {
-      dispatch(getAllAlbums())
+    dispatch(getAllAlbums())
   }, [dispatch]);
 
   return (
     <div className="album-list-container">
-    <div className="title-container">
-      <h3>All albums</h3>
+      <div className="title-container">
+        <h3>All albums</h3>
+      </div>
+      <div className="albums-container">
+        {albums?.map((album) => {
+          return (
+            <NavLink key={album.id} to={`/albums/${album.id}`}>
+              <AlbumItem album={album} />
+            </NavLink>
+          )
+        })}
+      </div>
     </div>
-    <div className="albums-container">
-      {albums?.map((album) => {
-        return (
-          <NavLink key={album.id} to={`/albums/${album.id}`}>
-            <AlbumItem album={album} />
-          </NavLink>
-        )
-      })}
-    </div>
-  </div>
   )
 }
 

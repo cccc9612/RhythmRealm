@@ -58,7 +58,7 @@ function SignupFormModal() {
     if (first_name.length === 0) err.first_name = 'First name is required';
     if (last_name.length === 0) err.last_name = 'Last name is required';
     if (password.length < 6) err.password = "Password must be 6 or more characters";
-    if (confirmPassword.length < 0) err.confirmPassword  = "Confirmed password must be 6 or more characters"
+    if (confirmPassword.length < 0) err.confirmPassword = "Confirmed password must be 6 or more characters"
     setErrors(err);
   }, [email, username, first_name, last_name, password, confirmPassword])
 

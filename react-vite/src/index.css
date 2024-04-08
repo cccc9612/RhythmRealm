@@ -29,6 +29,11 @@
   padding: 0;
 }
 
+.contributors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .footer-container {
   margin-top: 30px;
   padding-top: 15px;
@@ -36,6 +41,12 @@
   margin-right: auto;
   margin-bottom: 20px;
   padding-left: 15px;
+}
+
+.layout-links {
+  padding-left: 10px;
+  font-size: 18px;
+  color: white;
 }
 
 .page-player-container {
@@ -89,10 +100,7 @@
 }
 
 .library-container {
-  background: var(--light-black-color);
   background-color: #121212;
-  width: calc(400px - 20px);
-  min-height: calc(100vh - 150px);
   display: flex;
   flex-direction: column;
   row-gap: 10px;
@@ -105,6 +113,36 @@
   min-height: calc(100vh - 245px); */
   justify-content: space-between;
 
+}
+
+.github-section {
+  color: rgb(0, 0, 0);
+  background-color: rgba(196, 196, 196, 0.757);
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.github-title {
+  font-weight: bold;
+}
+
+.author-name {
+  color: rgb(0, 0, 0)
+}
+
+.page-bottom-noplayer {
+  background: linear-gradient(90deg, rgb(4, 92, 16), rgb(152, 32, 250));
+  /* background-color: red; */
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .playlist-list {
@@ -251,9 +289,10 @@
   border-radius: 100%;
   font-size: 18px;
   border: 0px;
-  background-color: #090909;
+  background-color: black;
   margin-right: 15px;
-
+  border-radius: 20px;
+  ;
 }
 
 .nav-title-bar {

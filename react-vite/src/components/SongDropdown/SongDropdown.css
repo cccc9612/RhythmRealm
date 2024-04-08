@@ -1,15 +1,3 @@
-.playlist-dropdown {
-    position: absolute;
-    top: 440px;
-    left: 475px;
-    background-color: #282828;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 4px;
-    border-radius: 3px;
-}
-
 .dropdown-list,
 .dropdown-icon {
     cursor: pointer;
@@ -17,6 +5,10 @@
 }
 
 .dropdown-icon {
+    position: relative;
+}
+
+.dropdown-icon-container {
     position: relative;
 }
 
@@ -34,14 +26,14 @@
     font-size: 16px;
     /* overflow: visible; */
     position: absolute;
-    top:0;
+    top: 0;
     left: 0px;
     /* box-shadow: 1px 1px 1px rgb(200, 200, 200); */
     /* z-index: 4; */
 }
 
 .assigned-album {
-    color:grey;
+    color: grey;
 }
 
 .assigned-album:hover {

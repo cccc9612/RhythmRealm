@@ -33,7 +33,7 @@ export default function Layout() {
 
   const checkPath = (pathname) => {
     if (pathname === "/" || pathname === "/songs" ||
-    pathname.startsWith("/search/") ||
+      pathname.startsWith("/search/") ||
       (pathname.length > 8 && pathname.startsWith("/albums/") && !pathname.endsWith("/edit"))) {
       return true;
     } else {
@@ -64,12 +64,12 @@ export default function Layout() {
                   <button className="playlist-btn" onClick={createPlaylist}>Create your playlist</button>
                   <button onClick={createPlaylist}>Browse playlists</button>
                 </div>
-                <NavLink className="link-to-allsongs" to={`/songs`}>All Songs</NavLink>
-                <NavLink className="link-to-allalbums" to={`/albums`}>All Albums</NavLink>
+                <NavLink className="layout-links link-to-allsongs" to={`/songs`}>All Songs</NavLink>
+                <NavLink className="layout-links link-to-allalbums" to={`/albums`}>All Albums</NavLink>
                 {sessionUser &&
                   <>
-                    <NavLink className="link-to-managesongs" to={`/users/current/songs`}>Manage Songs</NavLink>
-                    <NavLink className="link-to-managealbums" to={`/users/current/albums`}>Manage Albums</NavLink>
+                    <NavLink className="layout-links link-to-managesongs" to={`/users/current/songs`}>Manage Songs</NavLink>
+                    <NavLink className="layout-links link-to-managealbums" to={`/users/current/albums`}>Manage Albums</NavLink>
                   </>
                 }
                 <div className="github-section">

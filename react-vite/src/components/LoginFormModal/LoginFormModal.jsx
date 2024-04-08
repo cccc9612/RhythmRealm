@@ -38,11 +38,11 @@ function LoginFormModal() {
   };
 
   useEffect(() => {
-      const err = {};
-      // setHasSubmitted(false);
-      if (credential.length < 4) err.credential = 'It must be 4 or more characters';
-      if (password.length < 6) err.password = 'Password must be 6 or more characters';
-      setErrors(err);
+    const err = {};
+    // setHasSubmitted(false);
+    if (credential.length < 4) err.credential = 'It must be 4 or more characters';
+    if (password.length < 6) err.password = 'Password must be 6 or more characters';
+    setErrors(err);
 
   }, [credential, password])
 
@@ -69,7 +69,7 @@ function LoginFormModal() {
         <p>{hasSubmitted && errors.credential &&
           (<><FaCircleExclamation color="#f15e6c" />
             {" " + errors.credential} </>)
-          }</p>
+        }</p>
         <label>
           Password
         </label>
@@ -81,7 +81,7 @@ function LoginFormModal() {
           required
         />
         <p>
-          {hasSubmitted && errors.password && <><FaCircleExclamation color="#f15e6c" /> {` ${errors.password}`} </> }
+          {hasSubmitted && errors.password && <><FaCircleExclamation color="#f15e6c" /> {` ${errors.password}`} </>}
         </p>
         <button className="submit-btn" type="submit">Log In</button>
         <button className="Demouser-login" onClick={DemoUserLogin} type="submit">

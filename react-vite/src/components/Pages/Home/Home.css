@@ -50,6 +50,7 @@ div h3 {
 .song-list-row {
   border-radius: 5px;
   /* border: 1px solid white; */
+  padding-bottom: 5px;
 
 }
 
@@ -66,6 +67,10 @@ div h3 {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.fifth-col {
+  padding-left: 7px;
 }
 
 .song-name-artist {

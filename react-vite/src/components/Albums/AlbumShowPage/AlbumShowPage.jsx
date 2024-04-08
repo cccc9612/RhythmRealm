@@ -8,6 +8,7 @@ import { getSingleAlbum } from "../../../redux/album";
 // import { likeSongThunk, dislikeSongThunk } from "../../../redux/song";
 import SongItemInAlbum from "../../Songs/SongitemInAlbum";
 import './AlbumShowPage.css'
+import { HiOutlineClock } from "react-icons/hi2";
 
 
 function AlbumShowPage() {
@@ -62,7 +63,7 @@ function AlbumShowPage() {
           <span>Title</span>
 
           <span>Likes</span>
-          <span>Duration</span>
+          <span className="fifth-col"><HiOutlineClock /></span>
         </div>
         {album?.songs.map((song, index) => {
           return (

@@ -65,7 +65,7 @@ function SongItem({ song, index, user, songs }) {
         audio.play();
         // console.log("index ====>", index, playlist[index].song_url)
 
-        console.log("reder ==== click song play")
+        // console.log("reder ==== click song play")
     }
 
 
