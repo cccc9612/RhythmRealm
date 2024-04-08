@@ -273,3 +273,23 @@
   font-weight: bold;
   font-size: 20px;
 }
+
+@media screen and (max-width:700px) {
+
+  .library-container,
+  .sidebar-container,
+  .page-bottom-container {
+    display: none;
+  }
+
+  /* 
+  .player-container {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+  }
+
+  audio {
+    width: auto;
+  } */
+
+}

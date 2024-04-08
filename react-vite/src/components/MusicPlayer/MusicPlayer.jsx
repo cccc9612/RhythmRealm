@@ -37,7 +37,7 @@ function MusicPlayer() {
         if (songs.length > 10) {
           dispatch(loadPlaylistAction(songs.toSorted((a, b) => {
             return (new Date(b.created_at)) - (new Date(a.created_at));
-          }).slice(0,10)))
+          }).slice(0, 10)))
         }
       }
     }
@@ -104,7 +104,7 @@ function MusicPlayer() {
       <div>
         <AudioPlayer
           autoPlay={false}
-          style={{ width: "500px", height: "80px", backgroundColor: "black" }}
+          style={{ maxWidth: "500px", height: "80px", backgroundColor: "black" }}
           src={playlist[songIdx]?.song_url}
           onPlay={() => console.log("Playing song ", songIdx, playlist[songIdx]?.song_name)}
           showSkipControls={true}
