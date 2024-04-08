@@ -13,7 +13,7 @@ function CreateSongModal() {
     const [errors, setErrors] = useState({})
     // const [duration, setDuration] = useState("");
     const sessionUser = useSelector(state => state.session.user);
-    if (!sessionUser) navigate('/')
+
 
     useEffect(() => {
         const validationObj = {};
@@ -56,6 +56,8 @@ function CreateSongModal() {
             navigate("/")
         }
     }
+
+    if (!sessionUser) return <h1>You must log in</h1>;
 
     return (
         <div className="main-form">

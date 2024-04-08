@@ -17,7 +17,7 @@ function ManageAlbums() {
   // const { setModalContent } = useModal();
   const albumState = useSelector(state => state.album);
   // console.log("albumState in component=======", albumState)
-  const albums = Object.values(albumState?.Albums);
+  let albums = Object.values(albumState?.Albums);
   // console.log("albums in component", albums)
   const sessionUser = useSelector(state => state.session.user);
 
@@ -34,7 +34,10 @@ function ManageAlbums() {
   //   setModalContent(<RemoveSongsModal albumId={albumId} />)
   // }
 
-  if (!sessionUser) navigate('/');
+  if (!sessionUser) return <h1>You must log in</h1>;
+  if (albums) {
+    albums = albums.filter(el => el.artist.id === sessionUser.id)
+  }
 
 
   return (

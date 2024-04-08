@@ -12,7 +12,7 @@ function CreateAlbumModal() {
     const [imageLoading, setImageLoading] = useState(false)
     const [errors, setErrors] = useState({});
     const sessionUser = useSelector(state => state.session.user);
-    if (!sessionUser) navigate('/');
+
 
     useEffect(() => {
         const validationObj = {};
@@ -53,6 +53,8 @@ function CreateAlbumModal() {
             navigate("/")
         }
     }
+
+    if (!sessionUser) return <h1>You must log in</h1>;
 
     return (
         <div className="main-form">

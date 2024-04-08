@@ -11,8 +11,6 @@ function SearchAlbum() {
     const [searchAttempted, setSearchAttempted] = useState(false)
 
     const searchAlbums = async () => {
-        // console.log("11111111111111111111111111111111111111", searchAttempted)
-        setSearchAttempted(true)
         const res = await fetch(`/api/search/albums?search=${encodeURIComponent(text)}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
@@ -23,7 +21,7 @@ function SearchAlbum() {
             console.log("data", data)
             setAlbums(data.albums)
         }
-        // console.log("2222222222222222222222222222222222222", searchAttempted)
+        setSearchAttempted(true)
     }
 
     return (

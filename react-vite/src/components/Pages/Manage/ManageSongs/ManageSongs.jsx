@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getCurrentSongs } from "../../../../redux/song";
-import { getAllAlbums } from "../../../../redux/album"
+import { getCurrentAlbums } from "../../../../redux/album"
 import SongList from "../../../Songs/SongList/SongList";
 import { useNavigate } from "react-router-dom";
 // import { IndexContext } from "../../../../context/IndexContext";
@@ -27,7 +27,7 @@ function ManageSongs() {
 
   useEffect(() => {
     dispatch(getCurrentSongs())
-    dispatch(getAllAlbums())
+    dispatch(getCurrentAlbums())
   }, [dispatch]);
 
   const handlePrevPage = () => {
@@ -42,7 +42,7 @@ function ManageSongs() {
     }
   }
 
-  if (!sessionUser) navigate('/');
+  if (!sessionUser) return <h1>You must log in</h1>;
 
 
   return (
