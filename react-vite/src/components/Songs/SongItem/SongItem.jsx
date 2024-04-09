@@ -128,7 +128,7 @@ function SongItem({ song, index, user, songs }) {
                     <span className="like-heart" id={"songitem-" + song.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>)}
 
             </span>
-            <span className="duration-col">{song.duration} <span className="play-btn" onClick={handleClickPlaying}><IoMdPlay size={20}/></span></span>
+            <span className="duration-col">{song.duration} {user && <span className="play-btn" onClick={handleClickPlaying}><IoMdPlay size={20}/></span>}</span>
         </>
     )
 }

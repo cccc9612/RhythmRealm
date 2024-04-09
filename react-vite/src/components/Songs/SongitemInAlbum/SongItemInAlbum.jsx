@@ -12,7 +12,7 @@ import { useState } from "react";
 function SongItemInAlbum({ song, index, user, songs }) {
     const dispatch = useDispatch();
     const [likes, setLikes] = useState(song?.likes)
-    const [heart, setHeart] = useState(song.users_like.map(el => el.id).includes(user.id))
+    const [heart, setHeart] = useState(song?.users_like.map(el => el.id).includes(user?.id))
 
     const handleClickPlaying = () => {
         dispatch(setPlayIndexAction(index));
@@ -37,7 +37,7 @@ function SongItemInAlbum({ song, index, user, songs }) {
         dispatch(dislikeSongThunk(song.id)).then((res) => {
             setLikes(res.songs[song.id - 1].likes)
             // console.log(" likes =====>", song.id,res,song,res.songs[song.id-1].likes)
-            setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user.id))
+            setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user?.id))
         })
         // const rerender1 = document.getElementsByClassName("rerender-btn")[0];
         // if (rerender1) rerender1.click();
@@ -54,7 +54,7 @@ function SongItemInAlbum({ song, index, user, songs }) {
                 // setLikes(likes + 1)
                 // setHeart(res[song.id].users_like.map(el => el.id).includes(user.id))
                 setLikes(res.songs[song.id - 1].likes)
-                setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user.id))
+                setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user?.id))
             }
         )
         // checkLikes(song, user)

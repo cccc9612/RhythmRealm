@@ -379,4 +379,37 @@
         display: none;
       }
 
+      .album-card-container {
+
+        height: auto;
+        text-decoration: none;
+        position: relative;
+        /* z-index: 0; */
+        /* padding-bottom: 8px;
+        margin-bottom: 50px; */
+        /* margin-top: 13px; */
+        width: calc(100% - 5px);
+        padding: 6px;
+      }
+
+      .albums-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+      }
+
+      .album-card-container>img {
+        object-fit: cover;
+        width: calc(100% - 10px);
+        /* max-width: 280px; */
+        height: calc(99vw / 2 );
+        /* max-height: 280px; */
+        border-radius: 10px;
+
+      }
+
+      .album-card-container .tooltiptext {
+        display: none;
+      }
+
 }
