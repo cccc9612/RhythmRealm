@@ -90,6 +90,11 @@
 .hold.like-heart {
   color: var(--green-color);
 }
+.musicplayer-container {
+    width: 500px;
+    height: 80px;
+    background-color: black;
+}
 
 /* .rhap_play-pause-button:hover svg{} */
 
