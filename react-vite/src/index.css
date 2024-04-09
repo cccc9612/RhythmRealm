@@ -292,6 +292,9 @@
     /* * {
         max-width: 500px;
     } */
+    .page-player-container {
+        padding: 0px;
+    }
     .page-container {
         display: flex;
         flex-direction: column;
@@ -324,6 +327,10 @@
         position: static;
 
         /* margin-right: 10px; */
+      }
+
+      .page-bottom-container {
+        width: 100%;
       }
 
       .song-list-row>a,

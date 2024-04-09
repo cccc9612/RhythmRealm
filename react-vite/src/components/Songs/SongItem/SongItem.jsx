@@ -17,7 +17,7 @@ function SongItem({ song, index, user, songs }) {
     const location = useLocation();
     const { pathname } = location;
     const [likes, setLikes] = useState(song?.likes)
-    const [heart, setHeart] = useState(song?.users_like.map(el => el.id).includes(user.id))
+    const [heart, setHeart] = useState(song?.users_like.map(el => el.id).includes(user?.id))
     // console.log(pathname)
 
     // let idx = useSelector(state => state.playlist).index
@@ -87,7 +87,7 @@ function SongItem({ song, index, user, songs }) {
         dispatch(dislikeSongThunk(song.id)).then((res) => {
             setLikes(res.songs[song.id - 1].likes)
             // console.log(" likes =====>", song.id,res,song,res.songs[song.id-1].likes)
-            setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user.id))
+            setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user?.id))
         })
         // const rerender = document.getElementsByClassName("rerender-btn")[0];
         // if (rerender) rerender.click();
@@ -99,7 +99,7 @@ function SongItem({ song, index, user, songs }) {
         dispatch(likeSongThunk(song.id)).then(
             (res) => {
                 setLikes(res.songs[song.id - 1].likes)
-                setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user.id))
+                setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user?.id))
             }
         )
         // const rerender = document.getElementsByClassName("rerender-btn")[0];
