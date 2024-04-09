@@ -185,7 +185,7 @@ const songReducer = (state = initialState, action) => {
     case GET_ALL_SONGS: {
       const newObj = {};
       action.payload.forEach(el => newObj[el.id] = { ...el });
-      return { ...state, Songs: { ...newObj } };
+      return { Songs: { ...newObj } };
     }
 
     // case LOAD_ONE_SONG: {

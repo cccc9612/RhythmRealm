@@ -1,14 +1,14 @@
 .albums-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  column-gap: 0;
+  column-gap: 0px;
   row-gap: 1vw;
   width: 100%;
   margin-top: 20px;
 }
 
 .album-card-container {
-  width: 100%;
+
   height: auto;
   text-decoration: none;
   position: relative;
@@ -17,7 +17,7 @@
   margin-bottom: 50px; */
   /* margin-top: 13px; */
   width: calc((99vw - 515px) / 5 );
-  padding: 8px;
+  padding: 6px;
 }
 
 .album-card-container:hover {
@@ -27,9 +27,9 @@
 
 .album-card-container>img {
   object-fit: cover;
-  width: calc((99vw - 515px)/5);
+  width: calc((99vw - 515px) / 5 );
   /* max-width: 280px; */
-  height: calc((99vw - 515px)/5);
+  height: calc((99vw - 515px) / 5 );
   /* max-height: 280px; */
   border-radius: 10px;
 

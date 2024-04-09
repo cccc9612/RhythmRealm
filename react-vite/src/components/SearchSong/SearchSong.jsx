@@ -8,6 +8,7 @@ function SearchSong() {
     const [text, setText] = useState("")
     const [songs, setSongs] = useState([])
     const [searchAttempted, setSearchAttempted] = useState(false)
+    const [num, setNum] = useState(0);
     const sessionUser = useSelector(state => state.session.user);
 
     const searchSongs = async () => {
@@ -23,6 +24,10 @@ function SearchSong() {
         }
         setSearchAttempted(true)
     }
+
+    const clickRerender = () => {
+        setNum(num + 1);
+      }
 
 
     return (
@@ -41,6 +46,7 @@ function SearchSong() {
                     >
                         Search
                     </button>
+                    <span className="rerender-btn" onClick={clickRerender}>{num}</span>
                 </div>
                 {searchAttempted && (songs.length === 0 ? (<p>No results found</p>) : (
                     <>

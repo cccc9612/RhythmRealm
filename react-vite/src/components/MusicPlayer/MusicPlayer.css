@@ -12,7 +12,8 @@
   height: 60px;
   width: 60px;
   border-radius: 5px;
-  margin-left: 20px;;
+  margin-left: 20px;
+  object-fit: cover;
 }
 
 .song-player {

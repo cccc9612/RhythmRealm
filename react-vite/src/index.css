@@ -53,9 +53,10 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: auto;
   background-color: black;
+  padding: 10px 10px 0px 10px;
 }
 
 .page-container {
@@ -63,16 +64,16 @@
   align-items: flex-start;
   /* flex-direction: column; */
   justify-content: space-between;
-  column-gap: 10px;
-  padding: 10px;
-  width: calc(100vw - 20px);
+  column-gap: 0px;
+  /* padding: 10px; */
+  width: 100%;
   padding-bottom: 10px;
   position: relative;
   /* padding-bottom: 10px; */
 }
 
 .sidebar-container {
-  width: 20px;
+  width: 400px;
   /* display: flex;
   flex-direction: column;
   row-gap: 10px; */
@@ -90,7 +91,7 @@
 .nav-container {
   background: var(--light-black-color);
   background-color: #121212;
-  width: calc(400px - 20px);
+  width: 380px;
   border-radius: 8px;
   height: 80px;
   padding: 10px;
@@ -178,11 +179,13 @@
 }
 
 .song-album-list-container {
-  width: calc(100vw - 430px);
+  width: calc(100% - 410px);
   min-height: calc(100vh - 20px);
   background: var(--light-black-color);
   border-radius: 8px;
   height: auto;
+  position: static;
+  left: -200px;
   /* margin-right: 10px; */
 }
 
@@ -224,7 +227,7 @@
 }
 
 .page-bottom-container {
-  width: 100vw;
+  width: calc(100vw - 36.8px);
   position: sticky;
   bottom: 0;
   left: 0;
