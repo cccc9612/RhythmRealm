@@ -286,3 +286,90 @@
   padding: 14px 30px;
 
 }
+
+
+@media screen and (max-width: 500px) {
+    /* * {
+        max-width: 500px;
+    } */
+    .page-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* flex-direction: column; */
+        justify-content: space-between;
+        column-gap: 0px;
+        /* padding: 10px; */
+        width: 100%;
+        padding-bottom: 10px;
+        position: relative;
+        /* padding-bottom: 10px; */
+      }
+
+      .sidebar-container {
+        width: calc(100% - 20px);
+        position: static;
+      }
+      .nav-container,
+      .library-container{
+        width: 100%;
+      }
+
+      .song-album-list-container {
+        width: calc(100% - 10px);
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+
+        /* margin-right: 10px; */
+      }
+
+      .song-list-row>a,
+      .song-list-row .like-container{
+        display: none;
+      }
+
+      .song-list-row .duration-col {
+        color: rgb(46, 45, 45);
+      }
+
+      .rhap_container {
+        width: 50px;
+        height: 50px;
+
+      }
+
+      .rhap_repeat-button,
+      .rhap_time,
+      .rhap_progress-container,
+      button.rhap_skip-button,
+      .rhap_volume-container {
+        display: none;
+      }
+
+
+
+      /* .rhap_controls-section {
+          width: 50px;
+      } */
+
+      .musicplayer-container {
+        width: 50px;
+        height: 80px;
+        background-color: black;
+      }
+      .player-container{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        justify-content: space-between;
+      }
+      /* .player-wrapper {
+        width: 50px;
+      } */
+      .rerender-btn-container {
+        display: none;
+      }
+
+}

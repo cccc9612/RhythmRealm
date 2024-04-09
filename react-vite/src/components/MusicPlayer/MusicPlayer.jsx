@@ -101,10 +101,12 @@ function MusicPlayer() {
           <span className="like-heart hold" id={"mp-song-" + playlist[songIdx]?.id} onClick={toggleDislike}><IoMdHeart size={20} /></span> :
           <span className="like-heart" id={"mp-song-" + playlist[songIdx]?.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>} */}
       </span>
-      <div>
+      <div className='player-wrapper'>
         <AudioPlayer
           autoPlay={false}
-          style={{ width: "500px", height: "80px", backgroundColor: "black" }}
+        //   style={{ width: "500px", height: "80px", backgroundColor: "black" }}
+          id="musicplayer"
+          className='musicplayer-container'
           src={playlist[songIdx]?.song_url}
           onPlay={() => console.log("Playing song ", songIdx, playlist[songIdx]?.song_name)}
           showSkipControls={true}
@@ -117,7 +119,7 @@ function MusicPlayer() {
         />
 
       </div>
-      <div>
+      <div className='rerender-btn-container'>
 
         <span className="rerender-btn" onClick={clickRerender}>{num}</span>
       </div>
