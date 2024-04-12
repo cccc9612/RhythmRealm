@@ -56,7 +56,7 @@
   width: 100%;
   height: auto;
   background-color: black;
-  padding: 10px 10px 0px 10px;
+  padding: 10px 0px 0px 0px;
 }
 
 .page-container {
@@ -66,9 +66,11 @@
   justify-content: space-between;
   column-gap: 0px;
   /* padding: 10px; */
-  width: 100%;
+  width: calc(100% - 20px);
   padding-bottom: 10px;
   position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
   /* padding-bottom: 10px; */
 }
 
@@ -109,7 +111,7 @@
   padding: 15px;
   margin-top: 15px;
   width: calc(400px - 20px);
-  min-height: calc(100vh - 245px);
+  min-height: calc(100vh - 235px);
   border-radius: 8px;
   padding: 10px;
   display: flex;
@@ -149,7 +151,7 @@
 }
 
 .playlist-list {
-  background-color: rgb(70, 67, 67);
+  background-color: var(--light-black-color);
   border-radius: 8px;
   min-height: 120px;
   padding: 15px;
@@ -182,7 +184,7 @@
   width: calc(100% - 410px);
   min-height: calc(100vh - 20px);
   background: var(--light-black-color);
-  border-radius: 8px;
+  border-radius: 10px;
   height: auto;
   position: static;
   left: -200px;
@@ -205,7 +207,7 @@
   color: grey;
   width: 100px;
   font-size: 15px;
-  background-color: #090909;
+  background-color: #121212;
   font-weight: 800;
   border: none
 }
@@ -227,7 +229,7 @@
 }
 
 .page-bottom-container {
-  width: calc(100vw - 36.8px);
+  width: 100%;
   position: sticky;
   bottom: 0;
   left: 0;
@@ -282,8 +284,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #090909;
+  background-color: #121212;
   padding: 14px 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
 }
 
@@ -306,6 +310,7 @@
         width: 100%;
         padding-bottom: 10px;
         position: relative;
+        margin: 0px;
         /* padding-bottom: 10px; */
       }
 
@@ -319,7 +324,7 @@
       }
 
       .song-album-list-container {
-        width: calc(100% - 10px);
+        width: 100%;
         min-height: calc(100vh - 20px);
         background: var(--light-black-color);
         border-radius: 8px;
@@ -379,6 +384,22 @@
         display: none;
       }
 
+      .albums-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        column-gap: 0px;
+
+      }
+
+      .albums-container>a{
+         width: 100%;
+      }
+
+      .album-card-container>.tooltiptext {
+        width: 50px;
+        display: none;
+      }
       .album-card-container {
 
         height: auto;
@@ -388,28 +409,26 @@
         /* padding-bottom: 8px;
         margin-bottom: 50px; */
         /* margin-top: 13px; */
-        width: calc(100% - 5px);
-        padding: 6px;
+        width: 100%;
+        padding: 0cm;
       }
 
-      .albums-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-
-      }
 
       .album-card-container>img {
         object-fit: cover;
-        width: calc(100% - 10px);
+        width: calc(100% - 16px);
         /* max-width: 280px; */
-        height: calc(99vw / 2 );
+        height: calc(99vw / 2 - 16px);
         /* max-height: 280px; */
         border-radius: 10px;
+        margin: 8px;
 
       }
 
-      .album-card-container .tooltiptext {
-        display: none;
+      .album-card-name-artist {
+        padding-left: 5px;
       }
+
+
 
 }
