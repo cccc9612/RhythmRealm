@@ -81,8 +81,12 @@ export const getCurrentSongs = () => async (dispatch) => {
     headers: { 'Content-Type': 'application/json' }
   });
   const data = await response.json()
-  dispatch(getAllSongsAction(data.songs))
-  return data
+  if (response.ok) {
+    dispatch(getAllSongsAction(data.songs))
+    return data;
+  }
+  // console.log("getcurrentsongs ==========> ", data, response)
+  return response;
 }
 
 
@@ -114,7 +118,7 @@ export const updateSongThunk = (song, songId) => async (dispatch) => {
 }
 
 export const deleteSongThunk = (songId) => async (dispatch) => {
-  console.log(songId)
+  // console.log(songId)
   const res = await fetch(`/api/users/current/songs/${songId}/delete`, {
     // console.log(songId)
     method: "DELETE",
@@ -181,7 +185,7 @@ const songReducer = (state = initialState, action) => {
     case GET_ALL_SONGS: {
       const newObj = {};
       action.payload.forEach(el => newObj[el.id] = { ...el });
-      return { ...state, Songs: { ...newObj } };
+      return { Songs: { ...newObj } };
     }
 
     // case LOAD_ONE_SONG: {

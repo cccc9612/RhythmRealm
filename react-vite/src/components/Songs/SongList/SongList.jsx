@@ -28,9 +28,9 @@ function SongList({ song, count }) {
             <NavLink to={`/albums/${song.album?.id}`}>
                 {song.album?.name}
             </NavLink>
-            <span>
-                {song.duration}
-                <SongDropdown song={song} />
+            <span className="manage-songs-duration">
+                <span>{song.duration}</span>
+                <SongDropdown id={song.id} song={song} />
             </span>
         </>
     )

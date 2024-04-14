@@ -27,10 +27,10 @@ function AddToAlbum({ song }) {
 
     const handleAdd = (albumId) => (e) => {
         e.preventDefault();
-        console.log("albumId in component======", albumId)
+        // console.log("albumId in component======", albumId)
         if (!albumId) return;
         dispatch(addToAlbumThunk(albumId, songId))
-        console.log("after dispatch===========")
+        // console.log("after dispatch===========")
         closeModal();
     }
 
@@ -43,7 +43,7 @@ function AddToAlbum({ song }) {
                 <div key={album.id} className="add-to-album-line-container">
                     <span>{album.name}</span>
                     <span>
-                        <button 
+                        <button
                             className="add-to-album-button"
                             onClick={handleAdd(album.id)}
                         >

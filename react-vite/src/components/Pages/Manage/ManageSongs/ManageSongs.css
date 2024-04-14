@@ -1,25 +1,32 @@
 .manage-song-cover-img {
-    height: 220px;
-    width: 220px;
-    border-radius: 3px;
+    height: 200px;
+    width: 200px;
+    border-radius: 26px;
 }
 
 .songs-header {
     padding: 20px;
-    margin-bottom: -20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.manage-song-dropdown {
-    position: absolute;
-    top: 0px;
-    left: 5px;
-    background-color: #3e3d3d;
-    color: white;
+.songs-coverimg-title-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.manage-song-pagination-upload-btn-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 200px;
 }
+
+
 
 .dropdown-edit {
     display: flex;
@@ -28,18 +35,27 @@
     padding: 12px 12px 12px 12px;
 }
 
+.dropdown-edit.assigned{
+    color: grey;
+
+}
+
+.dropdown-edit.assigned > .dropdown-list:hover{
+    cursor: default;
+
+}
+
 .manage-song-container {
     color: rgb(255, 255, 255);
-    display: block;
-    flex-direction: row;
-    justify-content: space-between
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
 }
 
 .manage-song-title {
     font-size: 60px;
     padding-left: 30px;
-    padding-top: 50px;
-
 }
 
 .song-list-info-header{
@@ -62,19 +78,11 @@
     padding-bottom: 10px;
     column-gap: 0px;
 }
-p.first-column {
-    padding-left: -50px;
-}
 
 .first-column {
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
-
-.manage-songs-top {
-    display: flex;
-    flex-direction: column;
 }
 
 
@@ -112,9 +120,6 @@ p.first-column {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin-right: 15px;
-    margin-bottom: 10px;
-    margin-top: -30px;
     font-size: 15px;
 }
 

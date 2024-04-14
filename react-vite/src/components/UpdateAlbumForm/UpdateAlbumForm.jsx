@@ -10,16 +10,16 @@ function UpdateAlbumForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { albumId } = useParams();
+    // console.log("albumState in component===========", albumState)
     const albumState = useSelector(state => state.album)
-    console.log("albumState in component===========", albumState)
+    // console.log("albumState in component===========", albumState)
     const album = albumState.Albums[albumId]
-    console.log("album in component========", album)
+    // console.log("album in component========", album)
 
     const [name, setName] = useState(album?.name)
     const [image, setImage] = useState(null)
     const [previewUrl] = useState(album?.cover_img)
     const sessionUser = useSelector(state => state.session.user);
-    if (!sessionUser) navigate('/')
 
 
     useEffect(() => {
@@ -43,6 +43,7 @@ function UpdateAlbumForm() {
         navigate(`/albums/${albumId}`)
     }
 
+    if (!sessionUser) return <h1>You must log in</h1>;
     return (
         <div className="main-form">
             <div className="create-container">

@@ -12,7 +12,7 @@ function CreateAlbumModal() {
     const [imageLoading, setImageLoading] = useState(false)
     const [errors, setErrors] = useState({});
     const sessionUser = useSelector(state => state.session.user);
-    if (!sessionUser) navigate('/');
+
 
     useEffect(() => {
         const validationObj = {};
@@ -25,10 +25,10 @@ function CreateAlbumModal() {
             validationObj.image = "album cover image is required \n(accept pdf, png, jpg, jpeg, gif)\n"
         } else {
             const fileType = image.type
-            console.log("file type=====================>", fileType)
+            // console.log("file type=====================>", fileType)
             const validTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'application/pdf']
             if (! validTypes.includes(fileType)) {
-                validationObj.imagetype = "Invalid file type, only PDF, PNG, JPG, JPEG, GIF are allowed" 
+                validationObj.imagetype = "Invalid file type, only PDF, PNG, JPG, JPEG, GIF are allowed"
             }
         }
 
@@ -53,6 +53,8 @@ function CreateAlbumModal() {
             navigate("/")
         }
     }
+
+    if (!sessionUser) return <h1>You must log in</h1>;
 
     return (
         <div className="main-form">

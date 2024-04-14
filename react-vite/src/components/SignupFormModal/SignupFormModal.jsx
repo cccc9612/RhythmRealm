@@ -58,7 +58,7 @@ function SignupFormModal() {
     if (first_name.length === 0) err.first_name = 'First name is required';
     if (last_name.length === 0) err.last_name = 'Last name is required';
     if (password.length < 6) err.password = "Password must be 6 or more characters";
-    if (confirmPassword.length < 0) err.confirmPassword  = "Confirmed password must be 6 or more characters"
+    if (confirmPassword.length < 6) err.confirmPassword = "Confirmed password must be 6 or more characters"
     setErrors(err);
   }, [email, username, first_name, last_name, password, confirmPassword])
 
@@ -121,7 +121,7 @@ function SignupFormModal() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password  (min: 6 characters)"
+          placeholder="Password (min: 6 characters)"
           required
         />
         {hasSubmitted && errors.password && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.password}</p>}
@@ -132,7 +132,7 @@ function SignupFormModal() {
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          placeholder="Confirmed password  (min: 6 characters)"
+          placeholder="Confirmed password (min: 6 characters)"
           required
         />
         {hasSubmitted && errors.confirmPassword && <p><FaCircleExclamation color="#f15e6c" />{" " + errors.confirmPassword}</p>}
