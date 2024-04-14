@@ -55,6 +55,7 @@ export default function Layout() {
             <div className="sidebar-container">
               <Navigation />
               <div className="library-container">
+                <div className="library-playlist-menu">
                 <div className="library-title">
                   <LuLibrary /> Your library
                 </div>
@@ -72,6 +73,7 @@ export default function Layout() {
                     <NavLink className="layout-links link-to-managealbums" to={`/users/current/albums`}>Manage Albums</NavLink>
                   </>
                 }
+                </div>
                 <div className="github-section">
                   <div className="github-title">
                     <p style={{ fontsize: "16px", cursor: "default" }}>Connect With Us!</p>

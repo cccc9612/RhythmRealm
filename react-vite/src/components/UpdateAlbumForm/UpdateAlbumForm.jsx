@@ -53,7 +53,7 @@ function UpdateAlbumForm() {
                     encType="multipart/form-data"
                     className="form-data"
                 >
-                    {previewUrl && <img src={previewUrl} alt="Cover preview" style={{ width: '100px', height: '100px' }} />}
+                    {previewUrl && <img src={previewUrl} alt="Cover preview" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />}
                     <label>
                         Album Title
                         <input
