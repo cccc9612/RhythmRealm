@@ -13,7 +13,7 @@ function CreateSongModal() {
     const [errors, setErrors] = useState({})
     // const [duration, setDuration] = useState("");
     const sessionUser = useSelector(state => state.session.user);
-    if (!sessionUser) navigate('/')
+
 
     useEffect(() => {
         const validationObj = {};
@@ -23,7 +23,14 @@ function CreateSongModal() {
         }
 
         if (!song) {
-            validationObj.song = "Song file is required"
+            validationObj.song = "Song file is required \n(accept .mp3 only)\n"
+        } else {
+            const fileType = song.type
+            // console.log("file type=====================>", fileType)
+            const validTypes = ['audio/mpeg']
+            if (! validTypes.includes(fileType)) {
+                validationObj.songtype = "Invalid file type, only MP3 is allowed"
+            }
         }
 
         setErrors(validationObj)
@@ -49,6 +56,8 @@ function CreateSongModal() {
             navigate("/")
         }
     }
+
+    if (!sessionUser) return <h1>You must log in</h1>;
 
     return (
         <div className="main-form">
@@ -79,6 +88,7 @@ function CreateSongModal() {
                             className="input-box"
                         />
                         <div>{errors.song && <p className="create-album-validator">{errors.song}</p>}</div>
+                        <div>{errors.songtype && <p className="create-album-validator">{errors.songtype}</p>}</div>
                     </label>
 
                     {/* <lable>

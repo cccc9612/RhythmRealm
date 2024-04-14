@@ -10,54 +10,57 @@ function SearchAlbum() {
     const [albums, setAlbums] = useState([])
     const [searchAttempted, setSearchAttempted] = useState(false)
 
-    const searchAlbums = async() => {
-        setSearchAttempted(true)
+    const searchAlbums = async () => {
         const res = await fetch(`/api/search/albums?search=${encodeURIComponent(text)}`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'}
+            headers: { 'Content-Type': 'application/json' }
         })
 
-        if(res.ok) {
+        if (res.ok) {
             const data = await res.json();
             console.log("data", data)
             setAlbums(data.albums)
         }
+        setSearchAttempted(true)
     }
 
     return (
         <>
-        <div>
-            <div className="search-album-bar-container">
-                <IoSearchOutline className="search-icon"/>
-                <input
-                    placeholder="What do you want to play?"
-                    type="text"
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                />
-                <button
-                    onClick={() => searchAlbums()}
-                >
-                    Search
-                </button>
-            </div>
-            { searchAttempted && albums.length === 0 ? (<p>No results found</p>) : (
-            <>
-            <div className="album-list-container">
-                {searchAttempted? <h3>Albums</h3> : null}
-                <div className="albums-container">
-                    {albums.map((album) => (
-                        <NavLink key={album.id} to={`/albums/${album.id}`}>
-                            <AlbumItem album={album} />
-                        </NavLink>
-                    ))}
-
+            <div>
+                <div className="search-album-bar-container">
+                    <IoSearchOutline className="search-icon" />
+                    <input
+                        placeholder="What do you want to play?"
+                        type="text"
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                    />
+                    <button
+                        onClick={() => searchAlbums()}
+                    >
+                        Search
+                    </button>
                 </div>
+
+                {searchAttempted && (albums.length === 0 ? (<p>No results found</p>) : (
+                    <>
+                        {/* {searchAttempted ? ( */}
+                            <div className="album-list-container">
+                                {searchAttempted ? <h3>Albums</h3> : null}
+                                <div className="albums-container">
+                                    {albums.map((album) => (
+                                        <NavLink key={album.id} to={`/albums/${album.id}`}>
+                                            <AlbumItem album={album} />
+                                        </NavLink>
+                                    ))}
+
+                                </div>
+                            </div>
+                        {/* ) : null} */}
+                    </>
+                )
+                )}
             </div>
-            </>
-            )
-            }
-        </div>
         </>
     )
 }

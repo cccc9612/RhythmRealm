@@ -33,7 +33,7 @@ export default function Layout() {
 
   const checkPath = (pathname) => {
     if (pathname === "/" || pathname === "/songs" ||
-    pathname.startsWith("/search/") ||
+      pathname.startsWith("/search/") ||
       (pathname.length > 8 && pathname.startsWith("/albums/") && !pathname.endsWith("/edit"))) {
       return true;
     } else {
@@ -64,12 +64,12 @@ export default function Layout() {
                   <button className="playlist-btn" onClick={createPlaylist}>Create your playlist</button>
                   <button onClick={createPlaylist}>Browse playlists</button>
                 </div>
-                <NavLink className="link-to-allsongs" to={`/songs`}>All Songs</NavLink>
-                <NavLink className="link-to-allalbums" to={`/albums`}>All Albums</NavLink>
+                <NavLink className="layout-links link-to-allsongs" to={`/songs`}>All Songs</NavLink>
+                <NavLink className="layout-links link-to-allalbums" to={`/albums`}>All Albums</NavLink>
                 {sessionUser &&
                   <>
-                    <NavLink className="link-to-managesongs" to={`/users/current/songs`}>Manage Songs</NavLink>
-                    <NavLink className="link-to-managealbums" to={`/users/current/albums`}>Manage Albums</NavLink>
+                    <NavLink className="layout-links link-to-managesongs" to={`/users/current/songs`}>Manage Songs</NavLink>
+                    <NavLink className="layout-links link-to-managealbums" to={`/users/current/albums`}>Manage Albums</NavLink>
                   </>
                 }
                 <div className="github-section">
@@ -77,14 +77,20 @@ export default function Layout() {
                     <p style={{ fontsize: "16px", cursor: "default" }}>Connect With Us!</p>
                   </div>
                   <div className="contributors">
+
                     <div>
                       <i className="fa-brands fa-github" style={{ paddingRight: '10px', paddingLeft: '10px' }}></i>
                       <a rel='noreferrer' href="https://github.com/elainefan331" className="author-name" target="_blank">Elaine Fan</a>
+                    </div>
+                    <div>
                       <i className="fa-brands fa-github" style={{ paddingRight: '10px', paddingLeft: '10px' }}></i>
                       <a rel='noreferrer' href='https://github.com/cccc9612' className="author-name" target="_blank">Cindy Li</a>
+                    </div>
+                    <div>
                       <i className="fa-brands fa-github" style={{ paddingRight: '10px', paddingLeft: '10px' }}></i>
                       <a rel='noreferrer' className="author-name" href="https://github.com/haoxugt" target="_blank">Hao Xu</a>
                     </div>
+
                   </div>
                 </div>
               </div>

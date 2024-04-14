@@ -7,6 +7,7 @@ import { likeSongThunk, dislikeSongThunk } from "../../../redux/song";
 import { IoMdPlay } from "react-icons/io";
 import "./SongItem.css"
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 
 
@@ -15,6 +16,8 @@ function SongItem({ song, index, user, songs }) {
     const dispatch = useDispatch();
     const location = useLocation();
     const { pathname } = location;
+    const [likes, setLikes] = useState(song?.likes)
+    const [heart, setHeart] = useState(song?.users_like.map(el => el.id).includes(user?.id))
     // console.log(pathname)
 
     // let idx = useSelector(state => state.playlist).index
@@ -65,13 +68,13 @@ function SongItem({ song, index, user, songs }) {
         audio.play();
         // console.log("index ====>", index, playlist[index].song_url)
 
-        console.log("reder ==== click song play")
+        // console.log("reder ==== click song play")
     }
 
 
-    const checkLikes = (song, user) => {
-        return song.users_like.map(el => el.id).includes(user.id)
-    }
+    // const checkLikes = (song, user) => {
+    //     return song.users_like.map(el => el.id).includes(user.id)
+    // }
 
     // const liketest = checkLikes(song, user);
 
@@ -80,14 +83,25 @@ function SongItem({ song, index, user, songs }) {
 
     const toggleDislike = async () => {
         // const like = document.getElementById(e.currentTarget.id);
-        await dispatch(dislikeSongThunk(song.id));
+        // await dispatch(dislikeSongThunk(song.id));
+        dispatch(dislikeSongThunk(song.id)).then((res) => {
+            setLikes(res.songs[song.id - 1].likes)
+            // console.log(" likes =====>", song.id,res,song,res.songs[song.id-1].likes)
+            setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user?.id))
+        })
         // const rerender = document.getElementsByClassName("rerender-btn")[0];
         // if (rerender) rerender.click();
     }
 
     const toggleLike = async () => {
         // const like = document.getElementById(e.currentTarget.id);
-        await dispatch(likeSongThunk(song.id));
+        // await dispatch(likeSongThunk(song.id));
+        dispatch(likeSongThunk(song.id)).then(
+            (res) => {
+                setLikes(res.songs[song.id - 1].likes)
+                setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user?.id))
+            }
+        )
         // const rerender = document.getElementsByClassName("rerender-btn")[0];
         // if (rerender) rerender.click();
     }
@@ -107,14 +121,14 @@ function SongItem({ song, index, user, songs }) {
             </NavLink>
 
             <span className="like-container">
-                {song.likes}
+                {likes}
                 {user &&
-                    checkLikes(song, user) ?
+                    (heart ?
                     <span className="like-heart hold" id={"songitem-" + song.id} onClick={toggleDislike}><IoMdHeart size={20} /></span> :
-                    <span className="like-heart" id={"songitem-" + song.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>}
+                    <span className="like-heart" id={"songitem-" + song.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>)}
 
             </span>
-            <span className="duration-col">{song.duration} <span className="play-btn" onClick={handleClickPlaying}><IoMdPlay size={20}/></span></span>
+            <span className="duration-col">{song.duration} {user && <span className="play-btn" onClick={handleClickPlaying}><IoMdPlay size={20}/></span>}</span>
         </>
     )
 }

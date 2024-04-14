@@ -11,8 +11,8 @@ export default function UpdateSong() {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     // const song = useSelector(state => state.songs?.[id])
-    const albumState = useSelector(state => state.album)
-    console.log(albumState)
+    // const albumState = useSelector(state => state.album)
+    // console.log(albumState)
     const { songId } = useParams();
     const songState = useSelector(state => state.song)
     const song = songState.Songs[songId];
@@ -24,7 +24,7 @@ export default function UpdateSong() {
     const [errors, setErrors] = useState({})
     const [clicked, setClicked] = useState(false)
 
-    if (!user) navigate('/')
+
 
     useEffect(() => {
         const newErrors = {};
@@ -59,6 +59,8 @@ export default function UpdateSong() {
             navigate(`/users/current/songs`)
         }
     }
+
+    if (!user) return <h1>You must log in</h1>;
 
     return (
         <div className="update-form">

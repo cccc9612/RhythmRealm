@@ -4,6 +4,7 @@ import { getAllSongs } from "../../../redux/song";
 import SongItem from "../SongItem";
 
 import './AllSongList.css'
+import { HiOutlineClock } from "react-icons/hi2";
 
 
 function AllSongList() {
@@ -13,7 +14,7 @@ function AllSongList() {
     const sessionUser = useSelector(state => state.session.user);
     const [page, setPage] = useState(0);
 
-    const limit = 5;
+    const limit = 15;
     let songsDisplay = songs.slice(page * limit, (page + 1) * limit)
 
     useEffect(() => {
@@ -56,7 +57,7 @@ function AllSongList() {
                     <span>Title</span>
                     <span>Album</span>
                     <span>Likes</span>
-                    <span>Duration</span>
+                    <span className="fifth-col"><HiOutlineClock /></span>
                 </div>
                 {songsDisplay?.map((song, index) => {
                     return (
