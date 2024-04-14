@@ -50,8 +50,10 @@ function ManageSongs() {
     <section className="manage-song-container">
 
         <div className="songs-header">
-          <img className='manage-song-cover-img' src='/ManageSongs.png' alt="manage-song-cover-img" />
-          <h1 className='manage-song-title'>Manage Songs</h1>
+        <div className="songs-coverimg-title-container">
+            <img className='manage-song-cover-img' src='/ManageSongs.png' alt="manage-song-cover-img" />
+            <h1 className='manage-song-title'>Manage Songs</h1>
+          </div>
           <div className="manage-song-pagination-upload-btn-container">
             <div>
               <button className="prev-page-click"

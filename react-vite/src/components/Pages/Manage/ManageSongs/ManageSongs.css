@@ -12,6 +12,12 @@
     justify-content: space-between;
 }
 
+.songs-coverimg-title-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .manage-song-pagination-upload-btn-container {
     display: flex;
     flex-direction: column;
@@ -20,21 +26,23 @@
     height: 200px;
 }
 
-.manage-song-dropdown {
-    position: absolute;
-    top: 0px;
-    left: 15px;
-    background-color: #3e3d3d;
-    color: white;
-    display: flex;
-    flex-direction: column;
-}
+
 
 .dropdown-edit {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 12px 12px 12px 12px;
+}
+
+.dropdown-edit.assigned{
+    color: grey;
+
+}
+
+.dropdown-edit.assigned > .dropdown-list:hover{
+    cursor: default;
+
 }
 
 .manage-song-container {

@@ -392,9 +392,6 @@
 
       }
 
-      .albums-container>a{
-         width: 100%;
-      }
 
       .album-card-container>.tooltiptext {
         width: 50px;

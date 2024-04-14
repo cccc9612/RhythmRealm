@@ -1,0 +1,18 @@
+.manage-album-dropdown {
+    background-color: #3e3d3d;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    left: 12px;
+    position: absolute;
+    padding: 5px;
+    /* right: 10px; */
+    /* border: solid 1px rgb(200, 200, 200); */
+    top: 0px;
+    width: 180px;
+
+    display: flex;
+    flex-direction: column;
+    /* box-shadow: 1px 1px 1px rgb(200, 200, 200); */
+    z-index: 1;
+}

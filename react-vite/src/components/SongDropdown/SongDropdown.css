@@ -12,16 +12,25 @@
 }
 
 .manage-song-dropdown {
-    color: white;
-    right: 10px;
-    /* border: solid 1px rgb(200, 200, 200); */
-    width: 230px;
+    background-color: #3e3d3d;
     border-radius: 5px;
-    padding: 5px;
+    color: white;
     font-size: 16px;
+    left: 0px;
+    position: absolute;
+    padding: 5px;
+    /* right: 10px; */
+    /* border: solid 1px rgb(200, 200, 200); */
+    top: 0px;
+    width: 170px;
+
+    display: flex;
+    flex-direction: column;
     /* box-shadow: 1px 1px 1px rgb(200, 200, 200); */
-    /* z-index: 4; */
+    z-index: 1;
 }
+
+
 
 .hidden {
     visibility:hidden;

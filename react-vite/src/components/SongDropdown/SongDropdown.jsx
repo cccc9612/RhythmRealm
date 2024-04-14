@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import DeleteSong from "../DeleteSong/DeleteSong"
 import AddToAlbum from "../Albums/AddToAlbum/AddToAlbum"
@@ -66,19 +66,25 @@ function SongDropdown({ id, song }) {
                                 </ul>
                             </>
                         )}
-                        {owner && (
-                            <ul className="dropdown-edit">
+                        {owner &&
+                            (song.album?.id ?
+                              <ul className="dropdown-edit assigned">
                                 <i className="fa-solid fa-square-plus"></i>
                                 <span className="dropdown-list">
-                                    {song.album?.id? <Link to={`/albums/${song.album?.id}`}>{song.album.name}</Link> :
-                                    (<OpenModalMenuItem
-                                        itemText='Add to Album'
-                                        onItemClick={closeMenu}
-                                        modalComponent={<AddToAlbum song={song} />} />)
-                                    }
+                                  <span>{song.album.name}</span>
                                 </span>
-                            </ul>
-                        )}
+                              </ul> :
+                              <ul className="dropdown-edit">
+                                <i className="fa-solid fa-square-plus"></i>
+                                <span className="dropdown-list">
+                                  <OpenModalMenuItem
+                                    itemText='Add to Album'
+                                    onItemClick={closeMenu}
+                                    modalComponent={<AddToAlbum song={song} />} />
+                                </span>
+                              </ul>
+                            )
+                        }
                     </span>
                 )}
             </span>
