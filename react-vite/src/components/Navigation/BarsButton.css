@@ -1,0 +1,16 @@
+.bars-dropdown {
+    position: absolute; 
+    right: 55px;
+    top: 170px;
+    background-color: rgb(22, 22, 22);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    min-width: 145px;
+    min-height: 110px;
+    z-index: 1;
+}
+
+.bars-icon {
+    font-size: 25px;
+}

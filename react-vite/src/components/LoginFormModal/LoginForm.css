@@ -7,13 +7,14 @@
   border-radius: 10px;
   padding: 10px;
   border: none;
-  width: 600px;
+  max-width: 600px;
   height: 600px;
+  position: relative;
 }
 
 .login-modal-container>h1 {
-   font-size: 42px;
-   padding: 55px;
+  font-size: clamp(12px, 5vw, 40px);
+   padding: 2px 55px;
 }
 
 .login-form-container {
@@ -23,7 +24,7 @@
   align-items: center;
   /* border: solid 2px black; */
   /* border-radius: 10px; */
-  width: 500px;
+  max-width: 500px;
   height: auto;
   margin: 8px;
   padding: 10px;
@@ -95,3 +96,14 @@ form p {
 .Demouser-login:hover{
   cursor: pointer;
 }
+
+
+
+.fa-x{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+
