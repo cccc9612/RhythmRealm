@@ -36,13 +36,13 @@ https://rhythmrealm.onrender.com/
 # Site Demo
 
 ## Homepage
-![Homepage](/react-vite/dist/homepage.gif)
+![Homepage](/react-vite/public/homepage.gif)
 
 ## Manage Songs
-![Mange Songs](/react-vite/dist/manage-songs.gif)
+![Mange Songs](/react-vite/public/manage-songs.gif)
 
 ## Manage Albums
-![Mange Albums](/react-vite/dist/manage-albums.gif)
+![Mange Albums](/react-vite/public/manage-albums.gif)
 
 
 
