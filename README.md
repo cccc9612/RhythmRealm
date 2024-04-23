@@ -13,9 +13,8 @@ https://rhythmrealm.onrender.com/
 ![Alembic](https://img.shields.io/badge/-Alembic-663399?style=for-the-badge&logo=Alembic&logoColor=white)
 ![Flask-Migrate](https://img.shields.io/badge/-Flask--Migrate-48B0F1?style=for-the-badge&logo=Flask&logoColor=white)
 ![Boto3](https://img.shields.io/badge/-Boto3-orange?style=for-the-badge&logo=AmazonAWS&logoColor=white)
-![Gunicorn](https://img.shields.io/badge/-Gunicorn-499848?style=for-the-badge&logo=Gunicorn&logoColor=white)
 ![Jinja2](https://img.shields.io/badge/-Jinja2-B41717?style=for-the-badge&logo=Jinja2&logoColor=white)
-![Werkzeug](https://img.shields.io/badge/-Werkzeug-CCCCCC?style=for-the-badge&logo=Werkzeug&logoColor=white)
+
 
 #### Frontend
 
@@ -23,7 +22,6 @@ https://rhythmrealm.onrender.com/
 ![Redux](https://img.shields.io/badge/-Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)
 ![React Router](https://img.shields.io/badge/-React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Vite](https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![ESLint](https://img.shields.io/badge/-ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
 ![React Icons](https://img.shields.io/badge/-React_Icons-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 
 #### Libraries and Tools
