@@ -12,7 +12,7 @@
     justify-content: space-between;
 }
 
-.songs-coverimg-title-container{
+.songs-coverimg-title-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -35,12 +35,12 @@
     padding: 12px 12px 12px 12px;
 }
 
-.dropdown-edit.assigned{
+.dropdown-edit.assigned {
     color: grey;
 
 }
 
-.dropdown-edit.assigned > .dropdown-list:hover{
+.dropdown-edit.assigned>.dropdown-list:hover {
     cursor: default;
 
 }
@@ -58,7 +58,7 @@
     padding-left: 30px;
 }
 
-.song-list-info-header{
+.song-list-info-header {
     display: grid;
     grid-template-columns: 1fr 2fr 1.5fr 1.5fr;
     border-bottom: 1px solid #3e3d3d;
@@ -126,4 +126,54 @@
 .bottom-section {
     background-image: linear-gradient(rgb(56, 56, 56), 1%, #121212);
 
+}
+
+
+@media (max-width: 500px) {
+    .manage-song-cover-img {
+        height: 120px;
+        width: 120px;
+        border-radius: 20px;
+    }
+
+    .manage-song-title {
+        font-size: 30px;
+        padding-left: 10px;
+    }
+
+    .songs-header,
+    .songs-coverimg-title-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .manage-song-pagination-upload-btn-container {
+        flex-direction: row;
+        justify-content: space-around;
+        height: auto;
+        padding-top: 10px;
+    }
+
+    .manage-song-upload-button {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .song-list-info-header,
+    .bottom-section .song-list-row {
+        grid-template-columns: 0.5fr 2fr 1.5fr 0.5fr;
+        font-size: 14px;
+    }
+
+    .manage-song-upload-button button {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    .bottom-section {
+        padding: 5px;
+    }
 }
