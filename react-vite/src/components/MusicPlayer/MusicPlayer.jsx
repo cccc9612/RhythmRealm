@@ -89,7 +89,7 @@ function MusicPlayer() {
           `${playlist[songIdx]?.album?.cover_img}` :
           "https://live.staticflickr.com/65535/53600353900_d12bfa5f73_k.jpg"} />
         <span className="song-name-artist-player">
-          <span className="song-name-player">
+          <span className="song-name-player" id="id-song-name-player">
             {playlist[songIdx]?.song_name}
           </span>
           <span id='song-artist-player-id' className="song-artist-player">

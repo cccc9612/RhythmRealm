@@ -25,11 +25,20 @@
 .song-name-artist-player {
   display: flex;
   flex-direction: column;
+  width: 180px;
 }
 
 .song-artist-player {
   color: grey;
 }
+
+#id-song-name-player.song-name-player {
+    display: inline-block;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
 .rhap_container svg {
   color: white;

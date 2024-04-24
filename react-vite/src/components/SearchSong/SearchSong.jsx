@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import SongItem from "../Songs/SongItem";
 import { IoSearchOutline } from "react-icons/io5";
+import { HiOutlineClock } from "react-icons/hi2";
 import './SearchSong.css'
 
 function SearchSong() {
@@ -55,10 +56,10 @@ function SearchSong() {
                                 <h3 className="search-song-h3">Songs</h3>
                                 <div className="song-list-row-title">
                                     <span className="first-col">#</span>
-                                    <span>Title</span>
-                                    <span>Album</span>
-                                    <span>Likes</span>
-                                    <span>Duration</span>
+                                    <span className="second-col">Title</span>
+                                    <span className="third-col">Album</span>
+                                    <span className="like-container">Likes</span>
+                                    <span className="fifth-col"><HiOutlineClock /></span>
                                 </div>
                             </>
                         ) : null}

@@ -1,0 +1,1032 @@
+@media screen and (max-width: 800px) and (min-width: 500.1px)  {
+
+    .page-player-container {
+        padding: 0px;
+    }
+
+    .page-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        justify-content: space-between;
+        column-gap: 0px;
+
+        width: 100%;
+        padding-bottom: 10px;
+        position: relative;
+        margin: 0px;
+      }
+
+      .sidebar-container {
+        width: 150px;
+        position: static;
+      }
+
+      .nav-container,
+      .library-container{
+        width: 100%;
+        width: 150px;
+      }
+
+
+      .logo-title,
+      .playlist-list {
+        display: none;
+      }
+
+      .song-album-list-container {
+        width: 95%;
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+
+      }
+
+      .page-bottom-container {
+        width: 100%;
+      }
+
+      .song-list-row>a,
+      .song-list-row .like-container{
+        display: none;
+      }
+
+      .albums-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        column-gap: 0px;
+
+      }
+
+      .album-card-container>img {
+        object-fit: cover;
+        width: calc(100% - 16px);
+        height: calc(( 100vw - 200px ) / 2 - 16px);
+        border-radius: 10px;
+        margin: 8px;
+
+      }
+}
+      /* .song-list-row .duration-col {
+        color: rgb(46, 45, 45);
+      }
+
+      .rhap_container {
+        width: 50px;
+        height: 50px;
+
+      }
+
+      .rhap_repeat-button,
+      .rhap_time,
+      .rhap_progress-container,
+      button.rhap_skip-button,
+      .rhap_volume-container {
+        display: none;
+      }
+
+      .musicplayer-container {
+        width: 50px;
+        height: 80px;
+        background-color: black;
+      }
+
+      .player-container{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        justify-content: space-between;
+      }
+
+      .rerender-btn-container {
+        display: none;
+      }
+      */
+
+      /*
+      .album-card-container>.tooltiptext {
+        width: 50px;
+        display: none;
+      }
+
+      .album-card-container {
+
+        height: auto;
+        text-decoration: none;
+        position: relative;
+
+        width: 100%;
+        padding: 0px;
+      } */
+
+
+
+      /* .album-card-name-artist {
+        padding-left: 5px;
+      } */
+
+
+
+
+@media screen and (min-width: 2550.1px)   {
+    .song-album-list-container {
+        width: 2110px;
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 400px;
+        position: sticky;
+      }
+
+      .albums-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(10, 10%);
+        column-gap: 0px;
+
+      }
+
+      .album-card-container>img {
+        object-fit: cover;
+        width: calc(100% - 16px);
+        height: calc(( 100vw - 400px ) / 10 - 16px);
+        max-height: 195px;
+        border-radius: 10px;
+        margin: 8px;
+
+      }
+
+      .like-container,
+      .fifth-col,
+      .duration-col {
+        justify-self: center;
+      }
+      .album-list-section.image-section {
+        grid-template-columns: repeat(10, 10%);
+      }
+}
+
+@media screen and (min-width: 2350.1px) and (max-width: 2550px)  {
+    .song-album-list-container {
+        width: 100%;
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 400px;
+        position: sticky;
+      }
+
+      .albums-container {
+
+        grid-template-columns: repeat(9, 11.1%);
+      }
+
+      .album-card-container>img {
+
+        height: calc(( 100vw - 400px ) / 9 - 16px);
+
+      }
+
+      .like-container,
+      .fifth-col,
+      .duration-col {
+        justify-self: center;
+      }
+
+      .album-list-section.image-section {
+        grid-template-columns: repeat(9, 11.1%);
+      }
+
+}
+
+@media screen and (min-width: 2150.1px) and (max-width: 2350px)  {
+    .song-album-list-container {
+        width: 100%;
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 400px;
+        position: sticky;
+      }
+
+      .albums-container {
+
+        grid-template-columns: repeat(8, 12.5%);
+      }
+
+      .album-card-container>img {
+
+        height: calc(( 100vw - 400px ) / 8 - 16px);
+
+      }
+
+      .album-list-section.image-section {
+        grid-template-columns: repeat(8, 12.5%);
+      }
+}
+
+@media screen and (min-width: 1950.1px) and (max-width: 2150px)  {
+    .song-album-list-container {
+        width: 100%;
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 400px;
+        position: sticky;
+      }
+
+      .albums-container {
+
+        grid-template-columns: repeat(7, 14.25%);
+      }
+
+      .album-card-container>img {
+
+        height: calc(( 100vw - 400px ) / 7 - 16px);
+
+      }
+
+      .like-container,
+      .fifth-col,
+      .duration-col {
+        justify-self: center;
+      }
+
+      .album-list-section.image-section {
+        grid-template-columns: repeat(7, 14.25%);
+      }
+}
+
+@media screen and (min-width: 1750.1px) and (max-width: 1950px)  {
+    .song-album-list-container {
+        width: 100%;
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 400px;
+        position: sticky;
+      }
+
+      .albums-container {
+
+        grid-template-columns: repeat(6, 16.6%);
+      }
+
+      .album-card-container>img {
+
+        height: calc(( 100vw - 400px ) / 6 - 16px);
+
+      }
+
+      .album-list-section.image-section {
+        grid-template-columns: repeat(6, 16.6%);
+      }
+}
+
+@media screen and (min-width: 1550.1px) and (max-width: 1750px)  {
+    .song-album-list-container {
+        width: 100%;
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 400px;
+        position: sticky;
+      }
+
+      .albums-container {
+
+        grid-template-columns: repeat(5, 20%);
+      }
+
+      .album-card-container>img {
+
+        height: calc(( 100vw - 400px ) / 5 - 16px);
+
+      }
+
+      .album-list-section.image-section {
+        grid-template-columns: repeat(5, 20%);
+      }
+}
+
+@media screen and (min-width: 1200.1px) and (max-width: 1550px)  {
+    .song-album-list-container {
+        width: calc(100vw - 300px);
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 300px;
+        position: sticky;
+      }
+
+      .albums-container {
+
+        grid-template-columns: repeat(5, 20%);
+      }
+
+      .album-card-container>img {
+
+        height: calc(( 100vw - 300px ) / 5 - 16px);
+
+      }
+
+      .playlist-list {
+        display: none;
+      }
+
+      .nav-container {
+        width: 280px;
+      }
+
+      .library-container,
+      .library-playlist-menu {
+        width: calc(300px - 20px);
+      }
+
+      .contributors {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+      }
+
+      .album-list-section.image-section {
+        grid-template-columns: repeat(5, 20%);
+      }
+
+
+}
+
+@media screen and (min-width: 1000.1px) and (max-width: 1200px)  {
+    .song-album-list-container {
+        width: calc(100vw - 300px);
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 300px;
+        position: sticky;
+      }
+
+      .albums-container {
+
+        grid-template-columns: repeat(4, 25%);
+      }
+
+      .album-card-container>img {
+
+        height: calc(( 100vw - 300px ) / 4 - 16px);
+
+      }
+
+      .album-list-section.image-section {
+        grid-template-columns: repeat(4, 25%);
+      }
+
+
+      .playlist-list {
+        display: none;
+      }
+
+      .nav-container {
+        width: 280px;
+      }
+
+      .library-container,
+      .library-playlist-menu {
+        width: calc(300px - 20px);
+      }
+
+      .song-list-row-title,
+      .song-list-row {
+        grid-template-columns: 25px 1.8fr 1.2fr 0.7fr 0.7fr;
+        column-gap: 9px;
+      }
+
+      /* .third-col {
+        display: none;
+      } */
+
+      .contributors {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+      }
+
+      /* .songs-header,
+      .songs-coverimg-title-container {
+          flex-direction: column;
+        }
+      .manage-song-pagination-upload-btn-container {
+            flex-direction: row;
+            align-items: center;
+            column-gap: 8px;
+            height: auto;
+      }
+
+      .manage-song-upload-button {
+        flex-direction: row;
+        align-items: center;
+      } */
+
+      .manage-song-title {
+        font-size: 50px;
+        padding: 0;
+      }
+
+      .albums-coverimg-title-container>.manage-song-title {
+        font-size: 42px;
+        padding: 0;
+      }
+
+      .manage-song-dropdown {
+        left: -50px;
+        top: 15px;
+        /* right: 40px; */
+
+      }
+
+      #id-song-name-player.song-name-player {
+        width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .player-container{
+        grid-template-columns: 2.8fr 2fr 0.8fr;
+      }
+      /* .player-wrapper {
+        width: 50px;
+      } */
+      /* .rerender-btn-container {
+        display: none;
+      } */
+
+}
+
+@media screen and (min-width: 800.1px) and (max-width: 1000px)  {
+    .song-album-list-container {
+        width: calc(100vw - 300px);
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 250px;
+        position: sticky;
+      }
+
+      .albums-container {
+
+        grid-template-columns: repeat(3, 33.3%);
+      }
+
+      .album-card-container>img {
+
+        height: calc(( 100vw - 250px ) / 3 - 16px);
+
+      }
+
+      .album-list-section.image-section {
+        grid-template-columns: repeat(3, 33.3%);
+      }
+
+      .logo-title,
+      .playlist-list {
+        display: none;
+      }
+
+      a.homepage-logo-sec {
+        width: auto;
+      }
+
+      .nav-container {
+        width: 230px;
+      }
+
+      .library-container,
+      .library-playlist-menu {
+        width: calc(250px - 20px);
+      }
+
+      .song-list-row-title,
+      .song-list-row {
+        grid-template-columns: 25px 1.8fr 1fr 1fr;
+        column-gap: 8px;
+      }
+
+      .song-name-artist {
+        font-size: 14px;
+      }
+
+      .song-name {
+        width: 155px;
+
+      }
+
+      .like-container {
+        display: none;
+      }
+
+      .fifth-col,
+      .duration-col {
+        justify-self: center;
+      }
+
+      .contributors {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+      }
+
+      .songs-header,
+      .songs-coverimg-title-container {
+          flex-direction: column;
+        }
+      .manage-song-pagination-upload-btn-container {
+            flex-direction: row;
+            align-items: center;
+            column-gap: 8px;
+            height: auto;
+      }
+
+      .manage-song-title {
+        font-size: 24px;
+        padding: 0;
+      }
+
+      .albums-coverimg-title-container>.manage-song-title {
+        font-size: 22px;
+        padding: 0;
+      }
+
+      .manage-song-upload-button {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .manage-song-dropdown {
+        left: 0px;
+        top: 15px;
+        /* right: 40px; */
+
+      }
+
+      .album-col {
+        display: none;
+      }
+
+      .manage-songs-duration {
+        margin-left: 7px;
+      }
+
+      .player-container{
+        grid-template-columns: 2.8fr 2fr 0.8fr;
+      }
+
+      .musicplayer-container {
+        width: 380px;
+        /* height: 60px; */
+        /* background-color: black; */
+      }
+}
+
+
+
+@media screen and (max-width: 800px) and (min-width: 650.1px)  {
+    .song-album-list-container {
+        width: calc(100vw - 200px);
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 180px;
+        position: sticky;
+      }
+
+      .albums-container {
+
+        grid-template-columns: repeat(2, 50%);
+      }
+
+      .album-card-container>img {
+
+        height: calc(( 100vw - 180px ) / 2 - 16px);
+
+      }
+
+      .album-list-section.image-section {
+        grid-template-columns: repeat(2, 50%);
+      }
+
+      .playlist-list {
+        display: none;
+      }
+
+      .nav-container {
+        width: 160px;
+      }
+
+      a.homepage-logo-sec {
+        width: 160px;
+      }
+
+      .library-container,
+      .library-playlist-menu {
+        width: calc(180px - 20px);
+      }
+
+      .song-list-row-title,
+      .song-list-row {
+        grid-template-columns: 25px 1.6fr 1.2fr;
+        justify-content: space-between;
+        column-gap: 8px;
+      }
+
+      .song-name {
+        width: 185px;
+      }
+
+      .song-name-artist {
+        font-size: 14px;
+      }
+
+      .third-col,
+      .like-container {
+        display: none;
+      }
+
+      .fifth-col,
+      .duration-col {
+        justify-self: center;
+      }
+
+      .contributors {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+      }
+
+      .song-list-info-header{
+        grid-template-columns: 1fr 2fr 1.5fr;
+      }
+
+      .bottom-section>.song-list-row {
+        grid-template-columns: 1fr 2fr 1.5fr;
+      }
+
+      /* .fifth-col-2 {
+        padding-left: 50px;
+      } */
+
+      .songs-header,
+      .songs-coverimg-title-container {
+          flex-direction: column;
+        }
+      .manage-song-pagination-upload-btn-container {
+            flex-direction: row;
+            align-items: center;
+            column-gap: 8px;
+            height: auto;
+      }
+
+      .manage-song-title {
+        font-size: 24px;
+        padding: 0;
+      }
+
+      .manage-song-upload-button {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .manage-song-dropdown {
+        left: -80px;
+        top: 15px;
+        /* right: 40px; */
+
+      }
+
+      .album-col {
+        display: none;
+      }
+
+      .manage-songs-duration {
+        margin-left: 7px;
+      }
+
+
+      .albums-header,
+      .albums-coverimg-title-container {
+          flex-direction: column;
+        }
+      /* .manage-song-pagination-upload-btn-container {
+            flex-direction: row;
+            align-items: center;
+            column-gap: 8px;
+            height: auto;
+      } */
+      .manage-album-upload-button {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .player-container{
+        grid-template-columns: 2.8fr 2fr;
+      }
+
+      .musicplayer-container {
+        width: 300px;
+        /* height: 60px; */
+        /* background-color: black; */
+      }
+
+      .rerender-btn-container {
+        display: none;
+      }
+}
+
+@media screen and (max-width: 650px) and (min-width: 500.1px)  {
+    .song-album-list-container {
+        width: calc(100vw - 200px);
+        min-height: calc(100vh - 20px);
+        background: var(--light-black-color);
+        border-radius: 8px;
+        height: auto;
+        position: static;
+        margin-right: auto;
+        margin-left: 8px;
+      }
+
+      .sidebar-container {
+        width: 180px;
+        position: sticky;
+      }
+
+      .albums-container {
+
+        grid-template-columns: repeat(2, 50%);
+      }
+
+      .album-card-container>img {
+
+        height: calc(( 100vw - 180px ) / 2 - 16px);
+
+      }
+
+      .album-list-section.image-section {
+        grid-template-columns: repeat(2, 50%);
+      }
+
+      .playlist-list {
+        display: none;
+      }
+
+      .nav-container {
+        width: 160px;
+      }
+
+      a.homepage-logo-sec {
+        width: 160px;
+      }
+
+      .library-container,
+      .library-playlist-menu {
+        width: calc(180px - 20px);
+      }
+
+      .song-list-row-title,
+      .song-list-row {
+        grid-template-columns: 25px 1.4fr 1.2fr;
+        justify-content: space-between;
+        column-gap: 8px;
+      }
+
+      .song-name {
+        width: 165px;
+        font-size: 14px;
+      }
+
+      .third-col,
+      .like-container {
+        display: none;
+      }
+
+      .duration-col {
+        justify-self: center;
+      }
+
+      .fifth-col {
+        display: none;
+      }
+
+      .play-btn {
+        left: 0px;
+        bottom: -15px;
+        align-items: center;
+      }
+
+      .song-duration {
+        display: none;
+      }
+
+      .title-container>h3 {
+        font-size: 22px;
+      }
+
+      .contributors {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+      }
+
+      .songs-header,
+      .songs-coverimg-title-container {
+          flex-direction: column;
+        }
+      .manage-song-pagination-upload-btn-container {
+            flex-direction: row;
+            align-items: center;
+            column-gap: 8px;
+            height: auto;
+      }
+
+      .manage-song-title {
+        font-size: 24px;
+        padding: 0;
+      }
+
+      .manage-song-upload-button {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .manage-song-dropdown {
+        left: -135px;
+        top: 15px;
+        /* right: 40px; */
+
+      }
+
+      .song-list-info-header{
+        grid-template-columns: 1fr 1.4fr 1.2fr;
+      }
+
+      .bottom-section>.song-list-row {
+        grid-template-columns: 1fr 1.4fr 1.2fr;
+      }
+
+      .fifth-col-2{
+        display: none;
+      }
+
+      .album-col {
+        display: none;
+      }
+
+      .manage-songs-duration {
+        margin-left: 7px;
+      }
+
+      .albums-header,
+      .albums-coverimg-title-container {
+          flex-direction: column;
+        }
+      /* .manage-song-pagination-upload-btn-container {
+            flex-direction: row;
+            align-items: center;
+            column-gap: 8px;
+            height: auto;
+      } */
+      .manage-album-upload-button {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .page-bottom-container {
+        height: 60px;
+      }
+
+      .player-container{
+        grid-template-columns: 2.5fr 2fr;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .musicplayer-container {
+        width: 180px;
+        height: 60px;
+        /* background-color: black; */
+      }
+
+      .rerender-btn-container {
+        display: none;
+      }
+
+      .song-player>img {
+        height: 53px;
+        width: 53px;
+      }
+
+      .rhap_repeat-button,
+      .rhap_time,
+      .rhap_progress-container,
+      .rhap_volume-container {
+        display: none;
+      }
+
+      .search-album-bar-container {
+        width: calc( 100vw - 220px );
+      }
+      .search-album-bar-container>input{
+        width: 110px;
+      }
+
+      #id-song-name-player.song-name-player {
+        display: inline-block;
+        width: 160px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+}
+
+@media screen and (max-width: 330px)  {
+
+    a.homepage-logo-sec {
+        width: auto;
+    }
+    .logo-title {
+        display: none;
+    }
+
+    .contributors {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+      }
+
+}

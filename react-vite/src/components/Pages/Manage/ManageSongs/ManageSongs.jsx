@@ -80,8 +80,8 @@ function ManageSongs() {
         <div className="song-list-info-header">
           <p className="first-column">#</p>
           <p>Title</p>
-          <p>Album</p>
-          <p className="fifth-col"><HiOutlineClock /></p>
+          <p className="album-col">Album</p>
+          <p className="fifth-col-2"><HiOutlineClock /></p>
         </div>
         {songsDisplay?.map((song, count) => {
           return (
