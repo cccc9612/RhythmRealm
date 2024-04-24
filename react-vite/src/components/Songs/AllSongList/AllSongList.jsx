@@ -54,9 +54,9 @@ function AllSongList() {
             <div className="song-list">
                 <div className="song-list-row-title">
                     <span className="first-col">#</span>
-                    <span>Title</span>
-                    <span>Album</span>
-                    <span>Likes</span>
+                    <span className="second-col">Title</span>
+                    <span className="third-col">Album</span>
+                    <span className="like-container">Likes</span>
                     <span className="fifth-col"><HiOutlineClock /></span>
                 </div>
                 {songsDisplay?.map((song, index) => {

@@ -116,7 +116,7 @@ function SongItem({ song, index, user, songs }) {
                     <span>{song.artist.first_name} {song.artist.last_name}</span>
                 </span>
             </span>
-            <NavLink to={`/albums/${song.album?.id}`}>
+            <NavLink to={`/albums/${song.album?.id}`} className="third-col">
                 {song.album?.name}
             </NavLink>
 
@@ -128,7 +128,7 @@ function SongItem({ song, index, user, songs }) {
                     <span className="like-heart" id={"songitem-" + song.id} onClick={toggleLike}><IoMdHeartEmpty size={20} /></span>)}
 
             </span>
-            <span className="duration-col">{song.duration} {user && <span className="play-btn" onClick={handleClickPlaying}><IoMdPlay size={20}/></span>}</span>
+            <span className="duration-col"><span className="song-duration">{song.duration}</span> {user && <span className="play-btn" onClick={handleClickPlaying}><IoMdPlay size={20}/></span>}</span>
         </>
     )
 }

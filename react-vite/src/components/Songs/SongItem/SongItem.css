@@ -12,6 +12,11 @@
 
 .song-name {
   color: white;
+  width: 100%;
+  /* width: 155px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .like-container {
