@@ -62,7 +62,7 @@ function AlbumDropdown({ album }) {
                                         <OpenModalMenuItem
                                             itemText="Delete"
                                             onItemClick={closeMenu}
-                                            modalComponent={<DeleteAlbumModal album={album} />} />
+                                            modalComponent={<DeleteAlbumModal albumId={album.id} />} />
                                     </span>
                                 </ul>
                                 <ul className="dropdown-edit">
