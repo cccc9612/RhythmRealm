@@ -59,7 +59,7 @@ function SearchSong() {
                                     <span className="second-col">Title</span>
                                     <span className="search-song-title-span third-col">Album</span>
                                     <span className="search-song-likes-span like-container">Likes</span>
-                                    <span className="search-song-duration-span fifth-col">Duration</span>
+                                    <span className="search-song-duration-span fifth-col"><HiOutlineClock /></span>
                                 </div>
                             </>
                         ) : null}

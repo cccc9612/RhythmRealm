@@ -43,15 +43,15 @@ export default function Layout() {
 
   }
 
-  const createPlaylist = (e) => {
-    e.preventDefault();
-    alert("Feature Coming Soon");
-  }
+//   const createPlaylist = (e) => {
+//     e.preventDefault();
+//     alert("Feature Coming Soon");
+//   }
 
-  const toggleBars = (e) => {
-    e.preventDefault();
-    <BarsButton />
-  }
+//   const toggleBars = (e) => {
+//     e.preventDefault();
+//     <BarsButton />
+//   }
 
   return (
     <>
