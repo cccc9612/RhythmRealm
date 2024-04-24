@@ -41,3 +41,16 @@ span.logo-title {
   font-weight: bold;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+
+
+@media screen and (max-width: 500px) {
+  .search-container{
+    display: none;
+  }
+  .nav-container {
+    /* border: white 2px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

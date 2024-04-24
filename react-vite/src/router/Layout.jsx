@@ -14,6 +14,7 @@ import MusicPlayer from "../components/MusicPlayer";
 // import OpenModalMenuItem from "../components/Navigation/OpenModalMenuItem";
 import Navigation from "../components/Navigation/Navigation";
 import { NavLink } from "react-router-dom";
+import BarsButton from "../components/Navigation/BarsButton";
 
 export default function Layout() {
   const dispatch = useDispatch();
@@ -47,6 +48,11 @@ export default function Layout() {
     alert("Feature Coming Soon");
   }
 
+  const toggleBars = (e) => {
+    e.preventDefault();
+    <BarsButton />
+  }
+
   return (
     <>
       <ModalProvider>
@@ -59,12 +65,12 @@ export default function Layout() {
                 <div className="library-title">
                   <LuLibrary /> Your library
                 </div>
-                <div className="playlist-list">
+                {/* <div className="playlist-list">
                   <span>Create your first playlist</span>
                   <span>It&apos;s easy, we&apos;ll help you</span>
                   <button className="playlist-btn" onClick={createPlaylist}>Create your playlist</button>
                   <button onClick={createPlaylist}>Browse playlists</button>
-                </div>
+                </div> */}
                 <NavLink className="layout-links link-to-allsongs" to={`/songs`}>All Songs</NavLink>
                 <NavLink className="layout-links link-to-allalbums" to={`/albums`}>All Albums</NavLink>
                 {sessionUser &&
@@ -103,12 +109,30 @@ export default function Layout() {
                   <button onClick={() => navigate(-1)} type="button" className="fa fas fa-chevron-left"></button>
                   <button onClick={() => navigate(1)} type="button" className="fa fas fa-chevron-right"></button>
                 </div>
-                <div className="profile-btn-container"> <ProfileButton /></div>
-
+                <div className="profile-btn-bars-container">
+                  <div className="profile-btn-container"> <ProfileButton /></div>
+                  <div className="bars-icon-container"><BarsButton /></div>
+                  {/* <div className="bars-icon-container"><i className="fa-solid fa-bars bars-icon"></i></div> */}
+                </div>
               </div>
               <div> {isLoaded && <Outlet />}</div>
               <div className="footer-container">
                 <p>@ 2024 This site is for studying · <a href='https://github.com/cccc9612/RhythmRealm' target='_blank' rel="noreferrer">github repository</a></p>
+              <div className="footer-contact-links">
+                <p style={{paddingLeft: "10px"}}>Contact us!</p>
+                    <div>
+                      <i className="fa-brands fa-github" style={{ paddingRight: '10px', paddingLeft: '10px', color: "white" }}></i>
+                      <a rel='noreferrer' style={{color: "white"}} href="https://github.com/elainefan331" className="author-name" target="_blank">Elaine Fan</a>
+                    </div>
+                    <div>
+                      <i className="fa-brands fa-github" style={{ paddingRight: '10px', paddingLeft: '10px', color: "white" }}></i>
+                      <a rel='noreferrer' style={{color: "white"}} href='https://github.com/cccc9612' className="author-name" target="_blank">Cindy Li</a>
+                    </div>
+                    <div>
+                      <i className="fa-brands fa-github" style={{ paddingRight: '10px', paddingLeft: '10px', color: "white" }}></i>
+                      <a rel='noreferrer' style={{color: "white"}} className="author-name" href="https://github.com/haoxugt" target="_blank">Hao Xu</a>
+                    </div>
+              </div>
               </div>
             </div>
           </div>

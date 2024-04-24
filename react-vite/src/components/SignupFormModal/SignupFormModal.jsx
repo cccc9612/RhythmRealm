@@ -62,9 +62,16 @@ function SignupFormModal() {
     setErrors(err);
   }, [email, username, first_name, last_name, password, confirmPassword])
 
+  const toggleXClick = () => {
+    closeModal();
+  }
+  
   return (
     <div className='signup-modal-container'>
-      <h1>Sign up to strat listening</h1>
+      <i 
+          onClick={toggleXClick}
+          className="fa-solid fa-x"></i>
+      <h1>Sign up to start listening</h1>
       {hasSubmitted && errors.server && <p>{errors.server}</p>}
       <form className='signup-form-container' onSubmit={handleSubmit}>
         <label>
