@@ -51,9 +51,19 @@ function LoginFormModal() {
     setErrors({});
   }
 
+  const toggleXClick = () => {
+    closeModal();
+  }
+
   return (
     <div className='login-modal-container'>
-      <h1>Log in to RR</h1>
+      
+        <i 
+          onClick={toggleXClick}
+          className="fa-solid fa-x"></i>
+        <h1>Log In</h1>
+      
+      
       <form className='login-form-container' onSubmit={handleSubmit}>
         <label>
           Email or username

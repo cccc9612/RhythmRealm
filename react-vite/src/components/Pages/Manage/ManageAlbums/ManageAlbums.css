@@ -20,7 +20,8 @@
     font-size: 18px;
     margin-left: 0px;
     padding: 0px;
-    padding-top: 10px;;
+    padding-top: 10px;
+    ;
     column-gap: 0;
     row-gap: 1vw;
 }
@@ -33,7 +34,7 @@
     justify-content: space-between;
 }
 
-.albums-coverimg-title-container{
+.albums-coverimg-title-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -47,6 +48,7 @@
     align-items: center;
 
 }
+
 .manage-album-btn {
     display: flex;
     flex-direction: column;
@@ -89,4 +91,46 @@
 
 .album-list-section .dropdown-icon {
     margin-left: 6px;
+}
+
+
+@media (max-width: 500px) {
+    .manage-album-cover-img {
+        height: 120px;
+        width: 120px;
+        border-radius: 10px;
+    }
+
+    .manage-song-title {
+        font-size: 24px;
+        padding: 0;
+    }
+
+    .albums-header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .albums-coverimg-title-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .manage-album-upload-button {
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    .album-list-section.image-section {
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 5px;
+        row-gap: 10px;
+        column-gap: 10px;
+    }
+
+    .manage-album-upload-button button {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
 }

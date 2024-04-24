@@ -54,12 +54,12 @@ function SearchSong() {
                         {searchAttempted ? (
                             <>
                                 <h3 className="search-song-h3">Songs</h3>
-                                <div className="song-list-row-title">
+                                <div className="song-list-row-title-search">
                                     <span className="first-col">#</span>
                                     <span className="second-col">Title</span>
-                                    <span className="third-col">Album</span>
-                                    <span className="like-container">Likes</span>
-                                    <span className="fifth-col"><HiOutlineClock /></span>
+                                    <span className="search-song-title-span third-col">Album</span>
+                                    <span className="search-song-likes-span like-container">Likes</span>
+                                    <span className="search-song-duration-span fifth-col">Duration</span>
                                 </div>
                             </>
                         ) : null}

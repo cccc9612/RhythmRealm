@@ -4,6 +4,46 @@ RhythmRealm, a Spotify clone, is a website for users to discover, upload, and or
 
 https://rhythmrealm.onrender.com/
 
+
+# Technologies Used
+
+![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=Python&logoColor=white)
+![Flask](https://img.shields.io/badge/-Flask-000000?style=for-the-badge&logo=Flask&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy-red?style=for-the-badge&logo=SQLAlchemy&logoColor=white)
+![Alembic](https://img.shields.io/badge/-Alembic-663399?style=for-the-badge&logo=Alembic&logoColor=white)
+![Flask-Migrate](https://img.shields.io/badge/-Flask--Migrate-48B0F1?style=for-the-badge&logo=Flask&logoColor=white)
+![Boto3](https://img.shields.io/badge/-Boto3-orange?style=for-the-badge&logo=AmazonAWS&logoColor=white)
+![Jinja2](https://img.shields.io/badge/-Jinja2-B41717?style=for-the-badge&logo=Jinja2&logoColor=white)
+
+
+#### Frontend
+
+![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Redux](https://img.shields.io/badge/-Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)
+![React Router](https://img.shields.io/badge/-React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Vite](https://img.shields.io/badge/-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![React Icons](https://img.shields.io/badge/-React_Icons-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+
+#### Libraries and Tools
+
+![js-cookie](https://img.shields.io/badge/-js--cookie-A1C4FD?style=for-the-badge&logo=js-cookie&logoColor=white)
+![React H5 Audio Player](https://img.shields.io/badge/-React_H5_Audio_Player-0081CB?style=for-the-badge&logo=React&logoColor=white)
+![Redux Thunk](https://img.shields.io/badge/-Redux_Thunk-764ABC?style=for-the-badge&logo=redux&logoColor=white)
+
+
+# Site Demo
+
+## Homepage
+![Homepage](/react-vite/public/homepage.gif)
+
+## Manage Songs
+![Mange Songs](/react-vite/public/manage-songs.gif)
+
+## Manage Albums
+![Mange Albums](/react-vite/public/manage-albums.gif)
+
+
+
 # Feature List
 
 ## 1. Songs
@@ -125,7 +165,7 @@ https://rhythmrealm.onrender.com/
 ### Sign Up
 
 * As an unregistered and unauthorized user, I want to be able to sign up for the website via a sign-up form.
-  * When I'm on the `/signup` page:
+  * When I'm on the signup modal:
     * I would like to be able to enter my email, username, and preferred password on a clearly laid out form.
     * I would like the website to log me in upon successful completion of the sign-up form.
       * So that I can seamlessly access the site's functionality
@@ -136,18 +176,18 @@ https://rhythmrealm.onrender.com/
 ### Log in
 
 * As a registered and unauthorized user, I want to be able to log in to the website via a log-in form.
-  * When I'm on the `/login` page:
+  * When I'm on the login modal:
     * I would like to be able to enter my email and password on a clearly laid out form.
-    * I would like the website to log me in upon successful completion of the lob-up form.
+    * I would like the website to log me in upon successful completion of the log-in form.
       * So that I can seamlessly access the site's functionality
-  * When I enter invalid data on the log-up form:
+  * When I enter invalid data on the log-in form:
     * I would like the website to inform me of the validations I failed to pass, and repopulate the form with my valid entries (except my password).
       * So that I can try again without needing to refill forms I entered valid data into.
 
 ### Demo User
 
-* As an unregistered and unauthorized user, I would like an easy to find and clear button on both the `/signup` and `/login` pages to allow me to visit the site as a guest without signing up or logging in.
-  * When I'm on either the `/signup` or `/login` pages:
+* As an unregistered and unauthorized user, I would like to visit the site as a demo user without signing up or logging in.
+  * When I'm on the login modal:
     * I can click on a Demo User button to log me in and allow me access as a normal user.
       * So that I can test the site's features and functionality without needing to stop and enter credentials.
 
@@ -155,26 +195,26 @@ https://rhythmrealm.onrender.com/
 
 * As a logged in user, I want to log out via an easy to find log out button on the navigation bar.
   * While on any page of the site:
-    * I can log out of my account and be redirected to a page displaying recent FauxTweets.
+    * I can log out of my account and be redirected to the home page.
       * So that I can easily log out to keep my information secure.
 
 
 ### Viewing Songs
 
-* As a logged in _or_ logged out user, I want to be able to view a selection of all the songs.
+* As a logged in _or_ logged out user, I want to be able to view a selection of the songs.
   * When I'm on the `/songs` page:
-    * I can view the ten most recently created songs.
+    * I can view the ten most recently uploaded songs.
     * I can also view the duration and likes of the songs.
 
 
 ### Viewing Albums
-* As a logged in _or_ logged out user, I want to be able to view a selection of all the albums.
+* As a logged in _or_ logged out user, I want to be able to view a selection of the albums.
   * When I'm on the `/albums` page:
     * I can view the ten most recently created albums.
 
 * As a logged in _or_ logged out user, I want to be able to view a specific album and all the songs belong to this album.
   * When I'm on the `/albums/:id` page:
-    * I can view the content of the album as well as the associated songs.
+    * I can view the information of the album as well as the associated songs.
     * I can also view the duration and likes of the songs.
 
 
@@ -196,13 +236,13 @@ https://rhythmrealm.onrender.com/
 
 * As a logged in user, I want to be able to update my songs by clicking an Update button.
   * When I'm on the `/users/current/songs` pages:
-    * I can click "Update" to make changes to songs I have uploaded.
+    * I can click "Update" to make changes to the songs I have uploaded.
 
 
 ### Updating Albums
 * As a logged in user, I want to be able to update my albums by clicking an Update button.
   * When I'm on the `/users/current/albums` pages:
-    * I can click "Update" to make changes to albums I have created.
+    * I can click "Update" to make changes to the albums I have created.
       * I can add or remove songs I uploaded from the albums.
 
 ### Deleting Songs
@@ -221,7 +261,7 @@ https://rhythmrealm.onrender.com/
 
 ### Viewing Likes
 
-* As a logged in _or_ logged out user, I want to be able to view all the likes of the songs.
+* As a logged in _or_ logged out user, I want to be able to view likes of the songs.
   * When I'm on the `/songs` or `/albums/:id` page:
     * I can view total likes of the songs.
 
@@ -244,7 +284,7 @@ https://rhythmrealm.onrender.com/
 
 * As a logged in _or_ logged out user, I want to be able to search for songs by clicking the search button on the header.
   * When I'm on any page of the site:
-    * I can click the search button for songs or albums searching.
+    * I can click the search button to search for songs or albums.
 
 
 # Project Done By:

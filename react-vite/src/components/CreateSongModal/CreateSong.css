@@ -5,8 +5,6 @@
 .form-data {
     display: flex;
     flex-direction: column;
-    /* color: red */
-    /* align-items: center; */
 }
 
 .input-box {
@@ -23,6 +21,7 @@
     margin-left: 10px;
     */
     padding: 10px 3px 10px 10px;
+    max-width: 100%;
 
 }
 
@@ -60,6 +59,7 @@
     border-radius: 10px;
     margin-top: 80px;
     margin-bottom: 80px;
+    text-align: center;
 }
 
 .create-container {
@@ -69,7 +69,37 @@
     align-items: center;
     width: 500px;
     border-radius: 10px;
-    padding: 20px 30px;
+    padding: 20px 0px;
     gap: 20px;
+}
 
+
+@media (min-width:700px) and (max-width:960px) {
+    .main-form {
+        position: absolute;
+        top: 10%;
+        right: 20%;
+    }
+}
+
+@media (min-width:550px) and (max-width:699px) {
+    .main-form {
+        position: absolute;
+        top: 10%;
+        right: 10%;
+    }
+}
+
+@media (min-width:501px) and (max-width:549px) {
+    .main-form {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .create-container {
+        width: 360px;
+    } 
 }
