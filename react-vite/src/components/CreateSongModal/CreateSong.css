@@ -40,8 +40,9 @@
     border: none;
     cursor: pointer;
     margin-top: 15px;
-    width: 350px;
-    height: 50px;
+    padding: 5px 20px;
+    /* width: 350px; */
+    /* height: 50px; */
     align-self: center;
 }
 
@@ -71,6 +72,10 @@
     border-radius: 10px;
     padding: 20px 0px;
     gap: 20px;
+}
+
+.update-button {
+    text-align: center;
 }
 
 

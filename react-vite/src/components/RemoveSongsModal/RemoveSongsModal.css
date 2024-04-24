@@ -1,0 +1,42 @@
+#remove-songs-modal-number-name-div {
+    /* border: 2px palevioletred solid; */
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.remove-songs-modal-container {
+    padding: 5vw;
+    min-width: 300px;
+}
+
+#remove-songs-modal-title-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 300px;
+    /* border: 2px green solid; */
+}
+
+#remove-songs-modal-song-list-title {
+    /* border: 2px red solid; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.remove-songs-modal-button-container {
+    /* border: 2px yellow solid; */
+    margin-right: 15px;
+    width: 30px;
+}
+
+.remove-songs-modal-button-container > button {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+

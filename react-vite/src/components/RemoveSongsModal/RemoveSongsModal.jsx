@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect} from "react";
 import { getSingleAlbum } from "../../redux/album";
 import { removeAlbumSong } from "../../redux/album";
+import "./RemoveSongsModal.css"
 
 
 function RemoveSongsModal({albumId}) {
@@ -31,31 +32,31 @@ function RemoveSongsModal({albumId}) {
     // }
 
     return (
-        <div className="album-detail-songs-container">
+        <div className="album-detail-songs-container remove-songs-modal-container">
         <h3 className="search-song-h3">Songs</h3>
-          <div className="song-list-row-title">
+          <div className="song-list-row-title" id="remove-songs-modal-song-list-title">
             <span className="first-col">#</span>
             <span>Title</span>
             {/* <span>Album</span> */}
-            <span>Likes</span>
-            <span>Duration</span>
+            {/* <span className="remove-songs-modal-likes-span">Likes</span> */}
+            {/* <span className="remove-songs-modal-duration-span">Duration</span> */}
           </div>
         {album?.songs.map((song, index) => (
-          <div className="song-list-row" key={song.id}>
-            <span className="first-col">{index + 1}</span>
-            <span className="second-col">
-                {/* <img src={song.album?.cover_img} /> */}
-                <span className="song-name-artist">
-                    <span className="song-name">{song.song_name}</span>
-                    <span>{song.artist.first_name} {song.artist.last_name}</span>
-                </span>
-            </span>
-            <span className="like-container">
+          <div className="song-list-row" id="remove-songs-modal-title-button-container" key={song.id}>
+            <div id="remove-songs-modal-number-name-div">
+              <span className="first-col">{index + 1}</span>
+              <span className="second-col">
+                  <span className="song-name-artist">
+                      <span className="song-name">{song.song_name}</span>
+                      <span>{song.artist.first_name} {song.artist.last_name}</span>
+                  </span>
+              </span>
+            </div>
+            {/* <span className="like-container remove-songs-modal-like-span">
                 {song.likes}
-            </span>
-            <span>{song.duration}</span>
-            <span><button onClick={handleRemove(song.id)}>remove</button></span>
-              {/* <SongItem song={song} index={index} /> */}
+            </span> */}
+            {/* <span className="remove-songs-modal-duration-span">{song.duration}</span> */}
+            <span className="remove-songs-modal-button-container"><button onClick={handleRemove(song.id)}>remove</button></span>
 
           </div>
         ))}

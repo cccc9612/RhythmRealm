@@ -63,13 +63,13 @@ export default function UpdateSong() {
     if (!user) return <h1>You must log in</h1>;
 
     return (
-        <div className="update-form">
-            <div className="create-container">
+        <div className="update-form update-song-form">
+            <div className="create-container update-song-container">
                 <h1 style={{ paddingBottom: 20 }}>Update &quot;{song?.song_name}&quot;</h1>
                 <form
                     onSubmit={handleSubmit}
                     encType="multipart/form-data"
-                    className="form-data"
+                    className="form-data update-song-form-data"
                 >
                     <div className="entry-container">
                         <p style={{ paddingBottom: 8 }}>Song Name</p>

@@ -10,6 +10,7 @@ function BarsButton() {
 
     const toggleMenu = (e) => {
         e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
+        document.body.click();
         setShowMenu(!showMenu);
     };
 
@@ -62,7 +63,7 @@ function BarsButton() {
             <i className="fa-solid fa-bars bars-icon"></i>
         </div>
         {showMenu && (
-            <ul className="bars-dropdown">
+            <ul className="bars-dropdown" ref={ulRef}>
                 <p onClick={songsSearchClick}>Songs search</p>
                 <p onClick={albumsSearchClick}>Albums search</p>
                 <p onClick={allSongsClick}>All songs</p>
