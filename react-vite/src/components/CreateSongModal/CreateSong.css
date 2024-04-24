@@ -97,3 +97,9 @@
         right: 5%;
     }
 }
+
+@media screen and (max-width:500px) {
+    .create-container {
+        width: 360px;
+    } 
+}
