@@ -129,7 +129,12 @@
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+    .album-col {
+        display: none;
+    }
+
+
     .manage-song-cover-img {
         height: 120px;
         width: 120px;
@@ -176,4 +181,6 @@
     .bottom-section {
         padding: 5px;
     }
+
+
 }
