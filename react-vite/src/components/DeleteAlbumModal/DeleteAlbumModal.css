@@ -18,7 +18,7 @@
 
 .deleteAlbumModal-yes-button {
     /* background-color: rgb(241, 108, 108); */
-    background-color: rgb(7, 163, 7);
+    background-color: var(--green-color);
     border: none;
     color: black;
     /* box-shadow: 2px 2px 2px gray; */

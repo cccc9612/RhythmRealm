@@ -62,7 +62,7 @@ function AlbumShowPage() {
           <span className="first-col">#</span>
           <span>Title</span>
 
-          <span>Likes</span>
+          <span className="like-container">Likes</span>
           <span className="fifth-col"><HiOutlineClock /></span>
         </div>
         {album?.songs.map((song, index) => {

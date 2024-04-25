@@ -26,9 +26,9 @@
 
 .delete-button,
 .cancel-button {
-    border-radius: 30px;
-    background-color: #28ae59;
-    padding: 16px 30px;
+    border-radius: 25px;
+    background-color: var(--green-color);
+    padding: 12px 30px;
     border: none;
     font-weight: bold;
     font-size: 14px;
@@ -37,5 +37,6 @@
 
 .delete-button:hover,
 .cancel-button:hover {
+    font-weight: 800;
     transform: scale(1.02);
 }

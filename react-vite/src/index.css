@@ -41,6 +41,7 @@
   margin-right: auto;
   margin-bottom: 20px;
   padding-left: 15px;
+  padding-right: 15px;
 }
 
 .layout-links {
@@ -172,16 +173,7 @@
   cursor: pointer;
 }
 
-.github-section {
-  color: rgb(0, 0, 0);
-  background-color: rgba(196, 196, 196, 0.757);
-  border-radius: 8px;
-  margin-top: 20px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-}
+
 
 .library-playlist-menu {
     display: flex;
@@ -324,7 +316,39 @@
 }
 
 
-@media (min-width: 501px) and (max-width: 2000px) {
+.footer-contact-links {
+    color: rgb(0, 0, 0);
+    background-color: rgba(196, 196, 196, 0.757);
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-right: auto;
+    margin-left:auto;
+}
+
+.footer-container > p> a:hover {
+    color: var(--green-color);
+}
+
+.footer-contact-links-list {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    flex-wrap: wrap;
+}
+
+
+.footer-contact-links-list .author-name {
+    color:black;
+}
+.footer-contact-links-list .author-name:hover {
+    color: var(--green-color);
+}
+
+@media (min-width: 601px) {
   .bars-icon-container {
     display: none;
   }
@@ -335,7 +359,7 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     /* * {
         max-width: 500px;
     } */
@@ -364,6 +388,10 @@
       .nav-container,
       .library-container{
         width: 100%;
+      }
+
+      .nav-container {
+        height: 50px;
       }
       .library-playlist-menu{
         width: 100%;
@@ -394,14 +422,13 @@
        margin-bottom: auto;
       }
 
-      .song-list-row>a,
-      .song-list-row .like-container{
+      .song-list-row>a{
         display: none;
       }
 
-      .song-list-row .duration-col {
+      /* .song-list-row .duration-col {
         color: rgb(46, 45, 45);
-      }
+      } */
 
       .rhap_container {
         width: 50px;
@@ -436,22 +463,33 @@
           width: 50px;
       } */
 
+      /* music player  */
       .musicplayer-container {
-        width: 80px;
+        width: 100px;
         height: 60px;
         background-color: black;
+        padding-left: 0px;
+        padding-right: 0px;
       }
 
       .song-player {
-         width: 230px;
+         width: 195px;
           height: 50px;
+      }
+
+      #id-song-name-player.song-name-player {
+        display: inline-block;
+        width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .song-player > img {
         height: 45px;
         width: 45px;
         border-radius: 5px;
-        margin-left: 20px;
+        margin-left: 8px;
         object-fit: cover;
       }
 
@@ -460,14 +498,30 @@
         flex-direction: column;
         font-size: 14px;
       }
-
-
-
       .player-container{
         display: grid;
-        grid-template-columns: 2.5fr 2fr;
+        grid-template-columns: 2.6fr 130px;
         justify-content: space-between;
       }
+
+      /* song list */
+      .song-list-row-title,
+      .song-list-row {
+        grid-template-columns: 25px 2.6fr 0.7fr 1fr;
+        justify-content: space-between;
+        column-gap: 8px;
+      }
+
+      .song-name {
+        width: 160px;
+        font-size: 14px;
+      }
+
+      .third-col {
+        display: none;
+      }
+
+
       /* .player-wrapper {
         width: 50px;
       } */
@@ -518,13 +572,7 @@
       }
 
 
-      #id-song-name-player.song-name-player {
-        display: inline-block;
-        width: 140px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
+
 
 
       .library-container {
@@ -547,6 +595,39 @@
         height: 40px;
       }
 
+      /* album details page */
+
+      .album-detail-cover-container {
+        width: 100%;
+        padding: 0px;
+        padding-top: 30px;;
+      }
+      .album-detail-cover-container > img {
+          width: calc(100vw - 200px);
+          min-width: 200px;
+          height: calc(100vw - 200px);
+          min-height: 200px;
+          object-fit: cover;
+          border-radius: 10px;
+          margin: auto;
+      }
+
+      .album-detail-cover-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .album-detail-cover-container h1 {
+        font-size: 25px;
+      }
+
+      /* manage song page  */
+      .album-col {
+        display: none;
+      }
+
+      .fifth-col-2 {
+        padding-left: 10px;
+      }
+
 }
-
-

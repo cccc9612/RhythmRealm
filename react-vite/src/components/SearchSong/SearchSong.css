@@ -4,7 +4,7 @@
   margin-left: 10px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .search-song-title-span,
   .search-song-duration-span,
   .search-song-likes-span {
@@ -27,4 +27,3 @@
   }
 
 }
-

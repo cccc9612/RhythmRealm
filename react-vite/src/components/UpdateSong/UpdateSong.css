@@ -39,7 +39,7 @@
     }
 }
 
-@media (min-width:550px) and (max-width:699px) {
+@media (min-width:601px) and (max-width:699px) {
     .update-song-form{
         position: absolute;
         top: 8%;
@@ -47,15 +47,15 @@
     }
 }
 
-@media (min-width:501px) and (max-width:549px) {
+/* @media (min-width:501px) and (max-width:549px) {
     .update-song-form {
         position: absolute;
         top: 8%;
         right: 5%;
     }
-}
+} */
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .update-song-form {
         width: 100%;
     }
@@ -73,8 +73,5 @@
         width: 310px;
     }
 
-    
+
 }
-
-
-
