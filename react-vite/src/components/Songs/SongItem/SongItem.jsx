@@ -7,7 +7,8 @@ import { likeSongThunk, dislikeSongThunk } from "../../../redux/song";
 import { IoMdPlay } from "react-icons/io";
 import "./SongItem.css"
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+// import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 
 
@@ -31,6 +32,9 @@ function SongItem({ song, index, user, songs }) {
 
     // const playlist = Object.values(useSelector(state => state.playlist).Songs)
 
+    useEffect(()=>{
+      setHeart(song?.users_like.map(el => el.id).includes(user?.id))
+    },[user, song.users_like])
     const handleClickPlaying = () => {
         // dispatch(setScliceIndexAction(0))
         dispatch(setPlayIndexAction(index));
