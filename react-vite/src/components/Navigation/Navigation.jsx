@@ -11,6 +11,7 @@ function Navigation() {
         <NavLink className="homepage-logo-sec" to="/">
           <img className="logo" src='/logo.png' alt='logo' />
           <span className="logo-title">RhythmRealm</span>
+          <span className="logo-title2">RR</span>
         </NavLink>
       </div>
       <div className="search-container">

@@ -130,10 +130,10 @@
 
 
 @media (max-width: 600px) {
+
     .album-col {
         display: none;
     }
-
 
     .manage-song-cover-img {
         height: 120px;

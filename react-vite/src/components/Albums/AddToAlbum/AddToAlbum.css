@@ -2,8 +2,18 @@
     padding: 40px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0px;
     align-items: center;
+
+}
+
+.add-to-album-line-container {
+    border-radius: 5px;
+    padding: 7px 5px;
+}
+
+.add-to-album-line-container:hover {
+    background-color: #5a5a5a;
 }
 
 .add-to-album-line-container > span{
@@ -11,9 +21,15 @@
 }
 
 .add-to-album-button {
-    padding: 3px 15px;
-    background-color: rgb(4, 162, 4);
-    border-radius: 10px;
+    padding: 2px 5px;
+    background-color: var(--green-color);
+    border-radius: 5px;
     border: none;
-    color: white
+    color: black;
+    width: 55px;
+}
+
+.add-to-album-button:hover {
+    cursor: pointer;
+    font-weight: bold;
 }

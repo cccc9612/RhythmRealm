@@ -13,6 +13,10 @@
 .album-detail-cover-container > img {
     width: calc((99vw - 515px)/4);
     height: calc((99vw - 515px)/4);
+    max-width: 400px;
+    max-height: 400px;
+    min-width: 170px;
+    min-height: 170px;
     object-fit: cover;
     border-radius: 10px;
 }

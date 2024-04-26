@@ -6,7 +6,7 @@
 }
 
 .remove-songs-modal-container {
-    padding: 5vw;
+    padding: 20px;
     min-width: 300px;
 }
 
@@ -15,6 +15,7 @@
     flex-direction: row;
     justify-content: space-between;
     min-width: 300px;
+    width: 100%;
     /* border: 2px green solid; */
 }
 
@@ -28,15 +29,19 @@
 
 .remove-songs-modal-button-container {
     /* border: 2px yellow solid; */
-    margin-right: 15px;
+    margin-right: 34px;
     width: 30px;
 }
 
 .remove-songs-modal-button-container > button {
-    background-color: green;
-    color: white;
+    background-color: var(--green-color);
+    color: black;
     border: none;
     border-radius: 5px;
     padding: 2px 5px;
 }
 
+.remove-songs-modal-button-container > button:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
