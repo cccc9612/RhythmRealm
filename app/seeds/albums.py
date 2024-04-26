@@ -18,7 +18,7 @@ def seed_albums():
         name='DemoAlbum-5', cover_img='https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/cdb10c86ad494b5eab705eadc8369131.jpg', artist_id=1
     )
     album6 = Album(
-        name='DemoAlbum-6', cover_img='https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/f9ea54c1b85c41b0a94374f0e3dfaaac.jpg', artist_id=1
+        name='DemoAlbum-6', cover_img='https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/6c62802e1caf4537a93ecde0d9f6de59.jpg', artist_id=1
     )
     album7 = Album(
         name='DemoAlbum-7', cover_img='https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/a932888360d24925a1f4c4a5a0e06485.jpg', artist_id=2
