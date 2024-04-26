@@ -1,0 +1,55 @@
+@media screen and (max-width: 600px) {
+    .song-list-row {
+        grid-template-columns: 0.5fr 3fr 0.5fr;
+        align-items: center;
+        grid-gap: 10px;
+    }
+
+    .second-col {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .second-col img {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+
+    }
+
+    .song-name-artist {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .song-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 150px;
+
+    }
+
+    .album-col {
+        display: none;
+    }
+
+    .manage-songs-duration {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+
+    }
+
+    .manage-songs-duration .song-duration {
+        flex-grow: 1;
+        text-align: right;
+    }
+
+}

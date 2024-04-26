@@ -1,4 +1,3 @@
-
 .dropdown-list,
 .dropdown-icon {
     cursor: pointer;
@@ -10,8 +9,9 @@
 }
 
 .dropdown-icon-container {
-  position: relative;
+    position: relative;
 }
+
 .dropdown-list {
     margin-left: 20px
 }
@@ -38,13 +38,28 @@
 
 
 .hidden {
-    visibility:hidden;
+    visibility: hidden;
 }
 
 .assigned-album {
-    color:grey;
+    color: grey;
 }
 
 .assigned-album:hover {
     cursor: default;
+}
+
+
+@media screen and (max-width: 600px) {
+    .manage-song-dropdown {
+        right: 0;
+        left: auto;
+        top: 30px;
+    }
+
+
+    .dropdown-icon-container {
+        width: 100%;
+        text-align: right;
+    }
 }
