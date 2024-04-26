@@ -18,7 +18,7 @@ def random_date_2023():
 def seed_songs():
     song1 = Song(
      songs_name = "Sunset Serenade",
-     song_url = "https://rhythm-realm-img-bucket.s3.amazonaws.com/aa96c80eed2943c89441034a13b70e78.mp3",
+     song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/b9cd7be82d124abebc8ba0cd0b80472d.mp3",
      artist_id = 1,
      album_id = 1,
      duration = "4:01",
