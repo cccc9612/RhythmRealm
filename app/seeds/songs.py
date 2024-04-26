@@ -21,7 +21,7 @@ def seed_songs():
      song_url = "https://rhythm-realm-img-bucket.s3.us-east-2.amazonaws.com/b9cd7be82d124abebc8ba0cd0b80472d.mp3",
      artist_id = 1,
      album_id = 1,
-     duration = "4:01",
+     duration = "2:13",
     #  created_at = random_date_2023(),
     )
     song2 = Song(

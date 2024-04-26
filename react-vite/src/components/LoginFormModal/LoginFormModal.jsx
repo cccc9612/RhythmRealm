@@ -57,13 +57,13 @@ function LoginFormModal() {
 
   return (
     <div className='login-modal-container'>
-      
-        <i 
+
+        <i
           onClick={toggleXClick}
           className="fa-solid fa-x"></i>
         <h1>Log In</h1>
-      
-      
+
+
       <form className='login-form-container' onSubmit={handleSubmit}>
         <label>
           Email or username
