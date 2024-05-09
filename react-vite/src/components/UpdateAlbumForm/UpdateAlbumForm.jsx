@@ -10,11 +10,11 @@ function UpdateAlbumForm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { albumId } = useParams();
-    // console.log("albumState in component===========", albumState)
+
     const albumState = useSelector(state => state.album)
-    // console.log("albumState in component===========", albumState)
+
     const album = albumState.Albums[albumId]
-    // console.log("album in component========", album)
+
 
     const [name, setName] = useState(album?.name)
     const [image, setImage] = useState(null)
@@ -38,8 +38,9 @@ function UpdateAlbumForm() {
             method: "PUT",
             body: formData
         })
-        const data = await res.json()
-        console.log("data from fetch============", data)
+        // const data = await res.json()
+        await res.json()
+        // console.log("data from fetch============", data)
         navigate(`/albums/${albumId}`)
     }
 

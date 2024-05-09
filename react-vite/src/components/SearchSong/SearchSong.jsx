@@ -20,7 +20,6 @@ function SearchSong() {
 
         if (res.ok) {
             const data = await res.json();
-            console.log("data", data)
             setSongs(data.songs)
         }
         setSearchAttempted(true)

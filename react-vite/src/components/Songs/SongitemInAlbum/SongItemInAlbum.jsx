@@ -36,7 +36,6 @@ function SongItemInAlbum({ song, index, user, songs }) {
         // setHeart(song.users_like.map(el => el.id).includes(user.id))
         dispatch(dislikeSongThunk(song.id)).then((res) => {
             setLikes(res.songs[song.id - 1].likes)
-            // console.log(" likes =====>", song.id,res,song,res.songs[song.id-1].likes)
             setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user?.id))
         })
         // const rerender1 = document.getElementsByClassName("rerender-btn")[0];

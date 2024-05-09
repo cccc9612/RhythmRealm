@@ -59,7 +59,6 @@ const deleteSong = (songId) => {
 export const getAllSongs = () => async (dispatch) => {
   const response = await fetch('/api/songs');
   const data = await response.json();
-  // console.log("data======>", data)
 
   dispatch(getAllSongsAction(data.songs));
   return data
@@ -85,7 +84,7 @@ export const getCurrentSongs = () => async (dispatch) => {
     dispatch(getAllSongsAction(data.songs))
     return data;
   }
-  // console.log("getcurrentsongs ==========> ", data, response)
+
   return response;
 }
 
@@ -118,9 +117,9 @@ export const updateSongThunk = (song, songId) => async (dispatch) => {
 }
 
 export const deleteSongThunk = (songId) => async (dispatch) => {
-  // console.log(songId)
+
   const res = await fetch(`/api/users/current/songs/${songId}/delete`, {
-    // console.log(songId)
+
     method: "DELETE",
     headers: { 'Content-Type': 'application/json' }
   })
@@ -132,7 +131,7 @@ export const deleteSongThunk = (songId) => async (dispatch) => {
 }
 
 export const likeSongThunk = (songId) => async (dispatch) => {
-  // console.log(songId)
+
   const res = await fetch(`/api/songs/${songId}/like`, {
     method: "POST",
     body: songId
@@ -140,7 +139,7 @@ export const likeSongThunk = (songId) => async (dispatch) => {
 
   if (res.ok) {
     const data = await res.json()
-    // console.log("555555555555555555555555555555555", data)
+
     dispatch(getAllSongs())
     return data
   }
@@ -148,7 +147,7 @@ export const likeSongThunk = (songId) => async (dispatch) => {
 }
 
 export const dislikeSongThunk = (songId) => async (dispatch) => {
-  // console.log(songId)
+
   const res = await fetch(`/api/songs/${songId}/dislike`, {
     method: "POST",
     body: songId
@@ -156,7 +155,7 @@ export const dislikeSongThunk = (songId) => async (dispatch) => {
 
   if (res.ok) {
     const data = await res.json()
-    // console.log("666666666666666666666666666666666", data)
+
     dispatch(getAllSongs())
     return data
   }
@@ -170,10 +169,11 @@ export const addToAlbumThunk = (albumId, songId) => async(dispatch) => {
     headers: {'Content-Type': 'application/json'}
   });
   if (response.ok) {
-    const data = await response.json()
+    // const data = await response.json()
+    await response.json()
     // dispatch(addToAlbumAction(albumId, songId))
     dispatch(getCurrentSongs())
-    console.log("data in add songs thunk==========", data)
+
   }
 }
 

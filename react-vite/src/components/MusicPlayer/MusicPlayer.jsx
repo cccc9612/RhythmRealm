@@ -41,7 +41,7 @@ function MusicPlayer() {
         }
       }
     }
-    // console.log("reder ==== musci player")
+
     // dispatch(setPlayIndexAction(songIndex))
     setSongIdx(playIndex);
 
@@ -108,7 +108,7 @@ function MusicPlayer() {
           id="musicplayer"
           className='musicplayer-container'
           src={playlist[songIdx]?.song_url}
-          onPlay={() => console.log("Playing song ", songIdx, playlist[songIdx]?.song_name)}
+        //   onPlay={() => console.log("Playing song ", songIdx, playlist[songIdx]?.song_name)}
           showSkipControls={true}
           showJumpControls={false}
           layout="stacked-reverse"

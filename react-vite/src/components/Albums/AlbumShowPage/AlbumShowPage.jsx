@@ -16,14 +16,13 @@ function AlbumShowPage() {
   const sessionUser = useSelector(state => state.session.user);
   const [num, setNum] = useState(0)
   const { albumId } = useParams();
-  // console.log("albumId======", albumId)
+
   // const [like, setLike] = useState(false)
 
   const albumState = useSelector(state => state.album)
-  // console.log("albumstate========", albumState)
 
   const album = albumState.Albums[albumId]
-  // console.log("album in component", album)
+
 
 
   useEffect(() => {

@@ -19,7 +19,6 @@ function SongItem({ song, index, user, songs }) {
     const { pathname } = location;
     const [likes, setLikes] = useState(song?.likes)
     const [heart, setHeart] = useState(song?.users_like.map(el => el.id).includes(user?.id))
-    // console.log(pathname)
 
     // let idx = useSelector(state => state.playlist).index
     // const playlistState = useSelector(state => state.playlist);
@@ -38,7 +37,6 @@ function SongItem({ song, index, user, songs }) {
     const handleClickPlaying = () => {
         // dispatch(setScliceIndexAction(0))
         dispatch(setPlayIndexAction(index));
-        // console.log("SomgItem playlist ", playlist, index);
         // dispatch(loadPlaylistAction(playlist.slice(index)));
         if (pathname === "/") {
             if (songs.length) {
@@ -70,9 +68,7 @@ function SongItem({ song, index, user, songs }) {
         // const name = document.getElementsByClassName("song-name-player")[0];
         // name.innerText = playlist[index].song_name;
         audio.play();
-        // console.log("index ====>", index, playlist[index].song_url)
 
-        // console.log("reder ==== click song play")
     }
 
 
@@ -82,15 +78,12 @@ function SongItem({ song, index, user, songs }) {
 
     // const liketest = checkLikes(song, user);
 
-    // console.log("0000000000000000000000", window.location.href)
-    // console.log("1111111111111111111111", location)
 
     const toggleDislike = async () => {
         // const like = document.getElementById(e.currentTarget.id);
         // await dispatch(dislikeSongThunk(song.id));
         dispatch(dislikeSongThunk(song.id)).then((res) => {
             setLikes(res.songs[song.id - 1].likes)
-            // console.log(" likes =====>", song.id,res,song,res.songs[song.id-1].likes)
             setHeart(res.songs[song.id - 1].users_like.map(el => el.id).includes(user?.id))
         })
         // const rerender = document.getElementsByClassName("rerender-btn")[0];

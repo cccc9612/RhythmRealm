@@ -25,7 +25,7 @@ function CreateAlbumModal() {
             validationObj.image = "album cover image is required \n(accept pdf, png, jpg, jpeg, gif)\n"
         } else {
             const fileType = image.type
-            // console.log("file type=====================>", fileType)
+
             const validTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'application/pdf']
             if (! validTypes.includes(fileType)) {
                 validationObj.imagetype = "Invalid file type, only PDF, PNG, JPG, JPEG, GIF are allowed"
@@ -48,8 +48,9 @@ function CreateAlbumModal() {
                 body: formData
             });
             setImageLoading(true);
-            const data = await res.json()
-            console.log(data)
+            // const data = await res.json()
+            await res.json()
+            // console.log(data)
             navigate("/")
         }
     }

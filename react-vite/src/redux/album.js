@@ -56,14 +56,13 @@ export const getAllAlbums = () => async (dispatch) => {
 
 // get single album detail thunk
 export const getSingleAlbum = (albumId) => async (dispatch) => {
-  // console.log("hit thunk ==========")
-  try {
+
+    try {
     const response = await fetch(`/api/albums/${albumId}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     });
     const album = await response.json();
-    // console.log("album in thunk=======", album)
     dispatch(getSingleAlbumAction(album));
 
     return album

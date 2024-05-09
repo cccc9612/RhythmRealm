@@ -16,9 +16,9 @@ function ManageAlbums() {
   const navigate = useNavigate();
 //   const { setModalContent } = useModal();
   const albumState = useSelector(state => state.album);
-  // console.log("albumState in component=======", albumState)
+
   let albums = Object.values(albumState?.Albums);
-  // console.log("albums in component", albums)
+
   const sessionUser = useSelector(state => state.session.user);
 
 

@@ -18,7 +18,6 @@ function SearchAlbum() {
 
         if (res.ok) {
             const data = await res.json();
-            console.log("data", data)
             setAlbums(data.albums)
         }
         setSearchAttempted(true)

@@ -26,7 +26,7 @@ function CreateSongModal() {
             validationObj.song = "Song file is required \n(accept .mp3 only)\n"
         } else {
             const fileType = song.type
-            // console.log("file type=====================>", fileType)
+
             const validTypes = ['audio/mpeg']
             if (! validTypes.includes(fileType)) {
                 validationObj.songtype = "Invalid file type, only MP3 is allowed"
@@ -51,8 +51,9 @@ function CreateSongModal() {
             });
 
             setSongLoading(true);
-            const data = await res.json()
-            console.log(data)
+            // const data = await res.json()
+            await res.json()
+            // console.log(data)
             navigate("/")
         }
     }
